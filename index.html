@@ -18,7 +18,7 @@
             background-color: #f5f5f5;
         }
 
-        /* 1. Sua barra oficial de comissão no topo */
+        /* 1. Barra fixa no topo com seu link de vitrine */
         .minha-barra {
             background-color: #ffe600;
             color: #2d3277;
@@ -51,28 +51,28 @@
             background: #1d2150;
         }
 
-        /* 2. Container ajustado para cortar o "Ganhos Extras" */
+        /* 2. Wrapper para cortar a barra de 'Ganhos Extras' */
         .iframe-wrapper {
             position: absolute;
-            top: 45px; /* Altura da sua barra */
+            top: 45px;
             left: 0;
             width: 100%;
             height: calc(100% - 45px);
             overflow: hidden;
         }
 
-        /* 3. Iframe com deslocamento negativo para esconder a barra amarela original */
+        /* 3. Iframe limpo */
         iframe {
             width: 100%;
             height: calc(100% + 52px);
             border: none;
-            margin-top: -52px; /* Esconde perfeitamente o botão Ganhos Extras */
+            margin-top: -52px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua Barra Fixa de Afiliado -->
+    <!-- Sua Barra Fixa -->
     <div class="minha-barra">
         <span>🔥 Cupons e Vitrines Oficiais Mercado Livre</span>
         <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">VER MINHAS LISTAS 🛍️</a>
@@ -80,8 +80,44 @@
 
     <!-- Container dos Cupons -->
     <div class="iframe-wrapper">
-        <iframe src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/"></iframe>
+        <iframe id="meuIframe" src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/"></iframe>
     </div>
+
+    <script>
+        // SEU USERNAME DE AFILIADO
+        const SEU_AFILIADO = "atelierdoslinks";
+
+        // Monitora o iframe para reescrever os links das listas em tempo real
+        const iframe = document.getElementById('meuIframe');
+
+        function converterLinksAfiliado() {
+            try {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (!iframeDoc) return;
+
+                // Captura todos os botões e links de dentro da página de cupons
+                const links = iframeDoc.querySelectorAll('a[href*="mercadolivre.com"]');
+                
+                links.forEach(link => {
+                    let href = link.getAttribute('href');
+                    if (href && !href.includes('pennid=' + SEU_AFILIADO)) {
+                        // Injeta o seu ID de afiliado na URL da lista exata
+                        let separador = href.includes('?') ? '&' : '?';
+                        link.setAttribute('href', href + separador + 'pennid=' + SEU_AFILIADO + '&matt_tool=18442875');
+                        link.setAttribute('target', '_blank');
+                    }
+                });
+            } catch (e) {
+                // Caso o navegador restrinja acesso interno, a barra fixa do topo garante a entrada
+            }
+        }
+
+        // Executa a conversão dos links continuamente
+        iframe.addEventListener('load', () => {
+            converterLinksAfiliado();
+            setInterval(converterLinksAfiliado, 1000);
+        });
+    </script>
 
 </body>
 </html>
