@@ -9,92 +9,268 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            padding-bottom: 40px;
         }
 
-        /* 1. Sua barra fixa oficial no topo */
-        .minha-barra {
+        /* Topo e Mensagem de Parceria */
+        .header {
             background-color: #ffe600;
             color: #2d3277;
-            padding: 10px 15px;
             text-align: center;
-            font-weight: bold;
+            padding: 20px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+        .mensagem-apoio {
+            background-color: #ffffff;
+            color: #2d3277;
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 25px;
             font-size: 14px;
-            position: fixed;
-            top: 0;
-            left: 0;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            margin-top: 5px;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        /* Busca */
+        .busca-box {
+            margin-bottom: 20px;
+        }
+        .busca-box input {
             width: 100%;
-            height: 45px;
-            z-index: 99999;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            padding: 14px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .busca-box input:focus {
+            border-color: #2d3277;
+        }
+
+        /* Lista de Cupons */
+        .grid-cupons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        /* Card do Cupom */
+        .cupom-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 6px solid #2d3277;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .cupom-info h3 {
+            font-size: 20px;
+            color: #2d3277;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .badge-desconto {
+            background-color: #ff3b30;
+            color: #fff;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+        .cupom-detalhes {
+            font-size: 13px;
+            color: #666;
+            margin: 10px 0 15px 0;
+            line-height: 1.5;
+        }
+
+        /* Botões de Ação */
+        .botoes-grupo {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 6px;
         }
-        .minha-barra a {
-            background: #2d3277;
+        .btn-copiar {
+            background-color: #e8ebf5;
+            color: #2d3277;
+        }
+        .btn-copiar:hover {
+            background-color: #d5dceb;
+        }
+        .btn-ir {
+            background-color: #2d3277;
             color: #ffffff;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 13px;
-            transition: 0.2s;
+        }
+        .btn-ir:hover {
+            background-color: #1a1e4a;
         }
 
-        /* 2. Wrapper que corta o 'Ganhos Extras' */
-        .iframe-wrapper {
-            position: absolute;
-            top: 45px;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 45px);
-            overflow: hidden;
-        }
-
-        /* 3. Iframe com a página de cupons */
-        iframe {
-            width: 100%;
-            height: calc(100% + 52px);
-            border: none;
-            margin-top: -52px;
+        /* Toast / Aviso de Copiado */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2e7d32;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua Barra Fixa -->
-    <div class="minha-barra">
-        <span>🔥 Cupons e Vitrines Oficiais Mercado Livre</span>
-        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">VER MINHAS LISTAS 🛍️</a>
+    <!-- Topo -->
+    <div class="header">
+        <h1>🛍️ Cupons Mercado Livre</h1>
+        <div class="mensagem-apoio">
+            🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
+        </div>
     </div>
 
-    <!-- Container dos Cupons -->
-    <div class="iframe-wrapper" id="containerCupons">
-        <iframe id="meuIframe" src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/"></iframe>
+    <!-- Conteúdo -->
+    <div class="container">
+        
+        <!-- Campo de Busca -->
+        <div class="busca-box">
+            <input type="text" id="inputBusca" placeholder="🔍 Digite para buscar um cupom..." onkeyup="filtrarCupons()">
+        </div>
+
+        <!-- Lista Onde Aparecem os Cupons -->
+        <div class="grid-cupons" id="listaCupons">
+            <!-- Os cupons serão carregados aqui via JS -->
+            <p style="text-align: center; color: #666;">Carregando cupons atualizados...</p>
+        </div>
     </div>
+
+    <!-- Notificação Flutuante -->
+    <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
-        // SEU LINK DE AFILIADO PRINCIPAL
+        // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Sempre que o usuário clica dentro da área do iframe, ele perde o foco da página atual.
-        // Capturamos essa perda de foco e abrimos seu link de afiliado para garantir a comissão!
-        let monitorFoco = setInterval(function() {
-            if (document.activeElement === document.getElementById('meuIframe')) {
-                // Abre a sua vitrine de afiliado para ativar o cookie de 24h
-                window.open(MEU_LINK_AFILIADO, '_blank');
-                // Devolve o foco para o site
-                window.focus();
-            }
-        }, 500);
-    </script>
+        let todosOsCupons = [];
 
+        // Busca a lista oficial de cupons em tempo real
+        async function carregarCupons() {
+            try {
+                const res = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json'));
+                todosOsCupons = await res.json();
+                renderizarCupons(todosOsCupons);
+            } catch (err) {
+                // Se falhar a API, exibe cupons padrão
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center;">Acesse nossas listas completas para ver todos os cupons ativos!</p>';
+            }
+        }
+
+        // Desenha os cards na tela
+        function renderizarCupons(lista) {
+            const container = document.getElementById('listaCupons');
+            container.innerHTML = '';
+
+            if (lista.length === 0) {
+                container.innerHTML = '<p style="text-align:center;">Nenhum cupom encontrado.</p>';
+                return;
+            }
+
+            lista.forEach(item => {
+                const codigo = item.code || item.nome || 'CUPOM';
+                const desconto = item.discount || item.desconto || 'Oferta';
+                const minimo = item.min_purchase ? `Compra mín.: R$ ${item.min_purchase}` : '';
+                const regata = item.category || 'Geral';
+
+                const card = document.createElement('div');
+                card.className = 'cupom-card';
+                card.innerHTML = `
+                    <div class="cupom-info">
+                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                        <div class="cupom-detalhes">
+                            📌 Categoria: <b>${regata}</b><br>
+                            ${minimo ? '💰 ' + minimo : ''}
+                        </div>
+                    </div>
+                    <div class="botoes-grupo">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                            ✂️ COPIAR CUPOM
+                        </button>
+                        <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
+                            🛍️ IR PRO MERCADO LIVRE
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Função de Copiar Cupom
+        function copiarCodigo(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                const toast = document.getElementById('toastAviso');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2500);
+            });
+        }
+
+        // Filtro da busca
+        function filtrarCupons() {
+            const termo = document.getElementById('inputBusca').value.toLowerCase();
+            const filtrados = todosOsCupons.filter(c => 
+                (c.code && c.code.toLowerCase().includes(termo)) ||
+                (c.category && c.category.toLowerCase().includes(termo))
+            );
+            renderizarCupons(filtrados);
+        }
+
+        // Inicia
+        carregarCupons();
+    </script>
 </body>
 </html>
