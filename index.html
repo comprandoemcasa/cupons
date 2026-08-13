@@ -213,14 +213,21 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            // Usa o jsDelivr como CDN pública oficial (fura qualquer bloqueio de CORS do GitHub e entrega instantâneo)
-            const urlFonte = "https://cdn.jsdelivr.net/gh/afiliadosmercadolivre/cupons-afiliadosmercadolivre@main/data.json";
+            // Aponta exatamente para o SEU repositório na branch 'principal'
+            const urlFonte = "https://cdn.jsdelivr.net/gh/comprandoemcasa/cupons@principal/data.json?v=" + Date.now();
 
             try {
                 const res = await fetch(urlFonte);
                 if (!res.ok) throw new Error("Erro de conexão");
                 
-                const dados = await res.json();
+                let textoBruto = await res.text();
+                
+                // Trata o texto caso venha embrulhado em JS ou JSONP
+                if (textoBruto.includes('(') && textoBruto.endsWith(')')) {
+                    textoBruto = textoBruto.substring(textoBruto.indexOf('(') + 1, textoBruto.lastIndexOf(')'));
+                }
+
+                const dados = JSON.parse(textoBruto);
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
                 renderizarCupons(listaFinal);
             } catch (err) {
