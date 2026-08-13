@@ -213,18 +213,24 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            // Busca diretamente do seu repositório atualizado na nuvem (evita erros de rota local)
             const urlSEU_REPO = "https://raw.githubusercontent.com/comprandoemcasa/cupons/main/data.json?t=" + Date.now();
 
             try {
                 const res = await fetch(urlSEU_REPO);
                 if (!res.ok) throw new Error("Erro ao carregar");
                 
-                const dados = await res.json();
+                let textoBruto = await res.text();
+                
+                // Trata o texto caso ele venha embrulhado em uma função JSONP, ex: cb(...)
+                if (textoBruto.includes('(') && textoBruto.endsWith(')')) {
+                    textoBruto = textoBruto.substring(textoBruto.indexOf('(') + 1, textoBruto.lastIndexOf(')'));
+                }
+
+                const dados = JSON.parse(textoBruto);
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
                 renderizarCupons(listaFinal);
             } catch (err) {
-                console.error(err);
+                console.error("Erro na leitura do JSON:", err);
                 document.getElementById('listaCupons').innerHTML = 
                     '<p style="text-align:center; padding: 20px;">Não foi possível carregar a lista. Atualize a página em instantes.</p>';
             }
