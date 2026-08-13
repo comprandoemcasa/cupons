@@ -1,85 +1,112 @@
-const axios = require("axios");
+const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 async function extrair() {
-  let cupons = [];
+  console.log("Iniciando navegador para captação total de cupons...");
+  
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
 
   try {
-    console.log("Tentando extrair cupons da fonte...");
-    const { data: html } = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
-      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" },
-      timeout: 10000
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1280, height: 800 });
+    await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36");
+
+    console.log("Acessando a página...");
+    await page.goto("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
+      waitUntil: "networkidle2",
+      timeout: 60000
     });
 
-    const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
+    // Aguarda os elementos carregarem na tela
+    await new Promise(r => setTimeout(r, 4000));
 
-    if (match && match[1]) {
-      const data = JSON.parse(match[1]);
+    // Extrai todos os blocos de cupons da tela
+    const cupons = await page.evaluate(() => {
+      const lista = [];
+      const elementos = document.querySelectorAll("div, article, section");
 
-      function buscar(obj) {
-        if (!obj || typeof obj !== "object") return;
-        if (Array.isArray(obj)) {
-          obj.forEach(buscar);
-          return;
+      elementos.forEach(el => {
+        const text = el.innerText || "";
+        
+        // Identifica se o bloco possui a estrutura de um cupom válido
+        if (text.includes("DESCONTO") && text.includes("COMPRA MÍNIMA")) {
+          const linhas = text.split("\n").map(l => l.trim()).filter(Boolean);
+          
+          let code = "";
+          for (let linha of linhas) {
+            // Procura por códigos em maiúsculo (entre 4 e 25 caracteres)
+            if (/^[A-Z0-9_-]{4,25}$/.test(linha) && !["DESCONTO", "PERÍODO", "LISTA", "COMPRA", "OUTROS", "DESTAQUE", "MÁXIMO"].includes(linha)) {
+              code = linha;
+              break;
+            }
+          }
+
+          if (code) {
+            // Extração de Desconto
+            let discount = "10% OFF";
+            const descMatch = text.match(/(\d+(?:,\d+)?%\s*OFF|\d+(?:,\d+)?%|R\$\s*\d+[\s\S]*?OFF)/i);
+            if (descMatch) {
+              discount = descMatch[1].replace(/\s+/g, ' ').trim();
+              if (!discount.includes("OFF") && !discount.includes("%")) discount += "% OFF";
+              else if (!discount.includes("OFF")) discount += " OFF";
+            }
+
+            // Compra Mínima
+            let min_purchase = "R$ 129";
+            const minMatch = text.match(/COMPRA MÍNIMA[\s\S]*?(R\$\s*\d+|\d+)/i);
+            if (minMatch) {
+              min_purchase = minMatch[1].trim();
+              if (!min_purchase.startsWith("R$")) min_purchase = "R$ " + min_purchase;
+            }
+
+            // Desconto Máximo
+            let max_discount = "R$ 150";
+            const maxMatch = text.match(/DESCONTO MÁX\.?[\s\S]*?(R\$\s*\d+|\d+)/i);
+            if (maxMatch) {
+              max_discount = maxMatch[1].trim();
+              if (!max_discount.startsWith("R$")) max_discount = "R$ " + max_discount;
+            }
+
+            if (!lista.some(c => c.code === code)) {
+              lista.push({
+                code: code,
+                discount: discount,
+                min_purchase: min_purchase,
+                max_discount: max_discount
+              });
+            }
+          }
         }
+      });
 
-        const code = obj.code || obj.coupon || obj.codigo;
-        if (code && typeof code === "string" && code.length >= 3) {
-          let discount = obj.discount || obj.desconto || obj.value || "";
-          if (typeof discount === "number") discount = discount + "%";
-          if (discount && !String(discount).includes("OFF")) discount += " OFF";
+      return lista;
+    });
 
-          let min = obj.minPurchase || obj.min_purchase || obj.compraMinima || "";
-          if (min && !String(min).includes("R$")) min = "R$ " + min;
+    console.log(`Total de cupons encontrados dinamicamente: ${cupons.length}`);
+    console.log(cupons);
 
-          let max = obj.maxDiscount || obj.max_discount || obj.descontoMaximo || "";
-          if (max && !String(max).includes("R$")) max = "R$ " + max;
+    let resultadoFinal = cupons;
 
-          cupons.push({
-            code: code.trim().toUpperCase(),
-            discount: discount,
-            min_purchase: min,
-            max_discount: max
-          });
-        }
-        Object.values(obj).forEach(buscar);
-      }
-
-      buscar(data);
+    // Fallback de segurança caso venha vazio
+    if (resultadoFinal.length === 0) {
+      resultadoFinal = [
+        { code: "TECHEMCASA", discount: "10% OFF", min_purchase: "R$ 129", max_discount: "R$ 150" },
+        { code: "COMPRINHASPRACASA", discount: "25% OFF", min_purchase: "R$ 19", max_discount: "R$ 150" }
+      ];
     }
+
+    fs.writeFileSync("data.json", JSON.stringify(resultadoFinal, null, 2));
+    console.log("data.json atualizado com todos os cupons!");
+
   } catch (err) {
-    console.log("Erro ao buscar dados dinâmicos, aplicando fallback:", err.message);
+    console.error("Erro na extração:", err.message);
+    process.exit(1);
+  } finally {
+    await browser.close();
   }
-
-  // Deduplicação
-  const mapa = new Map();
-  cupons.forEach(c => {
-    if (c.code && !mapa.has(c.code)) mapa.set(c.code, c);
-  });
-  cupons = Array.from(mapa.values());
-
-  // GARANTIA: Se a busca veio vazia, preenche com a lista ativa e corretíssima
-  if (cupons.length === 0) {
-    console.log("Aplicando lista base de segurança...");
-    cupons = [
-      {
-        code: "TECHEMCASA",
-        discount: "10% OFF",
-        min_purchase: "R$ 129",
-        max_discount: "R$ 150"
-      },
-      {
-        code: "COMPRINHASPRACASA",
-        discount: "25% OFF",
-        min_purchase: "R$ 19",
-        max_discount: "R$ 150"
-      }
-    ];
-  }
-
-  console.log("Cupons finais a serem salvos:", cupons);
-  fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
-  console.log("data.json salvo com sucesso!");
 }
 
 extrair();
