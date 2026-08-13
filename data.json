@@ -1,1 +1,104 @@
-[]
+[
+  {
+    "code": "TECHEMCASA",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "COMPRINHASPRACASA",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "DESCOTOSMELI",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "QUEROCUPONS",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "OMELHOR",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "MAISPORMENOS",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "ECONOMIAML",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "SEMPREMODA",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "SUPERPROMO",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "SHOWDEPROMO",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "CUPOMDASEMANA",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "MELIACHA",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "HORADOCUPOM",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "MAISOFERTAS",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "MELIOFF",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "BRINQUEDOS",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  },
+  {
+    "code": "OFERTASML",
+    "discount": "Desconto ML",
+    "category": "Mercado Livre",
+    "min_purchase": ""
+  }
+]
