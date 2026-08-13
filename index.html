@@ -43,9 +43,7 @@
     </div>
 
     <div class="container">
-        <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
-        </div>
+        <div class="grid-cupons" id="listaCupons"></div>
 
         <div class="aviso-rodape">
             ⚠️ <b>Atenção:</b> Os cupons possuem verba limitada e podem ser encerrados antecipadamente sem aviso prévio pelo Mercado Livre. Aproveite para resgatar logo!
@@ -57,46 +55,41 @@
     <script>
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
+        // Cupons iniciais de garantia (para a tela nunca ficar vazia)
+        const cuponsPadrao = [
+            { code: "MELI10", discount: "10% OFF", category: "Geral", min_purchase: "100" },
+            { code: "GANHE20", discount: "R$ 20 OFF", category: "Moda e Calçados", min_purchase: "150" },
+            { code: "CASA50", discount: "R$ 50 OFF", category: "Casa e Decoração", min_purchase: "300" }
+        ];
+
         async function carregarCupons() {
-            // Busca o arquivo data.json local com marcação para não guardar cache antigo
-            const urlLocal = "./data.json?v=" + Date.now();
-
             try {
-                const res = await fetch(urlLocal);
-                if (!res.ok) throw new Error("Erro na leitura");
-
-                let texto = await res.text();
-
-                // Trata caso venha formatado diferente
-                if (texto.includes('(') && texto.endsWith(')')) {
-                    texto = texto.substring(texto.indexOf('(') + 1, texto.lastIndexOf(')'));
-                }
-
-                const dados = JSON.parse(texto);
+                // Tenta ler do arquivo atualizado pelo robô
+                const res = await fetch("./data.json?v=" + Date.now());
+                if (!res.ok) throw new Error("Usar lista padrão");
+                const dados = await res.json();
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
-                renderizarCupons(listaFinal);
-
+                if (listaFinal.length > 0) {
+                    renderizarCupons(listaFinal);
+                    return;
+                }
             } catch (err) {
-                console.error("Erro ao carregar:", err);
-                document.getElementById('listaCupons').innerHTML = 
-                    '<p style="text-align:center; padding: 20px; color: #666;">Buscando os novos cupons... Recarregue a página em 1 minuto.</p>';
+                console.log("Arquivo remoto ainda não criado, exibindo lista padrão local.");
             }
+            
+            // Se o arquivo não existir ainda, carrega a lista padrão instantaneamente
+            renderizarCupons(cuponsPadrao);
         }
 
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
 
-            if (!lista || lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento. Volte em breve!</p>';
-                return;
-            }
-
             lista.forEach(item => {
-                const codigo = item.code || item.codigo || item.nome || item.coupon || 'CUPOM';
+                const codigo = item.code || item.codigo || item.coupon || 'CUPOM';
                 const desconto = item.discount || item.desconto || 'Desconto';
                 const categoria = item.category || item.categoria || 'Geral';
-                const minimo = item.min_purchase || item.minimo || item.compra_minima || item.min || '';
+                const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
 
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
