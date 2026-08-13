@@ -212,45 +212,6 @@
     <script>
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Função universal para renderizar qualquer formato de dado recebido
-        function processarEDesenhar(lista) {
-            const container = document.getElementById('listaCupons');
-            container.innerHTML = '';
-
-            if (!lista || lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
-                return;
-            }
-
-            lista.forEach(item => {
-                const codigo = item.code || item.codigo || item.nome || item.coupon || 'CUPOM';
-                const desconto = item.discount || item.desconto || 'Desconto Especial';
-                const categoria = item.category || item.categoria || 'Geral';
-                const minimo = item.min_purchase || item.minimo || item.compra_minima || item.min || '';
-
-                const card = document.createElement('div');
-                card.className = 'cupom-card';
-                card.innerHTML = `
-                    <div class="cupom-info">
-                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
-                        <div class="cupom-detalhes">
-                            📌 Categoria: <b>${categoria}</b><br>
-                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
-                        </div>
-                    </div>
-                    <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
-                            ✂️ COPIAR CUPOM
-                        </button>
-                        <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
-                            🛍️ IR PRO MERCADO LIVRE
-                        </a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
                 const toast = document.getElementById('toastAviso');
@@ -260,24 +221,58 @@
         }
     </script>
 
-    <!-- Carregamento via script injetado para burlar a trava de CORS de vez -->
-    <script>
-        (function() {
-            const script = document.createElement('script');
-            // Carrega a base via endpoint seguro de dados
-            script.src = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json") + "&callback=callbackCupons";
-            
-            window.callbackCupons = function(response) {
-                try {
-                    const dados = JSON.parse(response.contents);
-                    processarEDesenhar(dados);
-                } catch(e) {
-                    console.error("Erro no parse:", e);
-                }
-            };
+    <!-- Importação direta via Módulo JSON nativo -->
+    <script type="module">
+        const container = document.getElementById('listaCupons');
+        
+        async function carregar() {
+            try {
+                // Importa o JSON oficial diretamente usando módulos JS nativos do navegador
+                const url = "https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json?t=" + Date.now();
+                const res = await fetch(url);
+                const lista = await res.json();
 
-            document.body.appendChild(script);
-        })();
+                container.innerHTML = '';
+
+                if (!lista || lista.length === 0) {
+                    container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
+                    return;
+                }
+
+                lista.forEach(item => {
+                    const codigo = item.code || item.codigo || item.nome || item.coupon || 'CUPOM';
+                    const desconto = item.discount || item.desconto || 'Desconto';
+                    const categoria = item.category || item.categoria || 'Geral';
+                    const minimo = item.min_purchase || item.minimo || item.compra_minima || item.min || '';
+
+                    const card = document.createElement('div');
+                    card.className = 'cupom-card';
+                    card.innerHTML = `
+                        <div class="cupom-info">
+                            <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                            <div class="cupom-detalhes">
+                                📌 Categoria: <b>${categoria}</b><br>
+                                ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
+                            </div>
+                        </div>
+                        <div class="botoes-grupo">
+                            <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                                ✂️ COPIAR CUPOM
+                            </button>
+                            <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
+                                🛍️ IR PRO MERCADO LIVRE
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                console.error(err);
+                container.innerHTML = '<p style="text-align:center; padding: 20px; color: #666;">Não foi possível carregar os cupons no momento. Tente novamente em instantes.</p>';
+            }
+        }
+
+        carregar();
     </script>
 </body>
 </html>
