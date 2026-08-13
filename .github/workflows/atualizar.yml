@@ -2,26 +2,76 @@ name: Atualizar Cupons de Hora em Hora
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    - cron: '0 * * * *' # Roda a cada hora
+  workflow_dispatch: # Permite rodar manualmente
 
 jobs:
-  update-data:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Baixar JSON
-        run: |
-          curl -s https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json -o data.json
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Salvar alteracoes
+      - name: Instalar dependências
+        run: npm install axios cheerio
+
+      - name: Raspar cupons do site oficial
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node -e '
+          const axios = require("axios");
+          const cheerio = require("cheerio");
+          const fs = require("fs");
+
+          async function extrair() {
+            try {
+              const res = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/index.html");
+              const $ = cheerio.load(res.data);
+              const cupons = [];
+
+              $(".coupon-card, .card, .cupom-card").each((i, el) => {
+                const text = $(el).text();
+                const codeMatch = text.match(/[A-Z0-9]{4,15}/);
+                if (codeMatch) {
+                  cupons.push({
+                    code: codeMatch[0],
+                    discount: "Cupom Oficial",
+                    category: "Mercado Livre",
+                    min_purchase: ""
+                  });
+                }
+              });
+
+              // Se a busca seletiva falhar, pega os códigos de cupom via Regex na página inteira
+              if (cupons.length === 0) {
+                const matches = res.data.match(/([A-Z0-9]{4,15})/g);
+                if (matches) {
+                  const ignorar = ["HTML", "UTF8", "HEAD", "BODY", "DIV", "SPAN", "CLASS", "HREF", "HTTP", "HTTPS", "WIDTH", "COLOR", "STYLE", "JSON", "FUNC", "CONST"];
+                  const unicos = [...new Set(matches)].filter(m => m.length >= 5 && !ignorar.includes(m));
+                  unicos.forEach(c => {
+                    cupons.push({ code: c, discount: "Desconto ML", category: "Geral", min_purchase: "" });
+                  });
+                }
+              }
+
+              fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
+              console.log("Salvo " + cupons.length + " cupons com sucesso!");
+            } catch (err) {
+              console.error(err);
+              process.exit(1);
+            }
+          }
+          extrair();
+          '
+
+      - name: Salvar alterações no repositório
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update cupons" && git push)
+          git commit -m "Atualizando cupons da fonte oficial [skip ci]" || exit 0
+          git push
