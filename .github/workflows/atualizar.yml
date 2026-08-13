@@ -20,7 +20,7 @@ jobs:
       - name: Instalar dependências
         run: npm install axios
 
-      - name: Extrair Cupons via __NEXT_DATA__
+      - name: Extrair Cupons sem Erro
         run: |
           node -e '
           const axios = require("axios");
@@ -28,7 +28,7 @@ jobs:
 
           async function extrair() {
             try {
-              console.log("Lendo HTML da página...");
+              console.log("Buscando dados da página...");
               const response = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
                 headers: {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -36,53 +36,57 @@ jobs:
               });
 
               const html = response.data;
-              let cuponsMap = new Map();
+              const cuponsMap = new Map();
 
-              const nextDataMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
+              // Palavras/Sistemas a serem ignorados
+              const ignorar = [
+                "NEXT", "DATA", "BUILD", "PAGE", "PROPS", "STATIC", "RUNTIME", "CHUNK",
+                "MANIFEST", "UTF8", "REACT", "HEAD", "BODY", "META", "LINK", "TRUE",
+                "FALSE", "NULL", "UNDEFINED", "SPAN", "DIV", "STYLE", "SCRIPT", "CLASS",
+                "HREF", "PATH", "TYPE", "SLUG", "MAIN", "INDEX", "HOME", "VIEW", "APP",
+                "DESCONTO", "CUPOM", "CUPONS", "MERCADO", "LIVRE", "MAISCUPONS", "CATEGORIA"
+              ];
 
-              if (nextDataMatch && nextDataMatch[1]) {
-                const dataObj = JSON.parse(nextDataMatch[1]);
+              // Regex para encontrar potenciais códigos em maiúsculas dentro do HTML/JSON
+              const regex = /"([A-Z0-9]{4,25})"/g;
+              let match;
 
-                function buscarCupons(obj) {
-                  if (!obj || typeof obj !== "object") return;
+              while ((match = regex.exec(html)) !== null) {
+                const code = match[1].trim();
 
-                  if (obj.code || obj.codigo) {
-                    const code = String(obj.code || obj.codigo).trim().toUpperCase();
-                    const desc = obj.discount || obj.desconto || obj.title || "Desconto ML";
-                    const cat = obj.category || obj.categoria || "Mercado Livre";
-                    const min = obj.min_purchase || obj.minimo || "";
-
-                    // Filtra palavras genéricas e IDs do Mercado Livre (MLB)
-                    const palavrasInvalidas = ["DESCONTO", "CUPOM", "CUPONS", "MERCADO", "LIVRE", "MAISCUPONS"];
-                    const ehMLB = code.startsWith("MLB");
-
-                    if (code.length >= 4 && !palavrasInvalidas.includes(code) && !ehMLB) {
-                      cuponsMap.set(code, {
-                        code: code,
-                        discount: desc,
-                        category: cat,
-                        min_purchase: min
-                      });
-                    }
-                  }
-
-                  for (let k in obj) {
-                    if (typeof obj[k] === "object") {
-                      buscarCupons(obj[k]);
-                    }
-                  }
+                // Regras para ser um cupom legítimo:
+                // 1. Não começa com MLB (anúncio ML)
+                // 2. Não está na lista de ignorados
+                // 3. Contém letras (não é só número)
+                // 4. Tem tamanho mínimo de 4 caracteres
+                if (
+                  code.length >= 4 &&
+                  !code.startsWith("MLB") &&
+                  !ignorar.includes(code) &&
+                  isNaN(code) &&
+                  /[A-Z]/.test(code) &&
+                  !cuponsMap.has(code)
+                ) {
+                  cuponsMap.set(code, {
+                    code: code,
+                    discount: "Desconto ML",
+                    category: "Mercado Livre",
+                    min_purchase: ""
+                  });
                 }
-
-                buscarCupons(dataObj);
               }
 
               const listaFinal = Array.from(cuponsMap.values());
-              console.log("Cupons válidos encontrados:", listaFinal.length);
+              console.log("Cupons reais encontrados:", listaFinal.length);
 
-              fs.writeFileSync("data.json", JSON.stringify(listaFinal, null, 2));
+              if (listaFinal.length > 0) {
+                fs.writeFileSync("data.json", JSON.stringify(listaFinal, null, 2));
+              } else {
+                console.log("Nenhum novo cupom encontrado, mantendo data.json anterior.");
+              }
 
             } catch (err) {
-              console.error("Erro na extração:", err.message);
+              console.error("Erro no processo:", err.message);
               process.exit(1);
             }
           }
@@ -90,10 +94,10 @@ jobs:
           extrair();
           '
 
-      - name: Salvar alterações
+      - name: Salvar no repositório
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Filtro de IDs do ML aplicado [skip ci]" || exit 0
+          git commit -m "Cupons atualizados com sucesso [skip ci]" || exit 0
           git push
