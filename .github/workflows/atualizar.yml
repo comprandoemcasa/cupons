@@ -20,7 +20,7 @@ jobs:
       - name: Instalar dependências
         run: npm install axios
 
-      - name: Extrair Cupons sem Erro
+      - name: Extrair Cupons e Regras Completas
         run: |
           node -e '
           const axios = require("axios");
@@ -28,7 +28,7 @@ jobs:
 
           async function extrair() {
             try {
-              console.log("Buscando dados da página...");
+              console.log("Lendo dados detalhados da página...");
               const response = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
                 headers: {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
@@ -38,55 +38,71 @@ jobs:
               const html = response.data;
               const cuponsMap = new Map();
 
-              // Palavras/Sistemas a serem ignorados
-              const ignorar = [
-                "NEXT", "DATA", "BUILD", "PAGE", "PROPS", "STATIC", "RUNTIME", "CHUNK",
-                "MANIFEST", "UTF8", "REACT", "HEAD", "BODY", "META", "LINK", "TRUE",
-                "FALSE", "NULL", "UNDEFINED", "SPAN", "DIV", "STYLE", "SCRIPT", "CLASS",
-                "HREF", "PATH", "TYPE", "SLUG", "MAIN", "INDEX", "HOME", "VIEW", "APP",
-                "DESCONTO", "CUPOM", "CUPONS", "MERCADO", "LIVRE", "MAISCUPONS", "CATEGORIA"
-              ];
+              const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
 
-              // Regex para encontrar potenciais códigos em maiúsculas dentro do HTML/JSON
-              const regex = /"([A-Z0-9]{4,25})"/g;
-              let match;
+              if (match && match[1]) {
+                const dataObj = JSON.parse(match[1]);
 
-              while ((match = regex.exec(html)) !== null) {
-                const code = match[1].trim();
+                function buscarCuponsRicos(obj) {
+                  if (!obj || typeof obj !== "object") return;
 
-                // Regras para ser um cupom legítimo:
-                // 1. Não começa com MLB (anúncio ML)
-                // 2. Não está na lista de ignorados
-                // 3. Contém letras (não é só número)
-                // 4. Tem tamanho mínimo de 4 caracteres
-                if (
-                  code.length >= 4 &&
-                  !code.startsWith("MLB") &&
-                  !ignorar.includes(code) &&
-                  isNaN(code) &&
-                  /[A-Z]/.test(code) &&
-                  !cuponsMap.has(code)
-                ) {
-                  cuponsMap.set(code, {
-                    code: code,
-                    discount: "Desconto ML",
-                    category: "Mercado Livre",
-                    min_purchase: ""
-                  });
+                  // Procura estruturas de cupons no JSON
+                  const codigo = obj.code || obj.codigo || obj.couponCode || obj.coupon;
+                  
+                  if (codigo && typeof codigo === "string") {
+                    const codeUpper = codigo.trim().toUpperCase();
+                    const palavrasInvalidas = ["DESCONTO", "CUPOM", "CUPONS", "MERCADO", "LIVRE", "MAISCUPONS"];
+
+                    if (
+                      codeUpper.length >= 4 &&
+                      !codeUpper.startsWith("MLB") &&
+                      !palavrasInvalidas.includes(codeUpper) &&
+                      isNaN(codeUpper)
+                    ) {
+                      // Extrai regras reais do cupom
+                      let desconto = obj.discount || obj.desconto || obj.value || obj.amount || "";
+                      let categoria = obj.category || obj.categoria || obj.tag || "Mercado Livre";
+                      let minimo = obj.min_purchase || obj.minimo || obj.minPurchase || obj.min || "";
+                      let maximo = obj.max_discount || obj.maximo || obj.maxDiscount || "";
+
+                      // Formata porcentagem/valor de desconto caso seja número puro
+                      if (desconto && !isNaN(desconto)) {
+                        desconto = desconto <= 100 ? `${desconto}% OFF` : `R$ ${desconto} OFF`;
+                      } else if (!desconto) {
+                        desconto = "Desconto Especial";
+                      }
+
+                      cuponsMap.set(codeUpper, {
+                        code: codeUpper,
+                        discount: desconto,
+                        category: categoria,
+                        min_purchase: minimo ? String(minimo) : "",
+                        max_discount: maximo ? String(maximo) : ""
+                      });
+                    }
+                  }
+
+                  for (let key in obj) {
+                    if (typeof obj[key] === "object") {
+                      buscarCuponsRicos(obj[key]);
+                    }
+                  }
                 }
+
+                buscarCuponsRicos(dataObj);
               }
 
               const listaFinal = Array.from(cuponsMap.values());
-              console.log("Cupons reais encontrados:", listaFinal.length);
+              console.log("Total de cupons com regras capturados:", listaFinal.length);
 
               if (listaFinal.length > 0) {
                 fs.writeFileSync("data.json", JSON.stringify(listaFinal, null, 2));
               } else {
-                console.log("Nenhum novo cupom encontrado, mantendo data.json anterior.");
+                console.log("Nenhum cupom extraído, mantendo data.json anterior.");
               }
 
             } catch (err) {
-              console.error("Erro no processo:", err.message);
+              console.error("Erro ao extrair:", err.message);
               process.exit(1);
             }
           }
@@ -99,5 +115,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Cupons atualizados com sucesso [skip ci]" || exit 0
+          git commit -m "Cupons com regras completas atualizados [skip ci]" || exit 0
           git push
