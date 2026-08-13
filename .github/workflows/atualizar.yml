@@ -28,81 +28,75 @@ jobs:
 
           async function extrair() {
             try {
-              console.log("Lendo dados detalhados da página...");
+              console.log("Baixando HTML da página fonte...");
               const response = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
                 headers: {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
                 }
               });
 
               const html = response.data;
-              const cuponsMap = new Map();
+              const cupons = [];
 
+              // Extrai o bloco de dados do Next.js
               const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
 
               if (match && match[1]) {
-                const dataObj = JSON.parse(match[1]);
-
-                function buscarCuponsRicos(obj) {
+                const parsed = JSON.parse(match[1]);
+                
+                // Mapeia recursivamente para encontrar a lista de cupons
+                function buscarLista(obj) {
                   if (!obj || typeof obj !== "object") return;
 
-                  // Procura estruturas de cupons no JSON
-                  const codigo = obj.code || obj.codigo || obj.couponCode || obj.coupon;
-                  
-                  if (codigo && typeof codigo === "string") {
-                    const codeUpper = codigo.trim().toUpperCase();
-                    const palavrasInvalidas = ["DESCONTO", "CUPOM", "CUPONS", "MERCADO", "LIVRE", "MAISCUPONS"];
-
-                    if (
-                      codeUpper.length >= 4 &&
-                      !codeUpper.startsWith("MLB") &&
-                      !palavrasInvalidas.includes(codeUpper) &&
-                      isNaN(codeUpper)
-                    ) {
-                      // Extrai regras reais do cupom
-                      let desconto = obj.discount || obj.desconto || obj.value || obj.amount || "";
-                      let categoria = obj.category || obj.categoria || obj.tag || "Mercado Livre";
-                      let minimo = obj.min_purchase || obj.minimo || obj.minPurchase || obj.min || "";
-                      let maximo = obj.max_discount || obj.maximo || obj.maxDiscount || "";
-
-                      // Formata porcentagem/valor de desconto caso seja número puro
-                      if (desconto && !isNaN(desconto)) {
-                        desconto = desconto <= 100 ? `${desconto}% OFF` : `R$ ${desconto} OFF`;
-                      } else if (!desconto) {
-                        desconto = "Desconto Especial";
+                  if (Array.isArray(obj)) {
+                    obj.forEach(item => {
+                      if (item && typeof item === "object" && (item.code || item.codigo)) {
+                        const code = (item.code || item.codigo || "").toString().trim();
+                        if (code && code.length >= 3) {
+                          cupons.push({
+                            code: code,
+                            discount: item.discount || item.desconto || item.discountValue || "Desconto Especial",
+                            category: item.category || item.categoria || item.tag || "Mercado Livre",
+                            min_purchase: item.minPurchase || item.min_purchase || item.minimo || "",
+                            max_discount: item.maxDiscount || item.max_discount || item.maximo || ""
+                          });
+                        }
+                      } else {
+                        buscarLista(item);
                       }
-
-                      cuponsMap.set(codeUpper, {
-                        code: codeUpper,
-                        discount: desconto,
-                        category: categoria,
-                        min_purchase: minimo ? String(minimo) : "",
-                        max_discount: maximo ? String(maximo) : ""
-                      });
-                    }
-                  }
-
-                  for (let key in obj) {
-                    if (typeof obj[key] === "object") {
-                      buscarCuponsRicos(obj[key]);
+                    });
+                  } else {
+                    for (let key in obj) {
+                      if (typeof obj[key] === "object") {
+                        buscarLista(obj[key]);
+                      }
                     }
                   }
                 }
 
-                buscarCuponsRicos(dataObj);
+                buscarLista(parsed);
               }
 
-              const listaFinal = Array.from(cuponsMap.values());
-              console.log("Total de cupons com regras capturados:", listaFinal.length);
+              // Remove duplicados pelo código
+              const cuponsUnicos = [];
+              const codigosVistos = new Set();
 
-              if (listaFinal.length > 0) {
-                fs.writeFileSync("data.json", JSON.stringify(listaFinal, null, 2));
-              } else {
-                console.log("Nenhum cupom extraído, mantendo data.json anterior.");
+              for (const c of cupons) {
+                const codeUpper = c.code.toUpperCase();
+                if (!codigosVistos.has(codeUpper)) {
+                  codigosVistos.add(codeUpper);
+                  cuponsUnicos.push(c);
+                }
+              }
+
+              console.log("Cupons extraídos com sucesso:", cuponsUnicos.length);
+
+              if (cuponsUnicos.length > 0) {
+                fs.writeFileSync("data.json", JSON.stringify(cuponsUnicos, null, 2));
               }
 
             } catch (err) {
-              console.error("Erro ao extrair:", err.message);
+              console.error("Erro na extração:", err.message);
               process.exit(1);
             }
           }
@@ -115,5 +109,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Cupons com regras completas atualizados [skip ci]" || exit 0
+          git commit -m "data.json atualizado com regras exatas [skip ci]" || exit 0
           git push
