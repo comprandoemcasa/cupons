@@ -1,4 +1,4 @@
-name: Atualizar Cupons de Hora em Hora
+name: AtuaAtualizar Cupons de Hora em Hora
 
 on:
   schedule:
@@ -12,14 +12,14 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do Repositório
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Baixar JSON oficial do Mercado Livre
+      - name: Baixar JSON
         run: |
           curl -s https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json -o data.json
 
-      - name: Salvar alterações no repositório
+      - name: Salvar alteracoes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
