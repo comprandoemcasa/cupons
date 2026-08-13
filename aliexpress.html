@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: #f6f6f6; color: #333; padding-bottom: 40px; }
         
-        /* Cabeçalho com cores do AliExpress */
+        /* Cabeçalho */
         .header { 
             background: linear-gradient(135deg, #FF4747 0%, #FF6A00 100%); 
             color: #ffffff; 
@@ -25,7 +25,7 @@
         .container { max-width: 800px; margin: 25px auto 20px auto; padding: 0 15px; }
         .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 15px; }
         
-        /* Cards dos cupons */
+        /* Card de Cupom */
         .cupom-card { 
             background: #fff; 
             border-radius: 12px; 
@@ -40,21 +40,18 @@
         .badge-desconto { background-color: #FF6A00; color: #fff; font-size: 13px; padding: 4px 10px; border-radius: 12px; font-weight: bold; }
         .cupom-detalhes { font-size: 13px; color: #555; margin: 8px 0 15px 0; line-height: 1.5; }
         
-        /* Botões */
-        .botoes-grupo { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { flex: 1; min-width: 140px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-        .btn-copiar { background-color: #ffebee; color: #d32f2f; }
+        /* Botões em grupo */
+        .botoes-grupo { display: flex; flex-direction: column; gap: 10px; }
+        .botoes-cupons-linha { display: flex; gap: 8px; flex-wrap: wrap; }
+        
+        .btn { flex: 1; min-width: 130px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-copiar { background-color: #ffebee; color: #d32f2f; border: 1px solid #ffcdd2; }
         .btn-copiar:hover { background-color: #ffcdd2; }
-        .btn-ir { background-color: #FF4747; color: #ffffff; }
+        .btn-ir { background-color: #FF4747; color: #ffffff; width: 100%; margin-top: 4px; }
         .btn-ir:hover { background-color: #e53935; }
         
-        /* Disclaimer em cada card */
         .disclaimer-card { font-size: 12px; color: #e53935; font-weight: 600; text-align: center; margin-top: 12px; padding-top: 8px; border-top: 1px dashed #ffe0b2; }
-        
-        /* Aviso do rodapé */
         .aviso-rodape { background-color: #fff; border-left: 4px solid #FF6A00; padding: 15px; border-radius: 8px; margin-top: 25px; font-size: 13px; color: #555; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        
-        /* Toast (Aviso de cupom copiado) */
         .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; z-index: 1000; }
     </style>
 </head>
@@ -85,7 +82,6 @@
     <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
-        // Link de Afiliado do AliExpress
         const MEU_LINK_AFILIADO_ALI = "https://s.click.aliexpress.com/e/_oFuy2C1";
 
         async function carregarCupons() {
@@ -100,7 +96,7 @@
                     document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento.</p>';
                 }
             } catch (err) {
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar cupons. Tente novamente mais tarde.</p>';
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar cupons.</p>';
             }
         }
 
@@ -109,25 +105,32 @@
             container.innerHTML = '';
 
             lista.forEach(item => {
-                const codigo = item.code || 'CUPOM';
+                const codigos = item.codes || (item.code ? [item.code] : ['CUPOM']);
                 const desconto = item.discount || 'Desconto Especial';
                 const categoria = item.category || 'AliExpress';
                 const minimo = item.min_purchase || '';
+
+                // Gera os botões de cópia para cada código do card
+                const botoesCopiar = codigos.map(cod => 
+                    `<button class="btn btn-copiar" onclick="copiarCodigo('${cod}')">✂️ COPIAR ${cod}</button>`
+                ).join('');
+
+                const tituloCodigos = codigos.join(' ou ');
 
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
                 card.innerHTML = `
                     <div class="cupom-info">
-                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                        <h3>${tituloCodigos} <span class="badge-desconto">${desconto}</span></h3>
                         <div class="cupom-detalhes">
                             📌 Categoria: <b>${categoria}</b><br>
                             ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
                         </div>
                     </div>
                     <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
-                            ✂️ COPIAR CUPOM
-                        </button>
+                        <div class="botoes-cupons-linha">
+                            ${botoesCopiar}
+                        </div>
                         <a href="${MEU_LINK_AFILIADO_ALI}" target="_blank" class="btn btn-ir">
                             🛍️ IR PRO ALIEXPRESS
                         </a>
@@ -143,6 +146,7 @@
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
                 const toast = document.getElementById('toastAviso');
+                toast.innerText = `📋 Cupom ${texto} copiado!`;
                 toast.style.display = 'block';
                 setTimeout(() => { toast.style.display = 'none'; }, 2500);
             });
