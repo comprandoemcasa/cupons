@@ -1,541 +1,115 @@
 [
   {
     "code": "TECHEMCASA",
-    "discount": "R$129",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "TECHEMCASA",
-    "discount": "R$129",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "TECHEMCASA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "TECHEMCASA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$129",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "COMPRINHASPRACASA",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "COMPRINHASPRACASA",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "COMPRINHASPRACASA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "COMPRINHASPRACASA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$19",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "DESCOTOSMELI",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCOTOSMELI",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCOTOSMELI",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCOTOSMELI",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "MAISCUPONS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISCUPONS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISCUPONS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISCUPONS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "QUEROCUPONS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "QUEROCUPONS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "QUEROCUPONS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "QUEROCUPONS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "OMELHOR",
-    "discount": "R$19",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
-    "code": "OMELHOR",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "OMELHOR",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "OMELHOR",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$19",
+    "code": "MLB5672",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "MAISPORMENOS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISPORMENOS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISPORMENOS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISPORMENOS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "ECONOMIAML",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "ECONOMIAML",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "ECONOMIAML",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "ECONOMIAML",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "SEMPREMODA",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SEMPREMODA",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SEMPREMODA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SEMPREMODA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$19",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "SUPERPROMO",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SUPERPROMO",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SUPERPROMO",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SUPERPROMO",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "SHOWDEPROMO",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SHOWDEPROMO",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SHOWDEPROMO",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "SHOWDEPROMO",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "CUPOMDASEMANA",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "CUPOMDASEMANA",
-    "discount": "R$19",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "CUPOMDASEMANA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "CUPOMDASEMANA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$19",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "MELIACHA",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MELIACHA",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MELIACHA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MELIACHA",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "HORADOCUPOM",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "HORADOCUPOM",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "HORADOCUPOM",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "HORADOCUPOM",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "MAISOFERTAS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISOFERTAS",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISOFERTAS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MAISOFERTAS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "MELIOFF",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MELIOFF",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MELIOFF",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "MELIOFF",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "BRINQUEDOS",
-    "discount": "R$59",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "BRINQUEDOS",
-    "discount": "R$59",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "BRINQUEDOS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "BRINQUEDOS",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$59",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   },
   {
     "code": "OFERTASML",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "OFERTASML",
-    "discount": "R$29",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "OFERTASML",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "OFERTASML",
-    "discount": "Desconto ML",
-    "category": "Mercado Livre",
-    "min_purchase": ""
-  },
-  {
-    "code": "DESCONTO",
-    "discount": "R$29",
+    "discount": "Cupom Oficial ML",
     "category": "Mercado Livre",
     "min_purchase": ""
   }
