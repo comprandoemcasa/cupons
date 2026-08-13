@@ -8,22 +8,50 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: #f5f5f5; color: #333; padding-bottom: 40px; }
         
-        .header { background-color: #ffe600; color: #2d3277; text-align: center; padding: 30px 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        /* Topo */
+        .header { background-color: #ffe600; color: #2d3277; text-align: center; padding: 25px 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .header h1 { font-size: 26px; margin-bottom: 10px; font-weight: 800; }
-        
-        .mensagens-topo { display: flex; flex-direction: column; align-items: center; gap: 8px; }
         .mensagem-apoio { background-color: #ffffff; color: #2d3277; display: inline-block; padding: 8px 18px; border-radius: 25px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
         
-        .container { max-width: 800px; margin: 25px auto 20px auto; padding: 0 15px; }
+        .container { max-width: 850px; margin: 25px auto 20px auto; padding: 0 15px; }
         .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 15px; }
         
-        .cupom-card { background: #fff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border-left: 6px solid #ffe600; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .cupom-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
-        .cupom-header h3 { font-size: 22px; color: #2d3277; font-weight: 800; }
-        .badge-desconto { background-color: #ff3e3e; color: #fff; font-size: 13px; padding: 4px 10px; border-radius: 12px; font-weight: bold; }
+        /* Card Estilo Mercado Livre */
+        .cupom-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            border-left: 6px solid #ffe600; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+        }
         
-        .cupom-detalhes { font-size: 13px; color: #555; margin: 8px 0 15px 0; line-height: 1.6; }
+        .cupom-topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+        .cupom-codigo-bloco { display: flex; align-items: center; gap: 10px; }
+        .cupom-codigo { font-size: 22px; color: #2d3277; font-weight: 800; letter-spacing: 0.5px; }
         
+        .badge-desconto { background-color: #ff3e3e; color: #fff; font-size: 13px; padding: 5px 12px; border-radius: 20px; font-weight: bold; }
+        .badge-cat { background-color: #e8eaf6; color: #2d3277; font-size: 12px; padding: 4px 10px; border-radius: 6px; font-weight: 700; text-transform: uppercase; }
+
+        /* Tabela de Regras */
+        .regras-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            gap: 10px; 
+            background-color: #fafafa; 
+            padding: 12px; 
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+            border: 1px solid #f0f0f0; 
+        }
+        .regra-item { display: flex; flex-direction: column; }
+        .regra-label { font-size: 11px; color: #777; font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
+        .regra-valor { font-size: 14px; color: #2d3277; font-weight: 800; }
+        .regra-valor.destaque { color: #00a650; }
+
+        /* Botões */
         .botoes-grupo { display: flex; gap: 10px; flex-wrap: wrap; }
         .btn { flex: 1; min-width: 140px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
         .btn-copiar { background-color: #e8eaf6; color: #2d3277; }
@@ -39,16 +67,14 @@
 
     <div class="header">
         <h1>💛 Cupons Mercado Livre</h1>
-        <div class="mensagens-topo">
-            <div class="mensagem-apoio">
-                🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
-            </div>
+        <div class="mensagem-apoio">
+            🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
         </div>
     </div>
 
     <div class="container">
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons...</p>
+            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
         </div>
     </div>
 
@@ -80,22 +106,38 @@
             lista.forEach(item => {
                 const codigo = item.code || 'CUPOM';
                 const desconto = item.discount || 'Desconto Especial';
-                const categoria = item.category || 'Mercado Livre';
-                const minimo = item.min_purchase ? ` <b>• Compra Mínima:</b> R$ ${item.min_purchase}` : '';
-                const maximo = item.max_discount ? ` <b>• Desc. Máximo:</b> R$ ${item.max_discount}` : '';
+                const categoria = item.category || 'MERCADO LIVRE';
+                const minimo = item.min_purchase ? (isNaN(item.min_purchase) ? item.min_purchase : `R$${item.min_purchase}`) : 'Sem Mínimo';
+                const maximo = item.max_discount ? (isNaN(item.max_discount) ? item.max_discount : `R$${item.max_discount}`) : 'N/A';
 
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
                 card.innerHTML = `
                     <div>
-                        <div class="cupom-header">
-                            <h3>${codigo}</h3>
+                        <div class="cupom-topo">
+                            <div class="cupom-codigo-bloco">
+                                <span class="cupom-codigo">${codigo}</span>
+                                <span class="badge-cat">${categoria}</span>
+                            </div>
                             <span class="badge-desconto">${desconto}</span>
                         </div>
-                        <div class="cupom-detalhes">
-                            📌 <b>Categoria:</b> ${categoria} ${minimo} ${maximo}
+
+                        <div class="regras-grid">
+                            <div class="regra-item">
+                                <span class="regra-label">Desconto</span>
+                                <span class="regra-valor destaque">${desconto}</span>
+                            </div>
+                            <div class="regra-item">
+                                <span class="regra-label">Compra Mínima</span>
+                                <span class="regra-valor">${minimo}</span>
+                            </div>
+                            <div class="regra-item">
+                                <span class="regra-label">Desc. Máximo</span>
+                                <span class="regra-valor">${maximo}</span>
+                            </div>
                         </div>
                     </div>
+
                     <div class="botoes-grupo">
                         <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
                             ✂️ COPIAR CUPOM
@@ -104,6 +146,7 @@
                             🛍️ IR PRO MERCADO LIVRE
                         </a>
                     </div>
+
                     <div class="disclaimer-card">
                         🗣️ O cupom pode esgotar a qualquer momento, então corre!
                     </div>
