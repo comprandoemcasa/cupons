@@ -17,7 +17,7 @@
             padding-bottom: 40px;
         }
 
-        /* Topo e Mensagem de Apoio + Atualização */
+        /* Topo */
         .header {
             background-color: #ffe600;
             color: #2d3277;
@@ -196,7 +196,7 @@
 
         <!-- Lista Onde Aparecem os Cupons -->
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
+            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons oficiais...</p>
         </div>
 
         <!-- Aviso no Rodapé -->
@@ -213,26 +213,25 @@
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // URL original do JSON oficial de cupons
-        const URL_ORIGINAL = "https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json";
-        
-        // Proxy que ignora a trava de segurança do navegador
-        const URL_PROXY = "https://corsproxy.io/?" + encodeURIComponent(URL_ORIGINAL);
+        // URL do CDN oficial do jsDelivr (Lê o repositório original do GitHub sem bloqueio de CORS)
+        const URL_OFICIAL_JSON = "https://cdn.jsdelivr.net/gh/afiliadosmercadolivre/cupons-afiliadosmercadolivre@main/data.json";
 
-        async function carregarCuponsAutomatico() {
+        async function carregarCuponsOficiais() {
             try {
-                const resposta = await fetch(URL_PROXY);
-                if (!resposta.ok) throw new Error("Erro na rede");
+                // Adiciona um parâmetro dinâmico para garantir que sempre busque a versão atualizada
+                const resposta = await fetch(`${URL_OFICIAL_JSON}?t=${Date.now()}`);
+                if (!resposta.ok) throw new Error("Falha no carregamento");
+                
                 const cupons = await resposta.json();
                 renderizarCupons(cupons);
             } catch (erro) {
-                console.error("Erro ao carregar automaticamente:", erro);
+                console.error("Erro ao carregar dados oficiais:", erro);
                 document.getElementById('listaCupons').innerHTML = 
-                    '<p style="text-align:center; padding: 20px; color: #666;">Não foi possível carregar os cupons no momento. Tente novamente em instantes.</p>';
+                    '<p style="text-align:center; padding: 20px; color: #666;">Não foi possível carregar os cupons no momento. Atualize a página em instantes.</p>';
             }
         }
 
-        // Desenha os cards na tela dinamicamente
+        // Renderiza os dados reais vindos do arquivo oficial
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
@@ -243,9 +242,9 @@
             }
 
             lista.forEach(item => {
-                // Adapta para os nomes das chaves do arquivo original
+                // Pega os campos exatos do JSON oficial do Mercado Livre
                 const codigo = item.code || item.codigo || item.nome || 'CUPOM';
-                const desconto = item.discount || item.desconto || 'Desconto';
+                const desconto = item.discount || item.desconto || 'Desconto Especial';
                 const categoria = item.category || item.categoria || 'Geral';
                 const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
 
@@ -281,8 +280,8 @@
             });
         }
 
-        // Inicia a busca automática assim que abre o site
-        carregarCuponsAutomatico();
+        // Executa a busca real assim que a página abre
+        carregarCuponsOficiais();
     </script>
 </body>
 </html>
