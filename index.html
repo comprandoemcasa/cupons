@@ -17,7 +17,7 @@
             padding-bottom: 40px;
         }
 
-        /* Topo e Mensagem de Parceria */
+        /* Topo e Mensagem de Apoio + Atualização */
         .header {
             background-color: #ffe600;
             color: #2d3277;
@@ -27,43 +27,42 @@
         }
         .header h1 {
             font-size: 24px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 800;
+        }
+        .mensagens-topo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
         .mensagem-apoio {
             background-color: #ffffff;
             color: #2d3277;
             display: inline-block;
-            padding: 10px 18px;
+            padding: 8px 18px;
             border-radius: 25px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-            margin-top: 5px;
+        }
+        .badge-atualizacao {
+            background-color: #2d3277;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Container Principal */
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 25px auto 20px auto;
             padding: 0 15px;
-        }
-
-        /* Busca */
-        .busca-box {
-            margin-bottom: 20px;
-        }
-        .busca-box input {
-            width: 100%;
-            padding: 14px 20px;
-            border: 2px solid #ddd;
-            border-radius: 30px;
-            font-size: 15px;
-            outline: none;
-            transition: 0.3s;
-        }
-        .busca-box input:focus {
-            border-color: #2d3277;
         }
 
         /* Lista de Cupons */
@@ -73,7 +72,7 @@
             gap: 15px;
         }
 
-        /* Card do Cupom Limpo */
+        /* Card do Cupom */
         .cupom-card {
             background: #fff;
             border-radius: 12px;
@@ -147,7 +146,7 @@
             background-color: #1a1e4a;
         }
 
-        /* Único Aviso Geral no Rodapé da Página */
+        /* Aviso no Rodapé */
         .aviso-rodape {
             background-color: #fff;
             border-left: 4px solid #ffe600;
@@ -179,26 +178,26 @@
 </head>
 <body>
 
-    <!-- Topo -->
+    <!-- Topo com aviso de atualização -->
     <div class="header">
         <h1>🛍️ Cupons Mercado Livre</h1>
-        <div class="mensagem-apoio">
-            🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
+        <div class="mensagens-topo">
+            <div class="badge-atualizacao">
+                🔄 Lista de cupons atualizada de hora em hora
+            </div>
+            <div class="mensagem-apoio">
+                🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
+            </div>
         </div>
     </div>
 
     <!-- Conteúdo -->
     <div class="container">
-        
-        <!-- Campo de Busca -->
-        <div class="busca-box">
-            <input type="text" id="inputBusca" placeholder="🔍 Digite para buscar um cupom..." onkeyup="filtrarCupons()">
-        </div>
 
         <!-- Lista Onde Aparecem os Cupons -->
         <div class="grid-cupons" id="listaCupons"></div>
 
-        <!-- Único Aviso no Rodapé -->
+        <!-- Aviso no Rodapé -->
         <div class="aviso-rodape">
             ⚠️ <b>Atenção:</b> Os cupons possuem verba limitada e podem ser encerrados antecipadamente sem aviso prévio pelo Mercado Livre. Aproveite para resgatar logo!
         </div>
@@ -237,15 +236,10 @@
             { code: "OFFICIAL10", discount: "10% OFF", category: "Lojas Oficiais", min: "150" }
         ];
 
-        // Desenha os cards limpos na tela
+        // Desenha os cards na tela
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
-
-            if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado com esse termo.</p>';
-                return;
-            }
 
             lista.forEach(item => {
                 const card = document.createElement('div');
@@ -278,16 +272,6 @@
                 toast.style.display = 'block';
                 setTimeout(() => { toast.style.display = 'none'; }, 2500);
             });
-        }
-
-        // Filtro da busca em tempo real
-        function filtrarCupons() {
-            const termo = document.getElementById('inputBusca').value.toLowerCase();
-            const filtrados = todosOsCupons.filter(c => 
-                c.code.toLowerCase().includes(termo) ||
-                c.category.toLowerCase().includes(termo)
-            );
-            renderizarCupons(filtrados);
         }
 
         // Carrega inicialmente
