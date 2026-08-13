@@ -18,68 +18,56 @@ jobs:
           node-version: '20'
 
       - name: Instalar dependências
-        run: npm install axios cheerio
+        run: npm install puppeteer
 
-      - name: Extrair cupons oficiais
+      - name: Extrair cupons com navegador virtual
         run: |
           node -e '
-          const axios = require("axios");
-          const cheerio = require("cheerio");
+          const puppeteer = require("puppeteer");
           const fs = require("fs");
 
-          async function extrair() {
+          async function rodar() {
             try {
-              const res = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/");
-              const $ = cheerio.load(res.data);
-              const cupons = [];
+              const browser = await puppeteer.launch({ headless: "new" });
+              const page = await browser.newPage();
+              await page.goto("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", { waitUntil: "networkidle2" });
 
-              // Varre a estrutura HTML exata dos cards de cupom do site fonte
-              $(".coupon-card, .card, [class*=\"coupon\"], [class*=\"card\"]").each((i, el) => {
-                const texto = $(el).text();
-                // Pega o código do cupom
-                const codeMatch = texto.match(/([A-Z0-9]{4,20})/);
-                // Pega valores de desconto (ex: 10% OFF, R$ 20 OFF)
-                const descMatch = texto.match(/(R\$\s*\d+|\d+%\s*OFF)/i);
-
-                if (codeMatch && codeMatch[0]) {
-                  const code = codeMatch[0];
-                  // Filtra palavras do sistema para não virar lixo
-                  const ignorar = ["DOCTYPE", "HEADER", "FOOTER", "HTML", "CLASS", "STYLE"];
-                  if (!ignorar.includes(code) && code.length >= 4) {
-                    cupons.push({
-                      code: code,
-                      discount: descMatch ? descMatch[0] : "Desconto Especial",
-                      category: "Mercado Livre",
-                      min_purchase: ""
+              // Captura a lista de cupons processada na memória da página
+              const cupons = await page.evaluate(() => {
+                if (window.cuponsData) return window.cuponsData;
+                
+                // Fallback: extrai do DOM renderizado
+                const cards = document.querySelectorAll(".coupon-card, .card");
+                const lista = [];
+                cards.forEach(c => {
+                  const txt = c.innerText;
+                  const code = txt.match(/[A-Z0-9]{4,15}/);
+                  if (code) {
+                    lista.push({
+                      code: code[0],
+                      discount: "Cupom Oficial",
+                      category: "Mercado Livre"
                     });
                   }
-                }
+                });
+                return lista;
               });
 
-              // Remove duplicados garantindo lista limpa
-              const unicos = [];
-              const mapa = new Set();
-              for (const item of cupons) {
-                if (!mapa.has(item.code)) {
-                  mapa.add(item.code);
-                  unicos.push(item);
-                }
-              }
-
-              console.log("Cupons extraídos:", unicos.length);
-              fs.writeFileSync("data.json", JSON.stringify(unicos, null, 2));
+              await browser.close();
+              console.log("Cupons capturados:", cupons.length);
+              fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
             } catch (err) {
-              console.error("Erro na extração:", err);
+              console.error("Erro:", err);
               process.exit(1);
             }
           }
-          extrair();
+          rodar();
           '
 
-      - name: Salvar alterações no repositório
+      - name: Salvar no repositório
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Cupons atualizados automaticamente [skip ci]" || exit 0
+          git commit -m "Cupons automáticos atualizados [skip ci]" || exit 0
           git push
