@@ -197,7 +197,7 @@
 
         <!-- Lista Onde Aparecem os Cupons -->
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 20px;">Carregando todos os cupons...</p>
+            <p style="text-align: center; color: #666; padding: 20px;">Carregando todos os cupons atualizados...</p>
         </div>
 
         <!-- Aviso Limpo no Rodapé -->
@@ -216,32 +216,24 @@
 
         let todosOsCupons = [];
 
-        // Busca a lista completa de cupons do repositório
+        // Busca a lista exata do arquivo data.json oficial
         async function carregarCupons() {
             try {
-                // Tenta buscar a lista oficial
-                const res = await fetch('https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/cupons.json');
+                const res = await fetch('https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json');
                 const dados = await res.json();
                 
+                // Mapeia todas as estruturas possíveis que vêm do JSON oficial
                 todosOsCupons = dados.map(item => ({
                     code: item.code || item.codigo || item.nome || 'CUPOM',
-                    discount: item.discount || item.desconto || 'Oferta',
+                    discount: item.discount || item.desconto || 'Desconto',
                     category: item.category || item.categoria || 'Geral',
-                    min: item.min_purchase || item.minimo || ''
+                    min: item.min_purchase || item.minimo || item.compra_minima || ''
                 }));
 
                 renderizarCupons(todosOsCupons);
             } catch (err) {
-                // Fallback caso falhar a busca online
-                todosOsCupons = [
-                    { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Casa", min: "129" },
-                    { code: "CASA10", discount: "10% OFF", category: "Casa e Decoração", min: "99" },
-                    { code: "MODA15", discount: "15% OFF", category: "Moda e Calçados", min: "149" },
-                    { code: "MELI100", discount: "R$ 100 OFF", category: "Seleção do Site", min: "799" },
-                    { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado", min: "80" },
-                    { code: "MKTML", discount: "5% OFF", category: "Tudo no Site", min: "50" }
-                ];
-                renderizarCupons(todosOsCupons);
+                console.error("Erro ao carregar data.json:", err);
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Não foi possível carregar os cupons no momento. Tente novamente em instantes.</p>';
             }
         }
 
