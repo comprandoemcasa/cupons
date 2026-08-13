@@ -212,7 +212,21 @@
     <script>
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Renderiza os cupons reais recebidos
+        async function carregarCuponsLocais() {
+            try {
+                // Lê o arquivo do próprio repositório (sem bloqueio de CORS!)
+                const resposta = await fetch('./data.json?t=' + Date.now());
+                if (!resposta.ok) throw new Error("Erro ao ler data.json");
+                
+                const cupons = await resposta.json();
+                renderizarCupons(cupons);
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('listaCupons').innerHTML = 
+                    '<p style="text-align:center; padding: 20px;">Atualizando cupons... Por favor, recarregue a página.</p>';
+            }
+        }
+
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
@@ -259,28 +273,7 @@
             });
         }
 
-        // Função de fallback que carrega os dados via script dinâmico sem CORS
-        function carregarSemCors() {
-            const s = document.createElement('script');
-            // Endpoint seguro que envia os dados empacotados sem bloqueio do GitHub
-            s.src = "https://api.jsonserve.com/v1/raw?url=" + encodeURIComponent("https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json");
-            
-            // Caso ocorra timeout ou bloqueio específico, faz a requisição estruturada
-            fetch("https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent("https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json"))
-                .then(res => res.json())
-                .then(data => renderizarCupons(data))
-                .catch(() => {
-                    // Terceira camada de garantia (Proxy direto de alta performance)
-                    fetch("https://thingproxy.freeboard.io/fetch/https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json")
-                        .then(r => r.json())
-                        .then(data => renderizarCupons(data))
-                        .catch(err => {
-                            document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Atualize a página para recarregar a lista de cupons.</p>';
-                        });
-                });
-        }
-
-        carregarSemCors();
+        carregarCuponsLocais();
     </script>
 </body>
 </html>
