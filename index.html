@@ -22,12 +22,12 @@
             background-color: #ffe600;
             color: #2d3277;
             text-align: center;
-            padding: 20px 15px;
+            padding: 25px 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .header h1 {
-            font-size: 22px;
-            margin-bottom: 8px;
+            font-size: 24px;
+            margin-bottom: 10px;
             font-weight: 800;
         }
         .mensagem-apoio {
@@ -81,9 +81,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            border-left: 6px solid #2d3277;
+            border-left: 6px solid #ffe600;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            position: relative;
         }
 
         .cupom-info h3 {
@@ -93,6 +92,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
         .badge-desconto {
             background-color: #ff3b30;
@@ -104,7 +104,7 @@
         }
         .cupom-detalhes {
             font-size: 13px;
-            color: #666;
+            color: #555;
             margin: 10px 0 15px 0;
             line-height: 1.5;
         }
@@ -147,6 +147,18 @@
             background-color: #1a1e4a;
         }
 
+        /* Caixa de Aviso Ajustada (Sem a frase indesejada) */
+        .aviso-rodape {
+            background-color: #fff;
+            border-left: 4px solid #ffe600;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
         /* Toast / Aviso de Copiado */
         .toast {
             position: fixed;
@@ -184,10 +196,13 @@
         </div>
 
         <!-- Lista Onde Aparecem os Cupons -->
-        <div class="grid-cupons" id="listaCupons">
-            <!-- Os cupons serão carregados aqui via JS -->
-            <p style="text-align: center; color: #666;">Carregando cupons atualizados...</p>
+        <div class="grid-cupons" id="listaCupons"></div>
+
+        <!-- Aviso Limpo no Rodapé -->
+        <div class="aviso-rodape">
+            ⚠️ <b>Atenção:</b> Os cupons possuem verba limitada e podem ser encerrados antecipadamente sem aviso prévio pelo Mercado Livre. Aproveite para resgatar logo!
         </div>
+
     </div>
 
     <!-- Notificação Flutuante -->
@@ -197,19 +212,15 @@
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        let todosOsCupons = [];
-
-        // Busca a lista oficial de cupons em tempo real
-        async function carregarCupons() {
-            try {
-                const res = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json'));
-                todosOsCupons = await res.json();
-                renderizarCupons(todosOsCupons);
-            } catch (err) {
-                // Se falhar a API, exibe cupons padrão
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center;">Acesse nossas listas completas para ver todos os cupons ativos!</p>';
-            }
-        }
+        // LISTA DE CUPONS ATIVOS
+        const todosOsCupons = [
+            { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Casa", min: "129" },
+            { code: "CASA10", discount: "10% OFF", category: "Casa e Decoração", min: "99" },
+            { code: "MODA15", discount: "15% OFF", category: "Moda e Calçados", min: "149" },
+            { code: "MELI100", discount: "R$ 100 OFF", category: "Seleção do Site", min: "799" },
+            { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado", min: "80" },
+            { code: "MKTML", discount: "5% OFF", category: "Tudo no Site", min: "50" }
+        ];
 
         // Desenha os cards na tela
         function renderizarCupons(lista) {
@@ -217,28 +228,23 @@
             container.innerHTML = '';
 
             if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center;">Nenhum cupom encontrado.</p>';
+                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado com esse nome.</p>';
                 return;
             }
 
             lista.forEach(item => {
-                const codigo = item.code || item.nome || 'CUPOM';
-                const desconto = item.discount || item.desconto || 'Oferta';
-                const minimo = item.min_purchase ? `Compra mín.: R$ ${item.min_purchase}` : '';
-                const regata = item.category || 'Geral';
-
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
                 card.innerHTML = `
                     <div class="cupom-info">
-                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                        <h3>${item.code} <span class="badge-desconto">${item.discount}</span></h3>
                         <div class="cupom-detalhes">
-                            📌 Categoria: <b>${regata}</b><br>
-                            ${minimo ? '💰 ' + minimo : ''}
+                            📌 Categoria: <b>${item.category}</b><br>
+                            ${item.min ? '💰 Compra mínima: R$ ' + item.min : ''}
                         </div>
                     </div>
                     <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${item.code}')">
                             ✂️ COPIAR CUPOM
                         </button>
                         <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
@@ -263,14 +269,14 @@
         function filtrarCupons() {
             const termo = document.getElementById('inputBusca').value.toLowerCase();
             const filtrados = todosOsCupons.filter(c => 
-                (c.code && c.code.toLowerCase().includes(termo)) ||
-                (c.category && c.category.toLowerCase().includes(termo))
+                c.code.toLowerCase().includes(termo) ||
+                c.category.toLowerCase().includes(termo)
             );
             renderizarCupons(filtrados);
         }
 
-        // Inicia
-        carregarCupons();
+        // Carrega inicialmente
+        renderizarCupons(todosOsCupons);
     </script>
 </body>
 </html>
