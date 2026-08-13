@@ -213,26 +213,20 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            // URL apontando para a branch 'principal' do seu repositório
-            const urlSEU_REPO = "https://raw.githubusercontent.com/comprandoemcasa/cupons/principal/data.json?t=" + Date.now();
+            // Usa o jsDelivr como CDN pública oficial (fura qualquer bloqueio de CORS do GitHub e entrega instantâneo)
+            const urlFonte = "https://cdn.jsdelivr.net/gh/afiliadosmercadolivre/cupons-afiliadosmercadolivre@main/data.json";
 
             try {
-                const res = await fetch(urlSEU_REPO);
-                if (!res.ok) throw new Error("Erro ao carregar");
+                const res = await fetch(urlFonte);
+                if (!res.ok) throw new Error("Erro de conexão");
                 
-                let textoBruto = await res.text();
-                
-                if (textoBruto.includes('(') && textoBruto.endsWith(')')) {
-                    textoBruto = textoBruto.substring(textoBruto.indexOf('(') + 1, textoBruto.lastIndexOf(')'));
-                }
-
-                const dados = JSON.parse(textoBruto);
+                const dados = await res.json();
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
                 renderizarCupons(listaFinal);
             } catch (err) {
-                console.error("Erro na leitura do JSON:", err);
+                console.error("Erro ao carregar cupons:", err);
                 document.getElementById('listaCupons').innerHTML = 
-                    '<p style="text-align:center; padding: 20px;">Não foi possível carregar a lista. Atualize a página em instantes.</p>';
+                    '<p style="text-align:center; padding: 20px;">Não foi possível carregar no momento. Tente recarregar em instantes.</p>';
             }
         }
 
@@ -284,3 +278,5 @@
 
         carregarCupons();
     </script>
+</body>
+</html>
