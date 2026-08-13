@@ -44,7 +44,7 @@
 
     <div class="container">
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons oficiais...</p>
+            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
         </div>
 
         <div class="aviso-rodape">
@@ -58,31 +58,18 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            // Usa proxy para burlar bloqueios CORS e puxar direto do repositório oficial
-            const urlOficial = "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json";
-            const urlProxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(urlOficial) + "&_=" + Date.now();
-
             try {
-                const res = await fetch(urlProxy);
-                if (!res.ok) throw new Error("Erro na requisição");
+                const res = await fetch("./data.json?v=" + Date.now());
+                if (!res.ok) throw new Error("Aguardando robô");
 
-                const dados = await res.json();
-                const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
-                
-                if (listaFinal.length > 0) {
-                    renderizarCupons(listaFinal);
+                const lista = await res.json();
+                if (Array.isArray(lista) && lista.length > 0) {
+                    renderizarCupons(lista);
                 } else {
-                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
+                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Atualizando lista de cupons... Tente novamente em 1 minuto.</p>';
                 }
             } catch (err) {
-                console.error("Erro no proxy, tentando local...", err);
-                try {
-                    const resLocal = await fetch("./data.json?v=" + Date.now());
-                    const dadosLocal = await resLocal.json();
-                    renderizarCupons(Array.isArray(dadosLocal) ? dadosLocal : (dadosLocal.cupons || []));
-                } catch (e) {
-                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Não foi possível carregar os cupons. Recarregue a página.</p>';
-                }
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Gerando lista de cupons... Execute a Action no GitHub para rodar agora!</p>';
             }
         }
 
@@ -91,10 +78,9 @@
             container.innerHTML = '';
 
             lista.forEach(item => {
-                const codigo = item.code || item.codigo || item.coupon || 'CUPOM';
-                const desconto = item.discount || item.desconto || 'Desconto';
-                const categoria = item.category || item.categoria || 'Geral';
-                const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
+                const codigo = item.code || 'CUPOM';
+                const desconto = item.discount || 'Desconto ML';
+                const categoria = item.category || 'Mercado Livre';
 
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
@@ -102,8 +88,7 @@
                     <div class="cupom-info">
                         <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
                         <div class="cupom-detalhes">
-                            📌 Categoria: <b>${categoria}</b><br>
-                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
+                            📌 Categoria: <b>${categoria}</b>
                         </div>
                     </div>
                     <div class="botoes-grupo">
