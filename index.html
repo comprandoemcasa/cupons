@@ -178,7 +178,7 @@
 </head>
 <body>
 
-    <!-- Topo com aviso de atualização -->
+    <!-- Topo -->
     <div class="header">
         <h1>🛍️ Cupons Mercado Livre</h1>
         <div class="mensagens-topo">
@@ -195,7 +195,9 @@
     <div class="container">
 
         <!-- Lista Onde Aparecem os Cupons -->
-        <div class="grid-cupons" id="listaCupons"></div>
+        <div class="grid-cupons" id="listaCupons">
+            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
+        </div>
 
         <!-- Aviso no Rodapé -->
         <div class="aviso-rodape">
@@ -211,49 +213,54 @@
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // LISTA DOS 21 CUPONS ATIVOS
-        const todosOsCupons = [
-            { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Casa", min: "129" },
-            { code: "CASA10", discount: "10% OFF", category: "Casa e Decoração", min: "99" },
-            { code: "MODA15", discount: "15% OFF", category: "Moda e Calçados", min: "149" },
-            { code: "MELI100", discount: "R$ 100 OFF", category: "Seleção do Site", min: "799" },
-            { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado", min: "80" },
-            { code: "MKTML", discount: "5% OFF", category: "Tudo no Site", min: "50" },
-            { code: "MERCADO15", discount: "R$ 15 OFF", category: "Supermercado", min: "150" },
-            { code: "FERRAMENTAS10", discount: "10% OFF", category: "Ferramentas", min: "200" },
-            { code: "AUTO10", discount: "10% OFF", category: "Acessórios Veiculares", min: "100" },
-            { code: "ESPORTE12", discount: "12% OFF", category: "Esportes e Fitness", min: "120" },
-            { code: "INFANTIL15", discount: "15% OFF", category: "Brinquedos e Bebês", min: "100" },
-            { code: "LIVROS20", discount: "20% OFF", category: "Livros e Papelaria", min: "60" },
-            { code: "COZINHA10", discount: "10% OFF", category: "Eletrodomésticos", min: "180" },
-            { code: "PET20", discount: "20% OFF", category: "Produtos Pet", min: "90" },
-            { code: "GAMER100", discount: "R$ 100 OFF", category: "Informática e Games", min: "899" },
-            { code: "DRINK15", discount: "15% OFF", category: "Bebidas e Adega", min: "110" },
-            { code: "CLEAN10", discount: "10% OFF", category: "Produtos de Limpeza", min: "70" },
-            { code: "AUDIO15", discount: "15% OFF", category: "Áudio e Som", min: "160" },
-            { code: "BABY25", discount: "R$ 25 OFF", category: "Artigos para Bebê", min: "200" },
-            { code: "FIT10", discount: "10% OFF", category: "Suplementos e Saúde", min: "100" },
-            { code: "OFFICIAL10", discount: "10% OFF", category: "Lojas Oficiais", min: "150" }
-        ];
+        // URL original do JSON oficial de cupons
+        const URL_ORIGINAL = "https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json";
+        
+        // Proxy que ignora a trava de segurança do navegador
+        const URL_PROXY = "https://corsproxy.io/?" + encodeURIComponent(URL_ORIGINAL);
 
-        // Desenha os cards na tela
+        async function carregarCuponsAutomatico() {
+            try {
+                const resposta = await fetch(URL_PROXY);
+                if (!resposta.ok) throw new Error("Erro na rede");
+                const cupons = await resposta.json();
+                renderizarCupons(cupons);
+            } catch (erro) {
+                console.error("Erro ao carregar automaticamente:", erro);
+                document.getElementById('listaCupons').innerHTML = 
+                    '<p style="text-align:center; padding: 20px; color: #666;">Não foi possível carregar os cupons no momento. Tente novamente em instantes.</p>';
+            }
+        }
+
+        // Desenha os cards na tela dinamicamente
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
 
+            if (!lista || lista.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
+                return;
+            }
+
             lista.forEach(item => {
+                // Adapta para os nomes das chaves do arquivo original
+                const codigo = item.code || item.codigo || item.nome || 'CUPOM';
+                const desconto = item.discount || item.desconto || 'Desconto';
+                const categoria = item.category || item.categoria || 'Geral';
+                const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
+
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
                 card.innerHTML = `
                     <div class="cupom-info">
-                        <h3>${item.code} <span class="badge-desconto">${item.discount}</span></h3>
+                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
                         <div class="cupom-detalhes">
-                            📌 Categoria: <b>${item.category}</b><br>
-                            ${item.min ? '💰 Compra mínima: R$ ' + item.min : ''}
+                            📌 Categoria: <b>${categoria}</b><br>
+                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
                         </div>
                     </div>
                     <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${item.code}')">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
                             ✂️ COPIAR CUPOM
                         </button>
                         <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
@@ -274,8 +281,8 @@
             });
         }
 
-        // Carrega inicialmente
-        renderizarCupons(todosOsCupons);
+        // Inicia a busca automática assim que abre o site
+        carregarCuponsAutomatico();
     </script>
 </body>
 </html>
