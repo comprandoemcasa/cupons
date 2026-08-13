@@ -95,13 +95,8 @@
     <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
-        const MEU_LINK_AFILIADO_ML = "https://mercadolivre.com/sec/24v91pX";
-
-        // Mapeamento de apoio
-        const DADOS_CORRETOS = {
-            "TECHEMCASA": { discount: "10% OFF", min: "R$ 129", max: "R$ 150" },
-            "COMPRINHASPRACASA": { discount: "25% OFF", min: "R$ 19", max: "R$ 150" }
-        };
+        // SEU LINK OFICIAL DE AFILIADO ATUALIZADO
+        const MEU_LINK_AFILIADO_ML = "https://www.mercadolivre.com.br/social/atelierdoslinks";
 
         async function carregarCupons() {
             try {
@@ -125,11 +120,9 @@
 
             lista.forEach(item => {
                 const codigo = (item.code || 'CUPOM').toUpperCase();
-                const ref = DADOS_CORRETOS[codigo] || {};
-
-                const desconto = (item.discount && item.discount.trim() !== "") ? item.discount : (ref.discount || "10% OFF");
-                const minimo = (item.min_purchase && item.min_purchase.trim() !== "") ? item.min_purchase : (ref.min || "Sem Mínimo");
-                const maximo = (item.max_discount && item.max_discount.trim() !== "") ? item.max_discount : (ref.max || "Sem Limite");
+                const desconto = item.discount || "10% OFF";
+                const minimo = item.min_purchase || "Sem Mínimo";
+                const maximo = item.max_discount || "Sem Limite";
 
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
