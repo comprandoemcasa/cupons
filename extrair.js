@@ -1,86 +1,115 @@
-const axios = require("axios");
+const puppeteer = require("puppeteer");
 const fs = require("fs");
 
 async function extrair() {
+  console.log("Iniciando navegador dinâmico...");
+  
+  const browser = await puppeteer.launch({
+    headless: "new",
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
+
   try {
-    console.log("Iniciando requisição...");
-    const { data: html } = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-      }
+    const page = await browser.newPage();
+    
+    // Define viewport e User-Agent real
+    await page.setViewport({ width: 1280, height: 800 });
+    await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+
+    console.log("Navegando até a página de cupons...");
+    await page.goto("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
+      waitUntil: "networkidle2",
+      timeout: 60000
     });
 
-    const cupons = [];
+    // Espera os elementos renderizarem na tela
+    await page.waitForTimeout(3000);
 
-    // 1. Tenta extrair blocos de cupons diretamente do texto bruto renderizado
-    // Procura padrões como: NOME_DO_CUPOM ... XX% ... R$129 ... R$150
-    const regexCupom = /([A-Z0-9_-]{5,25})[\s\S]*?(\d+%\s*OFF|\d+%\s*|R\$\s*\d+[\s\S]*?OFF)?[\s\S]*?COMPRA MÍNIMA[\s\S]*?(R\$\s*\d+|\d+)[\s\S]*?DESCONTO MÁX\.?[\s\S]*?(R\$\s*\d+|\d+)/gi;
-
-    let match;
-    while ((match = regexCupom.exec(html)) !== null) {
-      const code = match[1].trim().toUpperCase();
+    // Extrai todos os cards diretamente da árvore DOM renderizada
+    const cupons = await page.evaluate(() => {
+      const lista = [];
       
-      // Ignora palavras reservadas do layout que não são cupons
-      const palavrasIgnoradas = ["COMPRA", "DESCONTO", "PERIODO", "COPIAR", "OUTROS", "MERCADO", "AFILIADOS", "LISTA"];
-      if (!palavrasIgnoradas.includes(code)) {
-        let desc = match[2] ? match[2].trim() : "10% OFF";
-        if (!desc.includes("OFF") && !desc.includes("R$")) desc += " OFF";
+      // Busca todos os blocos de cupons na página
+      const cards = document.querySelectorAll("div, article, section");
 
-        let min = match[3] ? match[3].trim() : "129";
-        if (!min.startsWith("R$")) min = "R$ " + min;
+      cards.forEach(card => {
+        const text = card.innerText || "";
+        
+        // Verifica se o bloco contém os indicativos de um card de cupom
+        if (text.includes("DESCONTO") && text.includes("COMPRA MÍNIMA") && text.includes("DESCONTO MÁX")) {
+          
+          // Extrai linhas do card
+          const linhas = text.split("\n").map(l => l.trim()).filter(Boolean);
+          
+          let code = "";
+          let category = "MERCADO LIVRE";
+          let discount = "";
+          let min_purchase = "";
+          let max_discount = "";
 
-        let max = match[4] ? match[4].trim() : "150";
-        if (!max.startsWith("R$")) max = "R$ " + max;
+          // Pega o código do cupom (primeira palavra em caixa alta com > 4 chars)
+          for (let item of linhas) {
+            if (/^[A-Z0-9_-]{4,25}$/.test(item) && !["DESCONTO", "PERÍODO", "LISTA", "COMPRA", "OUTROS", "DESTAQUE"].includes(item)) {
+              code = item;
+              break;
+            }
+          }
 
-        cupons.push({
-          code: code,
-          discount: desc,
-          category: "MERCADO LIVRE",
-          min_purchase: min,
-          max_discount: max
-        });
-      }
-    }
+          // Categoria (se houver tag como CASA E DECORAÇÃO, OUTROS, etc.)
+          const catMatch = text.match(/(OUTROS|CASA E DECORAÇÃO|ELETRÔNICOS|MODA|BELEZA|ESPORTES)/i);
+          if (catMatch) category = catMatch[1].toUpperCase();
 
-    // 2. Garante que se o regex não pegar por mudanças de DOM, temos uma lista sólida de garantia
-    if (cupons.length === 0) {
-      console.log("Regex não encontrou os blocos, usando extrator de códigos diretos...");
-      
-      // Busca qualquer código em caixa alta com pelo menos 5 caracteres na página
-      const codigosEncontrados = html.match(/\b[A-Z0-9_]{5,20}\b/g) || [];
-      const codigosValidos = [...new Set(codigosEncontrados)].filter(c => 
-        !["MERCADO", "LIVRE", "COMPRA", "MINIMA", "DESCONTO", "MAXIMO", "COPIAR", "CUPOM", "OUTROS", "PERIODO", "HOJE"].includes(c)
-      );
+          // Porcentagem / Desconto
+          const descMatch = text.match(/(\d+(?:,\d+)?%\s*OFF|\d+(?:,\d+)?%|R\$\s*\d+[\s\S]*?OFF)/i);
+          if (descMatch) {
+            discount = descMatch[1].replace(/\s+/g, ' ').trim();
+            if (!discount.includes("OFF")) discount += " OFF";
+          }
 
-      codigosValidos.forEach(code => {
-        cupons.push({
-          code: code,
-          discount: "10% OFF",
-          category: "MERCADO LIVRE",
-          min_purchase: "R$ 129",
-          max_discount: "R$ 150"
-        });
+          // Compra Mínima
+          const minMatch = text.match(/COMPRA MÍNIMA[\s\S]*?(R\$\s*\d+|\d+)/i);
+          if (minMatch) {
+            min_purchase = minMatch[1].trim();
+            if (!min_purchase.startsWith("R$")) min_purchase = "R$" + min_purchase;
+          }
+
+          // Desconto Máximo
+          const maxMatch = text.match(/DESCONTO MÁX\.?[\s\S]*?(R\$\s*\d+|\d+)/i);
+          if (maxMatch) {
+            max_discount = maxMatch[1].trim();
+            if (!max_discount.startsWith("R$")) max_discount = "R$" + max_discount;
+          }
+
+          if (code && !lista.some(c => c.code === code)) {
+            lista.push({
+              code: code,
+              discount: discount || "Desconto Especial",
+              category: category,
+              min_purchase: min_purchase || "Sem Mínimo",
+              max_discount: max_discount || "Sem Limite"
+            });
+          }
+        }
       });
+
+      return lista;
+    });
+
+    console.log(`Total de ${cupons.length} cupons encontrados dinamicamente:`);
+    console.log(cupons);
+
+    if (cupons.length > 0) {
+      fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
+      console.log("data.json gravado com sucesso!");
+    } else {
+      console.log("Nenhum cupom foi identificado na renderização.");
     }
-
-    // Deduplicação por código
-    const mapa = new Map();
-    for (const c of cupons) {
-      if (!mapa.has(c.code)) {
-        mapa.set(c.code, c);
-      }
-    }
-
-    const resultado = Array.from(mapa.values());
-    console.log("Total de cupons válidos extraídos:", resultado.length);
-    console.log(resultado);
-
-    fs.writeFileSync("data.json", JSON.stringify(resultado, null, 2));
-    console.log("data.json salvo com sucesso!");
 
   } catch (err) {
-    console.error("Erro na extração:", err.message);
+    console.error("Erro durante a raspagem:", err.message);
     process.exit(1);
+  } finally {
+    await browser.close();
   }
 }
 
