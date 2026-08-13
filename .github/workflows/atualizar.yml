@@ -5,12 +5,15 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do Repositório
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Baixar JSON oficial do Mercado Livre
         run: |
@@ -18,7 +21,7 @@ jobs:
 
       - name: Salvar alterações no repositório
         run: |
-          git config --global user.name "GitHub Action Bot"
-          git config --global user.email "action@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.json
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update cupons" && git push)
