@@ -5,180 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cupons Mercado Livre | Comprando em Casa</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-            padding-bottom: 40px;
-        }
-
-        /* Topo */
-        .header {
-            background-color: #ffe600;
-            color: #2d3277;
-            text-align: center;
-            padding: 25px 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .header h1 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-        .mensagens-topo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        .mensagem-apoio {
-            background-color: #ffffff;
-            color: #2d3277;
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-        }
-        .badge-atualizacao {
-            background-color: #2d3277;
-            color: #ffffff;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 6px 14px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* Container Principal */
-        .container {
-            max-width: 800px;
-            margin: 25px auto 20px auto;
-            padding: 0 15px;
-        }
-
-        /* Lista de Cupons */
-        .grid-cupons {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        /* Card do Cupom */
-        .cupom-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-left: 6px solid #ffe600;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .cupom-info h3 {
-            font-size: 20px;
-            color: #2d3277;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .badge-desconto {
-            background-color: #ff3b30;
-            color: #fff;
-            font-size: 12px;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-weight: bold;
-        }
-        .cupom-detalhes {
-            font-size: 13px;
-            color: #555;
-            margin: 8px 0 15px 0;
-            line-height: 1.4;
-        }
-
-        /* Botões de Ação */
-        .botoes-grupo {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            flex: 1;
-            min-width: 140px;
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            font-weight: bold;
-            font-size: 13px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .btn-copiar {
-            background-color: #e8ebf5;
-            color: #2d3277;
-        }
-        .btn-copiar:hover {
-            background-color: #d5dceb;
-        }
-        .btn-ir {
-            background-color: #2d3277;
-            color: #ffffff;
-        }
-        .btn-ir:hover {
-            background-color: #1a1e4a;
-        }
-
-        /* Aviso no Rodapé */
-        .aviso-rodape {
-            background-color: #fff;
-            border-left: 4px solid #ffe600;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 25px;
-            font-size: 13px;
-            color: #555;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        /* Toast / Aviso de Copiado */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #2e7d32;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 1000;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f6f9; color: #333; padding-bottom: 40px; }
+        .header { background-color: #ffe600; color: #2d3277; text-align: center; padding: 25px 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 24px; margin-bottom: 12px; font-weight: 800; }
+        .mensagens-topo { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .mensagem-apoio { background-color: #ffffff; color: #2d3277; display: inline-block; padding: 8px 18px; border-radius: 25px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        .badge-atualizacao { background-color: #2d3277; color: #ffffff; font-size: 12px; font-weight: bold; padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
+        .container { max-width: 800px; margin: 25px auto 20px auto; padding: 0 15px; }
+        .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .cupom-card { background: #fff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border-left: 6px solid #ffe600; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .cupom-info h3 { font-size: 20px; color: #2d3277; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .badge-desconto { background-color: #ff3b30; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 12px; font-weight: bold; }
+        .cupom-detalhes { font-size: 13px; color: #555; margin: 8px 0 15px 0; line-height: 1.4; }
+        .botoes-grupo { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn { flex: 1; min-width: 140px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-copiar { background-color: #e8ebf5; color: #2d3277; }
+        .btn-copiar:hover { background-color: #d5dceb; }
+        .btn-ir { background-color: #2d3277; color: #ffffff; }
+        .btn-ir:hover { background-color: #1a1e4a; }
+        .aviso-rodape { background-color: #fff; border-left: 4px solid #ffe600; padding: 15px; border-radius: 8px; margin-top: 25px; font-size: 13px; color: #555; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; z-index: 1000; }
     </style>
 </head>
 <body>
 
-    <!-- Topo -->
     <div class="header">
         <h1>🛍️ Cupons Mercado Livre</h1>
         <div class="mensagens-topo">
@@ -191,49 +42,44 @@
         </div>
     </div>
 
-    <!-- Conteúdo -->
     <div class="container">
-
-        <!-- Lista Onde Aparecem os Cupons -->
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons oficiais...</p>
+            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
         </div>
 
-        <!-- Aviso no Rodapé -->
         <div class="aviso-rodape">
             ⚠️ <b>Atenção:</b> Os cupons possuem verba limitada e podem ser encerrados antecipadamente sem aviso prévio pelo Mercado Livre. Aproveite para resgatar logo!
         </div>
-
     </div>
 
-    <!-- Notificação Flutuante -->
     <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            // Aponta exatamente para o SEU repositório na branch 'principal'
-            const urlFonte = "https://cdn.jsdelivr.net/gh/comprandoemcasa/cupons@principal/data.json?v=" + Date.now();
+            // Busca o arquivo data.json local com marcação para não guardar cache antigo
+            const urlLocal = "./data.json?v=" + Date.now();
 
             try {
-                const res = await fetch(urlFonte);
-                if (!res.ok) throw new Error("Erro de conexão");
-                
-                let textoBruto = await res.text();
-                
-                // Trata o texto caso venha embrulhado em JS ou JSONP
-                if (textoBruto.includes('(') && textoBruto.endsWith(')')) {
-                    textoBruto = textoBruto.substring(textoBruto.indexOf('(') + 1, textoBruto.lastIndexOf(')'));
+                const res = await fetch(urlLocal);
+                if (!res.ok) throw new Error("Erro na leitura");
+
+                let texto = await res.text();
+
+                // Trata caso venha formatado diferente
+                if (texto.includes('(') && texto.endsWith(')')) {
+                    texto = texto.substring(texto.indexOf('(') + 1, texto.lastIndexOf(')'));
                 }
 
-                const dados = JSON.parse(textoBruto);
+                const dados = JSON.parse(texto);
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
                 renderizarCupons(listaFinal);
+
             } catch (err) {
-                console.error("Erro ao carregar cupons:", err);
+                console.error("Erro ao carregar:", err);
                 document.getElementById('listaCupons').innerHTML = 
-                    '<p style="text-align:center; padding: 20px;">Não foi possível carregar no momento. Tente recarregar em instantes.</p>';
+                    '<p style="text-align:center; padding: 20px; color: #666;">Buscando os novos cupons... Recarregue a página em 1 minuto.</p>';
             }
         }
 
@@ -242,7 +88,7 @@
             container.innerHTML = '';
 
             if (!lista || lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
+                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento. Volte em breve!</p>';
                 return;
             }
 
