@@ -212,29 +212,21 @@
     <script>
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        async function carregarCuponsLocais() {
-            const caminhos = ['data.json', './data.json', '/cupons/data.json'];
-            let dados = null;
+        async function carregarCupons() {
+            // Busca diretamente do seu repositório atualizado na nuvem (evita erros de rota local)
+            const urlSEU_REPO = "https://raw.githubusercontent.com/comprandoemcasa/cupons/main/data.json?t=" + Date.now();
 
-            for (const caminho of caminhos) {
-                try {
-                    const resposta = await fetch(caminho + '?t=' + Date.now());
-                    if (resposta.ok) {
-                        dados = await resposta.json();
-                        break;
-                    }
-                } catch (e) {
-                    console.log("Tentativa falhou para " + caminho);
-                }
-            }
-
-            if (dados) {
-                // Se o JSON for uma lista ou se os cupons estiverem dentro de uma propriedade
+            try {
+                const res = await fetch(urlSEU_REPO);
+                if (!res.ok) throw new Error("Erro ao carregar");
+                
+                const dados = await res.json();
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
                 renderizarCupons(listaFinal);
-            } else {
+            } catch (err) {
+                console.error(err);
                 document.getElementById('listaCupons').innerHTML = 
-                    '<p style="text-align:center; padding: 20px;">Não foi possível carregar os cupons. Tente recarregar a página.</p>';
+                    '<p style="text-align:center; padding: 20px;">Não foi possível carregar a lista. Atualize a página em instantes.</p>';
             }
         }
 
@@ -284,7 +276,7 @@
             });
         }
 
-        carregarCuponsLocais();
+        carregarCupons();
     </script>
 </body>
 </html>
