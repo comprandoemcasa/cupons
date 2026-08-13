@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Instalar dependências
-        run: npm install axios cheerio
+      - name: Instalar Puppeteer
+        run: npm install puppeteer
 
       - name: Executar script de extração
         run: node extrair.js
@@ -28,5 +28,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Cupons e regras atualizadas [skip ci]" || exit 0
+          git commit -m "Cupons e regras dinâmicas atualizadas via Puppeteer [skip ci]" || exit 0
           git push
