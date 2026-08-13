@@ -216,13 +216,15 @@
 
         let todosOsCupons = [];
 
-        // Busca a lista exata do arquivo data.json oficial
+        // Busca a lista oficial ignorando trava de CORS
         async function carregarCupons() {
             try {
-                const res = await fetch('https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json');
-                const dados = await res.json();
+                const targetUrl = 'https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json';
+                const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`);
+                const data = await res.json();
+                const dados = JSON.parse(data.contents);
                 
-                // Mapeia todas as estruturas possíveis que vêm do JSON oficial
+                // Mapeia os dados recebidos do JSON oficial
                 todosOsCupons = dados.map(item => ({
                     code: item.code || item.codigo || item.nome || 'CUPOM',
                     discount: item.discount || item.desconto || 'Desconto',
@@ -232,8 +234,8 @@
 
                 renderizarCupons(todosOsCupons);
             } catch (err) {
-                console.error("Erro ao carregar data.json:", err);
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Não foi possível carregar os cupons no momento. Tente novamente em instantes.</p>';
+                console.error("Erro ao carregar:", err);
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar cupons. Atualize a página.</p>';
             }
         }
 
@@ -243,7 +245,7 @@
             container.innerHTML = '';
 
             if (lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado com esse nome.</p>';
+                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado.</p>';
                 return;
             }
 
