@@ -1,0 +1,98 @@
+[
+  {
+    "code": "MEGABR01",
+    "discount": "R$ 15 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "90"
+  },
+  {
+    "code": "BRGM1",
+    "discount": "R$ 15 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "90"
+  },
+  {
+    "code": "MEGABR02",
+    "discount": "R$ 35 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "230"
+  },
+  {
+    "code": "BRGM2",
+    "discount": "R$ 35 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "230"
+  },
+  {
+    "code": "MEGABR03",
+    "discount": "R$ 55 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "380"
+  },
+  {
+    "code": "BRGM3",
+    "discount": "R$ 55 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "380"
+  },
+  {
+    "code": "MEGABR04",
+    "discount": "R$ 110 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "740"
+  },
+  {
+    "code": "BRGM4",
+    "discount": "R$ 110 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "740"
+  },
+  {
+    "code": "MEGABR05",
+    "discount": "R$ 190 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "1.300"
+  },
+  {
+    "code": "BRGM5",
+    "discount": "R$ 190 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "1.300"
+  },
+  {
+    "code": "MEGABR06",
+    "discount": "R$ 300 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "2.200"
+  },
+  {
+    "code": "BRGM6",
+    "discount": "R$ 300 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "2.200"
+  },
+  {
+    "code": "MEGABR07",
+    "discount": "R$ 435 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "3.300"
+  },
+  {
+    "code": "BRGM7",
+    "discount": "R$ 435 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "3.300"
+  },
+  {
+    "code": "MEGABR08",
+    "discount": "R$ 545 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "4.200"
+  },
+  {
+    "code": "BRGM8",
+    "discount": "R$ 545 OFF",
+    "category": "Produtos com Estoque no Brasil 🇧🇷",
+    "min_purchase": "4.200"
+  }
+]
