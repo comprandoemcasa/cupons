@@ -58,10 +58,13 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
+            // Usa proxy para burlar bloqueios CORS e puxar direto do repositório oficial
+            const urlOficial = "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json";
+            const urlProxy = "https://api.allorigins.win/raw?url=" + encodeURIComponent(urlOficial) + "&_=" + Date.now();
+
             try {
-                // Busca o arquivo no SEU próprio repositório
-                const res = await fetch("./data.json?v=" + Date.now());
-                if (!res.ok) throw new Error("Arquivo local ainda não gerado");
+                const res = await fetch(urlProxy);
+                if (!res.ok) throw new Error("Erro na requisição");
 
                 const dados = await res.json();
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
@@ -69,11 +72,17 @@
                 if (listaFinal.length > 0) {
                     renderizarCupons(listaFinal);
                 } else {
-                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento.</p>';
+                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
                 }
             } catch (err) {
-                console.error("Aguardando arquivo ser gerado:", err);
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px; color: #666;">Gerando a lista oficial de cupons... Execute o Action no GitHub ou aguarde alguns instantes.</p>';
+                console.error("Erro no proxy, tentando local...", err);
+                try {
+                    const resLocal = await fetch("./data.json?v=" + Date.now());
+                    const dadosLocal = await resLocal.json();
+                    renderizarCupons(Array.isArray(dadosLocal) ? dadosLocal : (dadosLocal.cupons || []));
+                } catch (e) {
+                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Não foi possível carregar os cupons. Recarregue a página.</p>';
+                }
             }
         }
 
