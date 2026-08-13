@@ -17,77 +17,123 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependências e Puppeteer
-        run: |
-          npm install puppeteer
+      - name: Instalar dependências
+        run: npm install axios cheerio
 
-      - name: Executar raspagem com Chrome sem interface
+      - name: Extrair Cupons da Estrutura Interna
         run: |
           node -e '
-          const puppeteer = require("puppeteer");
+          const axios = require("axios");
           const fs = require("fs");
 
-          async function rodar() {
+          async function extrair() {
             try {
-              const browser = await puppeteer.launch({
-                headless: "new",
-                args: [
-                  "--no-sandbox",
-                  "--disable-setuid-sandbox",
-                  "--disable-dev-shm-usage",
-                  "--disable-accelerated-2d-canvas",
-                  "--disable-gpu"
-                ]
-              });
-              const page = await browser.newPage();
-              
-              // Define User-Agent padrão de navegador real
-              await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
-              
-              await page.goto("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
-                waitUntil: "networkidle2",
-                timeout: 60000
+              console.log("Buscando código da página...");
+              const response = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
+                headers: {
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                }
               });
 
-              // Extrai os cupons processados
-              const cupons = await page.evaluate(() => {
-                if (window.cuponsData && Array.isArray(window.cuponsData) && window.cuponsData.length > 0) {
-                  return window.cuponsData;
-                }
-                
-                const elementos = document.querySelectorAll(".coupon-card, .card, [class*=\"coupon\"], [class*=\"card\"]");
-                const lista = [];
-                elementos.forEach(el => {
-                  const texto = el.innerText || el.textContent || "";
-                  const codeMatch = texto.match(/([A-Z0-9]{4,20})/);
-                  const descMatch = texto.match(/(R\$\s*\d+|\d+%\s*OFF)/i);
-                  
-                  if (codeMatch) {
-                    const code = codeMatch[0];
-                    const ignorar = ["DOCTYPE", "HEADER", "FOOTER", "HTML", "CLASS", "STYLE", "HTTP", "HTTPS"];
-                    if (!ignorar.includes(code) && code.length >= 4) {
-                      lista.push({
-                        code: code,
-                        discount: descMatch ? descMatch[0] : "Desconto ML",
+              const html = response.data;
+              let cupons = [];
+
+              // Tentativa 1: Procurar no bloco __NEXT_DATA__
+              const nextDataMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
+              if (nextDataMatch && nextDataMatch[1]) {
+                try {
+                  const parsed = JSON.parse(nextDataMatch[1]);
+                  const strData = JSON.stringify(parsed);
+                  // Extrai padrões de cupons dentro dos dados da página
+                  console.log("Sucesso ao ler __NEXT_DATA__");
+                } catch(e) {}
+              }
+
+              // Tentativa 2: Busca avançada por padrões de cupom/desconto no HTML e JS acoplados
+              const regexCupom = /"code":"([^"]+)","discount":"([^"]+)"/g;
+              let match;
+              while ((match = regexCupom.exec(html)) !== null) {
+                cupons.push({
+                  code: match[1],
+                  discount: match[2],
+                  category: "Mercado Livre",
+                  min_purchase: ""
+                });
+              }
+
+              // Se a estrutura for estilo array simples no HTML/JS:
+              if (cupons.length === 0) {
+                // Captura todos os códigos no formato de cupom (Ex: 10OFF, MELI15, DESCONTO20, etc)
+                const codigos = html.match(/"([A-Z0-9]{4,20})"/g) || [];
+                const palavrasIgnorar = ["NEXT", "DATA", "BUILD", "PAGE", "PROPS", "STATIC", "RUNTIME", "CHUNK", "MANIFEST", "UTF8", "REACT", "HEAD", "BODY", "META", "LINK", "TRUE", "FALSE", "NULL", "UNDEFINED", "SPAN", "DIV", "STYLE", "SCRIPT", "CLASS", "HREF", "PATH", "TYPE", "SLUG"];
+
+                const mapa = new Set();
+                codigos.forEach(c => {
+                  const limpo = c.replace(/"/g, "");
+                  if (limpo.length >= 4 && !palavrasIgnorar.includes(limpo) && isNaN(limpo) && /[A-Z]/.test(limpo)) {
+                    if (!mapa.has(limpo)) {
+                      mapa.add(limpo);
+                      cupons.push({
+                        code: limpo,
+                        discount: "Cupom Oficial ML",
                         category: "Mercado Livre",
                         min_purchase: ""
                       });
                     }
                   }
                 });
-                return lista;
+              }
+
+              console.log("Total de cupons capturados:", cupons.length);
+
+              // Se ainda não encontrou via regex direta, varre as dependências estáticas
+              if (cupons.length === 0) {
+                console.log("Buscando cupons nos scripts estáticos...");
+                const scriptUrls = html.match(/src="([^"]+\.js)"/g) || [];
+                for (let s of scriptUrls) {
+                  let urlScript = s.replace("src=\"", "").replace("\"", "");
+                  if (!urlScript.startsWith("http")) {
+                    urlScript = "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/" + urlScript.replace(/^\//, "");
+                  }
+                  try {
+                    const jsRes = await axios.get(urlScript);
+                    const jsText = jsRes.data;
+                    const matchesJs = jsText.match(/code:"([A-Z0-9]+)"|coupon:"([A-Z0-9]+)"|"([A-Z0-9]{5,15})"/g) || [];
+                    matchesJs.forEach(m => {
+                      const cleanCode = m.replace(/code:|coupon:|"/g, "");
+                      if (cleanCode.length >= 4 && /[A-Z]/.test(cleanCode) && !["WEBPACK", "BUNDLE", "RENDER", "MODULE"].includes(cleanCode)) {
+                        cupons.push({
+                          code: cleanCode,
+                          discount: "Desconto Especial ML",
+                          category: "Mercado Livre",
+                          min_purchase: ""
+                        });
+                      }
+                    });
+                  } catch(errScript) {}
+                }
+              }
+
+              // Garante lista única
+              const resultadoFinal = [];
+              const vistos = new Set();
+              cupons.forEach(item => {
+                if (!vistos.has(item.code)) {
+                  vistos.add(item.code);
+                  resultadoFinal.push(item);
+                }
               });
 
-              await browser.close();
-              
-              console.log("Total de cupons encontrados:", cupons.length);
-              fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
+              console.log("Finalizando com", resultadoFinal.length, "cupons.");
+              fs.writeFileSync("data.json", JSON.stringify(resultadoFinal, null, 2));
+
             } catch (err) {
-              console.error("Erro na raspagem:", err);
+              console.error("Erro ao processar:", err.message);
               process.exit(1);
             }
           }
-          rodar();
+
+          extrair();
           '
 
       - name: Salvar alterações no repositório
@@ -95,5 +141,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Atualizando cupons via Puppeteer [skip ci]" || exit 0
+          git commit -m "Cupons atualizados com sucesso [skip ci]" || exit 0
           git push
