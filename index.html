@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cupons Mercado Livre | Atualizados</title>
-    <!-- CSS Original para manter o visual exato -->
+    <title>Cupons Mercado Livre</title>
+    <!-- Carrega o CSS original -->
     <link rel="stylesheet" href="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/style.css">
-    <style>
-        body { background-color: #f5f5f5; margin: 0; padding: 0; }
-        .afiliado-bar {
-            background: #ffe600;
-            color: #2d3277;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-family: sans-serif;
-            font-size: 14px;
-        }
-    </style>
 </head>
 <body>
-
-    <div class="afiliado-bar">
-        ⚡ Cupons atualizados do Mercado Livre — Clique em qualquer cupom para garantir o desconto!
-    </div>
-
-    <!-- Div principal do aplicativo -->
     <div id="app"></div>
 
     <script>
-        // 1. COLOQUE O SEU LINK DE AFILIADO AQUI
+        // 1. SEU LINK DE AFILIADO AQUI
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Intercepta todos os cliques na página para redirecionar de forma segura
+        // 2. Intercepta os cliques para mandar pro seu link de afiliado
         document.addEventListener('click', function(e) {
-            const target = e.target.closest('a, button, .card-cupom');
+            const target = e.target.closest('a, button');
             if (target) {
-                // Abre o seu link de afiliado do Mercado Livre
+                // Impede a navegação padrão e abre seu link de afiliado
+                e.preventDefault();
                 window.open(MEU_LINK_AFILIADO, '_blank');
             }
         }, true);
+
+        // 3. Modifica a busca de dados para apontar diretamente para o servidor original
+        const originalFetch = window.fetch;
+        window.fetch = function() {
+            let url = arguments[0];
+            if (typeof url === 'string' && !url.startsWith('http')) {
+                // Se o script tentar buscar um arquivo local, redireciona para o GitHub do Mercado Livre
+                arguments[0] = 'https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/' + url.replace(/^\//, '');
+            }
+            return originalFetch.apply(this, arguments);
+        };
     </script>
 
-    <!-- Puxa os scripts em modo CORS liberado para carregar a lista normalmente -->
-    <script crossorigin="anonymous" src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/script.js"></script>
+    <!-- Carrega o script oficial de cupons -->
+    <script src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/script.js"></script>
 </body>
 </html>
