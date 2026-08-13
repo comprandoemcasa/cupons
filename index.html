@@ -210,29 +210,10 @@
     <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
-        // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // URL do CDN oficial do jsDelivr (Lê o repositório original do GitHub sem bloqueio de CORS)
-        const URL_OFICIAL_JSON = "https://cdn.jsdelivr.net/gh/afiliadosmercadolivre/cupons-afiliadosmercadolivre@main/data.json";
-
-        async function carregarCuponsOficiais() {
-            try {
-                // Adiciona um parâmetro dinâmico para garantir que sempre busque a versão atualizada
-                const resposta = await fetch(`${URL_OFICIAL_JSON}?t=${Date.now()}`);
-                if (!resposta.ok) throw new Error("Falha no carregamento");
-                
-                const cupons = await resposta.json();
-                renderizarCupons(cupons);
-            } catch (erro) {
-                console.error("Erro ao carregar dados oficiais:", erro);
-                document.getElementById('listaCupons').innerHTML = 
-                    '<p style="text-align:center; padding: 20px; color: #666;">Não foi possível carregar os cupons no momento. Atualize a página em instantes.</p>';
-            }
-        }
-
-        // Renderiza os dados reais vindos do arquivo oficial
-        function renderizarCupons(lista) {
+        // Função universal para renderizar qualquer formato de dado recebido
+        function processarEDesenhar(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
 
@@ -242,11 +223,10 @@
             }
 
             lista.forEach(item => {
-                // Pega os campos exatos do JSON oficial do Mercado Livre
-                const codigo = item.code || item.codigo || item.nome || 'CUPOM';
+                const codigo = item.code || item.codigo || item.nome || item.coupon || 'CUPOM';
                 const desconto = item.discount || item.desconto || 'Desconto Especial';
                 const categoria = item.category || item.categoria || 'Geral';
-                const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
+                const minimo = item.min_purchase || item.minimo || item.compra_minima || item.min || '';
 
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
@@ -271,7 +251,6 @@
             });
         }
 
-        // Função de Copiar Cupom
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
                 const toast = document.getElementById('toastAviso');
@@ -279,9 +258,26 @@
                 setTimeout(() => { toast.style.display = 'none'; }, 2500);
             });
         }
+    </script>
 
-        // Executa a busca real assim que a página abre
-        carregarCuponsOficiais();
+    <!-- Carregamento via script injetado para burlar a trava de CORS de vez -->
+    <script>
+        (function() {
+            const script = document.createElement('script');
+            // Carrega a base via endpoint seguro de dados
+            script.src = "https://api.allorigins.win/get?url=" + encodeURIComponent("https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json") + "&callback=callbackCupons";
+            
+            window.callbackCupons = function(response) {
+                try {
+                    const dados = JSON.parse(response.contents);
+                    processarEDesenhar(dados);
+                } catch(e) {
+                    console.error("Erro no parse:", e);
+                }
+            };
+
+            document.body.appendChild(script);
+        })();
     </script>
 </body>
 </html>
