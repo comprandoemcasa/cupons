@@ -175,6 +175,9 @@
             display: none;
             z-index: 1000;
         }
+
+        /* Oculta os elementos do script antigo se tentarem aparecer */
+        #coupons-container, .notice { display: none !important; }
     </style>
 </head>
 <body>
@@ -197,7 +200,7 @@
 
         <!-- Lista Onde Aparecem os Cupons -->
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 20px;">Carregando todos os cupons atualizados...</p>
+            <p style="text-align: center; color: #666; padding: 20px;">Carregando todos os cupons...</p>
         </div>
 
         <!-- Aviso Limpo no Rodapé -->
@@ -207,61 +210,45 @@
 
     </div>
 
+    <!-- Divs invisíveis necessárias para enganar o script original -->
+    <div id="coupons-container"></div>
+
     <!-- Notificação Flutuante -->
     <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
-
         let todosOsCupons = [];
 
-        // Busca a lista oficial ignorando trava de CORS
-        async function carregarCupons() {
-            try {
-                const targetUrl = 'https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json';
-                const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`);
-                const data = await res.json();
-                const dados = JSON.parse(data.contents);
-                
-                // Mapeia os dados recebidos do JSON oficial
-                todosOsCupons = dados.map(item => ({
-                    code: item.code || item.codigo || item.nome || 'CUPOM',
-                    discount: item.discount || item.desconto || 'Desconto',
-                    category: item.category || item.categoria || 'Geral',
-                    min: item.min_purchase || item.minimo || item.compra_minima || ''
-                }));
-
-                renderizarCupons(todosOsCupons);
-            } catch (err) {
-                console.error("Erro ao carregar:", err);
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar cupons. Atualize a página.</p>';
-            }
-        }
-
-        // Desenha os cards na tela
+        // Função de renderizar os cards com seu layout
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
 
-            if (lista.length === 0) {
+            if (!lista || lista.length === 0) {
                 container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado.</p>';
                 return;
             }
 
             lista.forEach(item => {
+                const codigo = item.code || item.codigo || item.nome || 'CUPOM';
+                const desconto = item.discount || item.desconto || 'Desconto';
+                const categoria = item.category || item.categoria || 'Geral';
+                const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
+
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
                 card.innerHTML = `
                     <div class="cupom-info">
-                        <h3>${item.code} <span class="badge-desconto">${item.discount}</span></h3>
+                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
                         <div class="cupom-detalhes">
-                            📌 Categoria: <b>${item.category}</b><br>
-                            ${item.min ? '💰 Compra mínima: R$ ' + item.min : ''}
+                            📌 Categoria: <b>${categoria}</b><br>
+                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
                         </div>
                     </div>
                     <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${item.code}')">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
                             ✂️ COPIAR CUPOM
                         </button>
                         <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
@@ -273,7 +260,7 @@
             });
         }
 
-        // Função de Copiar Cupom
+        // Função para copiar cupom
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
                 const toast = document.getElementById('toastAviso');
@@ -285,15 +272,41 @@
         // Filtro da busca
         function filtrarCupons() {
             const termo = document.getElementById('inputBusca').value.toLowerCase();
-            const filtrados = todosOsCupons.filter(c => 
-                c.code.toLowerCase().includes(termo) ||
-                c.category.toLowerCase().includes(termo)
-            );
+            const filtrados = todosOsCupons.filter(c => {
+                const code = (c.code || c.codigo || '').toLowerCase();
+                const cat = (c.category || c.categoria || '').toLowerCase();
+                return code.includes(termo) || cat.includes(termo);
+            });
             renderizarCupons(filtrados);
         }
 
-        // Carrega inicialmente
-        carregarCupons();
+        // Intercepta o carregamento de dados do script oficial
+        const observer = new MutationObserver(() => {
+            const containerOriginal = document.getElementById('coupons-container');
+            if (containerOriginal && containerOriginal.children.length > 0) {
+                // Se o script antigo renderizou algo, pega os dados
+                if (window.couponsData || window.coupons) {
+                    todosOsCupons = window.couponsData || window.coupons;
+                    renderizarCupons(todosOsCupons);
+                    observer.disconnect();
+                }
+            }
+        });
+
+        observer.observe(document.getElementById('coupons-container'), { childList: true, subtree: true });
+
+        // Fallback por requisição direta ao JSON oficial
+        fetch('https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json')
+            .then(r => r.json())
+            .then(data => {
+                todosOsCupons = data;
+                renderizarCupons(todosOsCupons);
+            })
+            .catch(() => {});
     </script>
+
+    <!-- Carrega o script oficial do repositório pai -->
+    <script src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/js/app.js"></script>
+
 </body>
 </html>
