@@ -20,7 +20,7 @@ jobs:
       - name: Instalar dependências
         run: npm install axios cheerio
 
-      - name: Extrair Cupons e Regras Exatas
+      - name: Extrair Cupons com Dados Reais
         run: |
           node -e '
           const axios = require("axios");
@@ -29,123 +29,120 @@ jobs:
 
           async function extrair() {
             try {
-              console.log("Baixando HTML da fonte...");
+              console.log("Acessando a página...");
               const { data: html } = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
                 headers: {
-                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                 }
               });
 
               const $ = cheerio.load(html);
               const cupons = [];
 
-              // Tenta extrair primeiro do JSON global do NextJS com regex profundo
-              const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
+              // Método 1: Extrair via JSON do NextJS se presente
+              const nextDataMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
               
-              if (match && match[1]) {
+              if (nextDataMatch && nextDataMatch[1]) {
                 try {
-                  const jsonData = JSON.parse(match[1]);
+                  const json = JSON.parse(nextDataMatch[1]);
                   
-                  function buscarCupons(obj) {
+                  function encontrarObjetosCupons(obj) {
                     if (!obj || typeof obj !== "object") return;
                     
                     if (Array.isArray(obj)) {
-                      obj.forEach(item => buscarCupons(item));
+                      obj.forEach(item => encontrarObjetosCupons(item));
                       return;
                     }
 
-                    // Se encontrou um objeto de cupom
-                    if (obj.code || obj.codigo || obj.couponCode) {
-                      const code = obj.code || obj.codigo || obj.couponCode;
-                      if (typeof code === "string" && code.length >= 3) {
-                        
-                        let desc = obj.discount || obj.desconto || obj.discountValue || "";
-                        if (obj.discountType === "percentage" || obj.discountType === "%") {
-                          desc = `${obj.discountValue || desc}% OFF`;
-                        } else if (obj.discountType === "fixed" || obj.discountType === "currency") {
-                          desc = `R$ ${obj.discountValue || desc} OFF`;
-                        }
+                    // Identifica se é uma estrutura de cupom
+                    const code = obj.code || obj.coupon || obj.codigo;
+                    if (code && typeof code === "string" && code.length >= 3) {
+                      
+                      let desc = "";
+                      if (obj.discount) desc = String(obj.discount);
+                      else if (obj.discountValue) {
+                        desc = (obj.discountType === "percentage" || String(obj.discountValue).includes("%")) 
+                          ? `${obj.discountValue}%` 
+                          : `R$${obj.discountValue}`;
+                      } else if (obj.value) desc = String(obj.value);
 
-                        cupons.push({
-                          code: code.trim().toUpperCase(),
-                          discount: desc || "10% OFF",
-                          category: obj.category || obj.categoria || "Mercado Livre",
-                          min_purchase: obj.minPurchase || obj.compraMinima || obj.min_purchase || "R$ 129",
-                          max_discount: obj.maxDiscount || obj.descontoMaximo || obj.max_discount || "R$ 150",
-                          period: obj.period || obj.periodo || obj.expirationDate || ""
-                        });
-                      }
+                      if (desc && !desc.includes("OFF")) desc += " OFF";
+
+                      let min = obj.minPurchase || obj.min_purchase || obj.compraMinima || obj.min || "";
+                      if (min && !String(min).includes("R$")) min = `R$ ${min}`;
+
+                      let max = obj.maxDiscount || obj.max_discount || obj.descontoMaximo || obj.max || "";
+                      if (max && !String(max).includes("R$")) max = `R$ ${max}`;
+
+                      cupons.push({
+                        code: code.trim().toUpperCase(),
+                        discount: desc || "Desconto",
+                        category: obj.category || obj.categoria || "OUTROS",
+                        min_purchase: min || "Sem Mínimo",
+                        max_discount: max || "Sem limite"
+                      });
                     }
 
                     for (let k in obj) {
-                      if (typeof obj[k] === "object") buscarCupons(obj[k]);
+                      if (typeof obj[k] === "object") encontrarObjetosCupons(obj[k]);
                     }
                   }
 
-                  buscarCupons(jsonData);
+                  encontrarObjetosCupons(json);
                 } catch (e) {
-                  console.log("Erro ao parsear Next Data JSON:", e.message);
+                  console.log("Aviso ao parsear JSON:", e.message);
                 }
               }
 
-              // Se a varredura JSON não pegou regras completas, faz a varredura visual no HTML
-              if (cupons.length === 0 || !cupons[0].min_purchase) {
-                console.log("Executando varredura HTML por texto...");
-                
-                // Varre o texto bruto procurando blocos de cupons
-                const cupomRegex = /([A-Z0-9_-]{4,20})\s*.*?(10%|\d+%\s*OFF|\d+\$\s*OFF).*?(R\$\s*\d+).*?(R\$\s*\d+)/gi;
-                
-                // Extrai via tags HTML
-                $("*").each((i, el) => {
-                  const text = $(el).text();
-                  if (text.includes("COMPRA MÍNIMA") || text.includes("DESCONTO MÁX")) {
-                    const codeMatch = text.match(/([A-Z0-9_]{4,20})/);
-                    const descMatch = text.match(/(\d+%\s*OFF|\d+%\s*|R\$\s*\d+)/i);
-                    const minMatch = text.match(/COMPRA MÍNIMA\s*(R\$\s*\d+|\d+)/i);
-                    const maxMatch = text.match(/DESCONTO MÁX\.?\s*(R\$\s*\d+|\d+)/i);
+              // Método 2: Scraping regex no HTML bruto para capturar blocos visuais reais
+              // Procura padrões de código de cupom acompanhados por suas regras
+              const regexBloco = /([A-Z0-9_-]{4,25})[\s\S]*?((\d+%\s*OFF|\d+%\s*|R\$\s*\d+[\s\S]*?OFF))[\s\S]*?COMPRA MÍNIMA[\s\S]*?(R\$\s*\d+|\d+)[\s\S]*?DESCONTO MÁX\.?[\s\S]*?(R\$\s*\d+|\d+)/gi;
 
-                    if (codeMatch && codeMatch[1]) {
-                      cupons.push({
-                        code: codeMatch[1].toUpperCase(),
-                        discount: descMatch ? descMatch[1].trim() : "10% OFF",
-                        category: "OUTROS",
-                        min_purchase: minMatch ? minMatch[1].trim() : "R$129",
-                        max_discount: maxMatch ? maxMatch[1].trim() : "R$150",
-                        period: "Expira Hoje"
-                      });
-                    }
-                  }
-                });
+              let m;
+              while ((m = regexBloco.exec(html)) !== null) {
+                const code = m[1].toUpperCase();
+                // Evita palavras reservadas
+                if (!["COMPRA", "DESCONTO", "PERIODO", "COPIAR", "OUTROS", "MERCADO"].includes(code)) {
+                  let desc = m[2].replace(/\s+/g, ' ').trim();
+                  if (!desc.includes("OFF")) desc += " OFF";
+
+                  let min = m[4].trim();
+                  if (!min.startsWith("R$")) min = "R$ " + min;
+
+                  let max = m[5].trim();
+                  if (!max.startsWith("R$")) max = "R$ " + max;
+
+                  cupons.push({
+                    code: code,
+                    discount: desc,
+                    category: "OUTROS",
+                    min_purchase: min,
+                    max_discount: max
+                  });
+                }
               }
 
-              // Remover duplicados mantendo os mais completos
+              // Limpeza e deduplicação mantendo as informações mais completas
               const mapa = new Map();
               for (const c of cupons) {
-                if (!mapa.has(c.code) || (c.min_purchase && mapa.get(c.code).min_purchase === "Sem Mínimo")) {
+                if (!mapa.has(c.code)) {
                   mapa.set(c.code, c);
+                } else {
+                  const existente = mapa.get(c.code);
+                  if (existente.discount === "Desconto" || existente.min_purchase === "Sem Mínimo") {
+                    mapa.set(c.code, c);
+                  }
                 }
               }
 
-              let finalCupons = Array.from(mapa.values());
+              const resultado = Array.from(mapa.values());
+              console.log("Cupons capturados com sucesso:", resultado);
 
-              // Fallback para garantir que TECHEMCASA venha com a regra correta se a API estiver oculta
-              finalCupons = finalCupons.map(c => {
-                if (c.code === "TECHEMCASA") {
-                  return {
-                    code: "TECHEMCASA",
-                    discount: "10% OFF",
-                    category: "OUTROS",
-                    min_purchase: "R$ 129",
-                    max_discount: "R$ 150",
-                    period: "Expira hoje"
-                  };
-                }
-                return c;
-              });
-
-              console.log("Cupons Finais Processados:", JSON.stringify(finalCupons, null, 2));
-
-              fs.writeFileSync("data.json", JSON.stringify(finalCupons, null, 2));
+              if (resultado.length > 0) {
+                fs.writeFileSync("data.json", JSON.stringify(resultado, null, 2));
+              } else {
+                console.log("Nenhum cupom novo encontrado, mantendo anterior.");
+              }
 
             } catch (err) {
               console.error("Erro na extração:", err.message);
@@ -156,10 +153,10 @@ jobs:
           extrair();
           '
 
-      - name: Salvar alterações
+      - name: Salvar alterações no repositório
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Regras completas de cupons atualizadas [skip ci]" || exit 0
+          git commit -m "Cupons atualizados com valores dinâmicos [skip ci]" || exit 0
           git push
