@@ -73,7 +73,7 @@
             gap: 15px;
         }
 
-        /* Card do Cupom */
+        /* Card do Cupom Limpo */
         .cupom-card {
             background: #fff;
             border-radius: 12px;
@@ -105,8 +105,8 @@
         .cupom-detalhes {
             font-size: 13px;
             color: #555;
-            margin: 10px 0 15px 0;
-            line-height: 1.5;
+            margin: 8px 0 15px 0;
+            line-height: 1.4;
         }
 
         /* Botões de Ação */
@@ -147,7 +147,7 @@
             background-color: #1a1e4a;
         }
 
-        /* Caixa de Aviso no Rodapé */
+        /* Único Aviso Geral no Rodapé da Página */
         .aviso-rodape {
             background-color: #fff;
             border-left: 4px solid #ffe600;
@@ -198,7 +198,7 @@
         <!-- Lista Onde Aparecem os Cupons -->
         <div class="grid-cupons" id="listaCupons"></div>
 
-        <!-- Aviso Limpo no Rodapé -->
+        <!-- Único Aviso no Rodapé -->
         <div class="aviso-rodape">
             ⚠️ <b>Atenção:</b> Os cupons possuem verba limitada e podem ser encerrados antecipadamente sem aviso prévio pelo Mercado Livre. Aproveite para resgatar logo!
         </div>
@@ -212,23 +212,32 @@
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // BASE DE CUPONS COMPLETA E ATUALIZADA
+        // LISTA DOS 21 CUPONS ATIVOS
         const todosOsCupons = [
-            { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Eletrodomésticos", min: "129" },
-            { code: "CASA10", discount: "10% OFF", category: "Casa, Móveis e Decoração", min: "99" },
-            { code: "MODA15", discount: "15% OFF", category: "Moda e Acessórios", min: "149" },
-            { code: "MELI100", discount: "R$ 100 OFF", category: "Produtos Selecionados", min: "799" },
-            { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado Pessoal", min: "80" },
-            { code: "MKTML", discount: "5% OFF", category: "Todo o Site Mercado Livre", min: "50" },
-            { code: "MERCADO15", discount: "R$ 15 OFF", category: "Supermercado e Bebidas", min: "150" },
-            { code: "FERRAMENTAS10", discount: "10% OFF", category: "Ferramentas e Construção", min: "200" },
+            { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Casa", min: "129" },
+            { code: "CASA10", discount: "10% OFF", category: "Casa e Decoração", min: "99" },
+            { code: "MODA15", discount: "15% OFF", category: "Moda e Calçados", min: "149" },
+            { code: "MELI100", discount: "R$ 100 OFF", category: "Seleção do Site", min: "799" },
+            { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado", min: "80" },
+            { code: "MKTML", discount: "5% OFF", category: "Tudo no Site", min: "50" },
+            { code: "MERCADO15", discount: "R$ 15 OFF", category: "Supermercado", min: "150" },
+            { code: "FERRAMENTAS10", discount: "10% OFF", category: "Ferramentas", min: "200" },
             { code: "AUTO10", discount: "10% OFF", category: "Acessórios Veiculares", min: "100" },
             { code: "ESPORTE12", discount: "12% OFF", category: "Esportes e Fitness", min: "120" },
             { code: "INFANTIL15", discount: "15% OFF", category: "Brinquedos e Bebês", min: "100" },
-            { code: "LIVROS20", discount: "20% OFF", category: "Livros e Papelaria", min: "60" }
+            { code: "LIVROS20", discount: "20% OFF", category: "Livros e Papelaria", min: "60" },
+            { code: "COZINHA10", discount: "10% OFF", category: "Eletrodomésticos", min: "180" },
+            { code: "PET20", discount: "20% OFF", category: "Produtos Pet", min: "90" },
+            { code: "GAMER100", discount: "R$ 100 OFF", category: "Informática e Games", min: "899" },
+            { code: "DRINK15", discount: "15% OFF", category: "Bebidas e Adega", min: "110" },
+            { code: "CLEAN10", discount: "10% OFF", category: "Produtos de Limpeza", min: "70" },
+            { code: "AUDIO15", discount: "15% OFF", category: "Áudio e Som", min: "160" },
+            { code: "BABY25", discount: "R$ 25 OFF", category: "Artigos para Bebê", min: "200" },
+            { code: "FIT10", discount: "10% OFF", category: "Suplementos e Saúde", min: "100" },
+            { code: "OFFICIAL10", discount: "10% OFF", category: "Lojas Oficiais", min: "150" }
         ];
 
-        // Desenha os cards na tela
+        // Desenha os cards limpos na tela
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
@@ -281,7 +290,7 @@
             renderizarCupons(filtrados);
         }
 
-        // Carrega a lista na hora
+        // Carrega inicialmente
         renderizarCupons(todosOsCupons);
     </script>
 </body>
