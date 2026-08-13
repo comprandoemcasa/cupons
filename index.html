@@ -4,75 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cupons Mercado Livre | Comprando em Casa</title>
+    <!-- Estilo Oficial dos Cupons -->
+    <link rel="stylesheet" href="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Esconde o botão 'Ganhos Extras' e links indesejados do topo */
+        a[href*="ganhosextras"], 
+        a[href*="telegram"], 
+        .top-bar-extra,
+        header .flex > a:last-child { 
+            display: none !important; 
         }
-        body, html {
-            width: 100%;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #0d0068;
-        }
-        
-        /* Barra Fixa de Alerta e Comissão no Topo */
-        .banner-afiliado {
+
+        /* Sua barra fixa no topo */
+        .minha-barra {
             background-color: #ffe600;
             color: #2d3277;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             font-weight: bold;
+            font-family: sans-serif;
             font-size: 14px;
-            box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 999;
+            z-index: 9999;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .banner-afiliado a {
-            background-color: #2d3277;
-            color: #ffffff;
-            padding: 6px 14px;
-            margin-left: 8px;
+        .minha-barra a {
+            background: #2d3277;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 15px;
             text-decoration: none;
-            border-radius: 20px;
-            display: inline-block;
-            transition: 0.3s;
-        }
-
-        /* Container ajustado para rolagem perfeita e corte da barra indesejada */
-        .iframe-container {
-            margin-top: 45px;
-            width: 100%;
-            height: calc(100vh - 45px);
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Iframe ajustado para rolar de ponta a ponta e sem o botão Ganhos Extras */
-        iframe {
-            width: 100%;
-            height: calc(100% + 55px);
-            border: none;
-            margin-top: -55px; /* Esconde o topo com "Ganhos Extras" */
+            margin-left: 8px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua barra fixada com o seu link principal -->
-    <div class="banner-afiliado">
-        🔥 Pegue o cupom abaixo e navegue pelas nossas listas oficiais! 
-        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">MINHAS LISTAS ML 🛍️</a>
+    <div class="minha-barra">
+        🔥 Cupons Atualizados! Confira todas as nossas listas oficiais:
+        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">VER MINHAS LISTAS 🛍️</a>
     </div>
 
-    <div class="iframe-container">
-        <!-- O iframe agora roda com interatividade TOTAL e rolagem liberada -->
-        <iframe id="siteCupons" src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/"></iframe>
-    </div>
+    <!-- Áreas onde os cupons serão desenhados -->
+    <div id="app"></div>
 
+    <script>
+        // SEU LINK DE AFILIADO DEFINITIVO
+        const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
+
+        // Intercepta de forma global na fase de captura
+        window.addEventListener('click', function(e) {
+            // Procura o elemento mais próximo que seja um link, botão ou container de cupom
+            const elemento = e.target.closest('a, button, [role="button"]');
+            
+            if (elemento) {
+                // Se for um filtro da barra de categorias/busca, ignora para deixar filtrar na tela
+                const eFiltro = elemento.closest('.filters, .category-filter, nav') || 
+                                elemento.tagName === 'INPUT' || 
+                                elemento.classList.contains('filter-btn');
+
+                if (eFiltro) {
+                    return; // Permite a filtragem normal da tela
+                }
+
+                // Para QUALQUER outro clique (incluindo o 'Ver lista', copiar cupom, card, etc)
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(MEU_LINK_AFILIADO, '_blank');
+            }
+        }, true);
+
+        // REDIRECIONA AS REQUISIÇÕES DOS CUPONS PARA O SERVIDOR ORIGINAL (CORS PROXY)
+        const fetchOriginal = window.fetch;
+        window.fetch = function(url, options) {
+            if (typeof url === 'string' && (url.endsWith('.json') || !url.startsWith('http'))) {
+                url = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/' + url.replace(/^\//, ''));
+            }
+            return fetchOriginal(url, options);
+        };
+    </script>
+
+    <!-- Carrega o script nativo que monta a página de cupons -->
+    <script src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/script.js"></script>
 </body>
 </html>
