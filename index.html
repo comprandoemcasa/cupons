@@ -6,26 +6,16 @@
     <title>Cupons Mercado Livre | Comprando em Casa</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f6f9; color: #333; padding-bottom: 40px; }
-        .header { background-color: #ffe600; color: #2d3277; text-align: center; padding: 25px 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .header h1 { font-size: 24px; margin-bottom: 12px; font-weight: 800; }
-        .mensagens-topo { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-        .mensagem-apoio { background-color: #ffffff; color: #2d3277; display: inline-block; padding: 8px 18px; border-radius: 25px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
-        .badge-atualizacao { background-color: #2d3277; color: #ffffff; font-size: 12px; font-weight: bold; padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
-        .container { max-width: 800px; margin: 25px auto 20px auto; padding: 0 15px; }
-        .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .cupom-card { background: #fff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; border-left: 6px solid #ffe600; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .cupom-info h3 { font-size: 20px; color: #2d3277; margin-bottom: 5px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .badge-desconto { background-color: #ff3b30; color: #fff; font-size: 12px; padding: 3px 8px; border-radius: 12px; font-weight: bold; }
-        .cupom-detalhes { font-size: 13px; color: #555; margin: 8px 0 15px 0; line-height: 1.4; }
-        .botoes-grupo { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { flex: 1; min-width: 140px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-        .btn-copiar { background-color: #e8ebf5; color: #2d3277; }
-        .btn-copiar:hover { background-color: #d5dceb; }
-        .btn-ir { background-color: #2d3277; color: #ffffff; }
-        .btn-ir:hover { background-color: #1a1e4a; }
-        .aviso-rodape { background-color: #fff; border-left: 4px solid #ffe600; padding: 15px; border-radius: 8px; margin-top: 25px; font-size: 13px; color: #555; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; z-index: 1000; }
+        body, html { height: 100%; width: 100%; overflow: hidden; background-color: #f4f6f9; }
+        
+        .header { background-color: #ffe600; color: #2d3277; text-align: center; padding: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header h1 { font-size: 22px; margin-bottom: 8px; font-weight: 800; }
+        .mensagens-topo { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .mensagem-apoio { background-color: #ffffff; color: #2d3277; display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.08); }
+        .badge-atualizacao { background-color: #2d3277; color: #ffffff; font-size: 11px; font-weight: bold; padding: 4px 12px; border-radius: 20px; }
+
+        .frame-container { width: 100%; height: calc(100vh - 110px); border: none; }
+        iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
@@ -34,7 +24,7 @@
         <h1>🛍️ Cupons Mercado Livre</h1>
         <div class="mensagens-topo">
             <div class="badge-atualizacao">
-                🔄 Lista de cupons atualizada de hora em hora
+                🔄 Lista de cupons atualizada em tempo real
             </div>
             <div class="mensagem-apoio">
                 🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
@@ -42,77 +32,9 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
-        </div>
-
-        <div class="aviso-rodape">
-            ⚠️ <b>Atenção:</b> Os cupons possuem verba limitada e podem ser encerrados antecipadamente sem aviso prévio pelo Mercado Livre. Aproveite para resgatar logo!
-        </div>
+    <div class="frame-container">
+        <iframe src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/" title="Cupons Mercado Livre"></iframe>
     </div>
 
-    <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
-
-    <script>
-        const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
-
-        async function carregarCupons() {
-            try {
-                const res = await fetch("./data.json?v=" + Date.now());
-                if (!res.ok) throw new Error("Aguardando robô");
-
-                const lista = await res.json();
-                if (Array.isArray(lista) && lista.length > 0) {
-                    renderizarCupons(lista);
-                } else {
-                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Atualizando lista de cupons... Tente novamente em 1 minuto.</p>';
-                }
-            } catch (err) {
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Gerando lista de cupons... Execute a Action no GitHub para rodar agora!</p>';
-            }
-        }
-
-        function renderizarCupons(lista) {
-            const container = document.getElementById('listaCupons');
-            container.innerHTML = '';
-
-            lista.forEach(item => {
-                const codigo = item.code || 'CUPOM';
-                const desconto = item.discount || 'Desconto ML';
-                const categoria = item.category || 'Mercado Livre';
-
-                const card = document.createElement('div');
-                card.className = 'cupom-card';
-                card.innerHTML = `
-                    <div class="cupom-info">
-                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
-                        <div class="cupom-detalhes">
-                            📌 Categoria: <b>${categoria}</b>
-                        </div>
-                    </div>
-                    <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
-                            ✂️ COPIAR CUPOM
-                        </button>
-                        <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
-                            🛍️ IR PRO MERCADO LIVRE
-                        </a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function copiarCodigo(texto) {
-            navigator.clipboard.writeText(texto).then(() => {
-                const toast = document.getElementById('toastAviso');
-                toast.style.display = 'block';
-                setTimeout(() => { toast.style.display = 'none'; }, 2500);
-            });
-        }
-
-        carregarCupons();
-    </script>
 </body>
 </html>
