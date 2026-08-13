@@ -2,8 +2,8 @@ name: Atualizar Cupons de Hora em Hora
 
 on:
   schedule:
-    - cron: '0 * * * *' # Roda a cada hora
-  workflow_dispatch: # Permite rodar manualmente
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,9 +18,9 @@ jobs:
           node-version: '20'
 
       - name: Instalar dependências
-        run: npm install axios cheerio
+        run: npm install axios
 
-      - name: Raspar cupons reais do site oficial
+      - name: Extrair lista de cupons
         run: |
           node -e '
           const axios = require("axios");
@@ -30,24 +30,29 @@ jobs:
             try {
               const res = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/index.html");
               const html = res.data;
-              let cupons = [];
+              let cuponsEncontrados = [];
 
-              // Procura o trecho de script onde o JSON original dos cupons fica armazenado
-              const match = html.match(/const\s+cuponsData\s*=\s*(\[[\s\S]*?\]);/);
-              if (match && match[1]) {
-                cupons = JSON.parse(match[1]);
-              } else {
-                // Busca alternativa em caso de formato variado
-                const matchAlt = html.match(/\[\s*\{\s*"code"[\s\S]*?\}\s*\]/);
-                if (matchAlt) {
-                  cupons = JSON.parse(matchAlt[0]);
-                }
+              // Encontra todas as estruturas JSON [ { ... } ] dentro do código-fonte da página
+              const jsonMatches = html.match(/\[\s*\{[\s\S]*?\}\s*\]/g) || [];
+              
+              for (const matchStr of jsonMatches) {
+                try {
+                  const parsed = JSON.parse(matchStr);
+                  // Verifica se é uma lista válida que contém objetos com código/cupom
+                  if (Array.isArray(parsed) && parsed.length > 0) {
+                    const emItem = parsed[0];
+                    if (emItem.code || emItem.codigo || emItem.coupon || emItem.desconto) {
+                      cuponsEncontrados = parsed;
+                      break;
+                    }
+                  }
+                } catch(e) {}
               }
 
-              fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
-              console.log("Salvo " + cupons.length + " cupons reais com sucesso!");
+              console.log("Cupons encontrados:", cuponsEncontrados.length);
+              fs.writeFileSync("data.json", JSON.stringify(cuponsEncontrados, null, 2));
             } catch (err) {
-              console.error("Erro ao extrair:", err);
+              console.error("Erro na busca:", err);
               process.exit(1);
             }
           }
@@ -59,5 +64,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Atualizando cupons reais [skip ci]" || exit 0
+          git commit -m "Atualizando cupons [skip ci]" || exit 0
           git push
