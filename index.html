@@ -7,7 +7,7 @@
     <!-- Estilo Oficial dos Cupons -->
     <link rel="stylesheet" href="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/style.css">
     <style>
-        /* Esconde o botão 'Ganhos Extras' e links indesejados do topo */
+        /* Esconde o botão 'Ganhos Extras' e links indesejados */
         a[href*="ganhosextras"], 
         a[href*="telegram"], 
         .top-bar-extra,
@@ -42,40 +42,52 @@
 <body>
 
     <div class="minha-barra">
-        🔥 Cupons Atualizados! Confira todas as nossas listas oficiais:
-        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">VER MINHAS LISTAS 🛍️</a>
+        🔥 Cupons e Listas Oficiais do Mercado Livre!
+        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">VER MINHAS VITRINES 🛍️</a>
     </div>
 
-    <!-- Áreas onde os cupons serão desenhados -->
     <div id="app"></div>
 
     <script>
-        // SEU LINK DE AFILIADO DEFINITIVO
-        const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
+        // SEU LINK BASE DE AFILIADO / USERNAME DA SOCIAL
+        const MEU_AFILIADO_TAG = "atelierdoslinks";
+        const MINHA_PAGINA_GERAL = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Intercepta de forma global na fase de captura
+        // Intercepta todos os cliques para converter o link da lista em link de afiliado
         window.addEventListener('click', function(e) {
-            // Procura o elemento mais próximo que seja um link, botão ou container de cupom
-            const elemento = e.target.closest('a, button, [role="button"]');
+            const elemento = e.target.closest('a, button, .btn');
             
             if (elemento) {
-                // Se for um filtro da barra de categorias/busca, ignora para deixar filtrar na tela
+                // Permite usar filtros de categoria e busca na tela
                 const eFiltro = elemento.closest('.filters, .category-filter, nav') || 
                                 elemento.tagName === 'INPUT' || 
                                 elemento.classList.contains('filter-btn');
 
-                if (eFiltro) {
-                    return; // Permite a filtragem normal da tela
-                }
+                if (eFiltro) return;
 
-                // Para QUALQUER outro clique (incluindo o 'Ver lista', copiar cupom, card, etc)
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(MEU_LINK_AFILIADO, '_blank');
+                // Captura a URL original que o botão tentaria abrir
+                let urlOriginal = elemento.getAttribute('href') || elemento.dataset.url || '';
+
+                // Se o botão for um link do Mercado Livre ou de Lista
+                if (urlOriginal.includes('mercadolivre.com') || elemento.innerText.toLowerCase().includes('lista') || elemento.innerText.toLowerCase().includes('ver')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Se existir uma URL de lista específica, injetamos sua tag de afiliado
+                    if (urlOriginal.startsWith('http')) {
+                        const urlAfiliada = new URL(urlOriginal);
+                        urlAfiliated.searchParams.set('matt_tool', '18442875'); // Ativa rastreamento de afiliado
+                        urlAfiliated.searchParams.set('pennid', MEU_AFILIADO_TAG);
+                        window.open(urlAfiliated.toString(), '_blank');
+                    } else {
+                        // Caso o botão não tenha o link exato da lista, envia para a sua vitrine de listas
+                        window.open(MINHA_PAGINA_GERAL, '_blank');
+                    }
+                }
             }
         }, true);
 
-        // REDIRECIONA AS REQUISIÇÕES DOS CUPONS PARA O SERVIDOR ORIGINAL (CORS PROXY)
+        // Busca de dados em tempo real
         const fetchOriginal = window.fetch;
         window.fetch = function(url, options) {
             if (typeof url === 'string' && (url.endsWith('.json') || !url.startsWith('http'))) {
@@ -85,7 +97,6 @@
         };
     </script>
 
-    <!-- Carrega o script nativo que monta a página de cupons -->
     <script src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/script.js"></script>
 </body>
 </html>
