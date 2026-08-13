@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupons AliExpress | Produtos no Brasil 🇧🇷</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #f6f6f6; color: #333; padding-bottom: 40px; }
+        
+        /* Cabeçalho com cores do AliExpress */
+        .header { 
+            background: linear-gradient(135deg, #FF4747 0%, #FF6A00 100%); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 30px 15px; 
+            box-shadow: 0 4px 15px rgba(255, 71, 71, 0.2); 
+        }
+        .header h1 { font-size: 26px; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; }
+        
+        .mensagens-topo { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .mensagem-apoio { background-color: #ffffff; color: #d32f2f; display: inline-block; padding: 8px 18px; border-radius: 25px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .badge-atualizacao { background-color: rgba(0, 0, 0, 0.25); color: #ffffff; font-size: 12px; font-weight: bold; padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
+        
+        .container { max-width: 800px; margin: 25px auto 20px auto; padding: 0 15px; }
+        .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        
+        /* Cards dos cupons */
+        .cupom-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            border-left: 6px solid #FF4747; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+        }
+        .cupom-info h3 { font-size: 22px; color: #d32f2f; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .badge-desconto { background-color: #FF6A00; color: #fff; font-size: 13px; padding: 4px 10px; border-radius: 12px; font-weight: bold; }
+        .cupom-detalhes { font-size: 13px; color: #555; margin: 8px 0 15px 0; line-height: 1.5; }
+        
+        /* Botões */
+        .botoes-grupo { display: flex; gap: 10px; flex-wrap: wrap; }
+        .btn { flex: 1; min-width: 140px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        .btn-copiar { background-color: #ffebee; color: #d32f2f; }
+        .btn-copiar:hover { background-color: #ffcdd2; }
+        .btn-ir { background-color: #FF4747; color: #ffffff; }
+        .btn-ir:hover { background-color: #e53935; }
+        
+        /* Disclaimer em cada card */
+        .disclaimer-card { font-size: 12px; color: #e53935; font-weight: 600; text-align: center; margin-top: 12px; padding-top: 8px; border-top: 1px dashed #ffe0b2; }
+        
+        /* Aviso do rodapé */
+        .aviso-rodape { background-color: #fff; border-left: 4px solid #FF6A00; padding: 15px; border-radius: 8px; margin-top: 25px; font-size: 13px; color: #555; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        
+        /* Toast (Aviso de cupom copiado) */
+        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🛍️ Cupons AliExpress</h1>
+        <div class="mensagens-topo">
+            <div class="badge-atualizacao">
+                🇧🇷 Produtos com Estoque e Envio Direto do Brasil
+            </div>
+            <div class="mensagem-apoio">
+                🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="grid-cupons" id="listaCupons">
+            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons do AliExpress...</p>
+        </div>
+
+        <div class="aviso-rodape">
+            ⚠️ <b>Atenção:</b> Os cupons do AliExpress possuem quantidade limite de usos e podem encerrar antes do prazo estipulado. Aproveite para resgatar logo!
+        </div>
+    </div>
+
+    <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
+
+    <script>
+        // Link de Afiliado do AliExpress
+        const MEU_LINK_AFILIADO_ALI = "https://s.click.aliexpress.com/e/_oFuy2C1";
+
+        async function carregarCupons() {
+            try {
+                const res = await fetch("./aliexpress.json?v=" + Date.now());
+                if (!res.ok) throw new Error("Erro ao carregar os cupons");
+
+                const lista = await res.json();
+                if (Array.isArray(lista) && lista.length > 0) {
+                    renderizarCupons(lista);
+                } else {
+                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento.</p>';
+                }
+            } catch (err) {
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar cupons. Tente novamente mais tarde.</p>';
+            }
+        }
+
+        function renderizarCupons(lista) {
+            const container = document.getElementById('listaCupons');
+            container.innerHTML = '';
+
+            lista.forEach(item => {
+                const codigo = item.code || 'CUPOM';
+                const desconto = item.discount || 'Desconto Especial';
+                const categoria = item.category || 'AliExpress';
+                const minimo = item.min_purchase || '';
+
+                const card = document.createElement('div');
+                card.className = 'cupom-card';
+                card.innerHTML = `
+                    <div class="cupom-info">
+                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                        <div class="cupom-detalhes">
+                            📌 Categoria: <b>${categoria}</b><br>
+                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
+                        </div>
+                    </div>
+                    <div class="botoes-grupo">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                            ✂️ COPIAR CUPOM
+                        </button>
+                        <a href="${MEU_LINK_AFILIADO_ALI}" target="_blank" class="btn btn-ir">
+                            🛍️ IR PRO ALIEXPRESS
+                        </a>
+                    </div>
+                    <div class="disclaimer-card">
+                        🗣️ O cupom pode esgotar a qualquer momento, então corre!
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function copiarCodigo(texto) {
+            navigator.clipboard.writeText(texto).then(() => {
+                const toast = document.getElementById('toastAviso');
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2500);
+            });
+        }
+
+        carregarCupons();
+    </script>
+</body>
+</html>
