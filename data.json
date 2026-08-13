@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "code": "TECHEMCASA",
+    "discount": "10% OFF",
+    "min_purchase": "R$ 129",
+    "max_discount": "R$ 150"
+  },
+  {
+    "code": "COMPRINHASPRACASA",
+    "discount": "25% OFF",
+    "min_purchase": "R$ 19",
+    "max_discount": "R$ 150"
+  }
+]
