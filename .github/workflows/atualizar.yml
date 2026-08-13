@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependências
-        run: npm install axios
+      - name: Instalar Puppeteer
+        run: npm install puppeteer
 
       - name: Executar script de extração
         run: node extrair.js
@@ -28,5 +28,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Cupons sincronizados via API [skip ci]" || exit 0
+          git commit -m "Atualização completa de todos os cupons [skip ci]" || exit 0
           git push
