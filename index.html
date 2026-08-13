@@ -49,45 +49,48 @@
     <div id="app"></div>
 
     <script>
-        // SEU LINK BASE DE AFILIADO / USERNAME DA SOCIAL
-        const MEU_AFILIADO_TAG = "atelierdoslinks";
+        // SEU LINK BASE DE AFILIADO / USERNAME
         const MINHA_PAGINA_GERAL = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Intercepta todos os cliques para converter o link da lista em link de afiliado
+        // Intercepta todos os cliques com segurança
         window.addEventListener('click', function(e) {
             const elemento = e.target.closest('a, button, .btn');
             
             if (elemento) {
-                // Permite usar filtros de categoria e busca na tela
+                // Permite usar os filtros de categoria e a barra de busca
                 const eFiltro = elemento.closest('.filters, .category-filter, nav') || 
                                 elemento.tagName === 'INPUT' || 
                                 elemento.classList.contains('filter-btn');
 
                 if (eFiltro) return;
 
-                // Captura a URL original que o botão tentaria abrir
+                // Captura a URL do botão original
                 let urlOriginal = elemento.getAttribute('href') || elemento.dataset.url || '';
 
-                // Se o botão for um link do Mercado Livre ou de Lista
+                // Se for um botão de ver lista ou de cupom
                 if (urlOriginal.includes('mercadolivre.com') || elemento.innerText.toLowerCase().includes('lista') || elemento.innerText.toLowerCase().includes('ver')) {
                     e.preventDefault();
                     e.stopPropagation();
 
-                    // Se existir uma URL de lista específica, injetamos sua tag de afiliado
-                    if (urlOriginal.startsWith('http')) {
-                        const urlAfiliada = new URL(urlOriginal);
-                        urlAfiliated.searchParams.set('matt_tool', '18442875'); // Ativa rastreamento de afiliado
-                        urlAfiliated.searchParams.set('pennid', MEU_AFILIADO_TAG);
-                        window.open(urlAfiliated.toString(), '_blank');
-                    } else {
-                        // Caso o botão não tenha o link exato da lista, envia para a sua vitrine de listas
+                    try {
+                        if (urlOriginal.startsWith('http')) {
+                            // Injeta os parâmetros de comissão na URL exata da lista
+                            const urlObj = new URL(urlOriginal);
+                            urlObj.searchParams.set('pennid', 'atelierdoslinks');
+                            urlObj.searchParams.set('matt_tool', '18442875');
+                            window.open(urlObj.toString(), '_blank');
+                        } else {
+                            window.open(MINHA_PAGINA_GERAL, '_blank');
+                        }
+                    } catch (err) {
+                        // Fallback de segurança se a URL for inválida
                         window.open(MINHA_PAGINA_GERAL, '_blank');
                     }
                 }
             }
         }, true);
 
-        // Busca de dados em tempo real
+        // Busca de dados dos cupons via proxy seguro
         const fetchOriginal = window.fetch;
         window.fetch = function(url, options) {
             if (typeof url === 'string' && (url.endsWith('.json') || !url.startsWith('http'))) {
