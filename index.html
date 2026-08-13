@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupons Mercado Livre</title>
+    <!-- Importa o estilo/design original -->
+    <link rel="stylesheet" href="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/style.css">
+    <script>
+        // SEU LINK DE AFILIADO DO MERCADO LIVRE AQUI:
+        const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
+
+        // Redireciona qualquer clique na página para o seu link de afiliado
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a') || e.target.closest('button');
+            if (target) {
+                window.open(MEU_LINK_AFILIADO, '_blank');
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <!-- Script que busca os cupons sempre atualizados em tempo real -->
+    <script src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/script.js"></script>
+</body>
+</html>
