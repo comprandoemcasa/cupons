@@ -17,10 +17,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Instalar dependências
-        run: npm install puppeteer
+      - name: Instalar dependências e Puppeteer
+        run: |
+          npm install puppeteer
 
-      - name: Extrair cupons com navegador virtual
+      - name: Executar raspagem com Chrome sem interface
         run: |
           node -e '
           const puppeteer = require("puppeteer");
@@ -28,46 +29,71 @@ jobs:
 
           async function rodar() {
             try {
-              const browser = await puppeteer.launch({ headless: "new" });
+              const browser = await puppeteer.launch({
+                headless: "new",
+                args: [
+                  "--no-sandbox",
+                  "--disable-setuid-sandbox",
+                  "--disable-dev-shm-usage",
+                  "--disable-accelerated-2d-canvas",
+                  "--disable-gpu"
+                ]
+              });
               const page = await browser.newPage();
-              await page.goto("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", { waitUntil: "networkidle2" });
+              
+              // Define User-Agent padrão de navegador real
+              await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+              
+              await page.goto("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
+                waitUntil: "networkidle2",
+                timeout: 60000
+              });
 
-              // Captura a lista de cupons processada na memória da página
+              // Extrai os cupons processados
               const cupons = await page.evaluate(() => {
-                if (window.cuponsData) return window.cuponsData;
+                if (window.cuponsData && Array.isArray(window.cuponsData) && window.cuponsData.length > 0) {
+                  return window.cuponsData;
+                }
                 
-                // Fallback: extrai do DOM renderizado
-                const cards = document.querySelectorAll(".coupon-card, .card");
+                const elementos = document.querySelectorAll(".coupon-card, .card, [class*=\"coupon\"], [class*=\"card\"]");
                 const lista = [];
-                cards.forEach(c => {
-                  const txt = c.innerText;
-                  const code = txt.match(/[A-Z0-9]{4,15}/);
-                  if (code) {
-                    lista.push({
-                      code: code[0],
-                      discount: "Cupom Oficial",
-                      category: "Mercado Livre"
-                    });
+                elementos.forEach(el => {
+                  const texto = el.innerText || el.textContent || "";
+                  const codeMatch = texto.match(/([A-Z0-9]{4,20})/);
+                  const descMatch = texto.match(/(R\$\s*\d+|\d+%\s*OFF)/i);
+                  
+                  if (codeMatch) {
+                    const code = codeMatch[0];
+                    const ignorar = ["DOCTYPE", "HEADER", "FOOTER", "HTML", "CLASS", "STYLE", "HTTP", "HTTPS"];
+                    if (!ignorar.includes(code) && code.length >= 4) {
+                      lista.push({
+                        code: code,
+                        discount: descMatch ? descMatch[0] : "Desconto ML",
+                        category: "Mercado Livre",
+                        min_purchase: ""
+                      });
+                    }
                   }
                 });
                 return lista;
               });
 
               await browser.close();
-              console.log("Cupons capturados:", cupons.length);
+              
+              console.log("Total de cupons encontrados:", cupons.length);
               fs.writeFileSync("data.json", JSON.stringify(cupons, null, 2));
             } catch (err) {
-              console.error("Erro:", err);
+              console.error("Erro na raspagem:", err);
               process.exit(1);
             }
           }
           rodar();
           '
 
-      - name: Salvar no repositório
+      - name: Salvar alterações no repositório
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Cupons automáticos atualizados [skip ci]" || exit 0
+          git commit -m "Atualizando cupons via Puppeteer [skip ci]" || exit 0
           git push
