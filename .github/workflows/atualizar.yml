@@ -1,4 +1,4 @@
-name: AtuaAtualizar Cupons de Hora em Hora
+name: Atualizar Cupons de Hora em Hora
 
 on:
   schedule:
