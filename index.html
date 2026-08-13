@@ -213,7 +213,8 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            const urlSEU_REPO = "https://raw.githubusercontent.com/comprandoemcasa/cupons/main/data.json?t=" + Date.now();
+            // URL apontando para a branch 'principal' do seu repositório
+            const urlSEU_REPO = "https://raw.githubusercontent.com/comprandoemcasa/cupons/principal/data.json?t=" + Date.now();
 
             try {
                 const res = await fetch(urlSEU_REPO);
@@ -221,7 +222,6 @@
                 
                 let textoBruto = await res.text();
                 
-                // Trata o texto caso ele venha embrulhado em uma função JSONP, ex: cb(...)
                 if (textoBruto.includes('(') && textoBruto.endsWith(')')) {
                     textoBruto = textoBruto.substring(textoBruto.indexOf('(') + 1, textoBruto.lastIndexOf(')'));
                 }
@@ -284,5 +284,3 @@
 
         carregarCupons();
     </script>
-</body>
-</html>
