@@ -20,7 +20,7 @@ jobs:
       - name: Instalar dependências
         run: npm install axios
 
-      - name: Extrair Cupons sem Duplicatas
+      - name: Extrair Cupons
         run: |
           node -e '
           const axios = require("axios");
@@ -28,82 +28,51 @@ jobs:
 
           async function extrair() {
             try {
-              console.log("Baixando HTML da página...");
-              const response = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
+              console.log("Obtendo dados do site de origem...");
+              const res = await axios.get("https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/", {
                 headers: {
                   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                 }
               });
 
-              const html = response.data;
-              let cuponsMap = new Map();
+              const html = res.data;
+              const cuponsMap = new Map();
 
-              // Busca a estrutura de dados JSON embutida (__NEXT_DATA__)
-              const nextDataMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">(.*?)<\/script>/s);
-              
-              if (nextDataMatch && nextDataMatch[1]) {
-                try {
-                  const dataObj = JSON.parse(nextDataMatch[1]);
-                  // Função para varrer recursivamente o JSON em busca de objetos com chave "code" ou de cupons
-                  function buscarCupons(obj) {
-                    if (!obj || typeof obj !== "object") return;
-                    
-                    if (obj.code || obj.codigo) {
-                      const code = String(obj.code || obj.codigo).trim().toUpperCase();
-                      const desc = obj.discount || obj.desconto || obj.title || "Desconto ML";
-                      const cat = obj.category || obj.categoria || "Mercado Livre";
-                      const min = obj.min_purchase || obj.minimo || "";
+              // Varre por códigos de cupons e descontos
+              const regex = /"([A-Z0-9]{4,20})"/g;
+              const matches = html.match(regex) || [];
 
-                      const palavrasInvalidas = ["DESCONTO", "CUPOM", "CUPONS", "MERCADO", "LIVRE", "ML", "GERAL", "MAISCUPONS"];
-                      if (code.length >= 4 && !palavrasInvalidas.includes(code)) {
-                        cuponsMap.set(code, {
-                          code: code,
-                          discount: desc,
-                          category: cat,
-                          min_purchase: min
-                        });
-                      }
-                    }
+              const palavrasBloqueadas = [
+                "NEXT", "DATA", "BUILD", "PAGE", "PROPS", "STATIC", "RUNTIME", "CHUNK", 
+                "MANIFEST", "UTF8", "REACT", "HEAD", "BODY", "META", "LINK", "TRUE", 
+                "FALSE", "NULL", "UNDEFINED", "SPAN", "DIV", "STYLE", "SCRIPT", "CLASS", 
+                "HREF", "PATH", "TYPE", "SLUG", "MAIN", "INDEX", "HOME", "VIEW", "APP"
+              ];
 
-                    for (let k in obj) {
-                      if (typeof obj[k] === "object") {
-                        buscarCupons(obj[k]);
-                      }
-                    }
-                  }
-
-                  buscarCupons(dataObj);
-                } catch(errJson) {
-                  console.log("Erro ao processar JSON interno:", errJson.message);
+              matches.forEach(m => {
+                const code = m.replace(/"/g, "").trim();
+                if (
+                  code.length >= 4 && 
+                  !palavrasBloqueadas.includes(code) && 
+                  isNaN(code) && 
+                  /[A-Z]/.test(code) &&
+                  !cuponsMap.has(code)
+                ) {
+                  cuponsMap.set(code, {
+                    code: code,
+                    discount: "Cupom Oficial ML",
+                    category: "Mercado Livre",
+                    min_purchase: ""
+                  });
                 }
-              }
-
-              // Se a varredura JSON não preencheu, fazemos uma varredura rigorosa com Regex
-              if (cuponsMap.size === 0) {
-                // Procura padrões exatos do tipo {"code":"XXX","discount":"YYY"}
-                const regexComplexa = /"code":"([^"]+)".*?"discount":"([^"]+)"/g;
-                let m;
-                while ((m = regexComplexa.exec(html)) !== null) {
-                  const code = m[1].trim().toUpperCase();
-                  const desc = m[2].trim();
-                  if (code.length >= 4 && !["DESCONTO", "CUPOM"].includes(code)) {
-                    cuponsMap.set(code, {
-                      code: code,
-                      discount: desc,
-                      category: "Mercado Livre",
-                      min_purchase: ""
-                    });
-                  }
-                }
-              }
+              });
 
               const listaFinal = Array.from(cuponsMap.values());
-              console.log("Cupons únicos encontrados:", listaFinal.length);
+              console.log("Total de cupons válidos capturados:", listaFinal.length);
 
               fs.writeFileSync("data.json", JSON.stringify(listaFinal, null, 2));
-
             } catch (err) {
-              console.error("Erro na extração:", err.message);
+              console.error("Erro:", err.message);
               process.exit(1);
             }
           }
@@ -111,10 +80,10 @@ jobs:
           extrair();
           '
 
-      - name: Salvar alterações
+      - name: Salvar no repositório
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data.json
-          git commit -m "Lista de cupons desduplicada e limpa [skip ci]" || exit 0
+          git commit -m "Cupons atualizados sem duplicações [skip ci]" || exit 0
           git push
