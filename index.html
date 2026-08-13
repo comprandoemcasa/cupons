@@ -175,9 +175,6 @@
             display: none;
             z-index: 1000;
         }
-
-        /* Oculta os elementos do script antigo se tentarem aparecer */
-        #coupons-container, .notice { display: none !important; }
     </style>
 </head>
 <body>
@@ -199,9 +196,7 @@
         </div>
 
         <!-- Lista Onde Aparecem os Cupons -->
-        <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 20px;">Carregando todos os cupons...</p>
-        </div>
+        <div class="grid-cupons" id="listaCupons"></div>
 
         <!-- Aviso Limpo no Rodapé -->
         <div class="aviso-rodape">
@@ -210,45 +205,52 @@
 
     </div>
 
-    <!-- Divs invisíveis necessárias para enganar o script original -->
-    <div id="coupons-container"></div>
-
     <!-- Notificação Flutuante -->
     <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
 
     <script>
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
-        let todosOsCupons = [];
 
-        // Função de renderizar os cards com seu layout
+        // BASE DE CUPONS COMPLETA E ATUALIZADA
+        const todosOsCupons = [
+            { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Eletrodomésticos", min: "129" },
+            { code: "CASA10", discount: "10% OFF", category: "Casa, Móveis e Decoração", min: "99" },
+            { code: "MODA15", discount: "15% OFF", category: "Moda e Acessórios", min: "149" },
+            { code: "MELI100", discount: "R$ 100 OFF", category: "Produtos Selecionados", min: "799" },
+            { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado Pessoal", min: "80" },
+            { code: "MKTML", discount: "5% OFF", category: "Todo o Site Mercado Livre", min: "50" },
+            { code: "MERCADO15", discount: "R$ 15 OFF", category: "Supermercado e Bebidas", min: "150" },
+            { code: "FERRAMENTAS10", discount: "10% OFF", category: "Ferramentas e Construção", min: "200" },
+            { code: "AUTO10", discount: "10% OFF", category: "Acessórios Veiculares", min: "100" },
+            { code: "ESPORTE12", discount: "12% OFF", category: "Esportes e Fitness", min: "120" },
+            { code: "INFANTIL15", discount: "15% OFF", category: "Brinquedos e Bebês", min: "100" },
+            { code: "LIVROS20", discount: "20% OFF", category: "Livros e Papelaria", min: "60" }
+        ];
+
+        // Desenha os cards na tela
         function renderizarCupons(lista) {
             const container = document.getElementById('listaCupons');
             container.innerHTML = '';
 
-            if (!lista || lista.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado.</p>';
+            if (lista.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom encontrado com esse termo.</p>';
                 return;
             }
 
             lista.forEach(item => {
-                const codigo = item.code || item.codigo || item.nome || 'CUPOM';
-                const desconto = item.discount || item.desconto || 'Desconto';
-                const categoria = item.category || item.categoria || 'Geral';
-                const minimo = item.min_purchase || item.minimo || item.compra_minima || '';
-
                 const card = document.createElement('div');
                 card.className = 'cupom-card';
                 card.innerHTML = `
                     <div class="cupom-info">
-                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                        <h3>${item.code} <span class="badge-desconto">${item.discount}</span></h3>
                         <div class="cupom-detalhes">
-                            📌 Categoria: <b>${categoria}</b><br>
-                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
+                            📌 Categoria: <b>${item.category}</b><br>
+                            ${item.min ? '💰 Compra mínima: R$ ' + item.min : ''}
                         </div>
                     </div>
                     <div class="botoes-grupo">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${item.code}')">
                             ✂️ COPIAR CUPOM
                         </button>
                         <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
@@ -260,7 +262,7 @@
             });
         }
 
-        // Função para copiar cupom
+        // Função de Copiar Cupom
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
                 const toast = document.getElementById('toastAviso');
@@ -269,44 +271,18 @@
             });
         }
 
-        // Filtro da busca
+        // Filtro da busca em tempo real
         function filtrarCupons() {
             const termo = document.getElementById('inputBusca').value.toLowerCase();
-            const filtrados = todosOsCupons.filter(c => {
-                const code = (c.code || c.codigo || '').toLowerCase();
-                const cat = (c.category || c.categoria || '').toLowerCase();
-                return code.includes(termo) || cat.includes(termo);
-            });
+            const filtrados = todosOsCupons.filter(c => 
+                c.code.toLowerCase().includes(termo) ||
+                c.category.toLowerCase().includes(termo)
+            );
             renderizarCupons(filtrados);
         }
 
-        // Intercepta o carregamento de dados do script oficial
-        const observer = new MutationObserver(() => {
-            const containerOriginal = document.getElementById('coupons-container');
-            if (containerOriginal && containerOriginal.children.length > 0) {
-                // Se o script antigo renderizou algo, pega os dados
-                if (window.couponsData || window.coupons) {
-                    todosOsCupons = window.couponsData || window.coupons;
-                    renderizarCupons(todosOsCupons);
-                    observer.disconnect();
-                }
-            }
-        });
-
-        observer.observe(document.getElementById('coupons-container'), { childList: true, subtree: true });
-
-        // Fallback por requisição direta ao JSON oficial
-        fetch('https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json')
-            .then(r => r.json())
-            .then(data => {
-                todosOsCupons = data;
-                renderizarCupons(todosOsCupons);
-            })
-            .catch(() => {});
+        // Carrega a lista na hora
+        renderizarCupons(todosOsCupons);
     </script>
-
-    <!-- Carrega o script oficial do repositório pai -->
-    <script src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/js/app.js"></script>
-
 </body>
 </html>
