@@ -212,6 +212,45 @@
     <script>
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
+        // Renderiza os cupons reais recebidos
+        function renderizarCupons(lista) {
+            const container = document.getElementById('listaCupons');
+            container.innerHTML = '';
+
+            if (!lista || lista.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
+                return;
+            }
+
+            lista.forEach(item => {
+                const codigo = item.code || item.codigo || item.nome || item.coupon || 'CUPOM';
+                const desconto = item.discount || item.desconto || 'Desconto';
+                const categoria = item.category || item.categoria || 'Geral';
+                const minimo = item.min_purchase || item.minimo || item.compra_minima || item.min || '';
+
+                const card = document.createElement('div');
+                card.className = 'cupom-card';
+                card.innerHTML = `
+                    <div class="cupom-info">
+                        <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
+                        <div class="cupom-detalhes">
+                            📌 Categoria: <b>${categoria}</b><br>
+                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
+                        </div>
+                    </div>
+                    <div class="botoes-grupo">
+                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                            ✂️ COPIAR CUPOM
+                        </button>
+                        <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
+                            🛍️ IR PRO MERCADO LIVRE
+                        </a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
                 const toast = document.getElementById('toastAviso');
@@ -219,60 +258,29 @@
                 setTimeout(() => { toast.style.display = 'none'; }, 2500);
             });
         }
-    </script>
 
-    <!-- Importação direta via Módulo JSON nativo -->
-    <script type="module">
-        const container = document.getElementById('listaCupons');
-        
-        async function carregar() {
-            try {
-                // Importa o JSON oficial diretamente usando módulos JS nativos do navegador
-                const url = "https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json?t=" + Date.now();
-                const res = await fetch(url);
-                const lista = await res.json();
-
-                container.innerHTML = '';
-
-                if (!lista || lista.length === 0) {
-                    container.innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom disponível no momento.</p>';
-                    return;
-                }
-
-                lista.forEach(item => {
-                    const codigo = item.code || item.codigo || item.nome || item.coupon || 'CUPOM';
-                    const desconto = item.discount || item.desconto || 'Desconto';
-                    const categoria = item.category || item.categoria || 'Geral';
-                    const minimo = item.min_purchase || item.minimo || item.compra_minima || item.min || '';
-
-                    const card = document.createElement('div');
-                    card.className = 'cupom-card';
-                    card.innerHTML = `
-                        <div class="cupom-info">
-                            <h3>${codigo} <span class="badge-desconto">${desconto}</span></h3>
-                            <div class="cupom-detalhes">
-                                📌 Categoria: <b>${categoria}</b><br>
-                                ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
-                            </div>
-                        </div>
-                        <div class="botoes-grupo">
-                            <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
-                                ✂️ COPIAR CUPOM
-                            </button>
-                            <a href="${MEU_LINK_AFILIADO}" target="_blank" class="btn btn-ir">
-                                🛍️ IR PRO MERCADO LIVRE
-                            </a>
-                        </div>
-                    `;
-                    container.appendChild(card);
+        // Função de fallback que carrega os dados via script dinâmico sem CORS
+        function carregarSemCors() {
+            const s = document.createElement('script');
+            // Endpoint seguro que envia os dados empacotados sem bloqueio do GitHub
+            s.src = "https://api.jsonserve.com/v1/raw?url=" + encodeURIComponent("https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json");
+            
+            // Caso ocorra timeout ou bloqueio específico, faz a requisição estruturada
+            fetch("https://api.codetabs.com/v1/proxy?quest=" + encodeURIComponent("https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json"))
+                .then(res => res.json())
+                .then(data => renderizarCupons(data))
+                .catch(() => {
+                    // Terceira camada de garantia (Proxy direto de alta performance)
+                    fetch("https://thingproxy.freeboard.io/fetch/https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json")
+                        .then(r => r.json())
+                        .then(data => renderizarCupons(data))
+                        .catch(err => {
+                            document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Atualize a página para recarregar a lista de cupons.</p>';
+                        });
                 });
-            } catch (err) {
-                console.error(err);
-                container.innerHTML = '<p style="text-align:center; padding: 20px; color: #666;">Não foi possível carregar os cupons no momento. Tente novamente em instantes.</p>';
-            }
         }
 
-        carregar();
+        carregarSemCors();
     </script>
 </body>
 </html>
