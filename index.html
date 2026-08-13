@@ -12,80 +12,66 @@
         }
         body, html {
             width: 100%;
-            height: 100%;
-            overflow-x: hidden;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
             background-color: #0d0068;
         }
         
-        /* 1. Sua barra amarela no topo */
+        /* Barra Fixa de Alerta e Comissão no Topo */
         .banner-afiliado {
             background-color: #ffe600;
             color: #2d3277;
             padding: 12px;
             text-align: center;
             font-weight: bold;
-            font-size: 15px;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 100;
+            z-index: 999;
         }
         .banner-afiliado a {
             background-color: #2d3277;
             color: #ffffff;
             padding: 6px 14px;
-            margin-left: 10px;
+            margin-left: 8px;
             text-decoration: none;
             border-radius: 20px;
             display: inline-block;
             transition: 0.3s;
         }
 
-        /* 2. Conteúdo e Máscara dos Cupons */
+        /* Container ajustado para rolagem perfeita e corte da barra indesejada */
         .iframe-container {
-            position: relative;
-            margin-top: 45px; /* Espaço da sua barra amarela */
+            margin-top: 45px;
+            width: 100%;
             height: calc(100vh - 45px);
             overflow: hidden;
+            position: relative;
         }
 
-        /* Esconde a barra amarela original do script (onde ficava "Ganhos Extras") */
+        /* Iframe ajustado para rolar de ponta a ponta e sem o botão Ganhos Extras */
         iframe {
             width: 100%;
             height: calc(100% + 55px);
             border: none;
-            margin-top: -55px; /* Sobe o iframe para esconder a barra de cima! */
-        }
-
-        /* 3. CAMADA TRANSPARENTE DA COMISSÃO: Intercepta QUALQUER clique na página */
-        .clique-comissao {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 50;
-            cursor: pointer;
+            margin-top: -55px; /* Esconde o topo com "Ganhos Extras" */
         }
     </style>
 </head>
 <body>
 
-    <!-- Sua barra de topo -->
+    <!-- Sua barra fixada com o seu link principal -->
     <div class="banner-afiliado">
-        🔥 Pegue seu cupom e confira todas as nossas listas completas! 
-        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">VER LISTAS COM CUPOM 🛍️</a>
+        🔥 Pegue o cupom abaixo e navegue pelas nossas listas oficiais! 
+        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank">MINHAS LISTAS ML 🛍️</a>
     </div>
 
     <div class="iframe-container">
-        <!-- Camada transparente: Qualquer lugar que o cliente clicar no site, abre a SUA lista de afiliado! -->
-        <a href="https://www.mercadolivre.com.br/social/atelierdoslinks/lists" target="_blank" class="clique-comissao" title="Clique para ver cupons e listas"></a>
-
-        <!-- Página de cupons oficial escondendo o menu "Ganhos Extras" -->
-        <iframe src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/"></iframe>
+        <!-- O iframe agora roda com interatividade TOTAL e rolagem liberada -->
+        <iframe id="siteCupons" src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/"></iframe>
     </div>
 
 </body>
