@@ -1,0 +1,24 @@
+name: Atualizar Cupons de Hora em Hora
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v3
+
+      - name: Baixar JSON oficial do Mercado Livre
+        run: |
+          curl -s https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/data.json -o data.json
+
+      - name: Salvar alterações no repositório
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update cupons" && git push)
