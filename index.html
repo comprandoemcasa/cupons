@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cupons e Ofertas Mercado Livre</title>
-    <!-- Carrega a interface idêntica usando a biblioteca original do projeto -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Cupons Mercado Livre | Atualizados</title>
+    <!-- CSS Original para manter o visual exato -->
+    <link rel="stylesheet" href="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/style.css">
+    <style>
+        body { background-color: #f5f5f5; margin: 0; padding: 0; }
+        .afiliado-bar {
+            background: #ffe600;
+            color: #2d3277;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
 
-    <!-- Cabeçalho -->
-    <header class="bg-yellow-400 p-4 shadow-md text-center">
-        <h1 class="text-2xl font-bold text-blue-900">Cupons Exclusivos Mercado Livre</h1>
-        <p class="text-sm text-gray-800">Escolha o seu cupom abaixo e aproveite o desconto!</p>
-    </header>
+    <div class="afiliado-bar">
+        ⚡ Cupons atualizados do Mercado Livre — Clique em qualquer cupom para garantir o desconto!
+    </div>
 
-    <!-- Conteúdo Dinâmico / Iframe da Página Oficial -->
-    <main class="max-w-4xl mx-auto my-6 p-2">
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden relative">
-            
-            <!-- Aviso visual -->
-            <div class="bg-blue-900 text-white p-3 text-center text-sm font-semibold">
-                🔥 Clique no botão do cupom desejado para ativar o desconto diretamente no site oficial!
-            </div>
+    <!-- Div principal do aplicativo -->
+    <div id="app"></div>
 
-            <!-- Carrega a lista original perfeitamente através do visualizador seguro -->
-            <iframe 
-                id="cuponsFrame" 
-                src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/index.html" 
-                class="w-full h-[800px] border-0">
-            </iframe>
-        </div>
-    </main>
-
-    <!-- Script de redirecionamento para garantir sua comissão -->
     <script>
-        // SEU LINK GLOBAL DE AFILIADO AQUI:
-        const SEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
+        // 1. COLOQUE O SEU LINK DE AFILIADO AQUI
+        const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // Sempre que o usuário clicar na área da página, abre a loja com seu cookie ativado
-        document.getElementById('cuponsFrame').addEventListener('load', function() {
-            console.log("Cupons carregados com sucesso!");
-        });
+        // Intercepta todos os cliques na página para redirecionar de forma segura
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a, button, .card-cupom');
+            if (target) {
+                // Abre o seu link de afiliado do Mercado Livre
+                window.open(MEU_LINK_AFILIADO, '_blank');
+            }
+        }, true);
     </script>
+
+    <!-- Puxa os scripts em modo CORS liberado para carregar a lista normalmente -->
+    <script crossorigin="anonymous" src="https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/script.js"></script>
 </body>
 </html>
