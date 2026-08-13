@@ -58,12 +58,10 @@
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
         async function carregarCupons() {
-            // Busca direto da lista principal pública e atualizada dos afiliados
-            const urlFonteOficial = "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/data.json?v=" + Date.now();
-
             try {
-                const res = await fetch(urlFonteOficial);
-                if (!res.ok) throw new Error("Erro na busca");
+                // Busca o arquivo no SEU próprio repositório
+                const res = await fetch("./data.json?v=" + Date.now());
+                if (!res.ok) throw new Error("Arquivo local ainda não gerado");
 
                 const dados = await res.json();
                 const listaFinal = Array.isArray(dados) ? dados : (dados.cupons || dados.data || []);
@@ -74,8 +72,8 @@
                     document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento.</p>';
                 }
             } catch (err) {
-                console.error("Erro ao carregar cupons oficiais:", err);
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar a lista oficial. Tente atualizar a página.</p>';
+                console.error("Aguardando arquivo ser gerado:", err);
+                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px; color: #666;">Gerando a lista oficial de cupons... Execute o Action no GitHub ou aguarde alguns instantes.</p>';
             }
         }
 
