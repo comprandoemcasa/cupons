@@ -147,7 +147,7 @@
             background-color: #1a1e4a;
         }
 
-        /* Caixa de Aviso Ajustada (Sem a frase indesejada) */
+        /* Caixa de Aviso no Rodapé */
         .aviso-rodape {
             background-color: #fff;
             border-left: 4px solid #ffe600;
@@ -196,7 +196,9 @@
         </div>
 
         <!-- Lista Onde Aparecem os Cupons -->
-        <div class="grid-cupons" id="listaCupons"></div>
+        <div class="grid-cupons" id="listaCupons">
+            <p style="text-align: center; color: #666; padding: 20px;">Carregando todos os cupons...</p>
+        </div>
 
         <!-- Aviso Limpo no Rodapé -->
         <div class="aviso-rodape">
@@ -212,15 +214,36 @@
         // SEU LINK DE AFILIADO OFICIAL
         const MEU_LINK_AFILIADO = "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
 
-        // LISTA DE CUPONS ATIVOS
-        const todosOsCupons = [
-            { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Casa", min: "129" },
-            { code: "CASA10", discount: "10% OFF", category: "Casa e Decoração", min: "99" },
-            { code: "MODA15", discount: "15% OFF", category: "Moda e Calçados", min: "149" },
-            { code: "MELI100", discount: "R$ 100 OFF", category: "Seleção do Site", min: "799" },
-            { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado", min: "80" },
-            { code: "MKTML", discount: "5% OFF", category: "Tudo no Site", min: "50" }
-        ];
+        let todosOsCupons = [];
+
+        // Busca a lista completa de cupons do repositório
+        async function carregarCupons() {
+            try {
+                // Tenta buscar a lista oficial
+                const res = await fetch('https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/cupons.json');
+                const dados = await res.json();
+                
+                todosOsCupons = dados.map(item => ({
+                    code: item.code || item.codigo || item.nome || 'CUPOM',
+                    discount: item.discount || item.desconto || 'Oferta',
+                    category: item.category || item.categoria || 'Geral',
+                    min: item.min_purchase || item.minimo || ''
+                }));
+
+                renderizarCupons(todosOsCupons);
+            } catch (err) {
+                // Fallback caso falhar a busca online
+                todosOsCupons = [
+                    { code: "TECHEMCASA", discount: "10% OFF", category: "Eletrônicos e Casa", min: "129" },
+                    { code: "CASA10", discount: "10% OFF", category: "Casa e Decoração", min: "99" },
+                    { code: "MODA15", discount: "15% OFF", category: "Moda e Calçados", min: "149" },
+                    { code: "MELI100", discount: "R$ 100 OFF", category: "Seleção do Site", min: "799" },
+                    { code: "BELEZA20", discount: "20% OFF", category: "Beleza e Cuidado", min: "80" },
+                    { code: "MKTML", discount: "5% OFF", category: "Tudo no Site", min: "50" }
+                ];
+                renderizarCupons(todosOsCupons);
+            }
+        }
 
         // Desenha os cards na tela
         function renderizarCupons(lista) {
@@ -276,7 +299,7 @@
         }
 
         // Carrega inicialmente
-        renderizarCupons(todosOsCupons);
+        carregarCupons();
     </script>
 </body>
 </html>
