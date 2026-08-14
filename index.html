@@ -4,83 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cupons Mercado Livre</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: #f4f4f6; color: #333; padding-bottom: 40px; }
-        
-        .header { background-color: #ffe600; color: #2d3277; text-align: center; padding: 25px 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .header h1 { font-size: 26px; margin-bottom: 10px; font-weight: 800; }
-        .mensagem-apoio { background-color: #ffffff; color: #2d3277; display: inline-block; padding: 8px 18px; border-radius: 25px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        
-        .container { max-width: 820px; margin: 25px auto 20px auto; padding: 0 15px; }
-        .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        
-        .cupom-card { 
-            background: #fff; 
-            border-radius: 16px; 
-            padding: 22px; 
-            display: flex; 
-            flex-direction: column; 
-            border-left: 6px solid #e60023; 
-            box-shadow: 0 4px 16px rgba(0,0,0,0.07); 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        
-        .cupom-header { margin-bottom: 16px; }
+
+        body {
+            background-color: #f4f4f6;
+            color: #333;
+            padding-bottom: 28px;
+        }
+
+        .header {
+            background-color: #ffe600;
+            color: #2d3277;
+            text-align: center;
+            padding: 18px 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            font-size: 25px;
+            margin-bottom: 7px;
+            font-weight: 800;
+        }
+
+        .mensagem-apoio {
+            background-color: #ffffff;
+            color: #2d3277;
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 18px auto;
+            padding: 0 14px;
+        }
+
+        .grid-cupons {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px;
+        }
+
+        .cupom-card {
+            background: #fff;
+            border-radius: 13px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid #e60023;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        }
+
+        .cupom-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
 
         .cupom-destaque-box {
             background-color: #fffde7;
             border: 2px dashed #ffe600;
-            padding: 10px 18px;
-            border-radius: 10px;
+            padding: 7px 11px;
+            border-radius: 8px;
             display: inline-flex;
             align-items: center;
             gap: 10px;
         }
 
-        .cupom-codigo { 
-            font-size: 24px; 
-            color: #111; 
-            font-weight: 900; 
+        .cupom-codigo {
+            font-size: 19px;
+            color: #111;
+            font-weight: 900;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .regras-container { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 10px; 
-            background-color: #f8f9fa; 
-            padding: 14px 16px; 
-            border-radius: 10px; 
-            margin-bottom: 18px; 
-            border: 1px solid #e9ecef; 
-        }
-        
-        @media (max-width: 550px) {
-            .regras-container { grid-template-columns: 1fr; gap: 10px; }
-            .cupom-codigo { font-size: 20px; }
+        .regras-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background-color: #f8f9fa;
+            padding: 10px 11px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #e9ecef;
         }
 
-        .regra-box { display: flex; flex-direction: column; }
-        .regra-label { font-size: 11px; color: #666; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
-        .regra-valor { font-size: 16px; color: #111; font-weight: 800; }
-        .regra-valor.destaque { color: #00a650; font-size: 17px; }
+        .regra-box {
+            display: flex;
+            flex-direction: column;
+        }
 
-        .botoes-row { display: flex; gap: 12px; flex-wrap: wrap; }
-        .btn { flex: 1; min-width: 140px; padding: 14px; border-radius: 10px; border: none; font-weight: 800; font-size: 14px; cursor: pointer; text-align: center; text-decoration: none; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-        .btn-copiar { background-color: #e8eaf6; color: #2d3277; }
-        .btn-copiar:hover { background-color: #d0d4f7; }
-        .btn-ir { background-color: #2d3277; color: #ffffff; }
-        .btn-ir:hover { background-color: #1c2052; }
-        
-        .alerta-esgotar { font-size: 12px; color: #d32f2f; font-weight: 700; text-align: center; margin-top: 12px; }
-        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; z-index: 1000; }
+        .regra-label {
+            font-size: 9px;
+            color: #666;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .regra-valor {
+            font-size: 14px;
+            color: #111;
+            font-weight: 800;
+        }
+
+        .regra-valor.destaque {
+            color: #00a650;
+            font-size: 15px;
+        }
+
+        .botoes-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 0;
+            padding: 10px 8px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 800;
+            font-size: 12px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .btn-copiar {
+            background-color: #e8eaf6;
+            color: #2d3277;
+        }
+
+        .btn-copiar:hover {
+            background-color: #d0d4f7;
+        }
+
+        .btn-ir {
+            background-color: #2d3277;
+            color: #ffffff;
+        }
+
+        .btn-ir:hover {
+            background-color: #1c2052;
+        }
+
+        .validade {
+            font-size: 10px;
+            color: #666;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .alerta-esgotar {
+            font-size: 10px;
+            color: #d32f2f;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2e7d32;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 720px) {
+            .grid-cupons {
+                grid-template-columns: 1fr;
+                gap: 11px;
+            }
+
+            .container {
+                margin-top: 13px;
+                padding: 0 10px;
+            }
+
+            .header {
+                padding: 14px 10px;
+            }
+
+            .header h1 {
+                font-size: 21px;
+            }
+
+            .mensagem-apoio {
+                font-size: 11px;
+                padding: 7px 12px;
+            }
+
+            .cupom-card {
+                padding: 12px;
+            }
+
+            .cupom-codigo {
+                font-size: 18px;
+            }
+
+            .btn {
+                font-size: 11px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="header">
         <h1>💛 Cupons Mercado Livre</h1>
+
         <div class="mensagem-apoio">
             🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
         </div>
@@ -88,71 +250,124 @@
 
     <div class="container">
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons atualizados...</p>
+            <p style="text-align: center; color: #666; padding: 30px;">
+                Carregando cupons atualizados...
+            </p>
         </div>
     </div>
 
-    <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
+    <div class="toast" id="toastAviso">
+        📋 Cupom copiado com sucesso!
+    </div>
 
     <script>
-        // SEU LINK OFICIAL DE AFILIADO ATUALIZADO
-        const MEU_LINK_AFILIADO_ML = "https://www.mercadolivre.com.br/social/atelierdoslinks";
+        const MEU_LINK_AFILIADO_ML =
+            "https://www.mercadolivre.com.br/social/atelierdoslinks";
 
         async function carregarCupons() {
             try {
-                const res = await fetch("./data.json?cache=" + new Date().getTime());
-                if (!res.ok) throw new Error("Erro ao carregar");
+                const res = await fetch(
+                    "./data.json?cache=" + new Date().getTime()
+                );
+
+                if (!res.ok) {
+                    throw new Error("Erro ao carregar");
+                }
 
                 const lista = await res.json();
+
                 if (Array.isArray(lista) && lista.length > 0) {
                     renderizarCupons(lista);
                 } else {
-                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center;">Nenhum cupom ativo no momento.</p>';
+                    document.getElementById("listaCupons").innerHTML =
+                        '<p style="text-align:center;">Nenhum cupom ativo no momento.</p>';
                 }
             } catch (err) {
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center;">Erro ao carregar os cupons.</p>';
+                document.getElementById("listaCupons").innerHTML =
+                    '<p style="text-align:center;">Erro ao carregar os cupons.</p>';
             }
         }
 
         function renderizarCupons(lista) {
-            const container = document.getElementById('listaCupons');
-            container.innerHTML = '';
+            const container = document.getElementById("listaCupons");
+            container.innerHTML = "";
 
             lista.forEach(item => {
-                const codigo = (item.code || 'CUPOM').toUpperCase();
-                const desconto = item.discount || "10% OFF";
-                const minimo = item.min_purchase || "Sem Mínimo";
-                const maximo = item.max_discount || "Sem Limite";
+                const codigo = (item.code || "CUPOM").toUpperCase();
+                const desconto = formatarDesconto(item.discount);
 
-                const card = document.createElement('div');
-                card.className = 'cupom-card';
+                const minimo = formatarDinheiro(
+                    item.min_purchase,
+                    "Sem mínimo"
+                );
+
+                const maximo = formatarDinheiro(
+                    item.max_discount,
+                    "Sem limite"
+                );
+
+                const validade = item.end_date
+                    ? `Até ${item.end_date}`
+                    : "";
+
+                const card = document.createElement("div");
+                card.className = "cupom-card";
+
                 card.innerHTML = `
                     <div class="cupom-header">
                         <div class="cupom-destaque-box">
-                            🏷️ <span class="cupom-codigo">${codigo}</span>
+                            🏷️
+                            <span class="cupom-codigo">${codigo}</span>
                         </div>
+
+                        <span class="validade">${validade}</span>
                     </div>
 
                     <div class="regras-container">
                         <div class="regra-box">
-                            <span class="regra-label">Desconto</span>
-                            <span class="regra-valor destaque">${desconto}</span>
+                            <span class="regra-label">
+                                Desconto
+                            </span>
+
+                            <span class="regra-valor destaque">
+                                ${desconto}
+                            </span>
                         </div>
+
                         <div class="regra-box">
-                            <span class="regra-label">Compra Mínima</span>
-                            <span class="regra-valor">${minimo}</span>
+                            <span class="regra-label">
+                                Compra mínima
+                            </span>
+
+                            <span class="regra-valor">
+                                ${minimo}
+                            </span>
                         </div>
+
                         <div class="regra-box">
-                            <span class="regra-label">Desc. Máximo</span>
-                            <span class="regra-valor">${maximo}</span>
+                            <span class="regra-label">
+                                Desc. máximo
+                            </span>
+
+                            <span class="regra-valor">
+                                ${maximo}
+                            </span>
                         </div>
                     </div>
 
                     <div class="botoes-row">
-                        <button class="btn btn-copiar" onclick="copiarCodigo('${codigo}')">
+                        <button
+                            class="btn btn-copiar"
+                            onclick="copiarCodigo('${codigo}')"
+                        >
                             ✂️ COPIAR CUPOM
                         </button>
-                        <a href="${MEU_LINK_AFILIADO_ML}" target="_blank" class="btn btn-ir">
+
+                        <a
+                            href="${MEU_LINK_AFILIADO_ML}"
+                            target="_blank"
+                            class="btn btn-ir"
+                        >
                             🛍️ IR PRO MERCADO LIVRE
                         </a>
                     </div>
@@ -161,20 +376,57 @@
                         🗣️ O cupom pode esgotar a qualquer momento, então corre!
                     </div>
                 `;
+
                 container.appendChild(card);
             });
         }
 
+        function formatarDesconto(valor) {
+            if (!valor) {
+                return "Consulte";
+            }
+
+            const texto = String(valor).trim();
+
+            return texto.toUpperCase().includes("OFF")
+                ? texto
+                : `${texto} OFF`;
+        }
+
+        function formatarDinheiro(valor, fallback) {
+            if (
+                valor === undefined ||
+                valor === null ||
+                valor === ""
+            ) {
+                return fallback;
+            }
+
+            const texto = String(valor).trim();
+
+            return texto.startsWith("R$")
+                ? texto
+                : `R$${texto}`;
+        }
+
         function copiarCodigo(texto) {
             navigator.clipboard.writeText(texto).then(() => {
-                const toast = document.getElementById('toastAviso');
-                toast.innerText = `📋 Cupom ${texto} copiado!`;
-                toast.style.display = 'block';
-                setTimeout(() => { toast.style.display = 'none'; }, 2500);
+                const toast =
+                    document.getElementById("toastAviso");
+
+                toast.innerText =
+                    `📋 Cupom ${texto} copiado!`;
+
+                toast.style.display = "block";
+
+                setTimeout(() => {
+                    toast.style.display = "none";
+                }, 2500);
             });
         }
 
         carregarCupons();
     </script>
+
 </body>
 </html>
