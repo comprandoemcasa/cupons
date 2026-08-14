@@ -1,15 +1,15 @@
 [
   {
-    "code": "TECHEMCASA",
-    "discount": "10% OFF",
-    "min_purchase": "R$129",
-    "max_discount": "R$150"
+    "code": "APROVEITA",
+    "discount": "30,00% OFF",
+    "min_purchase": "R$29",
+    "max_discount": "R$500"
   },
   {
-    "code": "COMPRINHASPRACASA",
-    "discount": "25,00% OFF",
-    "min_purchase": "R$19",
-    "max_discount": "R$150"
+    "code": "CORREPROMELI",
+    "discount": "30,00% OFF",
+    "min_purchase": "R$29",
+    "max_discount": "R$500"
   },
   {
     "code": "DESCOTOSMELI",
@@ -78,6 +78,12 @@
     "max_discount": "R$500"
   },
   {
+    "code": "PREFERIDO",
+    "discount": "20% OFF",
+    "min_purchase": "R$79",
+    "max_discount": "R$60"
+  },
+  {
     "code": "HORADOCUPOM",
     "discount": "18% OFF",
     "min_purchase": "R$29",
@@ -106,5 +112,11 @@
     "discount": "15% OFF",
     "min_purchase": "R$29",
     "max_discount": "R$500"
+  },
+  {
+    "code": "CASAINTELIGENTE",
+    "discount": "10% OFF",
+    "min_purchase": "R$149",
+    "max_discount": "R$200"
   }
 ]
