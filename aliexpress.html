@@ -3,156 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cupons AliExpress | Produtos no Brasil 🇧🇷</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: #f6f6f6; color: #333; padding-bottom: 40px; }
-        
-        /* Cabeçalho */
-        .header { 
-            background: linear-gradient(135deg, #FF4747 0%, #FF6A00 100%); 
-            color: #ffffff; 
-            text-align: center; 
-            padding: 30px 15px; 
-            box-shadow: 0 4px 15px rgba(255, 71, 71, 0.2); 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
         }
-        .header h1 { font-size: 26px; margin-bottom: 12px; font-weight: 800; letter-spacing: -0.5px; }
-        
-        .mensagens-topo { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-        .mensagem-apoio { background-color: #ffffff; color: #d32f2f; display: inline-block; padding: 8px 18px; border-radius: 25px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        .badge-atualizacao { background-color: rgba(0, 0, 0, 0.25); color: #ffffff; font-size: 12px; font-weight: bold; padding: 6px 14px; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px; }
-        
-        .container { max-width: 800px; margin: 25px auto 20px auto; padding: 0 15px; }
-        .grid-cupons { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        
-        /* Card de Cupom */
-        .cupom-card { 
-            background: #fff; 
-            border-radius: 12px; 
-            padding: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
-            border-left: 6px solid #FF4747; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+
+        body {
+            background: #f5f5f7;
+            color: #2d2d2d;
+            padding-bottom: 28px;
         }
-        .cupom-info h3 { font-size: 22px; color: #d32f2f; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .badge-desconto { background-color: #FF6A00; color: #fff; font-size: 13px; padding: 4px 10px; border-radius: 12px; font-weight: bold; }
-        .cupom-detalhes { font-size: 13px; color: #555; margin: 8px 0 15px 0; line-height: 1.5; }
-        
-        /* Botões em grupo */
-        .botoes-grupo { display: flex; flex-direction: column; gap: 10px; }
-        .botoes-cupons-linha { display: flex; gap: 8px; flex-wrap: wrap; }
-        
-        .btn { flex: 1; min-width: 130px; padding: 12px; border-radius: 8px; border: none; font-weight: bold; font-size: 13px; cursor: pointer; text-align: center; text-decoration: none; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 6px; }
-        .btn-copiar { background-color: #ffebee; color: #d32f2f; border: 1px solid #ffcdd2; }
-        .btn-copiar:hover { background-color: #ffcdd2; }
-        .btn-ir { background-color: #FF4747; color: #ffffff; width: 100%; margin-top: 4px; }
-        .btn-ir:hover { background-color: #e53935; }
-        
-        .disclaimer-card { font-size: 12px; color: #e53935; font-weight: 600; text-align: center; margin-top: 12px; padding-top: 8px; border-top: 1px dashed #ffe0b2; }
-        .aviso-rodape { background-color: #fff; border-left: 4px solid #FF6A00; padding: 15px; border-radius: 8px; margin-top: 25px; font-size: 13px; color: #555; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #2e7d32; color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none; z-index: 1000; }
+
+        .header {
+            background: linear-gradient(
+                135deg,
+                #ff4747 0%,
+                #ff6a00 100%
+            );
+            color: #ffffff;
+            text-align: center;
+            padding: 18px 15px;
+            box-shadow: 0 4px 12px rgba(255,71,71,.2);
+        }
+
+        .header h1 {
+            font-size: 25px;
+            margin-bottom: 7px;
+            font-weight: 850;
+        }
+
+        .mensagem-apoio {
+            background: #ffffff;
+            color: #d9342b;
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 750;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+        }
+
+        .atualizacao-barra {
+            text-align: center;
+            color: #7a4a3b;
+            margin: 14px auto -4px;
+            padding: 0 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .atualizacao-barra strong {
+            color: #e43d2f;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 18px auto;
+            padding: 0 14px;
+        }
+
+        .grid-cupons {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px;
+        }
+
+        .cupom-card {
+            background: #ffffff;
+            border-radius: 13px;
+            padding: 14px;
+            border-left: 5px solid #ff4747;
+            box-shadow: 0 4px 16px rgba(0,0,0,.07);
+        }
+
+        .cupom-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .cupom-codigos {
+            background: #fff5f2;
+            border: 2px dashed #ff6a00;
+            padding: 7px 11px;
+            border-radius: 8px;
+            color: #b72f28;
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: .3px;
+        }
+
+        .badge-desconto {
+            background: linear-gradient(
+                135deg,
+                #ff4747,
+                #ff6a00
+            );
+            color: #ffffff;
+            padding: 6px 9px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+
+        .regras-container {
+            display: grid;
+            grid-template-columns: 1fr 1.7fr;
+            gap: 8px;
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            padding: 10px 11px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .regra-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .regra-label {
+            color: #777777;
+            font-size: 9px;
+            font-weight: 750;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .regra-valor {
+            color: #171717;
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        .regra-valor.destaque {
+            color: #e43d2f;
+        }
+
+        .botoes-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.15fr;
+            gap: 7px;
+        }
+
+        .btn {
+            min-width: 0;
+            padding: 10px 6px;
+            border-radius: 8px;
+            border: none;
+            font-size: 11px;
+            font-weight: 850;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .2s;
+        }
+
+        .btn-copiar {
+            background: #fff0ee;
+            color: #d9342b;
+            border: 1px solid #ffd2cd;
+        }
+
+        .btn-copiar:hover {
+            background: #ffdeda;
+        }
+
+        .btn-ir {
+            background: #ff4747;
+            color: #ffffff;
+        }
+
+        .btn-ir:hover {
+            background: #e53535;
+        }
+
+        .alerta-card {
+            color: #dc3c32;
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .aviso-final {
+            max-width: 1092px;
+            margin: 5px auto 22px;
+            padding: 16px 20px;
+            background: #ffffff;
+            border-left: 5px solid #ff6a00;
+            border-radius: 12px;
+            color: #5b5b5b;
+            font-size: 13px;
+            line-height: 1.5;
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2e7d32;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 720px) {
+            .grid-cupons {
+                grid-template-columns: 1fr;
+                gap: 11px;
+            }
+
+            .container {
+                margin-top: 13px;
+                padding: 0 10px;
+            }
+
+            .header {
+                padding: 14px 10px;
+            }
+
+            .header h1 {
+                font-size: 21px;
+            }
+
+            .mensagem-apoio {
+                font-size: 11px;
+                padding: 7px 12px;
+            }
+
+            .atualizacao-barra {
+                margin-top: 11px;
+                font-size: 11px;
+            }
+
+            .cupom-card {
+                padding: 12px;
+            }
+
+            .cupom-codigos {
+                font-size: 15px;
+            }
+
+            .badge-desconto {
+                font-size: 12px;
+            }
+
+            .btn {
+                font-size: 10px;
+                padding: 10px 4px;
+            }
+
+            .aviso-final {
+                margin: 5px 10px 18px;
+                padding: 14px 16px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="header">
         <h1>🛍️ Cupons AliExpress</h1>
-        <div class="mensagens-topo">
-            <div class="badge-atualizacao">
-                🇧🇷 Produtos com Estoque e Envio Direto do Brasil
-            </div>
-            <div class="mensagem-apoio">
-                🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
-            </div>
+
+        <div class="mensagem-apoio">
+            🤝 Usando nossos links você ajuda a conseguirmos mais cupons pra vocês! 🫶🏼
         </div>
+    </div>
+
+    <div class="atualizacao-barra">
+        🇧🇷 Cupons para produtos com estoque no Brasil ·
+        <strong>Por tempo limitado</strong>
     </div>
 
     <div class="container">
         <div class="grid-cupons" id="listaCupons">
-            <p style="text-align: center; color: #666; padding: 30px;">Carregando cupons do AliExpress...</p>
-        </div>
-
-        <div class="aviso-rodape">
-            ⚠️ <b>Atenção:</b> Os cupons do AliExpress possuem quantidade limite de usos e podem encerrar antes do prazo estipulado. Aproveite para resgatar logo!
+            <p style="text-align:center; color:#666; padding:30px;">
+                Carregando cupons do AliExpress...
+            </p>
         </div>
     </div>
 
-    <div class="toast" id="toastAviso">📋 Cupom copiado com sucesso!</div>
+    <div class="aviso-final">
+        ⚠️ <strong>Atenção:</strong>
+        Os cupons do AliExpress possuem quantidade limitada de usos
+        e podem encerrar antes do prazo estipulado.
+        Aproveite para resgatar logo!
+    </div>
+
+    <div class="toast" id="toastAviso">
+        📋 Cupom copiado com sucesso!
+    </div>
 
     <script>
-        const MEU_LINK_AFILIADO_ALI = "https://s.click.aliexpress.com/e/_oFuy2C1";
+        const MEU_LINK_AFILIADO_ALI =
+            "https://s.click.aliexpress.com/e/_oFuy2C1";
 
         async function carregarCupons() {
             try {
-                const res = await fetch("./aliexpress.json?v=" + Date.now());
-                if (!res.ok) throw new Error("Erro ao carregar os cupons");
+                const resposta = await fetch(
+                    "./aliexpress.json?cache=" + Date.now()
+                );
 
-                const lista = await res.json();
-                if (Array.isArray(lista) && lista.length > 0) {
+                if (!resposta.ok) {
+                    throw new Error(
+                        "Erro ao carregar os cupons"
+                    );
+                }
+
+                const lista = await resposta.json();
+
+                if (
+                    Array.isArray(lista) &&
+                    lista.length > 0
+                ) {
                     renderizarCupons(lista);
                 } else {
-                    document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Nenhum cupom ativo no momento.</p>';
+                    document.getElementById(
+                        "listaCupons"
+                    ).innerHTML =
+                        '<p style="text-align:center; padding:20px;">Nenhum cupom ativo no momento.</p>';
                 }
-            } catch (err) {
-                document.getElementById('listaCupons').innerHTML = '<p style="text-align:center; padding: 20px;">Erro ao carregar cupons.</p>';
+            } catch (erro) {
+                document.getElementById(
+                    "listaCupons"
+                ).innerHTML =
+                    '<p style="text-align:center; padding:20px;">Erro ao carregar os cupons.</p>';
             }
         }
 
         function renderizarCupons(lista) {
-            const container = document.getElementById('listaCupons');
-            container.innerHTML = '';
+            const container =
+                document.getElementById(
+                    "listaCupons"
+                );
+
+            container.innerHTML = "";
 
             lista.forEach(item => {
-                const codigos = item.codes || (item.code ? [item.code] : ['CUPOM']);
-                const desconto = item.discount || 'Desconto Especial';
-                const categoria = item.category || 'AliExpress';
-                const minimo = item.min_purchase || '';
+                const codigos =
+                    item.codes ||
+                    (
+                        item.code
+                            ? [item.code]
+                            : ["CUPOM"]
+                    );
 
-                // Gera os botões de cópia para cada código do card
-                const botoesCopiar = codigos.map(cod => 
-                    `<button class="btn btn-copiar" onclick="copiarCodigo('${cod}')">✂️ COPIAR ${cod}</button>`
-                ).join('');
+                const desconto =
+                    item.discount ||
+                    "Desconto especial";
 
-                const tituloCodigos = codigos.join(' ou ');
+                const categoria =
+                    item.category ||
+                    "AliExpress";
 
-                const card = document.createElement('div');
-                card.className = 'cupom-card';
+                const minimo =
+                    formatarDinheiro(
+                        item.min_purchase
+                    );
+
+                const tituloCodigos =
+                    codigos.join(" ou ");
+
+                const botoesCopiar =
+                    codigos.map(codigo => `
+                        <button
+                            class="btn btn-copiar"
+                            onclick="copiarCodigo('${codigo}')"
+                        >
+                            ✂️ ${codigo}
+                        </button>
+                    `).join("");
+
+                const card =
+                    document.createElement("div");
+
+                card.className = "cupom-card";
+
                 card.innerHTML = `
-                    <div class="cupom-info">
-                        <h3>${tituloCodigos} <span class="badge-desconto">${desconto}</span></h3>
-                        <div class="cupom-detalhes">
-                            📌 Categoria: <b>${categoria}</b><br>
-                            ${minimo ? '💰 Compra mínima: R$ ' + minimo : ''}
+                    <div class="cupom-header">
+                        <div class="cupom-codigos">
+                            🏷️ ${tituloCodigos}
+                        </div>
+
+                        <div class="badge-desconto">
+                            ${desconto}
                         </div>
                     </div>
-                    <div class="botoes-grupo">
-                        <div class="botoes-cupons-linha">
-                            ${botoesCopiar}
+
+                    <div class="regras-container">
+                        <div class="regra-box">
+                            <span class="regra-label">
+                                Compra mínima
+                            </span>
+
+                            <span class="regra-valor destaque">
+                                ${minimo}
+                            </span>
                         </div>
-                        <a href="${MEU_LINK_AFILIADO_ALI}" target="_blank" class="btn btn-ir">
-                            🛍️ IR PRO ALIEXPRESS
+
+                        <div class="regra-box">
+                            <span class="regra-label">
+                                Produtos participantes
+                            </span>
+
+                            <span class="regra-valor">
+                                ${categoria}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="botoes-row">
+                        ${botoesCopiar}
+
+                        <a
+                            href="${MEU_LINK_AFILIADO_ALI}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-ir"
+                        >
+                            🛍️ VER PRODUTOS
                         </a>
                     </div>
-                    <div class="disclaimer-card">
+
+                    <div class="alerta-card">
                         🗣️ O cupom pode esgotar a qualquer momento, então corre!
                     </div>
                 `;
+
                 container.appendChild(card);
             });
         }
 
+        function formatarDinheiro(valor) {
+            if (
+                valor === undefined ||
+                valor === null ||
+                valor === ""
+            ) {
+                return "Consulte";
+            }
+
+            const texto =
+                String(valor).trim();
+
+            return texto.startsWith("R$")
+                ? texto
+                : `R$ ${texto}`;
+        }
+
         function copiarCodigo(texto) {
-            navigator.clipboard.writeText(texto).then(() => {
-                const toast = document.getElementById('toastAviso');
-                toast.innerText = `📋 Cupom ${texto} copiado!`;
-                toast.style.display = 'block';
-                setTimeout(() => { toast.style.display = 'none'; }, 2500);
-            });
+            navigator.clipboard
+                .writeText(texto)
+                .then(() => {
+                    const toast =
+                        document.getElementById(
+                            "toastAviso"
+                        );
+
+                    toast.innerText =
+                        `📋 Cupom ${texto} copiado!`;
+
+                    toast.style.display =
+                        "block";
+
+                    setTimeout(() => {
+                        toast.style.display =
+                            "none";
+                    }, 2500);
+                });
         }
 
         carregarCupons();
     </script>
+
 </body>
 </html>
