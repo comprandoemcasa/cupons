@@ -261,8 +261,24 @@
     </div>
 
     <script>
-        const MEU_LINK_AFILIADO_ML =
-            "https://www.mercadolivre.com.br/social/atelierdoslinks";
+        const LINK_AFILIADO_GERAL =
+            "https://meli.la/2L3TQwA";
+
+        const LINKS_AFILIADOS_POR_CONTAINER = {
+            "aff-list-1": "https://meli.la/1fx4Wtx",
+            "aff-list-2": "https://meli.la/1hZS3wc",
+            "aff-list-3": "https://meli.la/1VLiTUQ",
+            "aff-list-4": "https://meli.la/2z8NxdY",
+            "aff-list-5": "https://meli.la/1MPoB2u",
+            "aff-list-6": "https://meli.la/2L3TQwA",
+            "aff-list-7": "https://meli.la/2XaVoNs",
+            "aff-list-8": "https://meli.la/1QZrr16",
+            "aff-list-9": "https://meli.la/2noeB7S",
+            "fashion-2026-2": "https://meli.la/1V4GXUk",
+            "fh-afiliados-2026": "https://meli.la/1ms9fBq",
+            "toys-e-babys": "https://meli.la/1GYR9Gy",
+            "tech-e-he": "https://meli.la/2wbXest"
+        };
 
         async function carregarCupons() {
             try {
@@ -289,38 +305,56 @@
         }
 
         function renderizarCupons(lista) {
-            const container = document.getElementById("listaCupons");
+            const container =
+                document.getElementById("listaCupons");
+
             container.innerHTML = "";
 
             lista.forEach(item => {
-                const codigo = (item.code || "CUPOM").toUpperCase();
-                const desconto = formatarDesconto(item.discount);
+                const codigo =
+                    (item.code || "CUPOM").toUpperCase();
 
-                const minimo = formatarDinheiro(
-                    item.min_purchase,
-                    "Sem mínimo"
-                );
+                const desconto =
+                    formatarDesconto(item.discount);
 
-                const maximo = formatarDinheiro(
-                    item.max_discount,
-                    "Sem limite"
-                );
+                const minimo =
+                    formatarDinheiro(
+                        item.min_purchase,
+                        "Sem mínimo"
+                    );
+
+                const maximo =
+                    formatarDinheiro(
+                        item.max_discount,
+                        "Sem limite"
+                    );
 
                 const validade = item.end_date
                     ? `Até ${item.end_date}`
                     : "";
 
-                const card = document.createElement("div");
+                const linkAfiliado =
+                    obterLinkAfiliado(
+                        item.product_list_url
+                    );
+
+                const card =
+                    document.createElement("div");
+
                 card.className = "cupom-card";
 
                 card.innerHTML = `
                     <div class="cupom-header">
                         <div class="cupom-destaque-box">
                             🏷️
-                            <span class="cupom-codigo">${codigo}</span>
+                            <span class="cupom-codigo">
+                                ${codigo}
+                            </span>
                         </div>
 
-                        <span class="validade">${validade}</span>
+                        <span class="validade">
+                            ${validade}
+                        </span>
                     </div>
 
                     <div class="regras-container">
@@ -364,8 +398,9 @@
                         </button>
 
                         <a
-                            href="${MEU_LINK_AFILIADO_ML}"
+                            href="${linkAfiliado}"
                             target="_blank"
+                            rel="noopener noreferrer"
                             class="btn btn-ir"
                         >
                             🛍️ IR PRO MERCADO LIVRE
@@ -388,7 +423,9 @@
 
             const texto = String(valor).trim();
 
-            return texto.toUpperCase().includes("OFF")
+            return texto
+                .toUpperCase()
+                .includes("OFF")
                 ? texto
                 : `${texto} OFF`;
         }
@@ -409,20 +446,40 @@
                 : `R$${texto}`;
         }
 
+        function obterLinkAfiliado(containerUrl) {
+            if (!containerUrl) {
+                return LINK_AFILIADO_GERAL;
+            }
+
+            const entrada = Object.entries(
+                LINKS_AFILIADOS_POR_CONTAINER
+            ).find(([container]) =>
+                String(containerUrl).includes(container)
+            );
+
+            return entrada
+                ? entrada[1]
+                : LINK_AFILIADO_GERAL;
+        }
+
         function copiarCodigo(texto) {
-            navigator.clipboard.writeText(texto).then(() => {
-                const toast =
-                    document.getElementById("toastAviso");
+            navigator.clipboard
+                .writeText(texto)
+                .then(() => {
+                    const toast =
+                        document.getElementById(
+                            "toastAviso"
+                        );
 
-                toast.innerText =
-                    `📋 Cupom ${texto} copiado!`;
+                    toast.innerText =
+                        `📋 Cupom ${texto} copiado!`;
 
-                toast.style.display = "block";
+                    toast.style.display = "block";
 
-                setTimeout(() => {
-                    toast.style.display = "none";
-                }, 2500);
-            });
+                    setTimeout(() => {
+                        toast.style.display = "none";
+                    }, 2500);
+                });
         }
 
         carregarCupons();
