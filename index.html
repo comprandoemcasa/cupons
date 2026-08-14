@@ -198,6 +198,19 @@
             margin-top: 8px;
         }
 
+        .aviso-final {
+            max-width: 1092px;
+            margin: 5px auto 22px;
+            padding: 16px 20px;
+            background: #ffffff;
+            border-left: 5px solid #ff6d00;
+            border-radius: 12px;
+            color: #5b5b5b;
+            font-size: 13px;
+            line-height: 1.5;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
         .toast {
             position: fixed;
             bottom: 20px;
@@ -254,6 +267,12 @@
             .btn {
                 font-size: 11px;
             }
+
+            .aviso-final {
+                margin: 5px 10px 18px;
+                padding: 14px 16px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -283,21 +302,21 @@
         </div>
     </div>
 
+    <div class="aviso-final">
+        ⚠️ <strong>Atenção:</strong>
+        Os cupons do Mercado Livre possuem quantidade limitada de usos
+        e podem encerrar antes do prazo estipulado.
+        Aproveite para resgatar logo!
+    </div>
+
     <div class="toast" id="toastAviso">
         📋 Cupom copiado com sucesso!
     </div>
 
     <script>
-        /*
-         * Este é o link de segurança.
-         * Ele será usado quando aparecer um container novo.
-         */
         const LINK_AFILIADO_GERAL =
             "https://meli.la/2L3TQwA";
 
-        /*
-         * Links de afiliado de cada container.
-         */
         const LINKS_AFILIADOS_POR_CONTAINER = {
             "aff-list-1": "https://meli.la/1fx4Wtx",
             "aff-list-2": "https://meli.la/1hZS3wc",
@@ -328,9 +347,6 @@
 
                 const dados = await resposta.json();
 
-                /*
-                 * Aceita tanto o formato novo quanto o antigo.
-                 */
                 const lista = Array.isArray(dados)
                     ? dados
                     : dados.coupons;
@@ -378,12 +394,6 @@
 
             container.innerHTML = "";
 
-            /*
-             * Ordem escolhida:
-             * 1º Tecnologia
-             * 2º Casa e decoração
-             * Depois, os demais cupons.
-             */
             const prioridades = [
                 "tech-e-he",
                 "fh-afiliados-2026"
