@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cupons Mercado Livre</title>
 
     <style>
@@ -10,7 +11,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
@@ -42,6 +44,19 @@
             font-size: 13px;
             font-weight: 700;
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .atualizacao-barra {
+            text-align: center;
+            color: #5b5f8a;
+            margin: 14px auto -4px;
+            padding: 0 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .atualizacao-barra strong {
+            color: #2d3277;
         }
 
         .container {
@@ -223,6 +238,11 @@
                 padding: 7px 12px;
             }
 
+            .atualizacao-barra {
+                margin-top: 11px;
+                font-size: 11px;
+            }
+
             .cupom-card {
                 padding: 12px;
             }
@@ -248,6 +268,13 @@
         </div>
     </div>
 
+    <div class="atualizacao-barra">
+        Atualização automática a cada hora ·
+        <strong id="ultimaAtualizacao">
+            verificando...
+        </strong>
+    </div>
+
     <div class="container">
         <div class="grid-cupons" id="listaCupons">
             <p style="text-align: center; color: #666; padding: 30px;">
@@ -261,9 +288,16 @@
     </div>
 
     <script>
+        /*
+         * Este é o link de segurança.
+         * Ele será usado quando aparecer um container novo.
+         */
         const LINK_AFILIADO_GERAL =
             "https://meli.la/2L3TQwA";
 
+        /*
+         * Links de afiliado de cada container.
+         */
         const LINKS_AFILIADOS_POR_CONTAINER = {
             "aff-list-1": "https://meli.la/1fx4Wtx",
             "aff-list-2": "https://meli.la/1hZS3wc",
@@ -282,25 +316,59 @@
 
         async function carregarCupons() {
             try {
-                const res = await fetch(
+                const resposta = await fetch(
                     "./data.json?cache=" + new Date().getTime()
                 );
 
-                if (!res.ok) {
-                    throw new Error("Erro ao carregar");
+                if (!resposta.ok) {
+                    throw new Error(
+                        "Erro ao carregar os cupons"
+                    );
                 }
 
-                const lista = await res.json();
+                const dados = await resposta.json();
 
-                if (Array.isArray(lista) && lista.length > 0) {
+                /*
+                 * Aceita tanto o formato novo quanto o antigo.
+                 */
+                const lista = Array.isArray(dados)
+                    ? dados
+                    : dados.coupons;
+
+                const atualizadoEm = Array.isArray(dados)
+                    ? ""
+                    : dados.updated_at;
+
+                const campoAtualizacao =
+                    document.getElementById(
+                        "ultimaAtualizacao"
+                    );
+
+                campoAtualizacao.textContent = atualizadoEm
+                    ? `Atualizado em ${atualizadoEm}`
+                    : "Horário disponível após a próxima atualização";
+
+                if (
+                    Array.isArray(lista) &&
+                    lista.length > 0
+                ) {
                     renderizarCupons(lista);
                 } else {
-                    document.getElementById("listaCupons").innerHTML =
+                    document.getElementById(
+                        "listaCupons"
+                    ).innerHTML =
                         '<p style="text-align:center;">Nenhum cupom ativo no momento.</p>';
                 }
-            } catch (err) {
-                document.getElementById("listaCupons").innerHTML =
+            } catch (erro) {
+                document.getElementById(
+                    "listaCupons"
+                ).innerHTML =
                     '<p style="text-align:center;">Erro ao carregar os cupons.</p>';
+
+                document.getElementById(
+                    "ultimaAtualizacao"
+                ).textContent =
+                    "Não foi possível verificar o horário";
             }
         }
 
@@ -310,7 +378,48 @@
 
             container.innerHTML = "";
 
-            lista.forEach(item => {
+            /*
+             * Ordem escolhida:
+             * 1º Tecnologia
+             * 2º Casa e decoração
+             * Depois, os demais cupons.
+             */
+            const prioridades = [
+                "tech-e-he",
+                "fh-afiliados-2026"
+            ];
+
+            const listaOrdenada = [...lista].sort(
+                (itemA, itemB) => {
+                    const prioridadeA =
+                        prioridades.findIndex(nome =>
+                            String(
+                                itemA.product_list_url || ""
+                            ).includes(nome)
+                        );
+
+                    const prioridadeB =
+                        prioridades.findIndex(nome =>
+                            String(
+                                itemB.product_list_url || ""
+                            ).includes(nome)
+                        );
+
+                    const pesoA =
+                        prioridadeA === -1
+                            ? prioridades.length
+                            : prioridadeA;
+
+                    const pesoB =
+                        prioridadeB === -1
+                            ? prioridades.length
+                            : prioridadeB;
+
+                    return pesoA - pesoB;
+                }
+            );
+
+            listaOrdenada.forEach(item => {
                 const codigo =
                     (item.code || "CUPOM").toUpperCase();
 
