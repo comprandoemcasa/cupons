@@ -1,122 +1,122 @@
 [
   {
     "code": "APROVEITA",
-    "discount": "30,00% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "CORREPROMELI",
-    "discount": "30,00% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "DESCOTOSMELI",
-    "discount": "25% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "MAISCUPONS",
-    "discount": "25% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "QUEROCUPONS",
-    "discount": "25% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "OMELHOR",
-    "discount": "25% OFF",
-    "min_purchase": "R$19",
-    "max_discount": "R$150"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "MAISPORMENOS",
-    "discount": "22% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "ECONOMIAML",
-    "discount": "22% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "SEMPREMODA",
-    "discount": "20,00% OFF",
-    "min_purchase": "R$19",
-    "max_discount": "R$60"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "SUPERPROMO",
-    "discount": "20,00% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "SHOWDEPROMO",
-    "discount": "20% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "CUPOMDASEMANA",
-    "discount": "20% OFF",
-    "min_purchase": "R$19",
-    "max_discount": "R$150"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "MELIACHA",
-    "discount": "20% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "PREFERIDO",
-    "discount": "20% OFF",
-    "min_purchase": "R$79",
-    "max_discount": "R$60"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "HORADOCUPOM",
-    "discount": "18% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "MAISOFERTAS",
-    "discount": "18% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "MELIOFF",
-    "discount": "18% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "BRINQUEDOS",
-    "discount": "15% OFF",
-    "min_purchase": "R$59",
-    "max_discount": "R$50"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "OFERTASML",
-    "discount": "15% OFF",
-    "min_purchase": "R$29",
-    "max_discount": "R$500"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   },
   {
     "code": "CASAINTELIGENTE",
-    "discount": "10% OFF",
-    "min_purchase": "R$149",
-    "max_discount": "R$200"
+    "discount": "% OFF",
+    "min_purchase": "COMPRA MÍNIMA",
+    "max_discount": "DESCONTO MÁX."
   }
 ]
