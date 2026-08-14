@@ -17,10 +17,6 @@ async function extrair() {
             }
         );
 
-        /*
-         * Localiza os dados completos dos cupons dentro
-         * do código publicado pelo Mercado Livre.
-         */
         const scriptCupons = await page.$$eval(
             "script",
             scripts => {
@@ -56,24 +52,43 @@ async function extrair() {
             open_sitewide: Boolean(item.is_mar_aberto)
         }));
 
-        /*
-         * Esta proteção impede que um erro temporário
-         * apague todos os cupons que já estavam publicados.
-         */
         if (cupons.length === 0) {
             throw new Error(
                 "O Mercado Livre retornou uma lista vazia de cupons."
             );
         }
 
+        const atualizadoEm = new Intl.DateTimeFormat(
+            "pt-BR",
+            {
+                timeZone: "America/Sao_Paulo",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: false
+            }
+        ).format(new Date()).replace(",", "");
+
+        const dadosDaPagina = {
+            updated_at: atualizadoEm,
+            coupons: cupons
+        };
+
         fs.writeFileSync(
             "data.json",
-            JSON.stringify(cupons, null, 2)
+            JSON.stringify(dadosDaPagina, null, 2)
         );
 
         console.log(
             "Cupons atualizados com sucesso:",
             cupons.length
+        );
+
+        console.log(
+            "Horário da atualização:",
+            atualizadoEm
         );
     } catch (erro) {
         console.error(
