@@ -1,5 +1,5 @@
 {
-  "updated_at": "15/08/2026 14:43",
+  "updated_at": "15/08/2026 16:01",
   "coupons": [
     {
       "code": "PROMOCERTAML",
@@ -87,17 +87,6 @@
       "end_date": "16/08/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-1",
-      "open_sitewide": false
-    },
-    {
-      "code": "BRINQUEDOS",
-      "discount": "15%",
-      "min_purchase": "59",
-      "max_discount": "50",
-      "start_date": "10/08/2026",
-      "end_date": "16/08/2026",
-      "category": "Toys & Babys",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
       "open_sitewide": false
     },
     {
