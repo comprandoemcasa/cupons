@@ -1,17 +1,6 @@
 {
-  "updated_at": "15/08/2026 20:40",
+  "updated_at": "16/08/2026 00:16",
   "coupons": [
-    {
-      "code": "PROMOCERTAML",
-      "discount": "10,00%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "15/08/2026",
-      "end_date": "15/08/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
-      "open_sitewide": false
-    },
     {
       "code": "APROVEITA",
       "discount": "30,00%",
