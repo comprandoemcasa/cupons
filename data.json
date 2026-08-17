@@ -1,6 +1,50 @@
 {
-  "updated_at": "17/08/2026 14:00",
+  "updated_at": "17/08/2026 16:17",
   "coupons": [
+    {
+      "code": "CASAML",
+      "discount": "25%",
+      "min_purchase": "19",
+      "max_discount": "150",
+      "start_date": "17/08/2026",
+      "end_date": "17/08/2026",
+      "category": "Furnishing & Houseware",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
+      "open_sitewide": false
+    },
+    {
+      "code": "PRAVCSEMPRE",
+      "discount": "25%",
+      "min_purchase": "19",
+      "max_discount": "150",
+      "start_date": "17/08/2026",
+      "end_date": "17/08/2026",
+      "category": "Vehicle Parts & Accessories",
+      "product_list_url": "-",
+      "open_sitewide": false
+    },
+    {
+      "code": "SEMPRENAMODA",
+      "discount": "20%",
+      "min_purchase": "19",
+      "max_discount": "60",
+      "start_date": "17/08/2026",
+      "end_date": "17/08/2026",
+      "category": "Fashion",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
+      "open_sitewide": false
+    },
+    {
+      "code": "CONSTRUIRMELI",
+      "discount": "20%",
+      "min_purchase": "19",
+      "max_discount": "150",
+      "start_date": "17/08/2026",
+      "end_date": "17/08/2026",
+      "category": "Construction & Industry",
+      "product_list_url": "-",
+      "open_sitewide": false
+    },
     {
       "code": "AQUITEM",
       "discount": "10%",
@@ -54,61 +98,6 @@
       "end_date": "19/08/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
-      "open_sitewide": false
-    },
-    {
-      "code": "CASAML",
-      "discount": "25%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Furnishing & Houseware",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
-      "open_sitewide": false
-    },
-    {
-      "code": "PRAVCSEMPRE",
-      "discount": "25%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Vehicle Parts & Accessories",
-      "product_list_url": "-",
-      "open_sitewide": false
-    },
-    {
-      "code": "SEMPRENAMODA",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "60",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Fashion",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
-      "open_sitewide": false
-    },
-    {
-      "code": "CONSTRUIRMELI",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Construction & Industry",
-      "product_list_url": "-",
-      "open_sitewide": false
-    },
-    {
-      "code": "SAUDEPRAVC",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Health",
-      "product_list_url": "MLB264586",
       "open_sitewide": false
     },
     {
