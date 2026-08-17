@@ -1,17 +1,6 @@
 {
-  "updated_at": "17/08/2026 18:55",
+  "updated_at": "17/08/2026 19:55",
   "coupons": [
-    {
-      "code": "AQUITEM",
-      "discount": "10%",
-      "min_purchase": "129",
-      "max_discount": "150",
-      "start_date": "17/08/2026",
-      "end_date": "17/08/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
-      "open_sitewide": false
-    },
     {
       "code": "CUPOMDOML",
       "discount": "25%",
