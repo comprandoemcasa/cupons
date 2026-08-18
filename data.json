@@ -1,6 +1,17 @@
 {
-  "updated_at": "18/08/2026 08:57",
+  "updated_at": "18/08/2026 11:06",
   "coupons": [
+    {
+      "code": "MELICUPOM",
+      "discount": "10%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "18/08/2026",
+      "end_date": "18/08/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "open_sitewide": false
+    },
     {
       "code": "CUPOMDOML",
       "discount": "25%",
@@ -43,6 +54,50 @@
       "end_date": "19/08/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
+      "open_sitewide": false
+    },
+    {
+      "code": "MELHORNOML",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "18/08/2026",
+      "end_date": "20/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-10",
+      "open_sitewide": false
+    },
+    {
+      "code": "AQUITEMCUPOM",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "18/08/2026",
+      "end_date": "20/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-13",
+      "open_sitewide": false
+    },
+    {
+      "code": "PROMOSCERTAS",
+      "discount": "20%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "18/08/2026",
+      "end_date": "20/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-11",
+      "open_sitewide": false
+    },
+    {
+      "code": "COMMELI",
+      "discount": "20%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "18/08/2026",
+      "end_date": "20/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-12",
       "open_sitewide": false
     },
     {
