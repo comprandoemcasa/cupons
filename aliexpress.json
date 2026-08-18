@@ -46,5 +46,17 @@
     "discount": "R$ 545 OFF",
     "category": "Produtos com Estoque no Brasil 🇧🇷",
     "min_purchase": "4.200"
+  },
+  {
+    "codes": ["NOVA1"],
+    "discount": "R$ 240 OFF",
+    "category": "AliExpress",
+    "min_purchase": "1.600"
+  },
+  {
+    "codes": ["NOVA2"],
+    "discount": "R$ 860 OFF",
+    "category": "AliExpress",
+    "min_purchase": "5.200"
   }
 ]
