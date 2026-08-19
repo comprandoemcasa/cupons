@@ -1,5 +1,5 @@
 {
-  "updated_at": "19/08/2026 11:07",
+  "updated_at": "19/08/2026 13:02",
   "coupons": [
     {
       "code": "CUPOMDOML",
@@ -145,17 +145,6 @@
       "open_sitewide": false
     },
     {
-      "code": "OFFHOJE",
-      "discount": "25%",
-      "min_purchase": "19",
-      "max_discount": "100",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Construction & Industry",
-      "product_list_url": "MLB1500\nMLB1499\nMLB263532",
-      "open_sitewide": false
-    },
-    {
       "code": "MELIPROMO",
       "discount": "25%",
       "min_purchase": "19",
@@ -164,17 +153,6 @@
       "end_date": "23/08/2026",
       "category": "Vehicle Parts & Accessories",
       "product_list_url": "MLB5672",
-      "open_sitewide": false
-    },
-    {
-      "code": "APROVEITAGORA",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "17/08/2026",
-      "end_date": "23/08/2026",
-      "category": "Furnishing & Houseware",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
       "open_sitewide": false
     },
     {
