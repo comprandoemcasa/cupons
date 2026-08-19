@@ -1,5 +1,5 @@
 {
-  "updated_at": "19/08/2026 08:57",
+  "updated_at": "19/08/2026 11:07",
   "coupons": [
     {
       "code": "CUPOMDOML",
@@ -46,6 +46,17 @@
       "open_sitewide": false
     },
     {
+      "code": "PROMOTEC",
+      "discount": "10%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "19/08/2026",
+      "end_date": "19/08/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "open_sitewide": false
+    },
+    {
       "code": "MELHORNOML",
       "discount": "25%",
       "min_purchase": "29",
@@ -87,6 +98,50 @@
       "end_date": "20/08/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-12",
+      "open_sitewide": false
+    },
+    {
+      "code": "CORREPROAPP",
+      "discount": "22%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "19/08/2026",
+      "end_date": "21/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-16",
+      "open_sitewide": false
+    },
+    {
+      "code": "OFERTAJA",
+      "discount": "20%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "19/08/2026",
+      "end_date": "21/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-15",
+      "open_sitewide": false
+    },
+    {
+      "code": "MELHORESPROMOS",
+      "discount": "20%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "19/08/2026",
+      "end_date": "21/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-17",
+      "open_sitewide": false
+    },
+    {
+      "code": "VEMPROMELI",
+      "discount": "18%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "19/08/2026",
+      "end_date": "21/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-14",
       "open_sitewide": false
     },
     {
