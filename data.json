@@ -1,17 +1,6 @@
 {
-  "updated_at": "19/08/2026 17:58",
+  "updated_at": "19/08/2026 18:56",
   "coupons": [
-    {
-      "code": "CUPOMDOML",
-      "discount": "25%",
-      "min_purchase": "29",
-      "max_discount": "500",
-      "start_date": "17/08/2026",
-      "end_date": "19/08/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-9",
-      "open_sitewide": false
-    },
     {
       "code": "OFERTAS",
       "discount": "20%",
@@ -54,17 +43,6 @@
       "end_date": "19/08/2026",
       "category": "Tech e Home Electronics",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
-      "open_sitewide": false
-    },
-    {
-      "code": "MELHORNOML",
-      "discount": "25%",
-      "min_purchase": "29",
-      "max_discount": "500",
-      "start_date": "18/08/2026",
-      "end_date": "20/08/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-10",
       "open_sitewide": false
     },
     {
@@ -208,6 +186,28 @@
       "end_date": "31/08/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-9",
+      "open_sitewide": false
+    },
+    {
+      "code": "CUPOMDOML",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "17/08/2026",
+      "end_date": "31/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-9",
+      "open_sitewide": false
+    },
+    {
+      "code": "MELHORNOML",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "18/08/2026",
+      "end_date": "31/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-10",
       "open_sitewide": false
     },
     {
