@@ -463,6 +463,55 @@
             z-index: 1000;
         }
 
+        .cookie-banner {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            left: 16px;
+            z-index: 2000;
+            display: none;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 15px 17px;
+            background: #ffffff;
+            border: 2px solid #26357e;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0,0,0,.22);
+            color: #333333;
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        .cookie-banner p {
+            margin: 0 0 11px;
+        }
+
+        .cookie-acoes {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .cookie-btn {
+            border: 0;
+            border-radius: 9px;
+            padding: 9px 14px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .cookie-recusar {
+            background: #eeeeee;
+            color: #333333;
+        }
+
+        .cookie-aceitar {
+            background: #26357e;
+            color: #ffffff;
+        }
+
         @media (max-width: 720px) {
             .grid-cupons {
                 grid-template-columns: 1fr;
@@ -827,7 +876,119 @@
         📋 Cupom copiado com sucesso!
     </div>
 
+    <aside
+        class="cookie-banner"
+        id="avisoCookies"
+        aria-label="Preferências de privacidade"
+    >
+        <p>
+            Usamos o Pixel da Meta para medir visitas e cliques nos cupons.
+            Você pode aceitar ou continuar sem essa medição.
+        </p>
+
+        <div class="cookie-acoes">
+            <button
+                class="cookie-btn cookie-recusar"
+                type="button"
+                onclick="definirConsentimentoMeta(false)"
+            >
+                CONTINUAR SEM PIXEL
+            </button>
+
+            <button
+                class="cookie-btn cookie-aceitar"
+                type="button"
+                onclick="definirConsentimentoMeta(true)"
+            >
+                ACEITAR
+            </button>
+        </div>
+    </aside>
+
     <script>
+        const META_PIXEL_ID =
+            "288152768701915";
+
+        function iniciarPixelMeta() {
+            if (
+                window.fbq &&
+                window.fbq.callMethod
+            ) {
+                return;
+            }
+
+            !function(f,b,e,v,n,t,s) {
+                if (f.fbq) return;
+                n = f.fbq = function() {
+                    n.callMethod
+                        ? n.callMethod.apply(n, arguments)
+                        : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = true;
+                n.version = "2.0";
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = true;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            }(
+                window,
+                document,
+                "script",
+                "https://connect.facebook.net/en_US/fbevents.js"
+            );
+
+            fbq("init", META_PIXEL_ID);
+            fbq("track", "PageView");
+        }
+
+        function definirConsentimentoMeta(aceitou) {
+            localStorage.setItem(
+                "consentimento_meta",
+                aceitou ? "aceito" : "recusado"
+            );
+
+            document.getElementById(
+                "avisoCookies"
+            ).style.display = "none";
+
+            if (aceitou) {
+                iniciarPixelMeta();
+            }
+        }
+
+        function configurarConsentimentoMeta() {
+            const escolha = localStorage.getItem(
+                "consentimento_meta"
+            );
+
+            if (escolha === "aceito") {
+                iniciarPixelMeta();
+                return;
+            }
+
+            if (escolha !== "recusado") {
+                document.getElementById(
+                    "avisoCookies"
+                ).style.display = "block";
+            }
+        }
+
+        function registrarCliqueCupom(codigo) {
+            if (typeof window.fbq === "function") {
+                fbq(
+                    "trackCustom",
+                    "CliqueCupom",
+                    {
+                        cupom: codigo
+                    }
+                );
+            }
+        }
+
         const LINK_AFILIADO_GERAL =
             "https://meli.la/2L3TQwA";
 
@@ -1048,6 +1209,7 @@
                             target="_blank"
                             rel="noopener noreferrer sponsored"
                             class="btn btn-ir"
+                            onclick="registrarCliqueCupom('${codigo}')"
                         >
                             🛍️ IR PRO MERCADO LIVRE
                         </a>
@@ -1139,10 +1301,10 @@
                 });
         }
 
+        configurarConsentimentoMeta();
         carregarCupons();
     </script>
 
 </body>
 </html>
-
 
