@@ -1,50 +1,6 @@
 {
-  "updated_at": "19/08/2026 20:49",
+  "updated_at": "20/08/2026 00:13",
   "coupons": [
-    {
-      "code": "OFERTAS",
-      "discount": "20%",
-      "min_purchase": "29",
-      "max_discount": "500",
-      "start_date": "17/08/2026",
-      "end_date": "19/08/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-8",
-      "open_sitewide": false
-    },
-    {
-      "code": "PROMONOML",
-      "discount": "18%",
-      "min_purchase": "29",
-      "max_discount": "500",
-      "start_date": "17/08/2026",
-      "end_date": "19/08/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-7",
-      "open_sitewide": false
-    },
-    {
-      "code": "APROVEITANOML",
-      "discount": "15%",
-      "min_purchase": "29",
-      "max_discount": "500",
-      "start_date": "17/08/2026",
-      "end_date": "19/08/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
-      "open_sitewide": false
-    },
-    {
-      "code": "PROMOTEC",
-      "discount": "10%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "19/08/2026",
-      "end_date": "19/08/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
-      "open_sitewide": false
-    },
     {
       "code": "AQUITEMCUPOM",
       "discount": "25%",
