@@ -308,6 +308,94 @@
             margin-top: 8px;
         }
 
+
+        .grupos-section {
+            max-width: 1092px;
+            margin: 4px auto 18px;
+            padding: 18px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+            text-align: center;
+        }
+
+        .grupos-section h2 {
+            color: #2d3277;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .grupos-subtitulo {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .grupos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 13px;
+        }
+
+        .grupo-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #f8f9fa;
+            text-align: left;
+        }
+
+        .grupo-imagem {
+            width: 105px;
+            height: 105px;
+            object-fit: cover;
+            border-radius: 22px;
+            flex-shrink: 0;
+        }
+
+        .grupo-conteudo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .grupo-conteudo h3 {
+            color: #222;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .grupo-conteudo p {
+            color: #5b5b5b;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .grupo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: #25d366;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 900;
+            text-decoration: none;
+            transition: background-color .2s, transform .2s;
+        }
+
+        .grupo-btn:hover {
+            background: #1ebc59;
+            transform: translateY(-1px);
+        }
+
         .faq {
             max-width: 1092px;
             margin: 4px auto 18px;
@@ -425,6 +513,47 @@
                 font-size: 11px;
             }
 
+
+            .grupos-section {
+                margin: 4px 10px 16px;
+                padding: 14px;
+            }
+
+            .grupos-section h2 {
+                font-size: 18px;
+            }
+
+            .grupos-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .grupo-card {
+                padding: 11px;
+                gap: 11px;
+            }
+
+            .grupo-imagem {
+                width: 82px;
+                height: 82px;
+                border-radius: 18px;
+            }
+
+            .grupo-conteudo h3 {
+                font-size: 14px;
+            }
+
+            .grupo-conteudo p {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+
+            .grupo-btn {
+                width: 100%;
+                padding: 9px 10px;
+                font-size: 11px;
+            }
+
             .faq {
                 margin: 4px 10px 16px;
                 padding: 14px;
@@ -485,6 +614,84 @@
             </p>
         </div>
     </main>
+
+
+    <section
+        class="grupos-section"
+        aria-labelledby="titulo-grupos"
+    >
+        <h2 id="titulo-grupos">
+            📲 Receba ofertas direto no seu WhatsApp!
+        </h2>
+
+        <p class="grupos-subtitulo">
+            Grupos gratuitos. Entre no que combina com você — ou nos dois! 💛
+        </p>
+
+        <div class="grupos-grid">
+            <article class="grupo-card">
+                <img
+                    src="./IMG_3191.JPG"
+                    alt="Comprando em Casa"
+                    class="grupo-imagem"
+                    loading="lazy"
+                    width="105"
+                    height="105"
+                >
+
+                <div class="grupo-conteudo">
+                    <h3>
+                        Comprando em Casa — Audiovisual
+                    </h3>
+
+                    <p>
+                        Ofertas e cupons de câmeras, lentes, iluminação,
+                        áudio e equipamentos para criadores.
+                    </p>
+
+                    <a
+                        href="https://chat.whatsapp.com/J3KuIi9m5FKHvjpTFp9xcx?s=cl&amp;p=i&amp;ilr=0&amp;amv=1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grupo-btn"
+                    >
+                        💬 ENTRAR NO GRUPO
+                    </a>
+                </div>
+            </article>
+
+            <article class="grupo-card">
+                <img
+                    src="./IMG_2319.JPG"
+                    alt="Badulaki"
+                    class="grupo-imagem"
+                    loading="lazy"
+                    width="105"
+                    height="105"
+                >
+
+                <div class="grupo-conteudo">
+                    <h3>
+                        Badulaki — Promoções de tudo
+                    </h3>
+
+                    <p>
+                        Achadinhos, cupons e promoções de tecnologia,
+                        casa, beleza e muito mais.
+                    </p>
+
+                    <a
+                        href="https://chat.whatsapp.com/GcETuqqrvHA6qMo7L1Czpo?s=cl&amp;p=i&amp;ilr=0&amp;amv=1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="grupo-btn"
+                    >
+                        💬 ENTRAR NO GRUPO
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <section
         class="faq"
@@ -862,3 +1069,4 @@
 
 </body>
 </html>
+
