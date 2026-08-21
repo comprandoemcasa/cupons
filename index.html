@@ -1021,6 +1021,14 @@
             "tech-e-he": "https://meli.la/2wbXest"
         };
 
+        const LINKS_AFILIADOS_POR_CUPOM = {
+            "MAISECONOMIA": "https://meli.la/2sG1m6i",
+            "BRINCADEIRAS": "https://meli.la/2NhauAa",
+            "SUPERPROMO": "https://meli.la/2PYCXYc",
+            "VOLTAAQUI": "https://meli.la/1DSJEhZ",
+            "OFFPRAVC": "https://meli.la/1U1iZt3"
+        };
+
         async function carregarCupons() {
             try {
                 const resposta = await fetch(
@@ -1140,7 +1148,8 @@
 
                 const linkAfiliado =
                     obterLinkAfiliado(
-                        item.product_list_url
+                        item.product_list_url,
+                        codigo
                     );
 
                 const card =
@@ -1261,8 +1270,19 @@
         }
 
         function obterLinkAfiliado(
-            containerUrl
+            containerUrl,
+            codigo
         ) {
+            const linkDoCupom =
+                LINKS_AFILIADOS_POR_CUPOM[
+                    String(codigo || "")
+                        .toUpperCase()
+                ];
+
+            if (linkDoCupom) {
+                return linkDoCupom;
+            }
+
             if (!containerUrl) {
                 return LINK_AFILIADO_GERAL;
             }
@@ -1307,4 +1327,3 @@
 
 </body>
 </html>
-
