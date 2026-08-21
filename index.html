@@ -628,10 +628,8 @@
     </header>
 
     <div class="atualizacao-barra">
-        Atualização automática a cada hora ·
-
         <strong id="ultimaAtualizacao">
-            verificando...
+            Última atualização em verificando...
         </strong>
     </div>
 
@@ -1055,8 +1053,8 @@
                 document.getElementById(
                     "ultimaAtualizacao"
                 ).textContent = atualizadoEm
-                    ? `Atualizado em ${atualizadoEm}`
-                    : "Horário indisponível";
+                    ? `Última atualização em ${atualizadoEm}`
+                    : "Última atualização indisponível";
 
                 if (
                     Array.isArray(lista) &&
