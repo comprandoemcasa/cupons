@@ -1,8 +1,8 @@
 {
-  "updated_at": "24/08/2026 09:48",
+  "updated_at": "25/08/2026 08:56",
   "coupons": [
     {
-      "code": "MEUDESCONTO",
+      "code": "QUEROOFERTA",
       "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
@@ -13,23 +13,12 @@
       "open_sitewide": false
     },
     {
-      "code": "PROMOPRAMODA",
-      "discount": "15%",
-      "min_purchase": "79",
-      "max_discount": "50",
-      "start_date": "",
-      "end_date": "",
-      "category": "Site",
-      "product_list_url": "",
-      "open_sitewide": true
-    },
-    {
       "code": "PROMOCERTA",
       "discount": "12%",
       "min_purchase": "79",
       "max_discount": "100",
       "start_date": "",
-      "end_date": "",
+      "end_date": "31/08/2026",
       "category": "Fashion",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
       "open_sitewide": false
@@ -38,56 +27,34 @@
       "code": "CONSTROINOML",
       "discount": "25%",
       "min_purchase": "19",
-      "max_discount": "100",
+      "max_discount": "60",
       "start_date": "",
-      "end_date": "",
+      "end_date": "31/08/2026",
       "category": "Site",
       "product_list_url": "",
       "open_sitewide": true
     },
     {
-      "code": "AUTOML",
-      "discount": "25%",
-      "min_purchase": "19",
-      "max_discount": "100",
+      "code": "PROMOPRAMODA",
+      "discount": "15%",
+      "min_purchase": "79",
+      "max_discount": "50",
       "start_date": "",
-      "end_date": "",
+      "end_date": "31/08/2026",
       "category": "Site",
       "product_list_url": "",
       "open_sitewide": true
     },
     {
-      "code": "PROMOAGORA",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "150",
+      "code": "OFFCOMMELI",
+      "discount": "8%",
+      "min_purchase": "150",
+      "max_discount": "300",
       "start_date": "",
-      "end_date": "",
-      "category": "Site",
-      "product_list_url": "",
-      "open_sitewide": true
-    },
-    {
-      "code": "PROMOESPORTE",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "",
-      "end_date": "",
-      "category": "Site",
-      "product_list_url": "",
-      "open_sitewide": true
-    },
-    {
-      "code": "MELHORCUPOMML",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "150",
-      "start_date": "",
-      "end_date": "",
-      "category": "Site",
-      "product_list_url": "",
-      "open_sitewide": true
+      "end_date": "27/08/2026",
+      "category": "Home Electronics",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-2",
+      "open_sitewide": false
     },
     {
       "code": "MELIAQUI",
@@ -95,9 +62,42 @@
       "min_purchase": "59",
       "max_discount": "50",
       "start_date": "",
-      "end_date": "",
+      "end_date": "31/08/2026",
       "category": "Toys & Babies",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
+      "open_sitewide": false
+    },
+    {
+      "code": "PRAVCNOML",
+      "discount": "15%",
+      "min_purchase": "50",
+      "max_discount": "200",
+      "start_date": "",
+      "end_date": "27/08/2026",
+      "category": "Home Electronics",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
+      "open_sitewide": false
+    },
+    {
+      "code": "CUPOMDOML",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "31/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-9",
+      "open_sitewide": false
+    },
+    {
+      "code": "DESCOTOSMELI",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "31/08/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-3",
       "open_sitewide": false
     },
     {
@@ -106,20 +106,20 @@
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "15/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-24",
       "open_sitewide": false
     },
     {
-      "code": "DESCONTEI",
-      "discount": "30%",
+      "code": "SUPERPROMO",
+      "discount": "20%",
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "31/08/2026",
       "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-25",
+      "product_list_url": "",
       "open_sitewide": false
     },
     {
@@ -128,9 +128,20 @@
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "15/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-26",
+      "open_sitewide": false
+    },
+    {
+      "code": "DESCONTEI",
+      "discount": "30%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "15/09/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-25",
       "open_sitewide": false
     },
     {
@@ -139,31 +150,42 @@
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "15/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-27",
       "open_sitewide": false
     },
     {
-      "code": "PRAVCNOML",
-      "discount": "15%",
-      "min_purchase": "50",
-      "max_discount": "100",
+      "code": "VALEAGORA",
+      "discount": "30%",
+      "min_purchase": "29",
+      "max_discount": "500",
       "start_date": "",
       "end_date": "",
-      "category": "Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-28",
       "open_sitewide": false
     },
     {
-      "code": "OFFCOMMELI",
-      "discount": "8%",
-      "min_purchase": "150",
-      "max_discount": "200",
+      "code": "PRECINHO",
+      "discount": "30%",
+      "min_purchase": "29",
+      "max_discount": "500",
       "start_date": "",
       "end_date": "",
-      "category": "Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-2",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-29",
+      "open_sitewide": false
+    },
+    {
+      "code": "PEGUEISEU",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-30",
       "open_sitewide": false
     }
   ]
