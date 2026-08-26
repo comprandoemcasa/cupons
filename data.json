@@ -1,13 +1,13 @@
 {
-  "updated_at": "25/08/2026 08:56",
+  "updated_at": "26/08/2026 09:08",
   "coupons": [
     {
-      "code": "QUEROOFERTA",
+      "code": "ACHADODODIA",
       "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "",
-      "end_date": "",
+      "end_date": "26/08/2026",
       "category": "Tech e Home Electronics",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
       "open_sitewide": false
@@ -161,7 +161,7 @@
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "16/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-28",
       "open_sitewide": false
@@ -172,7 +172,7 @@
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "16/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-29",
       "open_sitewide": false
@@ -183,9 +183,42 @@
       "min_purchase": "29",
       "max_discount": "500",
       "start_date": "",
-      "end_date": "",
+      "end_date": "16/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-30",
+      "open_sitewide": false
+    },
+    {
+      "code": "GARANTIDO",
+      "discount": "30%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "17/09/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-1",
+      "open_sitewide": false
+    },
+    {
+      "code": "LEVEAGORA",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "17/09/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-2",
+      "open_sitewide": false
+    },
+    {
+      "code": "QUEROJA",
+      "discount": "22%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "17/09/2026",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-3",
       "open_sitewide": false
     }
   ]
