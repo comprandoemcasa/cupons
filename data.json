@@ -1,13 +1,13 @@
 {
-  "updated_at": "26/08/2026 09:08",
+  "updated_at": "27/08/2026 08:56",
   "coupons": [
     {
-      "code": "ACHADODODIA",
+      "code": "COMPRABOA",
       "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "",
-      "end_date": "26/08/2026",
+      "end_date": "",
       "category": "Tech e Home Electronics",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
       "open_sitewide": false
@@ -219,6 +219,39 @@
       "end_date": "17/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-3",
+      "open_sitewide": false
+    },
+    {
+      "code": "PEGAESSA",
+      "discount": "30%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-4",
+      "open_sitewide": false
+    },
+    {
+      "code": "CHEGOUCUPOM",
+      "discount": "25%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-5",
+      "open_sitewide": false
+    },
+    {
+      "code": "PEGUEIJA",
+      "discount": "22%",
+      "min_purchase": "29",
+      "max_discount": "500",
+      "start_date": "",
+      "end_date": "",
+      "category": "Sellers",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
       "open_sitewide": false
     }
   ]
