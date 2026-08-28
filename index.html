@@ -175,6 +175,39 @@
             padding: 0 14px;
         }
 
+        .abas-cupons {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .aba-cupom {
+            flex: 1;
+            border: 2px solid #2d3277;
+            border-radius: 10px;
+            padding: 11px 10px;
+            background: #ffffff;
+            color: #2d3277;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .aba-cupom.ativa {
+            background: #2d3277;
+            color: #ffffff;
+        }
+
+        .painel-cupons[hidden] {
+            display: none;
+        }
+
+        .titulo-painel {
+            color: #2d3277;
+            font-size: 18px;
+            margin: 0 0 12px;
+        }
+
         .grid-cupons {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -306,6 +339,26 @@
             font-weight: 700;
             text-align: center;
             margin-top: 8px;
+        }
+
+        .categoria-extra {
+            display: inline-block;
+            align-self: flex-start;
+            margin: 0 0 9px;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #e8eaf6;
+            color: #2d3277;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .observacao-extra {
+            color: #555;
+            font-size: 10px;
+            line-height: 1.4;
+            margin: 0 0 9px;
         }
 
 
@@ -651,15 +704,68 @@
     </section>
 
     <main class="container">
-        <div
-            class="grid-cupons"
-            id="listaCupons"
-            aria-live="polite"
-        >
-            <p style="text-align:center; color:#666; padding:30px;">
-                Carregando cupons atualizados...
-            </p>
+        <div class="abas-cupons" role="tablist" aria-label="Tipos de cupons">
+            <button
+                class="aba-cupom ativa"
+                id="abaPrincipais"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="painelPrincipais"
+                onclick="mostrarAba('principais')"
+            >
+                🎟️ CUPONS PRINCIPAIS
+            </button>
+
+            <button
+                class="aba-cupom"
+                id="abaExtras"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="painelExtras"
+                onclick="mostrarAba('extras')"
+            >
+                ✨ CUPONS EXTRAS
+            </button>
         </div>
+
+        <section
+            class="painel-cupons"
+            id="painelPrincipais"
+            role="tabpanel"
+            aria-labelledby="abaPrincipais"
+        >
+            <h2 class="titulo-painel">Cupons principais</h2>
+
+            <div
+                class="grid-cupons"
+                id="listaCupons"
+                aria-live="polite"
+            >
+                <p style="text-align:center; color:#666; padding:30px;">
+                    Carregando cupons atualizados...
+                </p>
+            </div>
+        </section>
+
+        <section
+            class="painel-cupons"
+            id="painelExtras"
+            role="tabpanel"
+            aria-labelledby="abaExtras"
+            hidden
+        >
+            <h2 class="titulo-painel">
+                Cupons extras por marca e categoria
+            </h2>
+
+            <div
+                class="grid-cupons"
+                id="listaCuponsExtras"
+                aria-live="polite"
+            ></div>
+        </section>
     </main>
 
 
@@ -1055,6 +1161,10 @@
                     ? dados
                     : dados.coupons;
 
+                const listaExtras = Array.isArray(dados)
+                    ? []
+                    : dados.extra_coupons;
+
                 const atualizadoEm = Array.isArray(dados)
                     ? ""
                     : dados.updated_at;
@@ -1069,12 +1179,32 @@
                     Array.isArray(lista) &&
                     lista.length > 0
                 ) {
-                    renderizarCupons(lista);
+                    renderizarCupons(
+                        lista,
+                        "listaCupons",
+                        false
+                    );
                 } else {
                     document.getElementById(
                         "listaCupons"
                     ).innerHTML =
                         '<p style="text-align:center;">Nenhum cupom ativo no momento.</p>';
+                }
+
+                if (
+                    Array.isArray(listaExtras) &&
+                    listaExtras.length > 0
+                ) {
+                    renderizarCupons(
+                        listaExtras,
+                        "listaCuponsExtras",
+                        true
+                    );
+                } else {
+                    document.getElementById(
+                        "listaCuponsExtras"
+                    ).innerHTML =
+                        '<p style="text-align:center;">Nenhum cupom extra ativo no momento.</p>';
                 }
             } catch (erro) {
                 document.getElementById(
@@ -1084,10 +1214,14 @@
             }
         }
 
-        function renderizarCupons(lista) {
+        function renderizarCupons(
+            lista,
+            idContainer,
+            saoExtras
+        ) {
             const container =
                 document.getElementById(
-                    "listaCupons"
+                    idContainer
                 );
 
             container.innerHTML = "";
@@ -1159,6 +1293,19 @@
                         codigo
                     );
 
+                const possuiCodigo =
+                    item.has_code !== false;
+
+                const categoria = saoExtras
+                    ? escaparHtml(
+                        item.category || "Cupom extra"
+                    )
+                    : "";
+
+                const observacao = saoExtras
+                    ? escaparHtml(item.note || "")
+                    : "";
+
                 const card =
                     document.createElement("article");
 
@@ -1178,6 +1325,12 @@
                             ${validade}
                         </span>
                     </div>
+
+                    ${saoExtras ? `
+                        <span class="categoria-extra">
+                            ${categoria}
+                        </span>
+                    ` : ""}
 
                     <div class="regras-container">
                         <div class="regra-box">
@@ -1211,14 +1364,20 @@
                         </div>
                     </div>
 
+                    ${observacao ? `
+                        <p class="observacao-extra">
+                            ${observacao}
+                        </p>
+                    ` : ""}
+
                     <div class="botoes-row">
-                        <button
+                        ${possuiCodigo ? `<button
                             class="btn btn-copiar"
                             onclick="copiarCodigo('${codigo}')"
                             type="button"
                         >
                             ✂️ COPIAR CUPOM
-                        </button>
+                        </button>` : ""}
 
                         <a
                             href="${linkAfiliado}"
@@ -1239,6 +1398,46 @@
 
                 container.appendChild(card);
             });
+        }
+
+        function mostrarAba(aba) {
+            const extras = aba === "extras";
+
+            document.getElementById(
+                "painelPrincipais"
+            ).hidden = extras;
+
+            document.getElementById(
+                "painelExtras"
+            ).hidden = !extras;
+
+            document.getElementById(
+                "abaPrincipais"
+            ).classList.toggle("ativa", !extras);
+
+            document.getElementById(
+                "abaExtras"
+            ).classList.toggle("ativa", extras);
+
+            document.getElementById(
+                "abaPrincipais"
+            ).setAttribute(
+                "aria-selected",
+                String(!extras)
+            );
+
+            document.getElementById(
+                "abaExtras"
+            ).setAttribute(
+                "aria-selected",
+                String(extras)
+            );
+        }
+
+        function escaparHtml(valor) {
+            const elemento = document.createElement("div");
+            elemento.textContent = String(valor || "");
+            return elemento.innerHTML;
         }
 
         function formatarDesconto(valor) {
