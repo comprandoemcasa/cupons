@@ -7,6 +7,87 @@ const URL_PRINCIPAIS =
 const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 
+// Cupons confirmados diretamente pelos gerentes do Mercado Livre que ainda
+// não apareceram na página oficial. Quando o código entrar na fonte oficial,
+// a versão oficial substitui automaticamente esta inclusão manual.
+const CUPONS_MANUAIS = [
+  {
+    code: "LANCECERTO",
+    discount: "10%",
+    min_purchase: "149",
+    max_discount: "200",
+    start_date: "28/08/2026",
+    end_date: "",
+    category: "Tecnologia e Eletrônicos",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "BARATOAGORA",
+    discount: "15%",
+    min_purchase: "50",
+    max_discount: "200",
+    start_date: "28/08/2026",
+    end_date: "",
+    category: "Eletrônicos",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_he-aff-1",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "OPORTUNIDADE",
+    discount: "8%",
+    min_purchase: "150",
+    max_discount: "300",
+    start_date: "28/08/2026",
+    end_date: "",
+    category: "Eletrônicos",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_he-aff-2",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "PECHINCHA",
+    discount: "30%",
+    min_purchase: "29",
+    max_discount: "500",
+    start_date: "28/08/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_aff-list-7",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "GARIMPEI",
+    discount: "30%",
+    min_purchase: "29",
+    max_discount: "500",
+    start_date: "28/08/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_aff-list-8",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  }
+];
+
 async function lerConstante(page, url, nomeDaConstante) {
   await page.goto(url, {
     waitUntil: "networkidle0",
@@ -110,7 +191,7 @@ async function extrair() {
       "ITEMS"
     );
 
-    const cupons = dadosPrincipais.map(item => ({
+    const cuponsOficiais = dadosPrincipais.map(item => ({
       code: item.nome,
       discount: normalizarDescontoPrincipal(item),
       min_purchase: item.min_compra,
@@ -124,6 +205,17 @@ async function extrair() {
       has_code: true,
       note: ""
     }));
+
+    const codigosOficiais = new Set(
+      cuponsOficiais.map(item => String(item.code).toUpperCase())
+    );
+
+    const cupons = [
+      ...CUPONS_MANUAIS.filter(
+        item => !codigosOficiais.has(String(item.code).toUpperCase())
+      ),
+      ...cuponsOficiais
+    ];
 
     const extraCoupons = dadosExtras.map(item => {
       const possuiCodigo =
