@@ -1,5 +1,5 @@
 {
-  "updated_at": "29/08/2026 04:04",
+  "updated_at": "29/08/2026 05:05",
   "coupons": [
     {
       "code": "LANCECERTO",
@@ -465,34 +465,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "SKE15OFF",
-      "discount": "15%",
-      "min_purchase": "50",
-      "max_discount": "149,99",
-      "start_date": "19/08/2026",
-      "end_date": "28/08/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-fashion-skechers-display",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$50,00"
-    },
-    {
-      "code": "ESQUENTABELEZA",
-      "discount": "10%",
-      "min_purchase": "9",
-      "max_discount": "40",
-      "start_date": "25/08/2026",
-      "end_date": "28/08/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/importados/compra-internacional/_Container_lpsm-liquida-9-9-internacional",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 10% OFF nas compras acima de R$9"
-    },
     {
       "code": "STANLEY20",
       "discount": "20%",
