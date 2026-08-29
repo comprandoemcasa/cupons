@@ -1,5 +1,5 @@
 {
-  "updated_at": "28/08/2026 21:04",
+  "updated_at": "28/08/2026 22:05",
   "coupons": [
     {
       "code": "LANCECERTO",
@@ -7,8 +7,8 @@
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "28/08/2026",
-      "end_date": "28/08/2026",
-      "category": "Tech e Home Electronics",
+      "end_date": "",
+      "category": "Tecnologia e Eletrônicos",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -192,20 +192,6 @@
       "end_date": "31/08/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "PROMOPRAMODA",
-      "discount": "15%",
-      "min_purchase": "79",
-      "max_discount": "50",
-      "start_date": "24/08/2026",
-      "end_date": "31/08/2026",
-      "category": "Fashion",
-      "product_list_url": "MLB108831\nMLB271219\nMLB5366\nMLB108786\nMLB185489\nMLB270215\nMLB71862\nMLB188065\nMLB188064\nMLB108838\nMLB31447\nMLB417454\nMLB107292\nMLB455550\nMLB278018\nMLB1430\nMLB3112\nMLB108704\nMLB455528\nMLB27250",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
