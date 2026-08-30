@@ -1,5 +1,5 @@
 {
-  "updated_at": "30/08/2026 02:05",
+  "updated_at": "30/08/2026 03:05",
   "coupons": [
     {
       "code": "LANCECERTO",
@@ -465,20 +465,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "STANLEY20",
-      "discount": "20%",
-      "min_purchase": "10",
-      "max_discount": "90",
-      "start_date": "22/08/2026",
-      "end_date": "29/08/2026",
-      "category": "Esportes",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_stanleycupom1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF nas compras acima de R$10"
-    },
     {
       "code": "BEAUTY20",
       "discount": "20%",
