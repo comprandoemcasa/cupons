@@ -1,5 +1,5 @@
 {
-  "updated_at": "31/08/2026 16:04",
+  "updated_at": "31/08/2026 17:04",
   "coupons": [
     {
       "code": "MELHORPROMO",
@@ -201,7 +201,7 @@
       "code": "BARATOAGORA",
       "discount": "15%",
       "min_purchase": "50",
-      "max_discount": "200",
+      "max_discount": "250",
       "start_date": "28/08/2026",
       "end_date": "31/08/2026",
       "category": "Home Electronics",
@@ -229,7 +229,7 @@
       "code": "VANTAGEMJA",
       "discount": "10%",
       "min_purchase": "149",
-      "max_discount": "200",
+      "max_discount": "250",
       "start_date": "31/08/2026",
       "end_date": "31/08/2026",
       "category": "Tech e Home Electronics",
