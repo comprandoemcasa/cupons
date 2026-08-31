@@ -1,5 +1,5 @@
 {
-  "updated_at": "31/08/2026 02:05",
+  "updated_at": "31/08/2026 03:06",
   "coupons": [
     {
       "code": "LANCECERTO",
@@ -465,62 +465,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "BEAUTY20",
-      "discount": "20%",
-      "min_purchase": "5",
-      "max_discount": "150",
-      "start_date": "25/08/2026",
-      "end_date": "30/08/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_pierrea-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "MANTECORP15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "150",
-      "start_date": "25/08/2026",
-      "end_date": "30/08/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_mantecorp-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "COSCOKIDS15",
-      "discount": "15%",
-      "min_purchase": "450",
-      "max_discount": "100",
-      "start_date": "17/07/2026",
-      "end_date": "30/08/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1pbaby1",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom 15% OFF nas compras a partir de R$450"
-    },
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "20%",
-      "min_purchase": "",
-      "max_discount": "",
-      "start_date": "17/07/2026",
-      "end_date": "30/08/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_me5pokemon1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "20% em itens selecionados da marca Pokémon"
-    },
     {
       "code": "SSG1500",
       "discount": "R$1.500",
