@@ -12,11 +12,11 @@ const URL_EXTRAS =
 // a versão oficial substitui automaticamente esta inclusão manual.
 const CUPONS_MANUAIS = [
   {
-    code: "LANCECERTO",
+    code: "VANTAGEMJA",
     discount: "10%",
     min_purchase: "149",
     max_discount: "200",
-    start_date: "28/08/2026",
+    start_date: "31/08/2026",
     end_date: "",
     category: "Tecnologia e Eletrônicos",
     product_list_url:
@@ -27,60 +27,60 @@ const CUPONS_MANUAIS = [
     note: ""
   },
   {
-    code: "BARATOAGORA",
-    discount: "15%",
-    min_purchase: "50",
-    max_discount: "200",
-    start_date: "28/08/2026",
-    end_date: "",
-    category: "Eletrônicos",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_he-aff-1",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "OPORTUNIDADE",
-    discount: "8%",
-    min_purchase: "150",
-    max_discount: "300",
-    start_date: "28/08/2026",
-    end_date: "",
-    category: "Eletrônicos",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_he-aff-2",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "PECHINCHA",
+    code: "TOPACHADO",
     discount: "30%",
     min_purchase: "29",
     max_discount: "500",
-    start_date: "28/08/2026",
+    start_date: "31/08/2026",
     end_date: "",
-    category: "Produtos selecionados",
+    category: "Ofertas de vendedores",
     product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-7",
+      "https://lista.mercadolivre.com.br/_Container_aff-list-9",
     open_sitewide: false,
     coupon_type: "principal",
     has_code: true,
     note: ""
   },
   {
-    code: "GARIMPEI",
-    discount: "30%",
+    code: "MIMOTOP",
+    discount: "25%",
     min_purchase: "29",
     max_discount: "500",
-    start_date: "28/08/2026",
+    start_date: "31/08/2026",
     end_date: "",
-    category: "Produtos selecionados",
+    category: "Ofertas de vendedores",
     product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-8",
+      "https://lista.mercadolivre.com.br/_Container_aff-list-10",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "CLIENTETOP",
+    discount: "22%",
+    min_purchase: "29",
+    max_discount: "500",
+    start_date: "31/08/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_aff-list-11",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "PAGUEMENOS",
+    discount: "18%",
+    min_purchase: "29",
+    max_discount: "500",
+    start_date: "31/08/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url:
+      "https://lista.mercadolivre.com.br/_Container_aff-list-12",
     open_sitewide: false,
     coupon_type: "principal",
     has_code: true,
