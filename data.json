@@ -1,5 +1,5 @@
 {
-  "updated_at": "01/09/2026 16:07",
+  "updated_at": "01/09/2026 17:09",
   "coupons": [
     {
       "code": "GARANTEAQUI",
@@ -212,6 +212,20 @@
       "coupon_type": "extra",
       "has_code": false,
       "note": "Cupom de 30% OFF nas compras acima de R$50"
+    },
+    {
+      "code": "INTERNACIONALNOMELI",
+      "discount": "18%",
+      "min_purchase": "49",
+      "max_discount": "30",
+      "start_date": "01/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Multicategorias",
+      "product_list_url": "https://lista.mercadolivre.com.br/importados/compra-internacional/_Container_cbt-fashion-select\nhttps://lista.mercadolivre.com.br/importados/compra-internacional/_Container_lpsm-liquida-9-9-internacional\nhttps://lista.mercadolivre.com.br/importados/compra-internacional/_Container_cbt-store-mlb",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 18% OFF nas compras acima de R$ 49"
     },
     {
       "code": "COSCO15",
