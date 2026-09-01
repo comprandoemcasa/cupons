@@ -1495,7 +1495,12 @@
 
             const entrada = Object.entries(
                 LINKS_AFILIADOS_POR_CONTAINER
-            ).find(([container]) =>
+            )
+            .sort(
+                ([containerA], [containerB]) =>
+                    containerB.length - containerA.length
+            )
+            .find(([container]) =>
                 String(containerUrl)
                     .includes(container)
             );
