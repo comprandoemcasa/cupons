@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/09/2026 01:09",
+  "updated_at": "02/09/2026 02:08",
   "coupons": [
     {
       "code": "QUEROPROMO",
@@ -10,6 +10,20 @@
       "end_date": "",
       "category": "Tecnologia e Eletrônicos",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "OFERTASOFF",
+      "discount": "15%",
+      "min_purchase": "50",
+      "max_discount": "200",
+      "start_date": "01/09/2026",
+      "end_date": "",
+      "category": "Eletrodomésticos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -52,20 +66,6 @@
       "end_date": "03/09/2026",
       "category": "Fashion",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "OFERTASOFF",
-      "discount": "15,00%",
-      "min_purchase": "50",
-      "max_discount": "200",
-      "start_date": "01/09/2026",
-      "end_date": "03/09/2026",
-      "category": "Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -143,6 +143,48 @@
     }
   ],
   "extra_coupons": [
+    {
+      "code": "BEAUTYTRENDS",
+      "discount": "20%",
+      "min_purchase": "49",
+      "max_discount": "40",
+      "start_date": "01/09/2026",
+      "end_date": "03/09/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_makeup-marcas-viralizadas?coupon_campaign_id=13557039",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "BASICS20",
+      "discount": "20%",
+      "min_purchase": "10",
+      "max_discount": "150",
+      "start_date": "31/08/2026",
+      "end_date": "07/09/2026",
+      "category": "Multicategorias",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_basics20?forceContainer=true",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Linha meli basics"
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "15%",
+      "min_purchase": "79",
+      "max_discount": "50",
+      "start_date": "01/09/2026",
+      "end_date": "09/09/2026",
+      "category": "Beleza",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
+    },
     {
       "code": "GARNIERNOMELI",
       "discount": "30%",
