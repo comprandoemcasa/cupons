@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/09/2026 14:07",
+  "updated_at": "02/09/2026 15:10",
   "coupons": [
     {
       "code": "QUEROPROMO",
@@ -235,7 +235,7 @@
       "start_date": "01/09/2026",
       "end_date": "09/09/2026",
       "category": "Beleza",
-      "product_list_url": "",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_bt-beleza-profissional",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": false,
