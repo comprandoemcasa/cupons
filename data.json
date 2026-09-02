@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/09/2026 19:09",
+  "updated_at": "02/09/2026 20:08",
   "coupons": [
     {
       "code": "QUEROPROMO",
@@ -39,20 +39,6 @@
       "category": "Vehicle Parts & Accessories",
       "product_list_url": "",
       "open_sitewide": true,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "DESCONTO",
-      "discount": "10,00%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "02/09/2026",
-      "end_date": "02/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
-      "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
       "note": ""
