@@ -1,5 +1,5 @@
 {
-  "updated_at": "03/09/2026 14:08",
+  "updated_at": "03/09/2026 15:10",
   "coupons": [
     {
       "code": "QUEROPROMO",
@@ -445,11 +445,11 @@
       "start_date": "01/09/2026",
       "end_date": "30/09/2026",
       "category": "Esportes",
-      "product_list_url": "",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-indoor-sports-mid-asp",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": false,
-      "note": ""
+      "note": "Cupom Mar Aberto de aceitação"
     },
     {
       "code": "SAMSUNG10OFF",
@@ -487,11 +487,11 @@
       "start_date": "01/09/2026",
       "end_date": "30/09/2026",
       "category": "Esportes",
-      "product_list_url": "",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_meliconnect-sports",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom exclusivo do canal com código para 9.9"
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
@@ -501,11 +501,11 @@
       "start_date": "01/09/2026",
       "end_date": "30/09/2026",
       "category": "Esportes",
-      "product_list_url": "",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-bikes-eletricas",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": false,
-      "note": ""
+      "note": "Cupom Mar Aberto de aceitação"
     }
   ]
 }
