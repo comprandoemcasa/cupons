@@ -1,5 +1,5 @@
 {
-  "updated_at": "03/09/2026 19:08",
+  "updated_at": "03/09/2026 20:07",
   "coupons": [
     {
       "code": "QUEROPROMO",
@@ -94,20 +94,6 @@
       "end_date": "03/09/2026",
       "category": "Furnishing & Houseware",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MEUCUPOM",
-      "discount": "10,00%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "03/09/2026",
-      "end_date": "03/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
