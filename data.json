@@ -1,5 +1,5 @@
 {
-  "updated_at": "04/09/2026 02:08",
+  "updated_at": "04/09/2026 03:11",
   "coupons": [
     {
       "code": "QUEROPROMO",
@@ -269,20 +269,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "BEAUTYTRENDS",
-      "discount": "20%",
-      "min_purchase": "49",
-      "max_discount": "40",
-      "start_date": "01/09/2026",
-      "end_date": "03/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_makeup-marcas-viralizadas?coupon_campaign_id=13557039",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": ""
-    },
     {
       "code": "DESCONTO AUTOMÁTICO",
       "discount": "R$600,00",
