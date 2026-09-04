@@ -1,5 +1,5 @@
 {
-  "updated_at": "04/09/2026 16:07",
+  "updated_at": "04/09/2026 17:09",
   "coupons": [
     {
       "code": "SITE500309",
@@ -758,6 +758,48 @@
       "coupon_type": "extra",
       "has_code": false,
       "note": "Cupom Mar Aberto de aceitação"
+    },
+    {
+      "code": "ALEMEDELA10",
+      "discount": "10%",
+      "min_purchase": "700",
+      "max_discount": "160",
+      "start_date": "04/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Brinquedos & Bebês",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1pbaby1",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 10% OFF nas compras acima de R$700"
+    },
+    {
+      "code": "JUMEDELA10",
+      "discount": "10%",
+      "min_purchase": "700",
+      "max_discount": "160",
+      "start_date": "04/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Brinquedos & Bebês",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1pbaby2",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 10% OFF nas compras acima de R$700"
+    },
+    {
+      "code": "OUROMEDELA10",
+      "discount": "10%",
+      "min_purchase": "700",
+      "max_discount": "160",
+      "start_date": "04/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Brinquedos & Bebês",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1pbaby3",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 10% OFF nas compras acima de R$700"
     },
     {
       "code": "5% off em Bicicletas",
