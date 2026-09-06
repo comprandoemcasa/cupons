@@ -1,5 +1,5 @@
 {
-  "updated_at": "06/09/2026 03:10",
+  "updated_at": "06/09/2026 04:08",
   "coupons": [
     {
       "code": "SITE500309",
@@ -591,20 +591,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "R$600,00",
-      "min_purchase": "7000",
-      "max_discount": "600",
-      "start_date": "26/08/2026",
-      "end_date": "05/09/2026",
-      "category": "Tecnologia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cb06ssgafiliados",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "Cupom 600 reais no novo lançamento no Notebook Samsung GB06"
-    },
     {
       "code": "BASICS20",
       "discount": "20%",
