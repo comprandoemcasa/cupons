@@ -1,5 +1,5 @@
 {
-  "updated_at": "06/09/2026 11:08",
+  "updated_at": "06/09/2026 12:08",
   "coupons": [
     {
       "code": "SITE500309",
@@ -51,6 +51,20 @@
       "start_date": "04/09/2026",
       "end_date": "",
       "category": "Tecnologia",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "PRECINHOS",
+      "discount": "15%",
+      "min_purchase": "50",
+      "max_discount": "200",
+      "start_date": "04/09/2026",
+      "end_date": "",
+      "category": "Casa e Eletro",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -310,6 +324,34 @@
       "note": ""
     },
     {
+      "code": "CUSTAPOUCO",
+      "discount": "10,00%",
+      "min_purchase": "79",
+      "max_discount": "100",
+      "start_date": "06/09/2026",
+      "end_date": "06/09/2026",
+      "category": "Mar Aberto - Afiliados",
+      "product_list_url": "",
+      "open_sitewide": true,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "TOPMELI",
+      "discount": "10,00%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "06/09/2026",
+      "end_date": "06/09/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "CUPOMOFF",
       "discount": "20%",
       "min_purchase": "19",
@@ -346,20 +388,6 @@
       "end_date": "08/09/2026",
       "category": "Fashion",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "PRECINHOS",
-      "discount": "15,00%",
-      "min_purchase": "50",
-      "max_discount": "200",
-      "start_date": "04/09/2026",
-      "end_date": "08/09/2026",
-      "category": "Casas Bahia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
