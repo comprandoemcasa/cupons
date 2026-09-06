@@ -1,5 +1,5 @@
 {
-  "updated_at": "06/09/2026 18:07",
+  "updated_at": "06/09/2026 19:07",
   "coupons": [
     {
       "code": "SITE500309",
@@ -332,20 +332,6 @@
       "end_date": "17/09/2026",
       "category": "Ofertas de vendedores",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-3",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "TOPMELI",
-      "discount": "10,00%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "06/09/2026",
-      "end_date": "06/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
