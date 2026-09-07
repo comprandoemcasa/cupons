@@ -1,523 +1,905 @@
-const puppeteer = require("puppeteer");
-const fs = require("fs");
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
 
-const URL_PRINCIPAIS =
-  "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/index.html";
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-const URL_EXTRAS =
-  "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
+    <title>Cupons AliExpress Hoje: Último Dia — 7 de Setembro</title>
 
-// Cupons confirmados diretamente pelos gerentes do Mercado Livre que ainda
-// não apareceram na página oficial. Quando o código entrar na fonte oficial,
-// a versão oficial substitui automaticamente esta inclusão manual.
-const CUPONS_MANUAIS = [
-  {
-    code: "SITE500309",
-    discount: "R$50",
-    min_purchase: "499",
-    max_discount: "50",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Todo o site",
-    product_list_url: "",
-    open_sitewide: true,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "SITE25",
-    discount: "R$25",
-    min_purchase: "219",
-    max_discount: "25",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Todo o site",
-    product_list_url: "",
-    open_sitewide: true,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "SEMDEMORA",
-    discount: "10%",
-    min_purchase: "79",
-    max_discount: "100",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Todo o site",
-    product_list_url: "",
-    open_sitewide: true,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "ECONOMIZASEMPRE",
-    discount: "10%",
-    min_purchase: "149",
-    max_discount: "200",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Tecnologia",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "USAESSAPROMO",
-    discount: "20%",
-    min_purchase: "79",
-    max_discount: "60",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Auto e Ferramentas",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "CUPOMOFF",
-    discount: "20%",
-    min_purchase: "19",
-    max_discount: "100",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Auto e Ferramentas",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "OFERTASEMPRE",
-    discount: "18%",
-    min_purchase: "79",
-    max_discount: "50",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Moda",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "TUDOAQUI",
-    discount: "15%",
-    min_purchase: "79",
-    max_discount: "60",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Casa e Eletro",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "PRECINHOS",
-    discount: "15%",
-    min_purchase: "50",
-    max_discount: "200",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Casa e Eletro",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "LIBERAESSA",
-    discount: "8%",
-    min_purchase: "150",
-    max_discount: "300",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Eletrodomésticos",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "MAISOFERTA",
-    discount: "",
-    min_purchase: "",
-    max_discount: "500",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Ofertas de vendedores",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-16",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "TACOMVC",
-    discount: "",
-    min_purchase: "",
-    max_discount: "500",
-    start_date: "04/09/2026",
-    end_date: "",
-    category: "Ofertas de vendedores",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-17",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "CUPOMAQUI",
-    discount: "30%",
-    min_purchase: "1",
-    max_discount: "500",
-    start_date: "03/09/2026",
-    end_date: "28/09/2026",
-    category: "Ofertas de vendedores",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-1",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "VOLTAAQUI",
-    discount: "25%",
-    min_purchase: "1",
-    max_discount: "500",
-    start_date: "03/09/2026",
-    end_date: "28/09/2026",
-    category: "Ofertas de vendedores",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-2",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "DESCONTOSML",
-    discount: "25%",
-    min_purchase: "1",
-    max_discount: "500",
-    start_date: "01/09/2026",
-    end_date: "24/09/2026",
-    category: "Ofertas de vendedores",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-14",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "SEMPREML",
-    discount: "25%",
-    min_purchase: "1",
-    max_discount: "500",
-    start_date: "01/09/2026",
-    end_date: "24/09/2026",
-    category: "Ofertas de vendedores",
-    product_list_url:
-      "https://lista.mercadolivre.com.br/_Container_aff-list-15",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "TOPACHADO", discount: "30%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "PEGAESSA", discount: "30%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "18/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-4", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "CLIENTETOP", discount: "22%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "20/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "PEGUEISEU", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "16/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-30", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "DESCOTOSMELI", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "21/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "PAGUEMENOS", discount: "18%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "20/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "MIMOTOP", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "20/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "CUPOMDOML", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-9", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "DESCONTEI", discount: "30%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "15/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-25", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "VALEAGORA", discount: "30%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "16/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-28", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "SOECONOMIA", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "15/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-26", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "LEVEAGORA", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "17/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-2", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "POUPAAGORA", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "15/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-27", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "CHEGOUCUPOM", discount: "25%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "18/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-5", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "ECONOMIZEI", discount: "30%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "15/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-24", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "SUPERPROMO", discount: "20%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "21/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "PEGUEIJA", discount: "22%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "18/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-6", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "QUEROJA", discount: "22%", min_purchase: "29", max_discount: "500",
-    start_date: "", end_date: "17/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  }
-];
+    <meta
+        name="description"
+        content="Confira os cupons AliExpress válidos hoje, 7 de setembro de 2026, com descontos de até R$ 415. Último dia da campanha."
+    >
 
-async function lerConstante(page, url, nomeDaConstante) {
-  await page.goto(url, {
-    waitUntil: "networkidle0",
-    timeout: 120000
-  });
+    <meta
+        name="robots"
+        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    >
 
-  const conteudo = await page.$$eval(
-    "script",
-    (scripts, nome) => {
-      const script = scripts.find(item =>
-        item.textContent.includes(`const ${nome}`)
-      );
+    <meta name="theme-color" content="#ff4747">
 
-      return script ? script.textContent : "";
-    },
-    nomeDaConstante
-  );
+    <link
+        rel="canonical"
+        href="https://comprandoemcasa.github.io/cupons/aliexpress.html"
+    >
 
-  const expressao = new RegExp(
-    `const\\s+${nomeDaConstante}\\s*=\\s*(\\[[\\s\\S]*?\\]);`
-  );
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Comprando em Casa">
 
-  const resultado = conteudo.match(expressao);
+    <meta
+        property="og:title"
+        content="Cupons AliExpress — Último dia"
+    >
 
-  if (!resultado) {
-    throw new Error(
-      `A lista ${nomeDaConstante} não foi encontrada em ${url}.`
-    );
-  }
+    <meta
+        property="og:description"
+        content="BRFS1, BRFS4 e AEFS1 a AEFS3: cupons válidos até 07/09/2026 às 23h59."
+    >
 
-  return JSON.parse(resultado[1]);
-}
+    <meta
+        property="og:url"
+        content="https://comprandoemcasa.github.io/cupons/aliexpress.html"
+    >
 
-function normalizarPercentual(valor, observacao) {
-  const texto = String(valor || "").trim();
+    <meta name="twitter:card" content="summary">
 
-  if (!texto) {
-    const achado = String(observacao || "").match(/(\d+(?:[,.]\d+)?)\s*%/);
-    return achado ? `${achado[1].replace(".", ",")}%` : "";
-  }
+    <meta
+        name="twitter:title"
+        content="Cupons AliExpress — Último dia"
+    >
 
-  if (texto.includes("%")) {
-    return texto;
-  }
+    <meta
+        name="twitter:description"
+        content="Confira os cinco cupons AliExpress válidos hoje."
+    >
 
-  const numero = Number(texto.replace(".", "").replace(",", "."));
-
-  if (numero > 0 && numero < 1) {
-    return `${Math.round(numero * 100)}%`;
-  }
-
-  const achado = String(observacao || "").match(/(\d+(?:[,.]\d+)?)\s*%/);
-  return achado ? `${achado[1].replace(".", ",")}%` : texto;
-}
-
-function normalizarDescontoExtra(item) {
-  if (String(item.mecanica || "").toLowerCase() === "fixo") {
-    const valor = String(item.desconto || item.desconto_max || "")
-      .trim()
-      .replace(/^R\$\s*/, "");
-
-    return valor ? `R$${valor}` : "";
-  }
-
-  return normalizarPercentual(item.desconto, item.obs);
-}
-
-function normalizarDescontoPrincipal(item) {
-  const texto = String(item.valor_desconto || "").trim();
-  const numero = Number(
-    texto.replace("%", "").replace(".", "").replace(",", ".")
-  );
-
-  // A fonte às vezes transforma R$ 200 em 20.000% por causa da
-  // formatação da planilha. Nesse caso usamos o limite informado.
-  if (texto.includes("%") && numero > 100) {
-    return item.desconto_max ? `R$${item.desconto_max}` : texto;
-  }
-
-  return texto;
-}
-
-async function extrair() {
-  const browser = await puppeteer.launch({
-    headless: "new",
-    args: ["--no-sandbox"]
-  });
-
-  try {
-    const page = await browser.newPage();
-
-    const dadosPrincipais = await lerConstante(
-      page,
-      URL_PRINCIPAIS,
-      "COUPONS"
-    );
-
-    const dadosExtras = await lerConstante(
-      page,
-      URL_EXTRAS,
-      "ITEMS"
-    );
-
-    const cuponsOficiais = dadosPrincipais.map(item => ({
-      code: item.nome,
-      discount: normalizarDescontoPrincipal(item),
-      min_purchase: item.min_compra,
-      max_discount: item.desconto_max,
-      start_date: item.dia_inicio,
-      end_date: item.dia_fim,
-      category: item.acao,
-      product_list_url: item.container_url || "",
-      open_sitewide: Boolean(item.is_mar_aberto),
-      coupon_type: "principal",
-      has_code: true,
-      note: ""
-    }));
-
-    const codigosOficiais = new Set(
-      cuponsOficiais.map(item => String(item.code).toUpperCase())
-    );
-
-    const cupons = [
-      ...CUPONS_MANUAIS.filter(
-        item => !codigosOficiais.has(String(item.code).toUpperCase())
-      ),
-      ...cuponsOficiais
-    ];
-
-    const extraCoupons = dadosExtras.map(item => {
-      const possuiCodigo =
-        String(item.tipo_cupom || "").toLowerCase() !== "cuponeria" &&
-        Boolean(String(item.nome_cupom || "").trim());
-
-      return {
-        code: possuiCodigo
-          ? String(item.nome_cupom).trim()
-          : "DESCONTO AUTOMÁTICO",
-        discount: normalizarDescontoExtra(item),
-        min_purchase: item.asp_minimo || "",
-        max_discount: item.desconto_max || "",
-        start_date: item.data_inicial || "",
-        end_date: item.data_final || "",
-        category: item.categoria || item.vertical || "Cupom extra",
-        product_list_url: item.url || "",
-        open_sitewide: false,
-        coupon_type: "extra",
-        has_code: possuiCodigo,
-        note: item.obs || ""
-      };
-    });
-
-    if (cupons.length === 0) {
-      throw new Error("O Mercado Livre retornou uma lista principal vazia.");
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Cupons AliExpress — Último dia",
+        "description": "Lista de cupons AliExpress válidos em 7 de setembro de 2026.",
+        "url": "https://comprandoemcasa.github.io/cupons/aliexpress.html",
+        "inLanguage": "pt-BR",
+        "dateModified": "2026-09-07",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Comprando em Casa",
+            "url": "https://comprandoemcasa.github.io/cupons/"
+        }
     }
+    </script>
 
-    const atualizadoEm = new Intl.DateTimeFormat("pt-BR", {
-      timeZone: "America/Sao_Paulo",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false
-    }).format(new Date()).replace(",", "");
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    const dadosDaPagina = {
-      updated_at: atualizadoEm,
-      coupons: cupons,
-      extra_coupons: extraCoupons
-    };
+        body {
+            background: #f5f5f7;
+            color: #2d2d2d;
+            padding-bottom: 35px;
+        }
 
-    fs.writeFileSync(
-      "data.json",
-      JSON.stringify(dadosDaPagina, null, 2)
-    );
+        .header {
+            background: linear-gradient(
+                135deg,
+                #ff4747 0%,
+                #ff6a00 100%
+            );
+            color: #ffffff;
+            text-align: center;
+            padding: 24px 15px;
+            box-shadow: 0 4px 12px rgba(255, 71, 71, .2);
+        }
 
-    console.log("Cupons principais extraídos:", cupons.length);
-    console.log("Cupons extras extraídos:", extraCoupons.length);
-  } catch (erro) {
-    console.error(erro);
-    process.exitCode = 1;
-  } finally {
-    await browser.close();
-  }
-}
+        .header h1 {
+            font-size: 27px;
+            margin-bottom: 8px;
+            font-weight: 850;
+        }
 
-extrair();
+        .header p {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 22px auto;
+            padding: 0 14px;
+        }
+
+        .vigencia {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border-left: 6px solid #ff6a00;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .07);
+        }
+
+        .vigencia h2 {
+            color: #d9342b;
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .vigencia p {
+            color: #555555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .vigencia strong {
+            color: #262626;
+        }
+
+        .status {
+            margin-top: 14px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        .status-aguardando {
+            background: #fff7dc;
+            border: 1px solid #f2d56d;
+            color: #805f00;
+        }
+
+        .status-ativo {
+            background: #e8f8ee;
+            border: 1px solid #8fd5a8;
+            color: #176f36;
+        }
+
+        .status-encerrado {
+            background: #fff0ee;
+            border: 1px solid #ffbbb3;
+            color: #aa3028;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            color: #282828;
+            font-size: 23px;
+            margin: 28px 0 15px;
+        }
+
+        .grid-cupons {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .cupom-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 17px;
+            border-left: 5px solid #ff4747;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .07);
+        }
+
+        .cupom-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 13px;
+        }
+
+        .cupom-codigo {
+            background: #fff5f2;
+            border: 2px dashed #ff6a00;
+            color: #b72f28;
+            border-radius: 9px;
+            padding: 8px 13px;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: .5px;
+        }
+
+        .cupom-desconto {
+            background: linear-gradient(
+                135deg,
+                #ff4747,
+                #ff6a00
+            );
+            color: #ffffff;
+            border-radius: 9px;
+            padding: 8px 11px;
+            font-size: 14px;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+
+        .regras {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 9px;
+            background: #fafafa;
+            border: 1px solid #eeeeee;
+            border-radius: 9px;
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        .regra {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .regra-label {
+            color: #777777;
+            font-size: 10px;
+            font-weight: 750;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .regra-valor {
+            color: #222222;
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        .regra-valor.destaque {
+            color: #e43d2f;
+        }
+
+        .validade-card {
+            background: #fffaf0;
+            border: 1px solid #ffe0a3;
+            color: #785200;
+            border-radius: 8px;
+            padding: 9px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 750;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .botoes {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 8px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 9px;
+            padding: 12px 8px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 850;
+            cursor: pointer;
+        }
+
+        .btn-copiar {
+            background: #fff0ee;
+            color: #d9342b;
+            border: 1px solid #ffd2cd;
+        }
+
+        .btn-copiar:hover {
+            background: #ffdeda;
+        }
+
+        .btn-produtos {
+            background: #ff4747;
+            color: #ffffff;
+        }
+
+        .btn-produtos:hover {
+            background: #e53535;
+        }
+
+        .aviso-limite {
+            color: #d43b32;
+            font-size: 10px;
+            font-weight: 750;
+            text-align: center;
+            margin-top: 9px;
+        }
+
+        .mensagem-encerrada {
+            display: none;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 28px 20px;
+            text-align: center;
+            border-top: 5px solid #ff4747;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, .07);
+        }
+
+        .mensagem-encerrada h2 {
+            color: #d9342b;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .mensagem-encerrada p {
+            color: #626262;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .grupos {
+            margin-top: 30px;
+        }
+
+        .grupos h2 {
+            color: #282828;
+            text-align: center;
+            font-size: 23px;
+            margin-bottom: 8px;
+        }
+
+        .grupos-introducao {
+            max-width: 720px;
+            margin: 0 auto 20px;
+            color: #666666;
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .grid-grupos {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .grupo-card {
+            background: #ffffff;
+            border: 1px solid #e7e7e7;
+            border-radius: 15px;
+            padding: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .06);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .grupo-imagem {
+            width: 105px;
+            height: 105px;
+            border-radius: 18px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .grupo-conteudo {
+            min-width: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+        }
+
+        .grupo-card h3 {
+            color: #252c51;
+            font-size: 17px;
+            line-height: 1.35;
+            margin-bottom: 7px;
+        }
+
+        .grupo-card p {
+            color: #70758a;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 14px;
+            flex-grow: 1;
+        }
+
+        .grupo-btn {
+            display: block;
+            background: #20c76a;
+            color: #ffffff;
+            padding: 12px 10px;
+            border-radius: 9px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 850;
+        }
+
+        .grupo-btn:hover {
+            background: #18ad59;
+        }
+
+        .rodape-aviso {
+            margin-top: 23px;
+            background: #ffffff;
+            border-left: 5px solid #ff6a00;
+            border-radius: 12px;
+            padding: 16px;
+            color: #5c5c5c;
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2e7d32;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+            display: none;
+            z-index: 1000;
+        }
+
+        @media (max-width: 720px) {
+            .header {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header p {
+                font-size: 13px;
+            }
+
+            .container {
+                margin-top: 15px;
+                padding: 0 10px;
+            }
+
+            .vigencia {
+                padding: 17px 13px;
+            }
+
+            .vigencia h2 {
+                font-size: 19px;
+            }
+
+            .vigencia p {
+                font-size: 13px;
+            }
+
+            .grid-cupons {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo-secao {
+                font-size: 20px;
+            }
+
+            .cupom-card {
+                padding: 14px;
+            }
+
+            .cupom-codigo {
+                font-size: 16px;
+            }
+
+            .cupom-desconto {
+                font-size: 12px;
+            }
+
+            .grid-grupos {
+                grid-template-columns: 1fr;
+            }
+
+            .grupo-card {
+                padding: 14px;
+                gap: 13px;
+            }
+
+            .grupo-imagem {
+                width: 88px;
+                height: 88px;
+                border-radius: 15px;
+            }
+
+            .grupo-card h3 {
+                font-size: 15px;
+            }
+
+            .grupo-card p {
+                font-size: 12px;
+            }
+
+            .grupo-btn {
+                font-size: 11px;
+                padding: 10px 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>🛍️ Cupons AliExpress</h1>
+
+        <p>
+            Último dia da campanha: cupons válidos hoje, 7 de setembro,
+            com descontos de até R$ 415.
+        </p>
+    </header>
+
+    <main class="container">
+        <section class="vigencia">
+            <h2>🔥 Último dia dos cupons</h2>
+
+            <p>
+                Cupons válidos até
+                <strong>hoje, 07/09/2026, às 23h59</strong>,
+                no horário de Brasília.
+            </p>
+
+            <div
+                class="status status-ativo"
+                id="statusCampanha"
+            >
+                🔥 Último dia: cupons válidos hoje até 23h59.
+            </div>
+        </section>
+
+        <section id="secaoCupons">
+            <h2 class="titulo-secao">
+                Códigos de desconto disponíveis
+            </h2>
+
+            <div
+                class="grid-cupons"
+                id="listaCupons"
+            ></div>
+        </section>
+
+        <section
+            class="mensagem-encerrada"
+            id="mensagemEncerrada"
+        >
+            <h2>⏰ Esta campanha terminou</h2>
+
+            <p>
+                Assim que o AliExpress liberar novos cupons,
+                atualizaremos esta página. Entre em um dos nossos grupos
+                para receber o aviso.
+            </p>
+        </section>
+
+        <section class="grupos">
+            <h2>Receba avisos de novos cupons</h2>
+
+            <p class="grupos-introducao">
+                Entre gratuitamente no grupo que mais combina com você
+                para receber achadinhos, promoções e novos códigos.
+            </p>
+
+            <div class="grid-grupos">
+                <article class="grupo-card">
+                    <img
+                        src="./IMG_3191.JPG"
+                        alt="Logo do grupo Comprando em Casa"
+                        class="grupo-imagem"
+                        width="105"
+                        height="105"
+                    >
+
+                    <div class="grupo-conteudo">
+                        <h3>Comprando em Casa — Audiovisual</h3>
+
+                        <p>
+                            Ofertas de câmeras, lentes, iluminação,
+                            áudio e equipamentos para criadores.
+                        </p>
+
+                        <a
+                            href="https://chat.whatsapp.com/J3KuIi9m5FKHvjpTFp9xcx?s=cl&amp;p=i&amp;ilr=0&amp;amv=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="grupo-btn"
+                        >
+                            💬 ENTRAR NO GRUPO GRÁTIS
+                        </a>
+                    </div>
+                </article>
+
+                <article class="grupo-card">
+                    <img
+                        src="./IMG_2319.JPG"
+                        alt="Logo do grupo Badulaki"
+                        class="grupo-imagem"
+                        width="105"
+                        height="105"
+                    >
+
+                    <div class="grupo-conteudo">
+                        <h3>Badulaki — Promoções de tudo</h3>
+
+                        <p>
+                            Achadinhos e promoções de tecnologia,
+                            casa, beleza e muito mais.
+                        </p>
+
+                        <a
+                            href="https://chat.whatsapp.com/GcETuqqrvHA6qMo7L1Czpo?s=cl&amp;p=i&amp;ilr=0&amp;amv=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="grupo-btn"
+                        >
+                            💬 ENTRAR NO GRUPO GRÁTIS
+                        </a>
+                    </div>
+                </article>
+
+                <article class="grupo-card">
+                    <img
+                        src="./IMG_3198.JPG"
+                        alt="Logo do grupo Garimpo Elétrico"
+                        class="grupo-imagem"
+                        width="105"
+                        height="105"
+                    >
+
+                    <div class="grupo-conteudo">
+                        <h3>
+                            Garimpo Elétrico — Carros elétricos e híbridos
+                        </h3>
+
+                        <p>
+                            Ofertas de acessórios para carros
+                            elétricos e híbridos.
+                        </p>
+
+                        <a
+                            href="https://chat.whatsapp.com/IHIQIIeWRNqG1dP811aMpl?s=cl&amp;p=i&amp;ilr=0&amp;amv=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="grupo-btn"
+                        >
+                            💬 ENTRAR NO GRUPO GRÁTIS
+                        </a>
+                    </div>
+                </article>
+
+                <article class="grupo-card">
+                    <img
+                        src="./IMG_3197.JPG"
+                        alt="Logo do grupo Achados do Marvel"
+                        class="grupo-imagem"
+                        width="105"
+                        height="105"
+                    >
+
+                    <div class="grupo-conteudo">
+                        <h3>Achados do Marvel — Audiovisual</h3>
+
+                        <p>
+                            Ofertas de câmeras, lentes, iluminação,
+                            drones e tecnologia.
+                        </p>
+
+                        <a
+                            href="https://chat.whatsapp.com/KMPgt25MEWe6WtvKjxieXV?s=cl&amp;p=i&amp;ilr=0&amp;amv=1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="grupo-btn"
+                        >
+                            💬 ENTRAR NO GRUPO GRÁTIS
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <aside class="rodape-aviso">
+            ⚠️ <strong>Atenção:</strong>
+            os cupons possuem quantidade limitada de usos e podem
+            se esgotar antes das 23h59. Confira se o desconto foi aplicado
+            antes de concluir o pedido. Esta é uma página independente
+            e pode conter links de afiliado.
+        </aside>
+    </main>
+
+    <div
+        class="toast"
+        id="toastAviso"
+    >
+        📋 Cupom copiado!
+    </div>
+
+    <script>
+        const LINK_AFILIADO_ALIEXPRESS =
+            "https://s.click.aliexpress.com/e/_oFuy2C1";
+
+        const FIM_CAMPANHA =
+            new Date("2026-09-07T23:59:59-03:00");
+
+        const CUPONS = [
+            {
+                codigo: "BRFS1",
+                desconto: "R$ 12 OFF",
+                minimo: "R$ 90",
+                validade: "Válido até 07/09/2026 às 23h59"
+            },
+            {
+                codigo: "BRFS4",
+                desconto: "R$ 80 OFF",
+                minimo: "R$ 680",
+                validade: "Válido até 07/09/2026 às 23h59"
+            },
+            {
+                codigo: "AEFS1",
+                desconto: "R$ 190 OFF",
+                minimo: "R$ 1.810",
+                validade: "Válido de 06/09/2026 às 07h15 até 07/09/2026 às 23h59"
+            },
+            {
+                codigo: "AEFS2",
+                desconto: "R$ 275 OFF",
+                minimo: "R$ 2.470",
+                validade: "Válido de 06/09/2026 às 07h30 até 07/09/2026 às 23h59"
+            },
+            {
+                codigo: "AEFS3",
+                desconto: "R$ 415 OFF",
+                minimo: "R$ 3.570",
+                validade: "Válido de 06/09/2026 às 07h30 até 07/09/2026 às 23h59"
+            }
+        ];
+
+        function renderizarCupons() {
+            const lista =
+                document.getElementById("listaCupons");
+
+            lista.innerHTML = "";
+
+            CUPONS.forEach(cupom => {
+                const card =
+                    document.createElement("article");
+
+                card.className = "cupom-card";
+
+                card.innerHTML = `
+                    <div class="cupom-header">
+                        <div class="cupom-codigo">
+                            🏷️ ${cupom.codigo}
+                        </div>
+
+                        <div class="cupom-desconto">
+                            ${cupom.desconto}
+                        </div>
+                    </div>
+
+                    <div class="regras">
+                        <div class="regra">
+                            <span class="regra-label">
+                                Compra mínima
+                            </span>
+
+                            <span class="regra-valor destaque">
+                                ${cupom.minimo}
+                            </span>
+                        </div>
+
+                        <div class="regra">
+                            <span class="regra-label">
+                                Campanha
+                            </span>
+
+                            <span class="regra-valor">
+                                AliExpress
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="validade-card">
+                        📅 ${cupom.validade}
+                    </div>
+
+                    <div class="botoes">
+                        <button
+                            type="button"
+                            class="btn btn-copiar"
+                            onclick="copiarCupom('${cupom.codigo}')"
+                        >
+                            ✂️ COPIAR CUPOM
+                        </button>
+
+                        <a
+                            href="${LINK_AFILIADO_ALIEXPRESS}"
+                            target="_blank"
+                            rel="sponsored noopener noreferrer"
+                            class="btn btn-produtos"
+                        >
+                            🛍️ VER PRODUTOS
+                        </a>
+                    </div>
+
+                    <div class="aviso-limite">
+                        O cupom pode se esgotar antes do prazo.
+                    </div>
+                `;
+
+                lista.appendChild(card);
+            });
+        }
+
+        function atualizarStatusCampanha() {
+            const agora = new Date();
+
+            const status =
+                document.getElementById("statusCampanha");
+
+            const secaoCupons =
+                document.getElementById("secaoCupons");
+
+            const mensagemEncerrada =
+                document.getElementById("mensagemEncerrada");
+
+            if (agora <= FIM_CAMPANHA) {
+                status.className =
+                    "status status-ativo";
+
+                status.textContent =
+                    "🔥 Último dia: cupons válidos hoje até 23h59.";
+
+                secaoCupons.style.display = "block";
+                mensagemEncerrada.style.display = "none";
+                return;
+            }
+
+            status.className =
+                "status status-encerrado";
+
+            status.textContent =
+                "⏰ Esta campanha foi encerrada.";
+
+            secaoCupons.style.display = "none";
+            mensagemEncerrada.style.display = "block";
+        }
+
+        function copiarCupom(codigo) {
+            navigator.clipboard
+                .writeText(codigo)
+                .then(() => {
+                    const toast =
+                        document.getElementById("toastAviso");
+
+                    toast.textContent =
+                        `📋 Cupom ${codigo} copiado!`;
+
+                    toast.style.display = "block";
+
+                    setTimeout(() => {
+                        toast.style.display = "none";
+                    }, 2500);
+                });
+        }
+
+        renderizarCupons();
+        atualizarStatusCampanha();
+
+        setInterval(
+            atualizarStatusCampanha,
+            60000
+        );
+    </script>
+</body>
+</html>
