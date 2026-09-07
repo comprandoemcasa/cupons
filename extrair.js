@@ -332,6 +332,11 @@ const CUPONS_MANUAIS = [
     product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
   },
   {
+    code: "PRECINHO", discount: "30%", min_purchase: "29", max_discount: "500",
+    start_date: "", end_date: "16/09/2026", category: "Ofertas de vendedores",
+    product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-29", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
+  },
+  {
     code: "BOLSOCHEIO", discount: "10%", min_purchase: "79", max_discount: "100",
     start_date: "07/09/2026", end_date: "07/09/2026", category: "Produtos selecionados",
     product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
