@@ -1,20 +1,6 @@
 {
-  "updated_at": "08/09/2026 18:08",
+  "updated_at": "08/09/2026 19:09",
   "coupons": [
-    {
-      "code": "VALEMAIS",
-      "discount": "10%",
-      "min_purchase": "79",
-      "max_discount": "100",
-      "start_date": "08/09/2026",
-      "end_date": "08/09/2026",
-      "category": "Todo o site",
-      "product_list_url": "",
-      "open_sitewide": true,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
     {
       "code": "CELLPC0809",
       "discount": "R$200",
@@ -23,6 +9,20 @@
       "start_date": "08/09/2026",
       "end_date": "08/09/2026",
       "category": "Celulares, TV e Tecnologia",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "FESTAMELI",
+      "discount": "10%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "08/09/2026",
+      "end_date": "08/09/2026",
+      "category": "Tecnologia e Eletrodomésticos",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -39,6 +39,20 @@
       "category": "Moda e Beleza",
       "product_list_url": "",
       "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "VALEMAIS",
+      "discount": "10,00%",
+      "min_purchase": "79",
+      "max_discount": "100",
+      "start_date": "08/09/2026",
+      "end_date": "08/09/2026",
+      "category": "Mar Aberto - Afiliados",
+      "product_list_url": "",
+      "open_sitewide": true,
       "coupon_type": "principal",
       "has_code": true,
       "note": ""
@@ -100,6 +114,20 @@
       "note": ""
     },
     {
+      "code": "PRECINHOS",
+      "discount": "15,00%",
+      "min_purchase": "50",
+      "max_discount": "200",
+      "start_date": "04/09/2026",
+      "end_date": "08/09/2026",
+      "category": "Casas Bahia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "TUDOAQUI",
       "discount": "15,00%",
       "min_purchase": "79",
@@ -142,14 +170,14 @@
       "note": ""
     },
     {
-      "code": "FESTAMELI",
-      "discount": "10,00%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "08/09/2026",
+      "code": "LIBERAESSA",
+      "discount": "8,00%",
+      "min_purchase": "150",
+      "max_discount": "300",
+      "start_date": "04/09/2026",
       "end_date": "08/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "category": "Casas Bahia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-2",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
