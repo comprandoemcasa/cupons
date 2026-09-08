@@ -469,8 +469,7 @@ async function extrair() {
       "ITEMS"
     );
 
-    const cuponsOficiais = dadosPrincipais
-      .map(item => ({
+    const cuponsOficiais = dadosPrincipais.map(item => ({
         code: item.nome,
         discount: normalizarDescontoPrincipal(item),
         min_purchase: item.min_compra,
@@ -483,23 +482,11 @@ async function extrair() {
         coupon_type: "principal",
         has_code: true,
         note: ""
-      }))
-      .filter(item =>
-        CODIGOS_ATIVOS.has(String(item.code).toUpperCase())
-      );
+      }));
 
-    const codigosOficiais = new Set(
-      cuponsOficiais.map(item => String(item.code).toUpperCase())
-    );
-
-    const cupons = [
-      ...CUPONS_MANUAIS.filter(
-        item =>
-          CODIGOS_ATIVOS.has(String(item.code).toUpperCase()) &&
-          !codigosOficiais.has(String(item.code).toUpperCase())
-      ),
-      ...cuponsOficiais
-    ];
+    // Enquanto não houver a lista manual do dia, usamos somente os cupons
+    // publicados na página oficial do Mercado Livre.
+    const cupons = cuponsOficiais;
 
     const extraCoupons = dadosExtras.map(item => {
       const possuiCodigo =
