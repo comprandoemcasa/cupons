@@ -1,6 +1,20 @@
 {
-  "updated_at": "08/09/2026 20:08",
+  "updated_at": "08/09/2026 21:14",
   "coupons": [
+    {
+      "code": "VALEMAIS",
+      "discount": "10%",
+      "min_purchase": "79",
+      "max_discount": "100",
+      "start_date": "08/09/2026",
+      "end_date": "08/09/2026",
+      "category": "Todo o site",
+      "product_list_url": "",
+      "open_sitewide": true,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
     {
       "code": "CELLPC0809",
       "discount": "R$200",
@@ -39,20 +53,6 @@
       "category": "Moda e Beleza",
       "product_list_url": "",
       "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "VALEMAIS",
-      "discount": "10,00%",
-      "min_purchase": "79",
-      "max_discount": "100",
-      "start_date": "08/09/2026",
-      "end_date": "08/09/2026",
-      "category": "Mar Aberto - Afiliados",
-      "product_list_url": "",
-      "open_sitewide": true,
       "coupon_type": "principal",
       "has_code": true,
       "note": ""
@@ -144,7 +144,7 @@
     {
       "code": "OFERTASML",
       "discount": "10,00%",
-      "min_purchase": "150",
+      "min_purchase": "99",
       "max_discount": "300",
       "start_date": "03/09/2026",
       "end_date": "08/09/2026",
@@ -158,7 +158,7 @@
     {
       "code": "PROMOML",
       "discount": "10,00%",
-      "min_purchase": "150",
+      "min_purchase": "99",
       "max_discount": "300",
       "start_date": "03/09/2026",
       "end_date": "08/09/2026",
