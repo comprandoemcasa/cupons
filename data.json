@@ -1,5 +1,5 @@
 {
-  "updated_at": "09/09/2026 16:08",
+  "updated_at": "09/09/2026 17:09",
   "coupons": [
     {
       "code": "SITEDATADUPLA",
@@ -37,20 +37,6 @@
       "start_date": "09/09/2026",
       "end_date": "09/09/2026",
       "category": "Todo o site",
-      "product_list_url": "",
-      "open_sitewide": true,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "OFFMELI",
-      "discount": "15%",
-      "min_purchase": "79",
-      "max_discount": "80",
-      "start_date": "09/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Mar Aberto - Afiliados",
       "product_list_url": "",
       "open_sitewide": true,
       "coupon_type": "principal",
