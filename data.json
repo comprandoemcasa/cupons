@@ -1,5 +1,5 @@
 {
-  "updated_at": "09/09/2026 13:09",
+  "updated_at": "09/09/2026 14:08",
   "coupons": [
     {
       "code": "SITEDATADUPLA",
@@ -44,6 +44,20 @@
       "note": ""
     },
     {
+      "code": "ACHADOSMELI",
+      "discount": "12%",
+      "min_purchase": "199",
+      "max_discount": "200",
+      "start_date": "09/09/2026",
+      "end_date": "09/09/2026",
+      "category": "Mar Aberto - Afiliados",
+      "product_list_url": "",
+      "open_sitewide": true,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "CORREQUEACABA",
       "discount": "25%",
       "min_purchase": "79",
@@ -66,20 +80,6 @@
       "end_date": "09/09/2026",
       "category": "Construction & Industry",
       "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MEUSDESCONTOS",
-      "discount": "20%",
-      "min_purchase": "49",
-      "max_discount": "60",
-      "start_date": "09/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Fashion",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -464,6 +464,20 @@
       "coupon_type": "extra",
       "has_code": false,
       "note": ""
+    },
+    {
+      "code": "KBEAUTYMELI",
+      "discount": "15%",
+      "min_purchase": "129",
+      "max_discount": "40",
+      "start_date": "10/09/2026",
+      "end_date": "13/09/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_bt-k-beauty",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF em KBeauty acima de R$129"
     },
     {
       "code": "GARNIERNOMELI",
