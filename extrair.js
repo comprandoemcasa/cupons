@@ -366,53 +366,23 @@ const CODIGOS_ATIVOS = new Set([
   "PEGUEIJA", "VOLTAAQUI", "SUPERPROMO", "QUEROJA", "TACOMVC"
 ]);
 
-// Cupons adicionais enviados pelos gerentes em 08/09/2026.
+// Cupons adicionais enviados pelos gerentes em 09/09/2026.
 // Quando algum deles aparecer na página oficial, a versão oficial será usada.
 const CUPONS_NOVOS_HOJE = [
   {
-    code: "TUDODEBOM", discount: "R$250", min_purchase: "2099", max_discount: "250",
-    start_date: "08/09/2026", end_date: "08/09/2026", category: "Todo o site",
+    code: "SITEDATADUPLA", discount: "R$40", min_purchase: "399", max_discount: "40",
+    start_date: "09/09/2026", end_date: "09/09/2026", category: "Todo o site",
     product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
   },
   {
-    code: "VALEMAIS", discount: "10%", min_purchase: "79", max_discount: "100",
-    start_date: "08/09/2026", end_date: "08/09/2026", category: "Todo o site",
+    code: "SITE0909", discount: "R$30", min_purchase: "1219", max_discount: "30",
+    start_date: "09/09/2026", end_date: "09/09/2026", category: "Todo o site",
     product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
   },
   {
-    code: "CELLPC0809", discount: "R$200", min_purchase: "1599", max_discount: "200",
-    start_date: "08/09/2026", end_date: "08/09/2026", category: "Celulares, TV e Tecnologia",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "FESTAMELI", discount: "10%", min_purchase: "149", max_discount: "200",
-    start_date: "08/09/2026", end_date: "08/09/2026", category: "Tecnologia e Eletrodomésticos",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "MODA0809", discount: "20%", min_purchase: "89", max_discount: "30",
-    start_date: "08/09/2026", end_date: "08/09/2026", category: "Moda e Beleza",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "SALVEIESSA", discount: "25%", min_purchase: "", max_discount: "500",
-    start_date: "08/09/2026", end_date: "30/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "AGORAVAI", discount: "25%", min_purchase: "", max_discount: "500",
-    start_date: "08/09/2026", end_date: "30/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "COMPRAML", discount: "22%", min_purchase: "", max_discount: "500",
-    start_date: "08/09/2026", end_date: "30/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "CUPONZINHO", discount: "22%", min_purchase: "", max_discount: "500",
-    start_date: "08/09/2026", end_date: "30/09/2026", category: "Ofertas de vendedores",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
+    code: "TODOOSITE0909", discount: "R$10", min_purchase: "99", max_discount: "10",
+    start_date: "09/09/2026", end_date: "09/09/2026", category: "Todo o site",
+    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
   }
 ];
 
