@@ -1,5 +1,5 @@
 {
-  "updated_at": "09/09/2026 15:11",
+  "updated_at": "09/09/2026 16:08",
   "coupons": [
     {
       "code": "SITEDATADUPLA",
@@ -48,20 +48,6 @@
       "discount": "15%",
       "min_purchase": "79",
       "max_discount": "80",
-      "start_date": "09/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Mar Aberto - Afiliados",
-      "product_list_url": "",
-      "open_sitewide": true,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "ACHADOSMELI",
-      "discount": "12%",
-      "min_purchase": "199",
-      "max_discount": "200",
       "start_date": "09/09/2026",
       "end_date": "09/09/2026",
       "category": "Mar Aberto - Afiliados",
