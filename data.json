@@ -1,5 +1,5 @@
 {
-  "updated_at": "09/09/2026 20:08",
+  "updated_at": "09/09/2026 21:12",
   "coupons": [
     {
       "code": "SITEDATADUPLA",
@@ -39,20 +39,6 @@
       "category": "Todo o site",
       "product_list_url": "",
       "open_sitewide": true,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "ACHEINOMELI",
-      "discount": "15%",
-      "min_purchase": "50",
-      "max_discount": "200",
-      "start_date": "09/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Casas Bahia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
-      "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
       "note": ""
