@@ -1,5 +1,5 @@
 {
-  "updated_at": "10/09/2026 00:09",
+  "updated_at": "10/09/2026 01:09",
   "coupons": [
     {
       "code": "SITEDATADUPLA",
@@ -39,34 +39,6 @@
       "category": "Todo o site",
       "product_list_url": "",
       "open_sitewide": true,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "SOHOJE",
-      "discount": "10%",
-      "min_purchase": "99",
-      "max_discount": "300",
-      "start_date": "09/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Magazine Luiza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-magalu",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "OFERTAHOJE",
-      "discount": "10%",
-      "min_purchase": "99",
-      "max_discount": "300",
-      "start_date": "09/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Kabum",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-kabum",
-      "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
       "note": ""
@@ -353,20 +325,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "15%",
-      "min_purchase": "79",
-      "max_discount": "50",
-      "start_date": "01/09/2026",
-      "end_date": "09/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_bt-beleza-profissional",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": ""
-    },
     {
       "code": "KBEAUTYMELI",
       "discount": "15%",
