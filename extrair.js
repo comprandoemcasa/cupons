@@ -366,52 +366,27 @@ const CODIGOS_ATIVOS = new Set([
   "PEGUEIJA", "VOLTAAQUI", "SUPERPROMO", "QUEROJA", "TACOMVC"
 ]);
 
-// Cupons adicionais enviados pelos gerentes em 10/09/2026.
+// Cupons adicionais confirmados no Mercado Livre em 11/09/2026.
 // Quando algum deles aparecer na página oficial, a versão oficial será usada.
 const CUPONS_NOVOS_HOJE = [
   {
-    code: "ECONOMIZO", discount: "10%", min_purchase: "149", max_discount: "200",
-    start_date: "10/09/2026", end_date: "10/09/2026", category: "Tecnologia e Eletrodomésticos",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
+    code: "TODOSITECOMPRAS", discount: "R$100", min_purchase: "899", max_discount: "100",
+    start_date: "11/09/2026", end_date: "11/09/2026", category: "Todo o site",
+    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
   },
   {
-    code: "ITENSDECASA", discount: "R$100", min_purchase: "899", max_discount: "100",
-    start_date: "10/09/2026", end_date: "10/09/2026", category: "Casa",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
+    code: "COMPRITTASALLSITE", discount: "R$30", min_purchase: "399", max_discount: "30",
+    start_date: "11/09/2026", end_date: "11/09/2026", category: "Todo o site",
+    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
   },
   {
-    code: "LOJASPOSDATADUPLA", discount: "20%", min_purchase: "39", max_discount: "20",
-    start_date: "10/09/2026", end_date: "10/09/2026", category: "Lojas Oficiais",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
+    code: "TODOSITECOMPRITTAS", discount: "R$20", min_purchase: "219", max_discount: "20",
+    start_date: "11/09/2026", end_date: "11/09/2026", category: "Todo o site",
+    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
   },
   {
-    code: "MELIOFF", discount: "20%", min_purchase: "19", max_discount: "100",
-    start_date: "10/09/2026", end_date: "13/09/2026", category: "Auto e Ferramentas",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "PROMOCERTAML", discount: "20%", min_purchase: "79", max_discount: "60",
-    start_date: "10/09/2026", end_date: "13/09/2026", category: "Auto e Ferramentas",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "EXCLUSIVONOMELI", discount: "18%", min_purchase: "49", max_discount: "50",
-    start_date: "10/09/2026", end_date: "13/09/2026", category: "Moda",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "DESCONTASSO", discount: "15%", min_purchase: "50", max_discount: "200",
-    start_date: "10/09/2026", end_date: "13/09/2026", category: "Casa e Eletro",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "COMPRAFACIL", discount: "15%", min_purchase: "79", max_discount: "60",
-    start_date: "10/09/2026", end_date: "13/09/2026", category: "Casa e Eletro",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "SOLTAODESCONTO", discount: "8%", min_purchase: "150", max_discount: "300",
-    start_date: "10/09/2026", end_date: "13/09/2026", category: "Produtos selecionados",
+    code: "SUPERDESCONTOS", discount: "10%", min_purchase: "149", max_discount: "200",
+    start_date: "11/09/2026", end_date: "11/09/2026", category: "Tecnologia e Eletrodomésticos",
     product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
   }
 ];
