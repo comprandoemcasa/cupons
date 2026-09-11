@@ -1,5 +1,5 @@
 {
-  "updated_at": "10/09/2026 20:07",
+  "updated_at": "10/09/2026 21:12",
   "coupons": [
     {
       "code": "ITENSDECASA",
@@ -31,7 +31,7 @@
     },
     {
       "code": "ECONOMIZO",
-      "discount": "10,00%",
+      "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "10/09/2026",
@@ -45,7 +45,7 @@
     },
     {
       "code": "MELIOFF",
-      "discount": "20,00%",
+      "discount": "20%",
       "min_purchase": "19",
       "max_discount": "100",
       "start_date": "10/09/2026",
@@ -59,7 +59,7 @@
     },
     {
       "code": "PROMOCERTAML",
-      "discount": "20,00%",
+      "discount": "20%",
       "min_purchase": "79",
       "max_discount": "60",
       "start_date": "10/09/2026",
@@ -73,7 +73,7 @@
     },
     {
       "code": "EXCLUSIVONOMELI",
-      "discount": "18%",
+      "discount": "18,00%",
       "min_purchase": "49",
       "max_discount": "50",
       "start_date": "10/09/2026",
@@ -87,7 +87,7 @@
     },
     {
       "code": "DESCONTASSO",
-      "discount": "15,00%",
+      "discount": "15%",
       "min_purchase": "50",
       "max_discount": "200",
       "start_date": "10/09/2026",
@@ -143,7 +143,7 @@
     },
     {
       "code": "SOLTAODESCONTO",
-      "discount": "8,00%",
+      "discount": "8%",
       "min_purchase": "150",
       "max_discount": "300",
       "start_date": "10/09/2026",
@@ -199,7 +199,7 @@
     },
     {
       "code": "VIPAQUI",
-      "discount": "25,0%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "02/09/2026",
@@ -213,7 +213,7 @@
     },
     {
       "code": "CARRINHOCHEIO",
-      "discount": "22,0%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "02/09/2026",
@@ -367,7 +367,7 @@
     },
     {
       "code": "ECONOMIALOCAL",
-      "discount": "30,00%",
+      "discount": "30%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -381,7 +381,7 @@
     },
     {
       "code": "GARANTINOTOP",
-      "discount": "30,00%",
+      "discount": "30%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -395,7 +395,7 @@
     },
     {
       "code": "COMPRAESPERTA",
-      "discount": "25,00%",
+      "discount": "25%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -409,7 +409,7 @@
     },
     {
       "code": "PAGARPOUCO",
-      "discount": "25,00%",
+      "discount": "25%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -423,7 +423,7 @@
     },
     {
       "code": "BATEUPRONTOCUPOM",
-      "discount": "30,00%",
+      "discount": "30%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "10/09/2026",
@@ -437,7 +437,7 @@
     },
     {
       "code": "SAINDOBARRATO",
-      "discount": "30,00%",
+      "discount": "30%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "10/09/2026",
@@ -451,7 +451,7 @@
     },
     {
       "code": "OPAECONOMIZEI",
-      "discount": "30,00%",
+      "discount": "30%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "10/09/2026",
