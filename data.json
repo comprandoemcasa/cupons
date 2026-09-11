@@ -1,5 +1,5 @@
 {
-  "updated_at": "11/09/2026 14:07",
+  "updated_at": "11/09/2026 15:09",
   "coupons": [
     {
       "code": "TODOSITECOMPRAS",
@@ -101,7 +101,7 @@
     },
     {
       "code": "COMPRAFACIL",
-      "discount": "15,00%",
+      "discount": "18,00%",
       "min_purchase": "79",
       "max_discount": "60",
       "start_date": "10/09/2026",
@@ -507,6 +507,48 @@
     }
   ],
   "extra_coupons": [
+    {
+      "code": "MEUALIENWARE",
+      "discount": "R$250,00",
+      "min_purchase": "2000",
+      "max_discount": "250",
+      "start_date": "10/09/2026",
+      "end_date": "11/09/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_dell-afiliados-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 250 OFF nas compras acima de R$2000"
+    },
+    {
+      "code": "MOCHILA20OFF",
+      "discount": "20%",
+      "min_purchase": "80",
+      "max_discount": "30",
+      "start_date": "11/09/2026",
+      "end_date": "13/09/2026",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_liquida-mochila-infantil-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 20% OFF nas compras acima de R$79,99"
+    },
+    {
+      "code": "CALVIN20OFF",
+      "discount": "20%",
+      "min_purchase": "80",
+      "max_discount": "30",
+      "start_date": "11/09/2026",
+      "end_date": "13/09/2026",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_liquida-calvin-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 20% OFF nas compras acima de R$79,99"
+    },
     {
       "code": "KBEAUTYMELI",
       "discount": "15%",
