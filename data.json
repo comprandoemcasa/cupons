@@ -1,5 +1,5 @@
 {
-  "updated_at": "11/09/2026 16:08",
+  "updated_at": "11/09/2026 17:09",
   "coupons": [
     {
       "code": "TODOSITECOMPRAS",
@@ -50,8 +50,8 @@
       "max_discount": "200",
       "start_date": "11/09/2026",
       "end_date": "11/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "category": "Tecnologia e Eletrodomésticos",
+      "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
