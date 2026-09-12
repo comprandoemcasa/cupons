@@ -1,5 +1,5 @@
 {
-  "updated_at": "12/09/2026 01:09",
+  "updated_at": "12/09/2026 02:08",
   "coupons": [
     {
       "code": "TODOSITECOMPRAS",
@@ -51,20 +51,6 @@
       "start_date": "11/09/2026",
       "end_date": "11/09/2026",
       "category": "Tecnologia e Eletrodomésticos",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MELIOFF",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "100",
-      "start_date": "10/09/2026",
-      "end_date": "13/09/2026",
-      "category": "Construction & Industry",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -521,20 +507,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "MEUALIENWARE",
-      "discount": "R$250,00",
-      "min_purchase": "2000",
-      "max_discount": "250",
-      "start_date": "10/09/2026",
-      "end_date": "11/09/2026",
-      "category": "Tecnologia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_dell-afiliados-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 250 OFF nas compras acima de R$2000"
-    },
     {
       "code": "MOCHILA20OFF",
       "discount": "20%",
