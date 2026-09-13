@@ -1,5 +1,5 @@
 {
-  "updated_at": "12/09/2026 20:42",
+  "updated_at": "13/09/2026 00:01",
   "coupons": [
     {
       "code": "TODOSITECOMPRAS",
@@ -80,20 +80,6 @@
       "end_date": "13/09/2026",
       "category": "Casas Bahia",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "APROVEITANOML",
-      "discount": "10,00%",
-      "min_purchase": "99",
-      "max_discount": "300",
-      "start_date": "10/09/2026",
-      "end_date": "13/09/2026",
-      "category": "Magazine Luiza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-magalu",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
