@@ -1,5 +1,5 @@
 {
-  "updated_at": "15/09/2026 02:46",
+  "updated_at": "15/09/2026 08:00",
   "coupons": [
     {
       "code": "COMPRASESTOQUE",
@@ -465,20 +465,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "KBEAUTYMELI",
-      "discount": "15%",
-      "min_purchase": "129",
-      "max_discount": "40",
-      "start_date": "10/09/2026",
-      "end_date": "14/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_bt-k-beauty",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF em KBeauty acima de R$129"
-    },
     {
       "code": "GARNIERNOMELI",
       "discount": "30%",
