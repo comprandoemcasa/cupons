@@ -7,6 +7,9 @@ const URL_PRINCIPAIS =
 const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 
+// Cupons confirmados como esgotados que ainda podem permanecer na fonte oficial.
+const CUPONS_ESGOTADOS = new Set(["TODOSITE2001609"]);
+
 // Cupons confirmados diretamente pelos gerentes do Mercado Livre que ainda
 // não apareceram na página oficial. Quando o código entrar na fonte oficial,
 // a versão oficial substitui automaticamente esta inclusão manual.
@@ -537,7 +540,9 @@ async function extrair() {
         coupon_type: "principal",
         has_code: true,
         note: ""
-      }));
+      })).filter(
+        item => !CUPONS_ESGOTADOS.has(String(item.code).toUpperCase())
+      );
 
     const codigosOficiais = new Set(
       cuponsOficiais.map(item => String(item.code).toUpperCase())
