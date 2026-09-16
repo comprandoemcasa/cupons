@@ -1,5 +1,5 @@
 {
-  "updated_at": "15/09/2026 22:03",
+  "updated_at": "16/09/2026 04:10",
   "coupons": [
     {
       "code": "COMPRASESTOQUE",
@@ -536,76 +536,6 @@
   ],
   "extra_coupons": [
     {
-      "code": "GARNIERNOMELI",
-      "discount": "30%",
-      "min_purchase": "60",
-      "max_discount": "40",
-      "start_date": "22/08/2026",
-      "end_date": "15/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_garnier-skincare-1p-dpgp",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 30% OFF nas compras acima de R$79,9"
-    },
-    {
-      "code": "LOREALNOMELI",
-      "discount": "30%",
-      "min_purchase": "90",
-      "max_discount": "40",
-      "start_date": "22/08/2026",
-      "end_date": "15/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_loreal-paris-1p-dpgp",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 30% OFF nas compras acima de R$89,9"
-    },
-    {
-      "code": "MAYBELLINENOMELI",
-      "discount": "30%",
-      "min_purchase": "100",
-      "max_discount": "40",
-      "start_date": "22/08/2026",
-      "end_date": "15/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_maybelline-1p-dpgp",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 30% OFF nas compras acima de R$99,9"
-    },
-    {
-      "code": "ELSEVENOMELI",
-      "discount": "30%",
-      "min_purchase": "70",
-      "max_discount": "40",
-      "start_date": "22/08/2026",
-      "end_date": "15/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_elseve-dpgp-1p-mlb",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 30% OFF nas compras acima de R$69,9"
-    },
-    {
-      "code": "20LIMPEZAOFF",
-      "discount": "20%",
-      "min_purchase": "99",
-      "max_discount": "30",
-      "start_date": "11/09/2026",
-      "end_date": "15/09/2026",
-      "category": "CPG (Bens de Consumo)",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cpg-spm-volume-limpeza",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF em compras acima de R$99"
-    },
-    {
       "code": "ISDIN15",
       "discount": "15%",
       "min_purchase": "5",
@@ -702,6 +632,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 20% OFF nas compras acima de R$79,99"
+    },
+    {
+      "code": "DELL600",
+      "discount": "R$600,00",
+      "min_purchase": "3599",
+      "max_discount": "600",
+      "start_date": "15/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_alienware-15",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
