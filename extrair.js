@@ -370,11 +370,6 @@ const CODIGOS_ATIVOS = new Set([
 // na página oficial. Se aparecerem na fonte oficial, a versão oficial prevalece.
 const CUPONS_NOVOS_HOJE = [
   {
-    code: "TODOSITE2001609", discount: "R$200", min_purchase: "1299", max_discount: "200",
-    start_date: "16/09/2026", end_date: "16/09/2026", category: "Todo o site",
-    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
     code: "ALLSITE1609", discount: "R$60", min_purchase: "599", max_discount: "60",
     start_date: "16/09/2026", end_date: "16/09/2026", category: "Todo o site",
     product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
