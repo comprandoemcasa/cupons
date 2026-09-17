@@ -369,58 +369,18 @@ const CODIGOS_ATIVOS = new Set([
   "PEGUEIJA", "VOLTAAQUI", "SUPERPROMO", "QUEROJA", "TACOMVC"
 ]);
 
-// Cupons enviados pelos gerentes em 16/09/2026 que ainda podem não constar
+// Cupons enviados pelos gerentes em 17/09/2026 que ainda podem não constar
 // na página oficial. Se aparecerem na fonte oficial, a versão oficial prevalece.
 const CUPONS_NOVOS_HOJE = [
   {
-    code: "ALLSITE1609", discount: "R$60", min_purchase: "599", max_discount: "60",
-    start_date: "16/09/2026", end_date: "16/09/2026", category: "Todo o site",
-    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "TODOSITE1609", discount: "R$20", min_purchase: "199", max_discount: "20",
-    start_date: "16/09/2026", end_date: "16/09/2026", category: "Todo o site",
-    product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: ""
-  },
-  {
-    code: "OFERTAS", discount: "10%", min_purchase: "", max_discount: "200",
-    start_date: "16/09/2026", end_date: "", category: "Tecnologia",
+    code: "ECONOMIZEIML", discount: "10%", min_purchase: "", max_discount: "200",
+    start_date: "17/09/2026", end_date: "17/09/2026", category: "Tecnologia",
     product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima no Mercado Livre"
   },
   {
-    code: "MELITUDOBOM", discount: "20%", min_purchase: "", max_discount: "",
-    start_date: "16/09/2026", end_date: "", category: "Ferramentas",
+    code: "FULL1709", discount: "10%", min_purchase: "", max_discount: "",
+    start_date: "17/09/2026", end_date: "17/09/2026", category: "Entregas Full",
     product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre"
-  },
-  {
-    code: "MLDEBOA", discount: "20%", min_purchase: "", max_discount: "",
-    start_date: "16/09/2026", end_date: "", category: "Automotivo",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre"
-  },
-  {
-    code: "DESCONTOEMCASA", discount: "20%", min_purchase: "", max_discount: "",
-    start_date: "16/09/2026", end_date: "", category: "Casa",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre"
-  },
-  {
-    code: "PAGUEMENOSJA", discount: "18%", min_purchase: "", max_discount: "",
-    start_date: "16/09/2026", end_date: "", category: "Moda",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre"
-  },
-  {
-    code: "DESCONTOJA", discount: "15%", min_purchase: "", max_discount: "",
-    start_date: "16/09/2026", end_date: "", category: "Eletrodomésticos",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre"
-  },
-  {
-    code: "PRECINHOAMIGO", discount: "10%", min_purchase: "", max_discount: "300",
-    start_date: "16/09/2026", end_date: "", category: "Tecnologia e Eletrodomésticos",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima no Mercado Livre"
-  },
-  {
-    code: "LEVOUBARATO", discount: "10%", min_purchase: "", max_discount: "300",
-    start_date: "16/09/2026", end_date: "", category: "Tecnologia e Eletrodomésticos",
-    product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima no Mercado Livre"
   }
 ];
 
