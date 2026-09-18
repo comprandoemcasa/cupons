@@ -1226,36 +1226,36 @@
 
             container.innerHTML = "";
 
-            const prioridades = [
-                "tech-e-he",
-                "fh-afiliados-2026"
-            ];
-
             const listaOrdenada = [...lista].sort(
                 (itemA, itemB) => {
-                    const prioridadeA =
-                        prioridades.findIndex(nome =>
-                            String(
-                                itemA.product_list_url || ""
-                            ).includes(nome)
-                        );
+                    const peso = item => {
+                        const codigo = String(
+                            item.code || ""
+                        ).toUpperCase();
 
-                    const prioridadeB =
-                        prioridades.findIndex(nome =>
-                            String(
-                                itemB.product_list_url || ""
-                            ).includes(nome)
-                        );
+                        if (item.open_sitewide) {
+                            return 0;
+                        }
 
-                    const pesoA =
-                        prioridadeA === -1
-                            ? prioridades.length
-                            : prioridadeA;
+                        if ([
+                            "OFERTANOML",
+                            "DESCONTOJA"
+                        ].includes(codigo)) {
+                            return 1;
+                        }
 
-                    const pesoB =
-                        prioridadeB === -1
-                            ? prioridades.length
-                            : prioridadeB;
+                        if ([
+                            "PRECINHOAMIGO",
+                            "LEVOUBARATO"
+                        ].includes(codigo)) {
+                            return 2;
+                        }
+
+                        return 3;
+                    };
+
+                    const pesoA = peso(itemA);
+                    const pesoB = peso(itemB);
 
                     return pesoA - pesoB;
                 }
