@@ -1,5 +1,5 @@
 {
-  "updated_at": "18/09/2026 14:28",
+  "updated_at": "18/09/2026 17:21",
   "coupons": [
     {
       "code": "SITE100",
@@ -332,20 +332,6 @@
       "end_date": "20/09/2026",
       "category": "Furnishing & Houseware",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "DESCONTOJA",
-      "discount": "15%",
-      "min_purchase": "50",
-      "max_discount": "200",
-      "start_date": "15/09/2026",
-      "end_date": "20/09/2026",
-      "category": "Casas Bahia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
