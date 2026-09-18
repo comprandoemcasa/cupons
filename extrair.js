@@ -386,6 +386,11 @@ const CUPONS_NOVOS_HOJE = [
     code: "MELITUDOBOM", discount: "20%", min_purchase: "", max_discount: "",
     start_date: "17/09/2026", end_date: "", category: "Automotivo e Ferramentas",
     product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre"
+  },
+  {
+    code: "PAGUEMENOSJA", discount: "18%", min_purchase: "49", max_discount: "50",
+    start_date: "14/09/2026", end_date: "20/09/2026", category: "Moda",
+    product_list_url: "https://lista.mercadolivre.com.br/_Container_fashion-2026-2", open_sitewide: false, coupon_type: "principal", has_code: true, note: ""
   }
 ];
 
