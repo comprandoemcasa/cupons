@@ -1232,26 +1232,27 @@
                         const codigo = String(
                             item.code || ""
                         ).toUpperCase();
+                        const categoria = String(
+                            item.category || ""
+                        ).toUpperCase();
 
                         if (item.open_sitewide) {
                             return 0;
                         }
 
-                        if ([
-                            "OFERTANOML",
-                            "DESCONTOJA"
-                        ].includes(codigo)) {
+                        if (
+                            categoria.includes("TECNOLOGIA") ||
+                            categoria.includes("TECH") ||
+                            [
+                                "PROMOHOJE",
+                                "PRECINHOAMIGO",
+                                "LEVOUBARATO"
+                            ].includes(codigo)
+                        ) {
                             return 1;
                         }
 
-                        if ([
-                            "PRECINHOAMIGO",
-                            "LEVOUBARATO"
-                        ].includes(codigo)) {
-                            return 2;
-                        }
-
-                        return 3;
+                        return 2;
                     };
 
                     const pesoA = peso(itemA);
