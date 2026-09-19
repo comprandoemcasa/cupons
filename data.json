@@ -1,5 +1,5 @@
 {
-  "updated_at": "19/09/2026 15:23",
+  "updated_at": "19/09/2026 18:16",
   "coupons": [
     {
       "code": "10% OFF TODO O SITE",
@@ -42,6 +42,20 @@
       "coupon_type": "principal",
       "has_code": false,
       "note": "Ativado diretamente pelo Mercado Livre"
+    },
+    {
+      "code": "PROMOHOJE",
+      "discount": "10%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "19/09/2026",
+      "end_date": "19/09/2026",
+      "category": "Tecnologia",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
     },
     {
       "code": "MLDEBOA",
@@ -318,20 +332,6 @@
       "end_date": "31/10/2026",
       "category": "Ofertas de vendedores",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "PROMOHOJE",
-      "discount": "10%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "19/09/2026",
-      "end_date": "19/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
