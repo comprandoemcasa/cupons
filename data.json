@@ -1,5 +1,5 @@
 {
-  "updated_at": "19/09/2026 18:16",
+  "updated_at": "19/09/2026 20:52",
   "coupons": [
     {
       "code": "10% OFF TODO O SITE",
@@ -332,20 +332,6 @@
       "end_date": "31/10/2026",
       "category": "Ofertas de vendedores",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-6",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "DESCONTOEMCASA",
-      "discount": "20%",
-      "min_purchase": "79",
-      "max_discount": "60",
-      "start_date": "15/09/2026",
-      "end_date": "20/09/2026",
-      "category": "Furnishing & Houseware",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -842,20 +828,6 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 0,1 OFF nas compras acima de R$900"
-    },
-    {
-      "code": "SAMSUNG15OFF",
-      "discount": "15%",
-      "min_purchase": "700",
-      "max_discount": "111",
-      "start_date": "22/07/2026",
-      "end_date": "30/09/2026",
-      "category": "Tecnologia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_15-off-afiliados-e-caixinha-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$700"
     },
     {
       "code": "9DO9SPORTS",
