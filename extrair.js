@@ -359,17 +359,17 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "MLDEBOA", "DESCONTOEMCASA", "DESCONTOJA", "LEVOUBARATO",
-  "PRECINHOAMIGO", "OFERTANOML", "DESCONTOSML", "CUPOMAQUI",
-  "QUEROMAIS", "ACHEIOFF", "GARANTINOTOP", "TACOMVC",
-  "LEVEAGORA", "ECONOMIALOCAL", "ECONOMIZEI", "VALEAGORA",
-  "GARANTIDO", "CARRINHOCHEIO", "DESCOTOSMELI", "DESCONTEI",
-  "PRECINHO", "PEGUEISEU", "SOECONOMIA", "PROMONOMELI",
-  "MELHORESCUPONS", "VOLTAAQUI", "VIPAQUI", "SALVEIESSA",
-  "SUPERPROMO", "POUPAAGORA", "MIMOTOP", "CHEGOUCUPOM",
-  "QUEROJA", "PAGUEMENOS", "CLIENTETOP", "AGORAVAI",
-  "CUPONZINHO", "PEGUEIJA", "CARRINHOCHEIOJA", "COMPRAML",
-  "MLCOMPRANDO", "VALEMUITO", "DESCONTOJUSTO"
+  "DESCONTOEMCASA", "MLDEBOA", "DESCONTOJA", "LEVOUBARATO",
+  "PRECINHOAMIGO", "PROMOHOJE", "SEMPREML", "DESCONTOSML",
+  "TACOMVC", "ACHEIOFF", "QUEROMAIS", "GARANTINOTOP", "LEVEAGORA",
+  "ECONOMIALOCAL", "ECONOMIZEI", "GARANTIDO", "VALEAGORA",
+  "CARRINHOCHEIO", "DESCOTOSMELI", "DESCONTEI", "PRECINHO",
+  "PEGUEISEU", "MLCOMPRANDO", "MELHORCUPOM", "SOECONOMIA",
+  "DESCONTOJUSTO", "PROMONOMELI", "MELHORESCUPONS", "VOLTAAQUI",
+  "VIPAQUI", "CARRINHOCHEIOJA", "SUPERPROMO", "SALVEIESSA",
+  "POUPAAGORA", "MIMOTOP", "VALEMUITO", "CLIENTETOP", "CHEGOUCUPOM",
+  "QUEROJA", "PAGUEMENOS", "AGORAVAI", "CUPONZINHO", "PEGUEIJA",
+  "COMPRAML"
 ]);
 
 // Cupons enviados pelos gerentes em 17/09/2026 que ainda podem não constar
@@ -399,11 +399,14 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "SITE100", discount: "R$100", min_purchase: "899", max_discount: "100", start_date: "18/09/2026", end_date: "18/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SITETODO30", discount: "R$30", min_purchase: "399", max_discount: "30", start_date: "18/09/2026", end_date: "18/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "TODOSITE1809", discount: "R$15", min_purchase: "199", max_discount: "15", start_date: "18/09/2026", end_date: "18/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "OFERTANOML", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "18/09/2026", end_date: "18/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CUPOMAQUI", discount: "30%", min_purchase: "", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-1", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "10% OFF TODO O SITE", discount: "10%", min_purchase: "79", max_discount: "25", start_date: "19/09/2026", end_date: "19/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: false, note: "Ativado diretamente pelo Mercado Livre" },
+  { code: "R$200 OFF CELL, PC E TECH", discount: "R$200", min_purchase: "1599", max_discount: "200", start_date: "19/09/2026", end_date: "19/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: false, note: "Ativado diretamente pelo Mercado Livre" },
+  { code: "20% OFF ITENS PARA CASA", discount: "20%", min_purchase: "399", max_discount: "85", start_date: "19/09/2026", end_date: "19/09/2026", category: "Casa", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: false, note: "Ativado diretamente pelo Mercado Livre" },
+  { code: "PROMOHOJE", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "19/09/2026", end_date: "19/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MLDEBOA", discount: "20%", min_purchase: "79", max_discount: "60", start_date: "19/09/2026", end_date: "19/09/2026", category: "Automotivo e Ferramentas", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "DESCONTOJA", discount: "15%", min_purchase: "50", max_discount: "200", start_date: "19/09/2026", end_date: "19/09/2026", category: "Eletrodomésticos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SEMPREML", discount: "25%", min_purchase: "", max_discount: "500", start_date: "", end_date: "24/09/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MELHORCUPOM", discount: "15%", min_purchase: "49", max_discount: "50", start_date: "", end_date: "27/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
   { code: "LEVEAGORA", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-2", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
   { code: "ECONOMIZEI", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-24", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
   { code: "VALEAGORA", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-28", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
