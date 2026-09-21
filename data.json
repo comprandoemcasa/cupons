@@ -1,5 +1,5 @@
 {
-  "updated_at": "21/09/2026 14:52",
+  "updated_at": "21/09/2026 18:41",
   "coupons": [
     {
       "code": "10% OFF TODO O SITE",
@@ -774,20 +774,6 @@
       "note": "Cupom Mar Aberto de aceitação"
     },
     {
-      "code": "SAMSUNG10OFF",
-      "discount": "10%",
-      "min_purchase": "900",
-      "max_discount": "200",
-      "start_date": "22/07/2026",
-      "end_date": "30/09/2026",
-      "category": "Tecnologia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_10-off-afiliados-caixinha-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 0,1 OFF nas compras acima de R$900"
-    },
-    {
       "code": "9DO9SPORTS",
       "discount": "R$130",
       "min_purchase": "399",
@@ -926,6 +912,34 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de Dia das Crianças"
+    },
+    {
+      "code": "SAMSUNG10OFF",
+      "discount": "10%",
+      "min_purchase": "900",
+      "max_discount": "200",
+      "start_date": "22/07/2026",
+      "end_date": "31/10/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_10-off-afiliados-caixinha-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 0,1 OFF nas compras acima de R$900"
+    },
+    {
+      "code": "SAMSUNG15OFF",
+      "discount": "15%",
+      "min_purchase": "700",
+      "max_discount": "111",
+      "start_date": "22/07/2026",
+      "end_date": "31/10/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_15-off-afiliados-e-caixinha-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$700"
     }
   ]
 }
