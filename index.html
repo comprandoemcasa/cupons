@@ -1236,6 +1236,14 @@
                             item.category || ""
                         ).toUpperCase();
 
+                        if (codigo === "OFERTAHJ") {
+                            return -2;
+                        }
+
+                        if (codigo === "FULL2209") {
+                            return -1;
+                        }
+
                         if (item.open_sitewide) {
                             return 0;
                         }
