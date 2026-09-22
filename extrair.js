@@ -359,17 +359,19 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "DESCONTOEMCASA", "MLDEBOA", "DESCONTOJA", "LEVOUBARATO",
-  "PRECINHOAMIGO", "PROMOHOJE", "SEMPREML", "DESCONTOSML",
-  "TACOMVC", "ACHEIOFF", "QUEROMAIS", "GARANTINOTOP", "LEVEAGORA",
-  "ECONOMIALOCAL", "ECONOMIZEI", "GARANTIDO", "VALEAGORA",
-  "CARRINHOCHEIO", "DESCOTOSMELI", "DESCONTEI", "PRECINHO",
-  "PEGUEISEU", "MLCOMPRANDO", "MELHORCUPOM", "SOECONOMIA",
-  "DESCONTOJUSTO", "PROMONOMELI", "MELHORESCUPONS", "VOLTAAQUI",
-  "VIPAQUI", "CARRINHOCHEIOJA", "SUPERPROMO", "SALVEIESSA",
-  "POUPAAGORA", "MIMOTOP", "VALEMUITO", "CLIENTETOP", "CHEGOUCUPOM",
-  "QUEROJA", "PAGUEMENOS", "AGORAVAI", "CUPONZINHO", "PEGUEIJA",
-  "COMPRAML"
+  "OFERTAHJ", "FULL2209", "VIPAQUI", "CARRINHOCHEIO",
+  "MELIACHAPROMOS", "BATEUAQUI", "PROMONOMELI", "TEMAQUI",
+  "MELHORCUPOM", "AMODESCONTO", "MELIKIDS", "VIPNOMELI",
+  "ACHADINHO", "CORREAQUI", "ACHEIOFF", "MELHORESCUPONS",
+  "VOLTAAQUI", "TACOMVC", "SALVEIESSA", "AGORAVAI", "COMPRAML",
+  "CUPONZINHO", "ECONOMIALOCAL", "GARANTINOTOP", "COMPRAESPERTA",
+  "BATEUPRONTOCUPOM", "SAINDOBARRATO", "OPAECONOMIZEI",
+  "APROVEITAMUITO", "PEGAMELI", "MEUMELI", "MELIBAIXOU",
+  "COMPRINHASML", "OFERTASMELI", "OFERTAAQUI", "APROVEITAESSA",
+  "PRECINHOBOM", "BATEDESCONTO", "DESCONTOBOM", "PEGANOMELI",
+  "MLVANTAGEM", "BARRATINHOAQUI", "COMPRANOMELI",
+  "CARRINHOCHEIOJA", "DESCONTOJUSTO", "VALEMUITO", "QUEROMAIS",
+  "MLCOMPRANDO"
 ]);
 
 // Cupons enviados pelos gerentes em 17/09/2026 que ainda podem não constar
@@ -399,35 +401,8 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "10% OFF TODO O SITE", discount: "10%", min_purchase: "79", max_discount: "25", start_date: "19/09/2026", end_date: "19/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: false, note: "Ativado diretamente pelo Mercado Livre" },
-  { code: "R$200 OFF CELL, PC E TECH", discount: "R$200", min_purchase: "1599", max_discount: "200", start_date: "19/09/2026", end_date: "19/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: false, note: "Ativado diretamente pelo Mercado Livre" },
-  { code: "20% OFF ITENS PARA CASA", discount: "20%", min_purchase: "399", max_discount: "85", start_date: "19/09/2026", end_date: "19/09/2026", category: "Casa", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: false, note: "Ativado diretamente pelo Mercado Livre" },
-  { code: "PROMOHOJE", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "19/09/2026", end_date: "19/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MLDEBOA", discount: "20%", min_purchase: "79", max_discount: "60", start_date: "19/09/2026", end_date: "19/09/2026", category: "Automotivo e Ferramentas", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "DESCONTOJA", discount: "15%", min_purchase: "50", max_discount: "200", start_date: "19/09/2026", end_date: "19/09/2026", category: "Eletrodomésticos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SEMPREML", discount: "25%", min_purchase: "", max_discount: "500", start_date: "", end_date: "24/09/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MELHORCUPOM", discount: "15%", min_purchase: "49", max_discount: "50", start_date: "", end_date: "27/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "LEVEAGORA", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-2", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "ECONOMIZEI", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-24", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "VALEAGORA", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-28", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "GARANTIDO", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "DESCOTOSMELI", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "DESCONTEI", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-25", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PRECINHO", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-29", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PEGUEISEU", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-30", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SOECONOMIA", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-26", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SUPERPROMO", discount: "20%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "21/09/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "POUPAAGORA", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-27", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MIMOTOP", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "20/09/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CHEGOUCUPOM", discount: "25%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-5", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "QUEROJA", discount: "22%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PAGUEMENOS", discount: "18%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "20/09/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CLIENTETOP", discount: "22%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "20/09/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PEGUEIJA", discount: "22%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-6", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CARRINHOCHEIOJA", discount: "30%", min_purchase: "", max_discount: "500", start_date: "", end_date: "14/10/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MLCOMPRANDO", discount: "30%", min_purchase: "", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "VALEMUITO", discount: "25%", min_purchase: "", max_discount: "500", start_date: "", end_date: "15/10/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "DESCONTOJUSTO", discount: "22%", min_purchase: "", max_discount: "500", start_date: "", end_date: "14/10/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
+  { code: "OFERTAHJ", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "22/09/2026", end_date: "22/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "FULL2209", discount: "10%", min_purchase: "49", max_discount: "10", start_date: "22/09/2026", end_date: "22/09/2026", category: "Entregas Full", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nomeDaConstante) {
