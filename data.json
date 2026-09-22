@@ -1,5 +1,5 @@
 {
-  "updated_at": "22/09/2026 02:50",
+  "updated_at": "22/09/2026 07:55",
   "coupons": [
     {
       "code": "10% OFF TODO O SITE",
@@ -605,20 +605,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "MANTECORP15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "150",
-      "start_date": "16/09/2026",
-      "end_date": "21/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_mantecorp-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
     {
       "code": "DESCONTO AUTOMÁTICO",
       "discount": "5%",
