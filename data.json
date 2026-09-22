@@ -1,5 +1,5 @@
 {
-  "updated_at": "22/09/2026 09:27",
+  "updated_at": "22/09/2026 09:59",
   "coupons": [
     {
       "code": "OFERTAHJ",
@@ -23,7 +23,49 @@
       "start_date": "22/09/2026",
       "end_date": "22/09/2026",
       "category": "Entregas Full",
-      "product_list_url": "",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_promotions-77-full",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MELIATENTU",
+      "discount": "15%",
+      "min_purchase": "39",
+      "max_discount": "30",
+      "start_date": "22/09/2026",
+      "end_date": "22/09/2026",
+      "category": "Produtos selecionados",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_14304504",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MELIMAXITOYS",
+      "discount": "15%",
+      "min_purchase": "39",
+      "max_discount": "40",
+      "start_date": "22/09/2026",
+      "end_date": "22/09/2026",
+      "category": "Brinquedos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_14304422-336433003",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MELIBRINQUEI",
+      "discount": "15%",
+      "min_purchase": "39",
+      "max_discount": "40",
+      "start_date": "22/09/2026",
+      "end_date": "22/09/2026",
+      "category": "Brinquedos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_14304638",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
