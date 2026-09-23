@@ -1,5 +1,5 @@
 {
-  "updated_at": "23/09/2026 15:14",
+  "updated_at": "23/09/2026 19:01",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -850,7 +850,7 @@
       "max_discount": "20",
       "start_date": "23/09/2026",
       "end_date": "30/09/2026",
-      "category": "Multicategorias",
+      "category": "T&B",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-afiliados-disney-15",
       "open_sitewide": false,
       "coupon_type": "extra",
