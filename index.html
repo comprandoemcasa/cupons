@@ -1138,7 +1138,8 @@
             "14304504": "https://meli.la/1qXqqED",
             "14304422-336433003": "https://meli.la/1iHFzfz",
             "14304638": "https://meli.la/1aTwN3q",
-            "14304148-336423003": "https://meli.la/18z7Ai1"
+            "14304148-336423003": "https://meli.la/18z7Ai1",
+            "beauty-aff": "https://meli.la/2AJQHwB"
         };
 
         const LINKS_AFILIADOS_POR_CUPOM = {
@@ -1243,14 +1244,6 @@
                         const categoria = String(
                             item.category || ""
                         ).toUpperCase();
-
-                        if (codigo === "OFERTAHJ") {
-                            return -2;
-                        }
-
-                        if (codigo === "FULL2209") {
-                            return -1;
-                        }
 
                         if (item.open_sitewide) {
                             return 0;

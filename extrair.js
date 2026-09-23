@@ -359,7 +359,7 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "OFERTAHJ", "FULL2209", "MELIATENTU", "MELIMAXITOYS", "MELIBRINQUEI", "VIPAQUI", "CARRINHOCHEIO",
+  "TODOSITE2309", "SITE2309TODO", "TODOSITE2309", "SONOML", "BELEZAMELI", "VIPAQUI", "CARRINHOCHEIO",
   "MELIACHAPROMOS", "BATEUAQUI", "PROMONOMELI", "TEMAQUI",
   "MELHORCUPOM", "AMODESCONTO", "MELIKIDS", "VIPNOMELI",
   "ACHADINHO", "CORREAQUI", "ACHEIOFF", "MELHORESCUPONS",
@@ -401,11 +401,9 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "OFERTAHJ", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "22/09/2026", end_date: "22/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "FULL2209", discount: "10%", min_purchase: "49", max_discount: "10", start_date: "22/09/2026", end_date: "22/09/2026", category: "Entregas Full", product_list_url: "https://lista.mercadolivre.com.br/_Container_promotions-77-full", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MELIATENTU", discount: "15%", min_purchase: "39", max_discount: "30", start_date: "22/09/2026", end_date: "22/09/2026", category: "Produtos selecionados", product_list_url: "https://lista.mercadolivre.com.br/_Container_14304504", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MELIMAXITOYS", discount: "15%", min_purchase: "39", max_discount: "40", start_date: "22/09/2026", end_date: "22/09/2026", category: "Brinquedos", product_list_url: "https://lista.mercadolivre.com.br/_Container_14304422-336433003", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MELIBRINQUEI", discount: "15%", min_purchase: "39", max_discount: "40", start_date: "22/09/2026", end_date: "22/09/2026", category: "Brinquedos", product_list_url: "https://lista.mercadolivre.com.br/_Container_14304638", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
+  { code: "TODOSITE2309", discount: "R$200", min_purchase: "1299", max_discount: "200", start_date: "23/09/2026", end_date: "23/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SITE2309TODO", discount: "R$60", min_purchase: "599", max_discount: "60", start_date: "23/09/2026", end_date: "23/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "TODOSITE2309", discount: "R$20", min_purchase: "199", max_discount: "20", start_date: "23/09/2026", end_date: "23/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nomeDaConstante) {
