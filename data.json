@@ -1,5 +1,5 @@
 {
-  "updated_at": "23/09/2026 10:19",
+  "updated_at": "23/09/2026 15:14",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -842,6 +842,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 15% OFF nas compras acima de R$R$ 450,00"
+    },
+    {
+      "code": "DISNEY15",
+      "discount": "15%",
+      "min_purchase": "79",
+      "max_discount": "20",
+      "start_date": "23/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Multicategorias",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-afiliados-disney-15",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF em itens Disney"
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
