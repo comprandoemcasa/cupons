@@ -1,5 +1,5 @@
 {
-  "updated_at": "22/09/2026 22:13",
+  "updated_at": "23/09/2026 04:18",
   "coupons": [
     {
       "code": "OFERTAHJ",
@@ -718,20 +718,6 @@
   ],
   "extra_coupons": [
     {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "5%",
-      "min_purchase": "50",
-      "max_discount": "100",
-      "start_date": "15/09/2026",
-      "end_date": "22/09/2026",
-      "category": "Eletrodomésticos",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-df",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "Cupom de 5% OFF nas compras acima de R$50"
-    },
-    {
       "code": "BELEZA20",
       "discount": "20%",
       "min_purchase": "5",
@@ -800,6 +786,34 @@
       "coupon_type": "extra",
       "has_code": false,
       "note": "Cupom de 30% OFF nas compras acima de R$50"
+    },
+    {
+      "code": "SUPERPETSHOP",
+      "discount": "20%",
+      "min_purchase": "11",
+      "max_discount": "40",
+      "start_date": "23/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Pet Shop",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cpg-pet-cupons-26",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "CUIDADO20OFF",
+      "discount": "20,00",
+      "min_purchase": "11",
+      "max_discount": "40",
+      "start_date": "23/09/2026",
+      "end_date": "30/09/2026",
+      "category": "CPG (Bens de Consumo)",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cpf-cupom-ph-afiliados",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
     },
     {
       "code": "INTERNACIONALNOMELI",
