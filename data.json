@@ -1,5 +1,5 @@
 {
-  "updated_at": "24/09/2026 10:09",
+  "updated_at": "24/09/2026 15:09",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -72,6 +72,20 @@
       "note": ""
     },
     {
+      "code": "MELIACHAPROMOS",
+      "discount": "20%",
+      "min_purchase": "19",
+      "max_discount": "100",
+      "start_date": "21/09/2026",
+      "end_date": "27/09/2026",
+      "category": "Construction & Industry",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "BATEUAQUI",
       "discount": "20%",
       "min_purchase": "79",
@@ -136,20 +150,6 @@
       "end_date": "27/09/2026",
       "category": "Casas Bahia",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MELIKIDS",
-      "discount": "15%",
-      "min_purchase": "59",
-      "max_discount": "50",
-      "start_date": "21/09/2026",
-      "end_date": "27/09/2026",
-      "category": "Toys & Babys",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -732,20 +732,6 @@
       "note": ""
     },
     {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "30%",
-      "min_purchase": "50",
-      "max_discount": "150",
-      "start_date": "25/08/2026",
-      "end_date": "30/09/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-fashion-boots-2026",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "Cupom de 30% OFF nas compras acima de R$50"
-    },
-    {
       "code": "SUPERPETSHOP",
       "discount": "20%",
       "min_purchase": "11",
@@ -1024,6 +1010,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 15% OFF nas compras acima de R$700"
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "30%",
+      "min_purchase": "50",
+      "max_discount": "150",
+      "start_date": "25/08/2026",
+      "end_date": "31/12/2026",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-fashion-boots-2026",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": "Cupom de 30% OFF nas compras acima de R$50"
     }
   ]
 }
