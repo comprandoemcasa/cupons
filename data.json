@@ -1,5 +1,5 @@
 {
-  "updated_at": "25/09/2026 17:13",
+  "updated_at": "25/09/2026 20:47",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -122,6 +122,20 @@
       "end_date": "27/09/2026",
       "category": "Fashion",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MELIKIDS",
+      "discount": "15%",
+      "min_purchase": "59",
+      "max_discount": "50",
+      "start_date": "21/09/2026",
+      "end_date": "27/09/2026",
+      "category": "Toys & Babys",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
