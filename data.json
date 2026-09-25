@@ -1,5 +1,5 @@
 {
-  "updated_at": "25/09/2026 13:28",
+  "updated_at": "25/09/2026 17:13",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -72,20 +72,6 @@
       "note": ""
     },
     {
-      "code": "MELIACHAPROMOS",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "100",
-      "start_date": "21/09/2026",
-      "end_date": "27/09/2026",
-      "category": "Construction & Industry",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
       "code": "BATEUAQUI",
       "discount": "20%",
       "min_purchase": "79",
@@ -136,20 +122,6 @@
       "end_date": "27/09/2026",
       "category": "Fashion",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "AMODESCONTO",
-      "discount": "15%",
-      "min_purchase": "50",
-      "max_discount": "200",
-      "start_date": "21/09/2026",
-      "end_date": "27/09/2026",
-      "category": "Casas Bahia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-1",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -732,32 +704,18 @@
       "note": ""
     },
     {
-      "code": "SUPERPETSHOP",
-      "discount": "20%",
-      "min_purchase": "11",
-      "max_discount": "40",
-      "start_date": "23/09/2026",
+      "code": "SECULUS15",
+      "discount": "30%",
+      "min_purchase": "99",
+      "max_discount": "100",
+      "start_date": "24/09/2026",
       "end_date": "30/09/2026",
-      "category": "Pet Shop",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cpg-pet-cupons-26",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_grupo-seculus-1p",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "CUIDADO20OFF",
-      "discount": "20,00",
-      "min_purchase": "11",
-      "max_discount": "40",
-      "start_date": "23/09/2026",
-      "end_date": "30/09/2026",
-      "category": "CPG (Bens de Consumo)",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cpf-cupom-ph-afiliados",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": ""
+      "note": "Cupom de 30% OFF nas compras acima de R$99"
     },
     {
       "code": "INTERNACIONALNOMELI",
