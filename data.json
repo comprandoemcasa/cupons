@@ -1,5 +1,5 @@
 {
-  "updated_at": "26/09/2026 00:23",
+  "updated_at": "26/09/2026 06:03",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -66,20 +66,6 @@
       "end_date": "27/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-18",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "BATEUAQUI",
-      "discount": "20%",
-      "min_purchase": "79",
-      "max_discount": "60",
-      "start_date": "21/09/2026",
-      "end_date": "27/09/2026",
-      "category": "Vehicle Parts & Accessories",
-      "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -661,20 +647,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "BELEZA20",
-      "discount": "20%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "19/09/2026",
-      "end_date": "25/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aginp-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF nas compras acima de R$5"
-    },
     {
       "code": "EPIDRAT15",
       "discount": "20%",
