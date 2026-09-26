@@ -1,5 +1,5 @@
 {
-  "updated_at": "26/09/2026 11:03",
+  "updated_at": "26/09/2026 15:17",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -94,20 +94,6 @@
       "end_date": "27/09/2026",
       "category": "Furnishing & Houseware",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-afiliados-2026",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MELHORCUPOM",
-      "discount": "15%",
-      "min_purchase": "49",
-      "max_discount": "50",
-      "start_date": "19/09/2026",
-      "end_date": "27/09/2026",
-      "category": "Fashion",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fashion-2026-2",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
