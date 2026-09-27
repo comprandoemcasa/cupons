@@ -1,5 +1,5 @@
 {
-  "updated_at": "27/09/2026 14:27",
+  "updated_at": "27/09/2026 17:50",
   "coupons": [
     {
       "code": "TODOSITE2309",
@@ -838,20 +838,6 @@
       "end_date": "30/10/2026",
       "category": "Brinquedos & Bebês",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-brastoy",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de Dia das Crianças"
-    },
-    {
-      "code": "MELIBRINQUEI",
-      "discount": "15%",
-      "min_purchase": "39",
-      "max_discount": "40",
-      "start_date": "21/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_brinqueiddc",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
