@@ -359,19 +359,19 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "TODOSITE2309", "SITE2309TODO", "TODOSITE2309", "SONOML", "BELEZAMELI", "VIPAQUI", "CARRINHOCHEIO",
-  "MELIACHAPROMOS", "BATEUAQUI", "PROMONOMELI", "TEMAQUI",
-  "MELHORCUPOM", "AMODESCONTO", "MELIKIDS", "VIPNOMELI",
-  "ACHADINHO", "CORREAQUI", "ACHEIOFF", "MELHORESCUPONS",
-  "VOLTAAQUI", "TACOMVC", "SALVEIESSA", "AGORAVAI", "COMPRAML",
-  "CUPONZINHO", "ECONOMIALOCAL", "GARANTINOTOP", "COMPRAESPERTA",
-  "BATEUPRONTOCUPOM", "SAINDOBARRATO", "OPAECONOMIZEI",
-  "APROVEITAMUITO", "PEGAMELI", "MEUMELI", "MELIBAIXOU",
-  "COMPRINHASML", "OFERTASMELI", "OFERTAAQUI", "APROVEITAESSA",
-  "PRECINHOBOM", "BATEDESCONTO", "DESCONTOBOM", "PEGANOMELI",
-  "MLVANTAGEM", "BARRATINHOAQUI", "COMPRANOMELI",
-  "CARRINHOCHEIOJA", "DESCONTOJUSTO", "VALEMUITO", "QUEROMAIS",
-  "MLCOMPRANDO"
+  "CUPOMAQUI", "ACHEIOFF", "MELHORESCUPONS", "VOLTAAQUI",
+  "MAISOFERTA", "TACOMVC", "SALVEIESSA", "AGORAVAI", "COMPRAML",
+  "CUPONZINHO", "PROMOPRABELEZA", "ECONOMIALOCAL", "GARANTINOTOP",
+  "COMPRAESPERTA", "PAGARPOUCO", "BATEUPRONTOCUPOM", "SAINDOBARRATO",
+  "OPAECONOMIZEI", "APROVEITAMUITO", "PEGAMELI", "MEUMELI",
+  "MELIBAIXOU", "COMPRINHASML", "OFERTASMELI", "OFERTAAQUI",
+  "APROVEITAESSA", "PRECINHOBOM", "BATEDESCONTO", "DESCONTOBOM",
+  "PEGANOMELI", "MLVANTAGEM", "BARRATINHOAQUI", "COMPRANOMELI",
+  "CARRINHOCHEIOJA", "DESCONTOJUSTO", "VALEMUITO", "FOIBARATO",
+  "BARRATINHOJA", "SAIUBARATO", "PRECINHOPONTO", "DESCONTOESPECIAL",
+  "CUSTOUPOUQUINHO", "QUEROMAIS", "MLCOMPRANDO", "MELICOMPRAS",
+  "MELIDESCONTEI", "DESCONTOSML", "SEMPREML", "MLCUPOM", "TOCOUNOML",
+  "MELHORCUPOMML", "MELINOCARRINHO", "MELICOMPRAAI", "MELINOVALE"
 ]);
 
 // Cupons enviados pelos gerentes em 17/09/2026 que ainda podem não constar
@@ -400,11 +400,7 @@ const CUPONS_NOVOS_HOJE = [
 ];
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
-const CUPONS_ATIVOS_MANUAIS = [
-  { code: "TODOSITE2309", discount: "R$200", min_purchase: "1299", max_discount: "200", start_date: "23/09/2026", end_date: "23/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SITE2309TODO", discount: "R$60", min_purchase: "599", max_discount: "60", start_date: "23/09/2026", end_date: "23/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "TODOSITE2309", discount: "R$20", min_purchase: "199", max_discount: "20", start_date: "23/09/2026", end_date: "23/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" }
-];
+const CUPONS_ATIVOS_MANUAIS = [];
 
 async function lerConstante(page, url, nomeDaConstante) {
   await page.goto(url, {
