@@ -359,23 +359,22 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "CUPOMAQUI", "ACHEIOFF", "MELHORESCUPONS", "VOLTAAQUI",
-  "MAISOFERTA", "TACOMVC", "SALVEIESSA", "AGORAVAI", "COMPRAML",
-  "CUPONZINHO", "PROMOPRABELEZA", "ECONOMIALOCAL", "GARANTINOTOP",
-  "COMPRAESPERTA", "PAGARPOUCO", "BATEUPRONTOCUPOM", "SAINDOBARRATO",
-  "OPAECONOMIZEI", "APROVEITAMUITO", "PEGAMELI", "MEUMELI",
-  "MELIBAIXOU", "COMPRINHASML", "OFERTASMELI", "OFERTAAQUI",
-  "APROVEITAESSA", "PRECINHOBOM", "BATEDESCONTO", "DESCONTOBOM",
-  "PEGANOMELI", "MLVANTAGEM", "BARRATINHOAQUI", "COMPRANOMELI",
-  "CARRINHOCHEIOJA", "DESCONTOJUSTO", "VALEMUITO", "FOIBARATO",
-  "BARRATINHOJA", "SAIUBARATO", "PRECINHOPONTO", "DESCONTOESPECIAL",
-  "CUSTOUPOUQUINHO", "QUEROMAIS", "MLCOMPRANDO", "MELICOMPRAS",
-  "MELIDESCONTEI", "DESCONTOSML", "SEMPREML", "MLCUPOM", "TOCOUNOML",
-  "MELHORCUPOMML", "MELINOCARRINHO", "MELICOMPRAAI", "MELINOVALE",
-  "HOJETEMPROMO", "QUEIMADEESTOQUE28", "COMPRACERTA", "ECONOMIATOTAL",
-  "CUPOMLIBERADO", "MLMELHOROFERTA", "BARATINHO", "DIADACRIANCA",
-  "TODEBOA", "MELIDATADUPLA", "MIMODODIA", "MELISALVA", "MELICOMPRA",
-  "MELIGARANTE", "MLVANTAGENS"
+  "HOJEVAI", "MAISOFERTA", "TACOMVC", "SALVEIESSA", "AGORAVAI",
+  "COMPRAML", "CUPONZINHO", "COMPRACERTA", "ECONOMIATOTAL",
+  "CUPOMLIBERADO", "MLMELHOROFERTA", "PROMOPRABELEZA", "BARATINHO",
+  "DIADACRIANCA", "TODEBOA", "MELIDATADUPLA", "MIMODODIA",
+  "ECONOMIALOCAL", "GARANTINOTOP", "COMPRAESPERTA", "PAGARPOUCO",
+  "BATEUPRONTOCUPOM", "SAINDOBARRATO", "OPAECONOMIZEI",
+  "APROVEITAMUITO", "PEGAMELI", "MEUMELI", "MELIBAIXOU",
+  "COMPRINHASML", "OFERTASMELI", "OFERTAAQUI", "APROVEITAESSA",
+  "PRECINHOBOM", "BATEDESCONTO", "DESCONTOBOM", "PEGANOMELI",
+  "MLVANTAGEM", "BARRATINHOAQUI", "COMPRANOMELI", "CARRINHOCHEIOJA",
+  "DESCONTOJUSTO", "VALEMUITO", "FOIBARATO", "BARRATINHOJA",
+  "SAIUBARATO", "PRECINHOPONTO", "DESCONTOESPECIAL", "CUSTOUPOUQUINHO",
+  "MELIGARANTE", "MELISALVA", "MELICOMPRA", "MLVANTAGENS",
+  "QUEROMAIS", "MLCOMPRANDO", "MELICOMPRAS", "MELIDESCONTEI",
+  "DESCONTOSML", "SEMPREML", "MLCUPOM", "TOCOUNOML",
+  "MELHORCUPOMML", "MELINOCARRINHO", "MELICOMPRAAI", "MELINOVALE"
 ]);
 
 // Cupons enviados pelos gerentes em 17/09/2026 que ainda podem não constar
@@ -405,21 +404,7 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "HOJETEMPROMO", discount: "10%", min_purchase: "", max_discount: "200", start_date: "28/09/2026", end_date: "28/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima no Mercado Livre" },
-  { code: "QUEIMADEESTOQUE28", discount: "20%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Queima de estoque", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "COMPRACERTA", discount: "20%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Casa", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "ECONOMIATOTAL", discount: "20%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Casa", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "CUPOMLIBERADO", discount: "18%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Moda e Decoração", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "MLMELHOROFERTA", discount: "18%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Moda e Decoração", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "BARATINHO", discount: "15%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Eletro e Brinquedos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "DIADACRIANCA", discount: "15%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Eletro e Brinquedos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "TODEBOA", discount: "10%", min_purchase: "", max_discount: "300", start_date: "28/09/2026", end_date: "28/09/2026", category: "Magalu e Kabum", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima no Mercado Livre" },
-  { code: "MELIDATADUPLA", discount: "10%", min_purchase: "", max_discount: "300", start_date: "28/09/2026", end_date: "28/09/2026", category: "Magalu e Kabum", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima no Mercado Livre" },
-  { code: "MIMODODIA", discount: "8%", min_purchase: "", max_discount: "", start_date: "28/09/2026", end_date: "28/09/2026", category: "Eletrodomésticos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a compra mínima e o limite no Mercado Livre" },
-  { code: "MELISALVA", discount: "", min_purchase: "", max_discount: "500", start_date: "28/09/2026", end_date: "28/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a porcentagem e a compra mínima no Mercado Livre" },
-  { code: "MELICOMPRA", discount: "", min_purchase: "", max_discount: "500", start_date: "28/09/2026", end_date: "28/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a porcentagem e a compra mínima no Mercado Livre" },
-  { code: "MELIGARANTE", discount: "", min_purchase: "", max_discount: "500", start_date: "28/09/2026", end_date: "28/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a porcentagem e a compra mínima no Mercado Livre" },
-  { code: "MLVANTAGENS", discount: "", min_purchase: "", max_discount: "500", start_date: "28/09/2026", end_date: "28/09/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Confira a porcentagem e a compra mínima no Mercado Livre" }
+  { code: "HOJEVAI", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "29/09/2026", end_date: "29/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nomeDaConstante) {
