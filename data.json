@@ -1,5 +1,5 @@
 {
-  "updated_at": "29/09/2026 01:05",
+  "updated_at": "29/09/2026 08:03",
   "coupons": [
     {
       "code": "HOJETEMPROMO",
@@ -913,34 +913,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "EPIDRAT15",
-      "discount": "20%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "21/09/2026",
-      "end_date": "28/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_drat-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "EPISOL15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "21/09/2026",
-      "end_date": "28/09/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_epi-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
     {
       "code": "DELL600",
       "discount": "R$600,00",
