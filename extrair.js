@@ -359,10 +359,11 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "HOJEVAI", "MAISOFERTA", "TACOMVC", "SALVEIESSA", "AGORAVAI",
+  "SITE60", "TODOSITE3009", "MELHORPROMOHJ", "MELICOMPRACERTA",
+  "MLMELHORESPROMOS", "VEMDEOFFMELI", "SALVEIESSA", "AGORAVAI",
   "COMPRAML", "CUPONZINHO", "COMPRACERTA", "ECONOMIATOTAL",
-  "CUPOMLIBERADO", "MLMELHOROFERTA", "PROMOPRABELEZA", "BARATINHO",
-  "DIADACRIANCA", "TODEBOA", "MELIDATADUPLA", "MIMODODIA",
+  "MLMELHOROFERTA", "PROMOPRABELEZA", "BARATINHO", "DIADACRIANCA",
+  "TODEBOA", "MELIDATADUPLA", "MIMODODIA",
   "ECONOMIALOCAL", "GARANTINOTOP", "COMPRAESPERTA", "PAGARPOUCO",
   "BATEUPRONTOCUPOM", "SAINDOBARRATO", "OPAECONOMIZEI",
   "APROVEITAMUITO", "PEGAMELI", "MEUMELI", "MELIBAIXOU",
@@ -372,9 +373,12 @@ const CODIGOS_ATIVOS = new Set([
   "DESCONTOJUSTO", "VALEMUITO", "FOIBARATO", "BARRATINHOJA",
   "SAIUBARATO", "PRECINHOPONTO", "DESCONTOESPECIAL", "CUSTOUPOUQUINHO",
   "MELIGARANTE", "MELISALVA", "MELICOMPRA", "MLVANTAGENS",
-  "QUEROMAIS", "MLCOMPRANDO", "MELICOMPRAS", "MELIDESCONTEI",
-  "DESCONTOSML", "SEMPREML", "MLCUPOM", "TOCOUNOML",
-  "MELHORCUPOMML", "MELINOCARRINHO", "MELICOMPRAAI", "MELINOVALE"
+  "QUEROMAIS", "CUPOMAQUI", "MLCOMPRANDO", "MELICOMPRAS",
+  "MELIDESCONTEI", "DESCONTOSML", "SEMPREML", "VIPAQUI", "ACHEIOFF",
+  "MELHORESCUPONS", "VOLTAAQUI", "MLCUPOM", "TOCOUNOML",
+  "MELHORCUPOMML", "CARRINHOCHEIO", "MELINOCARRINHO",
+  "MELICOMPRAAI", "PROMONOMELI", "MELINOVALE", "DESCONTOMELI",
+  "OFFNOMELI", "SONOMELI", "VEMPROMELI"
 ]);
 
 // Cupons enviados pelos gerentes em 17/09/2026 que ainda podem não constar
@@ -404,7 +408,12 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "HOJEVAI", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "29/09/2026", end_date: "29/09/2026", category: "Tecnologia", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
+  { code: "SITE60", discount: "R$60", min_purchase: "599", max_discount: "60", start_date: "30/09/2026", end_date: "30/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "TODOSITE3009", discount: "R$20", min_purchase: "199", max_discount: "20", start_date: "30/09/2026", end_date: "30/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MELHORPROMOHJ", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "30/09/2026", end_date: "30/09/2026", category: "Tecnologia", product_list_url: "https://lista.mercadolivre.com.br/_Container_tech-e-he", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MELICOMPRACERTA", discount: "22%", min_purchase: "1", max_discount: "500", start_date: "30/09/2026", end_date: "29/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-11", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MLMELHORESPROMOS", discount: "18%", min_purchase: "1", max_discount: "500", start_date: "30/09/2026", end_date: "29/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-12", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "VEMDEOFFMELI", discount: "25%", min_purchase: "1", max_discount: "500", start_date: "30/09/2026", end_date: "29/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-13", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nomeDaConstante) {
