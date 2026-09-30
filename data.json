@@ -1,5 +1,5 @@
 {
-  "updated_at": "30/09/2026 16:48",
+  "updated_at": "30/09/2026 20:26",
   "coupons": [
     {
       "code": "SITE60",
@@ -30,42 +30,28 @@
       "note": ""
     },
     {
+      "code": "MELHORPROMOHJ",
+      "discount": "10%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "30/09/2026",
+      "end_date": "30/09/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "COMPRAML",
-      "discount": "22,00%",
+      "discount": "22,0%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "08/09/2026",
       "end_date": "30/09/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-5",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "COMPRACERTA",
-      "discount": "20%",
-      "min_purchase": "19",
-      "max_discount": "100",
-      "start_date": "28/09/2026",
-      "end_date": "30/09/2026",
-      "category": "Construction & Industry",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "ECONOMIATOTAL",
-      "discount": "20%",
-      "min_purchase": "79",
-      "max_discount": "60",
-      "start_date": "28/09/2026",
-      "end_date": "30/09/2026",
-      "category": "Vehicle Parts & Accessories",
-      "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -142,20 +128,6 @@
       "note": ""
     },
     {
-      "code": "MELHORPROMOHJ",
-      "discount": "10%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "30/09/2026",
-      "end_date": "30/09/2026",
-      "category": "Tech e Home Electronics",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_tech-e-he",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
       "code": "MIMODODIA",
       "discount": "8%",
       "min_purchase": "150",
@@ -171,7 +143,7 @@
     },
     {
       "code": "ECONOMIALOCAL",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -185,7 +157,7 @@
     },
     {
       "code": "GARANTINOTOP",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -199,7 +171,7 @@
     },
     {
       "code": "COMPRAESPERTA",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -213,7 +185,7 @@
     },
     {
       "code": "PAGARPOUCO",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "09/09/2026",
@@ -227,7 +199,7 @@
     },
     {
       "code": "BATEUPRONTOCUPOM",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "10/09/2026",
@@ -241,7 +213,7 @@
     },
     {
       "code": "SAINDOBARRATO",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "10/09/2026",
@@ -255,7 +227,7 @@
     },
     {
       "code": "OPAECONOMIZEI",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "10/09/2026",
@@ -269,7 +241,7 @@
     },
     {
       "code": "APROVEITAMUITO",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "11/09/2026",
@@ -283,7 +255,7 @@
     },
     {
       "code": "PEGAMELI",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "11/09/2026",
@@ -297,7 +269,7 @@
     },
     {
       "code": "MEUMELI",
-      "discount": "18%",
+      "discount": "18,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "11/09/2026",
@@ -311,7 +283,7 @@
     },
     {
       "code": "MELIBAIXOU",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "14/09/2026",
@@ -325,7 +297,7 @@
     },
     {
       "code": "COMPRINHASML",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "14/09/2026",
@@ -339,7 +311,7 @@
     },
     {
       "code": "OFERTASMELI",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "15/09/2026",
@@ -353,7 +325,7 @@
     },
     {
       "code": "OFERTAAQUI",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "15/09/2026",
@@ -367,7 +339,7 @@
     },
     {
       "code": "APROVEITAESSA",
-      "discount": "20%",
+      "discount": "20,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "15/09/2026",
@@ -381,7 +353,7 @@
     },
     {
       "code": "PRECINHOBOM",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "16/09/2026",
@@ -395,7 +367,7 @@
     },
     {
       "code": "BATEDESCONTO",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "16/09/2026",
@@ -409,7 +381,7 @@
     },
     {
       "code": "DESCONTOBOM",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "16/09/2026",
@@ -423,7 +395,7 @@
     },
     {
       "code": "PEGANOMELI",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "16/09/2026",
@@ -493,7 +465,7 @@
     },
     {
       "code": "DESCONTOJUSTO",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "18/09/2026",
@@ -521,7 +493,7 @@
     },
     {
       "code": "FOIBARATO",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "24/09/2026",
@@ -549,7 +521,7 @@
     },
     {
       "code": "SAIUBARATO",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "24/09/2026",
@@ -563,7 +535,7 @@
     },
     {
       "code": "PRECINHOPONTO",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "24/09/2026",
@@ -661,7 +633,7 @@
     },
     {
       "code": "VEMDEOFFMELI",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "30/09/2026",
@@ -675,7 +647,7 @@
     },
     {
       "code": "MELICOMPRACERTA",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "30/09/2026",
@@ -689,7 +661,7 @@
     },
     {
       "code": "MLMELHORESPROMOS",
-      "discount": "18%",
+      "discount": "18,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "30/09/2026",
@@ -716,22 +688,8 @@
       "note": ""
     },
     {
-      "code": "CUPOMAQUI",
-      "discount": "30,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "03/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-1",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
       "code": "MLCOMPRANDO",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "18/09/2026",
@@ -745,7 +703,7 @@
     },
     {
       "code": "MELICOMPRAS",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "22/09/2026",
@@ -759,7 +717,7 @@
     },
     {
       "code": "MELIDESCONTEI",
-      "discount": "30%",
+      "discount": "30,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "22/09/2026",
@@ -800,64 +758,8 @@
       "note": ""
     },
     {
-      "code": "VIPAQUI",
-      "discount": "25,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "02/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-17",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "ACHEIOFF",
-      "discount": "25,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "03/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-19",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MELHORESCUPONS",
-      "discount": "25,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "03/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-20",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "VOLTAAQUI",
-      "discount": "25,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "03/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-2",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
       "code": "SALVEIESSA",
-      "discount": "25,00%",
+      "discount": "25,0%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "08/09/2026",
@@ -885,7 +787,7 @@
     },
     {
       "code": "MLCUPOM",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "22/09/2026",
@@ -899,7 +801,7 @@
     },
     {
       "code": "TOCOUNOML",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "23/09/2026",
@@ -913,27 +815,13 @@
     },
     {
       "code": "MELHORCUPOMML",
-      "discount": "25%",
+      "discount": "25,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "23/09/2026",
       "end_date": "31/10/2026",
       "category": "Sellers",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-40",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "CARRINHOCHEIO",
-      "discount": "22,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "02/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-18",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
@@ -955,7 +843,7 @@
     },
     {
       "code": "MELINOCARRINHO",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "22/09/2026",
@@ -969,7 +857,7 @@
     },
     {
       "code": "MELICOMPRAAI",
-      "discount": "22%",
+      "discount": "22,00%",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "23/09/2026",
@@ -982,22 +870,8 @@
       "note": ""
     },
     {
-      "code": "PROMONOMELI",
-      "discount": "18,00%",
-      "min_purchase": "1",
-      "max_discount": "500",
-      "start_date": "02/09/2026",
-      "end_date": "31/10/2026",
-      "category": "Sellers",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_aff-list-16",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
       "code": "MELINOVALE",
-      "discount": "18%",
+      "discount": "0,18",
       "min_purchase": "1",
       "max_discount": "500",
       "start_date": "23/09/2026",
@@ -1192,6 +1066,20 @@
       "coupon_type": "extra",
       "has_code": false,
       "note": "Cupom Mar Aberto de aceitação"
+    },
+    {
+      "code": "ESFRIOU20",
+      "discount": "20%",
+      "min_purchase": "1",
+      "max_discount": "200",
+      "start_date": "30/09/2026",
+      "end_date": "06/10/2026",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ml-1p-basics-fashion-inverno-2026",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 20% OFF nas compras acima de R$1 - Mercado livre Basics"
     },
     {
       "code": "INTERNACIONALMELI",
