@@ -359,8 +359,8 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "SITE60", "TODOSITE3009", "MELHORPROMOHJ", "MELICOMPRACERTA",
-  "MLMELHORESPROMOS", "VEMDEOFFMELI", "SALVEIESSA", "AGORAVAI",
+  "PROMOML", "OFERTAS", "ECONOMIAMELI", "TEMPROMO",
+  "OFERTA", "MODAML", "BRINCAR", "PROMOAQU", "SALVEIESSA", "AGORAVAI",
   "COMPRAML", "CUPONZINHO", "COMPRACERTA", "ECONOMIATOTAL",
   "MLMELHOROFERTA", "PROMOPRABELEZA", "BARATINHO", "DIADACRIANCA",
   "TODEBOA", "MELIDATADUPLA", "MIMODODIA",
@@ -408,12 +408,14 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "SITE60", discount: "R$60", min_purchase: "599", max_discount: "60", start_date: "30/09/2026", end_date: "30/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "TODOSITE3009", discount: "R$20", min_purchase: "199", max_discount: "20", start_date: "30/09/2026", end_date: "30/09/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MELHORPROMOHJ", discount: "10%", min_purchase: "149", max_discount: "200", start_date: "30/09/2026", end_date: "30/09/2026", category: "Tecnologia", product_list_url: "https://lista.mercadolivre.com.br/_Container_tech-e-he", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MELICOMPRACERTA", discount: "22%", min_purchase: "1", max_discount: "500", start_date: "30/09/2026", end_date: "29/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-11", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MLMELHORESPROMOS", discount: "18%", min_purchase: "1", max_discount: "500", start_date: "30/09/2026", end_date: "29/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-12", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
-  { code: "VEMDEOFFMELI", discount: "25%", min_purchase: "1", max_discount: "500", start_date: "30/09/2026", end_date: "29/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-13", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
+  { code: "PROMOML", discount: "10%", min_purchase: "79", max_discount: "100", start_date: "01/10/2026", end_date: "01/10/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "OFERTAS", discount: "20%", min_purchase: "19", max_discount: "100", start_date: "01/10/2026", end_date: "01/10/2026", category: "Casa e Construção", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "ECONOMIAMELI", discount: "20%", min_purchase: "79", max_discount: "60", start_date: "01/10/2026", end_date: "01/10/2026", category: "Auto e Ferramentas", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "TEMPROMO", discount: "15%", min_purchase: "79", max_discount: "60", start_date: "01/10/2026", end_date: "01/10/2026", category: "Casa e Decoração", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "OFERTA", discount: "15%", min_purchase: "50", max_discount: "200", start_date: "01/10/2026", end_date: "01/10/2026", category: "Eletrodomésticos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MODAML", discount: "15%", min_purchase: "49", max_discount: "50", start_date: "01/10/2026", end_date: "01/10/2026", category: "Moda", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "BRINCAR", discount: "15%", min_purchase: "59", max_discount: "50", start_date: "01/10/2026", end_date: "01/10/2026", category: "Brinquedos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "PROMOAQU", discount: "8%", min_purchase: "150", max_discount: "300", start_date: "01/10/2026", end_date: "01/10/2026", category: "Eletrodomésticos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nomeDaConstante) {
