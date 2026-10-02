@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/10/2026 12:20",
+  "updated_at": "02/10/2026 17:19",
   "coupons": [
     {
       "code": "PROMOML",
@@ -16,13 +16,13 @@
       "note": ""
     },
     {
-      "code": "OFERTA",
-      "discount": "15%",
-      "min_purchase": "50",
-      "max_discount": "200",
+      "code": "OFERTAS",
+      "discount": "20%",
+      "min_purchase": "19",
+      "max_discount": "100",
       "start_date": "01/10/2026",
       "end_date": "01/10/2026",
-      "category": "Eletrodomésticos",
+      "category": "Casa e Construção",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -30,13 +30,13 @@
       "note": ""
     },
     {
-      "code": "OFERTAS",
-      "discount": "20,0%",
-      "min_purchase": "19",
-      "max_discount": "80",
+      "code": "OFERTA",
+      "discount": "15%",
+      "min_purchase": "50",
+      "max_discount": "200",
       "start_date": "01/10/2026",
-      "end_date": "04/10/2026",
-      "category": "Construction & Industry",
+      "end_date": "01/10/2026",
+      "category": "Eletrodomésticos",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -256,35 +256,7 @@
       "note": "Cupom de Dia das Crianças"
     },
     {
-      "code": "LIVROS15",
-      "discount": "15%",
-      "min_purchase": "19",
-      "max_discount": "20",
-      "start_date": "29/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Entretenimento",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-livros-15-off-setembro",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "15% OFF (limitado a R$ 20 de desconto) - 1 uso por CPF no checkout (site ou app)"
-    },
-    {
-      "code": "INSTRUMENTO15",
-      "discount": "15%",
-      "min_purchase": "200",
-      "max_discount": "80",
-      "start_date": "29/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Entretenimento",
-      "product_list_url": ":https://lista.mercadolivre.com.br/_Container_cupom-instrumentos-15-off-setembro",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "15% OFF acima de R$200 (limitado a R$ 80 de desconto) - 1 uso por CPF no checkout (site ou app)"
-    },
-    {
-      "code": "DESCONTO AUTOMÁTICO",
+      "code": "MELIGARNIER",
       "discount": "25%",
       "min_purchase": "80",
       "max_discount": "50",
@@ -294,11 +266,11 @@
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_garnier-skincare-1p-dpgp",
       "open_sitewide": false,
       "coupon_type": "extra",
-      "has_code": false,
+      "has_code": true,
       "note": "Cupom de 25% OFF nas compras acima de R$79,9"
     },
     {
-      "code": "DESCONTO AUTOMÁTICO",
+      "code": "MELILOREAL",
       "discount": "25%",
       "min_purchase": "90",
       "max_discount": "50",
@@ -308,7 +280,7 @@
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_loreal-paris-1p-dpgp",
       "open_sitewide": false,
       "coupon_type": "extra",
-      "has_code": false,
+      "has_code": true,
       "note": "Cupom de 25% OFF nas compras acima de R$89,9"
     },
     {
@@ -326,7 +298,7 @@
       "note": "Cupom de 25% OFF nas compras acima de R$99,9"
     },
     {
-      "code": "DESCONTO AUTOMÁTICO",
+      "code": "MELIELSEVE",
       "discount": "25%",
       "min_purchase": "70",
       "max_discount": "50",
@@ -336,7 +308,7 @@
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_elseve-dpgp-1p-mlb",
       "open_sitewide": false,
       "coupon_type": "extra",
-      "has_code": false,
+      "has_code": true,
       "note": "Cupom de 25% OFF nas compras acima de R$69,9"
     },
     {
@@ -408,6 +380,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 30% OFF nas compras acima de R$299"
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "15%",
+      "min_purchase": "25",
+      "max_discount": "129",
+      "start_date": "02/10/2026",
+      "end_date": "01/01/2027",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_afiliados1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": "Cupom de 15% OFF nas compras acima de R$R$25,00"
     }
   ]
 }
