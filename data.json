@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/10/2026 21:08",
+  "updated_at": "03/10/2026 03:00",
   "coupons": [
     {
       "code": "PROMOML",
@@ -58,6 +58,20 @@
       "note": ""
     },
     {
+      "code": "MODAML",
+      "discount": "15%",
+      "min_purchase": "49",
+      "max_discount": "50",
+      "start_date": "01/10/2026",
+      "end_date": "01/10/2026",
+      "category": "Moda",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "PROMOAQU",
       "discount": "8%",
       "min_purchase": "150",
@@ -93,20 +107,6 @@
       "start_date": "01/10/2026",
       "end_date": "04/10/2026",
       "category": "Furnishing & Houseware",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MODAML",
-      "discount": "15,00%",
-      "min_purchase": "49",
-      "max_discount": "50",
-      "start_date": "01/10/2026",
-      "end_date": "04/10/2026",
-      "category": "Fashion",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -208,20 +208,6 @@
       "end_date": "30/10/2026",
       "category": "Brinquedos & Bebês",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-brastoy",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de Dia das Crianças"
-    },
-    {
-      "code": "MELIBRINQUEI",
-      "discount": "15%",
-      "min_purchase": "39",
-      "max_discount": "40",
-      "start_date": "21/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_brinqueiddc",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
