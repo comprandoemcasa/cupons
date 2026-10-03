@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/10/2026 17:19",
+  "updated_at": "02/10/2026 21:08",
   "coupons": [
     {
       "code": "PROMOML",
@@ -30,6 +30,20 @@
       "note": ""
     },
     {
+      "code": "ECONOMIAMELI",
+      "discount": "20%",
+      "min_purchase": "79",
+      "max_discount": "60",
+      "start_date": "01/10/2026",
+      "end_date": "01/10/2026",
+      "category": "Auto e Ferramentas",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "OFERTA",
       "discount": "15%",
       "min_purchase": "50",
@@ -44,13 +58,13 @@
       "note": ""
     },
     {
-      "code": "ECONOMIAMELI",
-      "discount": "20,00%",
-      "min_purchase": "79",
-      "max_discount": "50",
+      "code": "PROMOAQU",
+      "discount": "8%",
+      "min_purchase": "150",
+      "max_discount": "300",
       "start_date": "01/10/2026",
-      "end_date": "04/10/2026",
-      "category": "Vehicle Parts & Accessories",
+      "end_date": "01/10/2026",
+      "category": "Eletrodomésticos",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -98,20 +112,6 @@
       "coupon_type": "principal",
       "has_code": true,
       "note": ""
-    },
-    {
-      "code": "PROMOAQU",
-      "discount": "8,00%",
-      "min_purchase": "150",
-      "max_discount": "300",
-      "start_date": "01/10/2026",
-      "end_date": "04/10/2026",
-      "category": "Casas Bahia",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_he-aff-2",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
     }
   ],
   "extra_coupons": [
@@ -128,6 +128,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 20% OFF nas compras acima de R$1 - Mercado livre Basics"
+    },
+    {
+      "code": "DF1PDESCONTO",
+      "discount": "5%",
+      "min_purchase": "50",
+      "max_discount": "100",
+      "start_date": "05/10/2026",
+      "end_date": "09/10/2026",
+      "category": "Eletrodomésticos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-df",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 5% OFF nas compras acima de R$50"
     },
     {
       "code": "CALVIN20OFF",
