@@ -359,7 +359,8 @@ const CUPONS_MANUAIS = [
 // Lista conferida na área “Meus cupons”. Ela impede que códigos antigos,
 // ainda presentes em outras fontes, continuem aparecendo na página.
 const CODIGOS_ATIVOS = new Set([
-  "ESPECIALML", "QUEROMAIS", "MELIMAXITOYS", "DESCONTEI",
+  "150SITE", "SITETODO0610", "MELIOFERTAS", "QUEROMAIS",
+  "MELIMAXITOYS", "DESCONTEI",
   "SEMPREML", "ECONOMIZEI", "DESCONTO", "DESCONTOSML",
   "CUPOMAQUI", "GARANTIDO", "MEUVALE", "VALEMUITO",
   "SOECONOMIA", "CLIENTETOP", "ACHEIOFF", "OFFAQUI",
@@ -400,7 +401,9 @@ const CUPONS_NOVOS_HOJE = [
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
 const CUPONS_ATIVOS_MANUAIS = [
-  { code: "ESPECIALML", discount: "10%", min_purchase: "79", max_discount: "100", start_date: "05/10/2026", end_date: "05/10/2026", category: "Produtos selecionados", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
+  { code: "150SITE", discount: "R$150", min_purchase: "999", max_discount: "150", start_date: "06/10/2026", end_date: "06/10/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SITETODO0610", discount: "R$50", min_purchase: "499", max_discount: "50", start_date: "06/10/2026", end_date: "06/10/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MELIOFERTAS", discount: "10%", min_purchase: "199", max_discount: "100", start_date: "06/10/2026", end_date: "06/10/2026", category: "Todo o site", product_list_url: "", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
   { code: "QUEROMAIS", discount: "30%", min_purchase: "", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
   { code: "MELIMAXITOYS", discount: "15%", min_purchase: "39", max_discount: "40", start_date: "", end_date: "", category: "Brinquedos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Está esgotando" },
   { code: "DESCONTEI", discount: "30%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-25", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
