@@ -1,5 +1,5 @@
 {
-  "updated_at": "06/10/2026 14:53",
+  "updated_at": "06/10/2026 19:17",
   "coupons": [
     {
       "code": "150SITE",
@@ -785,7 +785,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 20% OFF nas compras acima de R$R$40"
     },
     {
       "code": "INTERNACIONALMELI",
@@ -813,7 +813,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 15% OFF nas compras acima de R$R$40"
     },
     {
       "code": "PELUCIAS10",
@@ -827,7 +827,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 10% OFF nas compras acima de R$R$50"
     },
     {
       "code": "BONECAS10",
@@ -841,7 +841,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 10% OFF nas compras acima de R$R$50"
     },
     {
       "code": "RIDE15",
@@ -855,7 +855,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 15% OFF nas compras acima de R$R$600"
     },
     {
       "code": "JOGOS10",
@@ -869,7 +869,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 10% OFF nas compras acima de R$R$40"
     },
     {
       "code": "COLECIONE10",
@@ -883,7 +883,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 10% OFF nas compras acima de R$R$40"
     },
     {
       "code": "BRINQUE10",
@@ -897,7 +897,21 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": ""
+      "note": "Cupom de 10% OFF nas compras acima de R$R$40"
+    },
+    {
+      "code": "SPORTSINFANTIL",
+      "discount": "15,00%",
+      "min_purchase": "299",
+      "max_discount": "50",
+      "start_date": "05/10/2026",
+      "end_date": "13/10/2026",
+      "category": "Esportes",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-mini-atletas",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom foco em sortimento infantil (patins, bicicleta, skate, lutas, futebol)"
     },
     {
       "code": "MELIMAXITOYS",
