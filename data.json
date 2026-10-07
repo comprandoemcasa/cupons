@@ -1,5 +1,5 @@
 {
-  "updated_at": "06/10/2026 19:17",
+  "updated_at": "06/10/2026 23:03",
   "coupons": [
     {
       "code": "150SITE",
@@ -898,6 +898,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 10% OFF nas compras acima de R$R$40"
+    },
+    {
+      "code": "SPORTS1010",
+      "discount": "10,00%",
+      "min_purchase": "499",
+      "max_discount": "55",
+      "start_date": "05/10/2026",
+      "end_date": "12/10/2026",
+      "category": "Esportes",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_meliconnect-sports",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom foco em sortimento com comissão extra multicategoria Sports"
     },
     {
       "code": "SPORTSINFANTIL",
