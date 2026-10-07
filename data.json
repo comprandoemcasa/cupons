@@ -1,5 +1,5 @@
 {
-  "updated_at": "06/10/2026 23:03",
+  "updated_at": "07/10/2026 06:45",
   "coupons": [
     {
       "code": "150SITE",
@@ -717,20 +717,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "ESFRIOU20",
-      "discount": "20%",
-      "min_purchase": "1",
-      "max_discount": "200",
-      "start_date": "30/09/2026",
-      "end_date": "06/10/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ml-1p-basics-fashion-inverno-2026",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF nas compras acima de R$1 - Mercado livre Basics"
-    },
     {
       "code": "DF1PDESCONTO",
       "discount": "5%",
