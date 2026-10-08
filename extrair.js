@@ -402,7 +402,7 @@ const CUPONS_NOVOS_HOJE = [
 ];
 
 // Cupons ativos na área “Meus cupons” que não estão na lista pública.
-const CUPONS_ATIVOS_MANUAIS = [
+const CUPONS_ATIVOS_MANUAIS_ANTIGOS = [
   { code: "SITE0710", discount: "R$30", min_purchase: "299", max_discount: "30", start_date: "07/10/2026", end_date: "07/10/2026", category: "Todo o site", product_list_url: "https://mercadolivre.com/sec/23KxD1i", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
   { code: "TODOOSITE0710", discount: "R$40", min_purchase: "399", max_discount: "40", start_date: "07/10/2026", end_date: "07/10/2026", category: "Todo o site", product_list_url: "https://mercadolivre.com/sec/23KxD1i", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
   { code: "SITE100ALL", discount: "R$100", min_purchase: "999", max_discount: "100", start_date: "07/10/2026", end_date: "07/10/2026", category: "Todo o site", product_list_url: "https://mercadolivre.com/sec/23KxD1i", open_sitewide: true, coupon_type: "principal", has_code: true, note: "" },
@@ -455,6 +455,124 @@ const CUPONS_ATIVOS_MANUAIS = [
   { code: "MELIBRASTOY", discount: "15%", min_purchase: "39", max_discount: "40", start_date: "", end_date: "", category: "Brinquedos", product_list_url: "", open_sitewide: false, coupon_type: "principal", has_code: true, note: "Está esgotando" },
   { code: "VOLTAAQUI", discount: "25%", min_purchase: "", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-2", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" },
   { code: "QUEROJA", discount: "22%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
+];
+
+// Cupons de 08/10/2026 confirmados fora da lista pública.
+// O link divulgado no print não é usado: cupons de site todo passam pelo
+// link geral de afiliado configurado na página.
+const CUPONS_ATIVOS_MANUAIS = [
+  {
+    code: "150TODOSITE",
+    discount: "R$150",
+    min_purchase: "999",
+    max_discount: "150",
+    start_date: "08/10/2026",
+    end_date: "08/10/2026",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "SITETODO0810",
+    discount: "R$50",
+    min_purchase: "499",
+    max_discount: "50",
+    start_date: "08/10/2026",
+    end_date: "08/10/2026",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "OPORTUNIDADEML",
+    discount: "10%",
+    min_purchase: "199",
+    max_discount: "100",
+    start_date: "08/10/2026",
+    end_date: "08/10/2026",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "CUSTAPOUCO",
+    discount: "8%",
+    min_purchase: "149",
+    max_discount: "200",
+    start_date: "08/10/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "MELHORDODIA",
+    discount: "18%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "08/10/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "MUITOBARATO",
+    discount: "22%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "08/10/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "ACHEINOMELI",
+    discount: "25%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "08/10/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "SALVAMEUBOLSO",
+    discount: "30%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "08/10/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  }
 ];
 
 async function lerConstante(page, url, nomeDaConstante) {
@@ -575,8 +693,7 @@ async function extrair() {
         note: ""
       })).filter(
         item =>
-          !CUPONS_ESGOTADOS.has(String(item.code).toUpperCase()) &&
-          CODIGOS_ATIVOS.has(String(item.code).toUpperCase())
+          !CUPONS_ESGOTADOS.has(String(item.code).toUpperCase())
       );
 
     const codigosOficiais = new Set(
