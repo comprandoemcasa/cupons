@@ -1,5 +1,5 @@
 {
-  "updated_at": "08/10/2026 14:12",
+  "updated_at": "08/10/2026 19:50",
   "coupons": [
     {
       "code": "150TODOSITE",
@@ -31,12 +31,12 @@
     },
     {
       "code": "OPORTUNIDADEML",
-      "discount": "10,00%",
+      "discount": "10%",
       "min_purchase": "199",
       "max_discount": "100",
       "start_date": "08/10/2026",
       "end_date": "08/10/2026",
-      "category": "Mar Aberto - Afiliados",
+      "category": "Todo o site",
       "product_list_url": "",
       "open_sitewide": true,
       "coupon_type": "principal",
@@ -1248,6 +1248,34 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 20% OFF nas compras acima de R$229,99"
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "15%",
+      "min_purchase": "159",
+      "max_discount": "30",
+      "start_date": "08/09/2026",
+      "end_date": "10/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom1010-cvr-abaixo-out",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "10%",
+      "min_purchase": "159",
+      "max_discount": "30",
+      "start_date": "08/09/2026",
+      "end_date": "10/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom1010-cvr-abaixo-out",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
     },
     {
       "code": "DISNEY20",
