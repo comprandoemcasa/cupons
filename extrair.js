@@ -457,10 +457,8 @@ const CUPONS_ATIVOS_MANUAIS_ANTIGOS = [
   { code: "QUEROJA", discount: "22%", min_purchase: "29", max_discount: "500", start_date: "", end_date: "31/10/2026", category: "Ofertas de vendedores", product_list_url: "https://lista.mercadolivre.com.br/_Container_aff-list-3", open_sitewide: false, coupon_type: "principal", has_code: true, note: "" }
 ];
 
-// Cupons de 08/10/2026 confirmados fora da lista pública.
-// O link divulgado no print não é usado: cupons de site todo passam pelo
-// link geral de afiliado configurado na página.
-const CUPONS_ATIVOS_MANUAIS = [
+// Histórico dos cupons manuais de 08/10/2026.
+const CUPONS_ATIVOS_MANUAIS_0810 = [
   {
     code: "150TODOSITE",
     discount: "R$150",
@@ -574,6 +572,10 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   }
 ];
+
+// Em 09/10/2026, os cupons enviados no print já constam na fonte oficial.
+// Nenhum link de terceiros do print é reaproveitado.
+const CUPONS_ATIVOS_MANUAIS = [];
 
 async function lerConstante(page, url, nomeDaConstante) {
   await page.goto(url, {
