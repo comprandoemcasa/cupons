@@ -1,6 +1,34 @@
 {
-  "updated_at": "10/10/2026 05:04",
+  "updated_at": "10/10/2026 08:37",
   "coupons": [
+    {
+      "code": "SUPERDESCONTO",
+      "discount": "20%",
+      "min_purchase": "99",
+      "max_discount": "60",
+      "start_date": "10/10/2026",
+      "end_date": "10/10/2026",
+      "category": "Produtos selecionados",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "VALEMAIS",
+      "discount": "10,00%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "10/10/2026",
+      "end_date": "10/10/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
     {
       "code": "SEMDEMORAML",
       "discount": "R$ 0,20",
@@ -1179,20 +1207,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "DF1PDESCONTO",
-      "discount": "5%",
-      "min_purchase": "50",
-      "max_discount": "100",
-      "start_date": "05/10/2026",
-      "end_date": "09/10/2026",
-      "category": "Eletrodomésticos",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-df",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 5% OFF nas compras acima de R$50"
-    },
     {
       "code": "CALVIN20OFF",
       "discount": "20%",
