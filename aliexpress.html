@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cupons AliExpress esgotados — novos códigos em breve</title>
-<meta name="description" content="Os cupons AliExpress desta campanha se esgotaram. Entre gratuitamente nos nossos grupos para receber o aviso assim que novos códigos forem liberados.">
+<title>Cupons AliExpress outubro 2026 — descontos de até R$ 170</title>
+<meta name="description" content="Cupons AliExpress válidos de 9 a 11 de outubro de 2026: descontos de R$ 22 a R$ 170. Copie os códigos BDBR e economize nas compras.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#ff4747">
 <link rel="canonical" href="https://comprandoemcasa.github.io/cupons/aliexpress.html">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Comprando em Casa">
-<meta property="og:title" content="Cupons AliExpress esgotados — novos códigos em breve">
-<meta property="og:description" content="Entre nos nossos grupos para receber o aviso assim que novos cupons AliExpress forem liberados.">
+<meta property="og:title" content="Cupons AliExpress de 9 a 11 de outubro — até R$ 170 de desconto">
+<meta property="og:description" content="Confira cinco cupons AliExpress válidos até 11/10/2026, com descontos de até R$ 170.">
 <meta property="og:url" content="https://comprandoemcasa.github.io/cupons/aliexpress.html">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Cupons AliExpress esgotados — novos códigos em breve","description":"Os cupons AliExpress desta campanha se esgotaram. Entre gratuitamente nos nossos grupos para receber o aviso de novos códigos.","url":"https://comprandoemcasa.github.io/cupons/aliexpress.html","inLanguage":"pt-BR","dateModified":"2026-10-08"}
+{"@context":"https://schema.org","@type":"WebPage","name":"Cupons AliExpress de 9 a 11 de outubro de 2026","description":"Cinco cupons AliExpress com descontos de R$ 22 a R$ 170, válidos até 11 de outubro de 2026.","url":"https://comprandoemcasa.github.io/cupons/aliexpress.html","inLanguage":"pt-BR","dateModified":"2026-10-10"}
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
@@ -55,16 +55,16 @@ header h1{font-size:27px;margin-bottom:8px} header p{font-size:14px;line-height:
 <body>
 <header>
 <h1>🛍️ Cupons AliExpress</h1>
-<p>Os cupons desta campanha se esgotaram. Novos códigos serão publicados aqui assim que forem liberados.</p>
+<p>Cupons válidos de 09/10/2026 até 11/10/2026 às 23h59, enquanto houver disponibilidade.</p>
 </header>
 <main class="container">
-<section class="vigencia">
-<h2>⏰ Cupons AliExpress esgotados</h2>
-<p>Assim que o AliExpress liberar novos cupons, atualizaremos esta página. Entre gratuitamente em um dos nossos grupos para receber o aviso e não perder nenhuma novidade.</p>
-<div class="status encerrado" id="status">Entre nos grupos abaixo para receber o aviso dos próximos cupons.</div>
+<section class="vigencia" id="vigencia">
+<h2>🔥 Cupons AliExpress disponíveis</h2>
+<p><strong>Vigência:</strong> de 09/10/2026 às 00h01 até 11/10/2026 às 23h59 (horário de Brasília).</p>
+<div class="status" id="status">Cupons ativos — aproveite antes que se esgotem!</div>
 </section>
 
-<section id="secao-cupons" style="display:none">
+<section id="secao-cupons">
 <h2 class="titulo">Códigos de desconto disponíveis</h2>
 <div class="grid" id="lista-cupons"></div>
 </section>
@@ -100,8 +100,14 @@ header h1{font-size:27px;margin-bottom:8px} header p{font-size:14px;line-height:
 
 <script>
 const LINK="https://s.click.aliexpress.com/e/_oFuy2C1";
-const FIM=new Date("2026-10-07T23:59:59-03:00");
-const CUPONS=[];
+const FIM=new Date("2026-10-11T23:59:59-03:00");
+const CUPONS=[
+["BDBR04","R$ 22 OFF","R$ 195"],
+["BDBR06","R$ 33 OFF","R$ 330"],
+["BDBR10","R$ 56 OFF","R$ 555"],
+["BDBR15","R$ 85 OFF","R$ 780"],
+["BDBR30","R$ 170 OFF","R$ 1.500"]
+];
 
 function renderizar(){
 const lista=document.getElementById("lista-cupons");
@@ -111,7 +117,7 @@ card.className="cupom";
 card.innerHTML=
 '<div class="cupom-topo"><div class="codigo">🏷️ '+c[0]+'</div><div class="desconto">'+c[1]+'</div></div>'+
 '<div class="regras"><div class="regra"><span class="label">Compra mínima</span><span class="valor minimo">'+c[2]+'</span></div><div class="regra"><span class="label">Campanha</span><span class="valor">Vendas Oficiais</span></div></div>'+
-'<div class="validade">📅 Válido de 01/10/2026 às 00h01 até 07/10/2026 às 23h59</div>'+
+'<div class="validade">📅 Válido de 09/10/2026 às 00h01 até 11/10/2026 às 23h59</div>'+
 '<div class="botoes"><button class="btn copiar" type="button" data-cupom="'+c[0]+'">✂️ COPIAR CUPOM</button><a class="btn produtos" href="'+LINK+'" target="_blank" rel="sponsored noopener noreferrer">🛍️ VER PRODUTOS</a></div>'+
 '<div class="limite">O cupom pode se esgotar antes do prazo.</div>';
 lista.appendChild(card);
@@ -131,7 +137,18 @@ setTimeout(function(){toast.style.display="none";},2500);
 }
 
 function atualizarStatus(){
-document.getElementById("secao-cupons").style.display="none";
+const ativa=new Date()<=FIM;
+const secao=document.getElementById("secao-cupons");
+const vigencia=document.getElementById("vigencia");
+const status=document.getElementById("status");
+secao.style.display=ativa?"block":"none";
+if(!ativa){
+vigencia.querySelector("h2").textContent="⏰ Cupons AliExpress esgotados";
+vigencia.querySelector("p").textContent="Assim que o AliExpress liberar novos cupons, atualizaremos esta página. Entre gratuitamente em um dos nossos grupos para receber o aviso e não perder nenhuma novidade.";
+status.className="status encerrado";
+status.textContent="Entre nos grupos abaixo para receber o aviso dos próximos cupons.";
+document.querySelector("header p").textContent="Os cupons desta campanha se esgotaram. Novos códigos serão publicados aqui assim que forem liberados.";
+}
 }
 
 renderizar();
