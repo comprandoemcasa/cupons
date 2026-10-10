@@ -1,20 +1,6 @@
 {
-  "updated_at": "09/10/2026 18:29",
+  "updated_at": "09/10/2026 22:30",
   "coupons": [
-    {
-      "code": "MELIMAIS",
-      "discount": "R$100",
-      "min_purchase": "799",
-      "max_discount": "100",
-      "start_date": "09/10/2026",
-      "end_date": "09/10/2026",
-      "category": "Meli+",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
     {
       "code": "COMPRASML",
       "discount": "20,00%",
@@ -86,12 +72,26 @@
       "note": ""
     },
     {
+      "code": "TECNOML",
+      "discount": "10,00%",
+      "min_purchase": "149",
+      "max_discount": "250",
+      "start_date": "09/10/2026",
+      "end_date": "09/10/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
       "code": "SEMDEMORAML",
       "discount": "R$ 0,20",
       "min_purchase": "79",
       "max_discount": "50",
       "start_date": "09/10/2026",
-      "end_date": "09/10/2026",
+      "end_date": "11/10/2026",
       "category": "Toys & Babys",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
       "open_sitewide": false,
@@ -1306,6 +1306,20 @@
       "note": ""
     },
     {
+      "code": "CLIENTESVIPS",
+      "discount": "12%",
+      "min_purchase": "79",
+      "max_discount": "60",
+      "start_date": "10/10/2026",
+      "end_date": "10/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-houseware-1010",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom exclusivo de Houseware para o 10/10"
+    },
+    {
       "code": "DESCONTO AUTOMÁTICO",
       "discount": "10%",
       "min_purchase": "159",
@@ -1320,6 +1334,20 @@
       "note": ""
     },
     {
+      "code": "CARRINHOMELI",
+      "discount": "10%",
+      "min_purchase": "899",
+      "max_discount": "100",
+      "start_date": "10/10/2026",
+      "end_date": "10/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-furnishing-1010",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom exclusivo de Furnishing para o 10/10"
+    },
+    {
       "code": "10LIMPEZA10",
       "discount": "R$30,00",
       "min_purchase": "199",
@@ -1331,7 +1359,7 @@
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": "Cupom de 30%OFF  nas compras acima de R$199"
+      "note": "Cupom de R$30OFF  nas compras acima de R$199"
     },
     {
       "code": "DISNEY20",
@@ -1362,6 +1390,34 @@
       "note": "Cupom de 20% OFF nas compras acima de R$R$40"
     },
     {
+      "code": "NATAL1010",
+      "discount": "20%",
+      "min_purchase": "199",
+      "max_discount": "100",
+      "start_date": "09/10/2026",
+      "end_date": "12/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-cupom-decor-natal-set",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de decor Natal com itens com ganhos extras de até 30% (vamos colocar os maiores ganhos extras nas top 100 posições da coleção do cupom)"
+    },
+    {
+      "code": "PETSHOP10D10",
+      "discount": "20%",
+      "min_purchase": "159",
+      "max_discount": "40",
+      "start_date": "09/10/2026",
+      "end_date": "12/10/2026",
+      "category": "Pet Shop",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cpg-pet-cupons-26",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 20%OFF  nas compras acima de R$159"
+    },
+    {
       "code": "INTERNACIONALMELI",
       "discount": "15%",
       "min_purchase": "39",
@@ -1374,6 +1430,34 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 15% OFF nas compras acima de R$39"
+    },
+    {
+      "code": "MELIBRASTOY",
+      "discount": "15%",
+      "min_purchase": "39",
+      "max_discount": "40",
+      "start_date": "21/09/2026",
+      "end_date": "12/10/2026",
+      "category": "Brinquedos & Bebês",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-brastoy",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de Dia das Crianças"
+    },
+    {
+      "code": "MELIADORA",
+      "discount": "15%",
+      "min_purchase": "39",
+      "max_discount": "40",
+      "start_date": "21/09/2026",
+      "end_date": "12/10/2026",
+      "category": "Brinquedos & Bebês",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_adorarebornddc",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de Dia das Crianças"
     },
     {
       "code": "MELIGOODMOOD",
@@ -1402,6 +1486,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 15% OFF nas compras acima de R$R$40"
+    },
+    {
+      "code": "REFORMA15",
+      "discount": "15%",
+      "min_purchase": "149",
+      "max_discount": "150",
+      "start_date": "09/10/2026",
+      "end_date": "12/10/2026",
+      "category": "Casa & Construção",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ci-afiliados-cupom-10-do-10-2026",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom 15% off nas compras acima de R$149"
     },
     {
       "code": "PELUCIAS10",
@@ -1516,32 +1614,116 @@
       "note": "Cupom foco em sortimento infantil (patins, bicicleta, skate, lutas, futebol)"
     },
     {
-      "code": "MELIBRASTOY",
+      "code": "BELEZA15",
       "discount": "15%",
-      "min_purchase": "39",
-      "max_discount": "40",
-      "start_date": "21/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-brastoy",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "10/10/2026",
+      "end_date": "16/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_mant-1p",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": "Cupom de Dia das Crianças"
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
     },
     {
-      "code": "MELIADORA",
+      "code": "CICALFATE15",
       "discount": "15%",
-      "min_purchase": "39",
-      "max_discount": "40",
-      "start_date": "21/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_adorarebornddc",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "10/10/2026",
+      "end_date": "16/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cicalfatee-1p",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
-      "note": "Cupom de Dia das Crianças"
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "ACTINE15",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "10/10/2026",
+      "end_date": "16/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_actinee-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "CLEANANCE15",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "10/10/2026",
+      "end_date": "16/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cleananceee-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "SOLAR25",
+      "discount": "25%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "13/10/2026",
+      "end_date": "20/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_solar-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 25% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "BELEZA25",
+      "discount": "25%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "13/10/2026",
+      "end_date": "20/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_bele-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 25% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "CARE15",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "12/10/2026",
+      "end_date": "20/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_care-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "INSTRUMENTO15",
+      "discount": "15%",
+      "min_purchase": "200",
+      "max_discount": "80",
+      "start_date": "29/09/2026",
+      "end_date": "30/10/2026",
+      "category": "Entretenimento",
+      "product_list_url": ":https://lista.mercadolivre.com.br/_Container_cupom-instrumentos-15-off-setembro",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "15% OFF acima de R$200 (limitado a R$ 80 de desconto) - 1 uso por CPF no checkout (site ou app)"
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
@@ -1628,6 +1810,20 @@
       "note": "Cupom de 18% OFF nas compras acima de R$ 49"
     },
     {
+      "code": "MODA10DO10",
+      "discount": "10%",
+      "min_purchase": "49",
+      "max_discount": "10",
+      "start_date": "10/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Moda",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_moda-dd-10-10-wl",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 10% OFF nas compras acima de R$49"
+    },
+    {
       "code": "SAMSUNG10OFF",
       "discount": "10%",
       "min_purchase": "900",
@@ -1654,6 +1850,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 15% OFF nas compras acima de R$700"
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "10%",
+      "min_purchase": "",
+      "max_discount": "",
+      "start_date": "09/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_pix-mgl-smf",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": "PIX 10% off em celulares Magalu"
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
