@@ -573,9 +573,25 @@ const CUPONS_ATIVOS_MANUAIS_0810 = [
   }
 ];
 
-// Em 09/10/2026, os cupons enviados no print já constam na fonte oficial.
-// Nenhum link de terceiros do print é reaproveitado.
-const CUPONS_ATIVOS_MANUAIS = [];
+// Cupom confirmado em 10/10/2026 e ainda ausente da fonte oficial.
+// Como o print não informa uma lista própria, o botão usa o link geral
+// de afiliado configurado na página.
+const CUPONS_ATIVOS_MANUAIS = [
+  {
+    code: "SUPERDESCONTO",
+    discount: "20%",
+    min_purchase: "99",
+    max_discount: "60",
+    start_date: "10/10/2026",
+    end_date: "10/10/2026",
+    category: "Produtos selecionados",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  }
+];
 
 async function lerConstante(page, url, nomeDaConstante) {
   await page.goto(url, {
