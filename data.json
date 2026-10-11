@@ -1,5 +1,5 @@
 {
-  "updated_at": "11/10/2026 07:34",
+  "updated_at": "11/10/2026 13:31",
   "coupons": [
     {
       "code": "SUPERDESCONTO",
@@ -24,6 +24,20 @@
       "end_date": "11/10/2026",
       "category": "Toys & Babys",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "OFERTADEHOJE",
+      "discount": "10,00%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "11/10/2026",
+      "end_date": "11/10/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
