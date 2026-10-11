@@ -1,5 +1,5 @@
 {
-  "updated_at": "11/10/2026 00:50",
+  "updated_at": "11/10/2026 07:34",
   "coupons": [
     {
       "code": "SUPERDESCONTO",
@@ -1221,76 +1221,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "CALVIN20OFF",
-      "discount": "20%",
-      "min_purchase": "230",
-      "max_discount": "50",
-      "start_date": "01/10/2026",
-      "end_date": "10/10/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_afiliados-calvin-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF nas compras acima de R$229,99"
-    },
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "15%",
-      "min_purchase": "159",
-      "max_discount": "30",
-      "start_date": "08/09/2026",
-      "end_date": "10/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom1010-cvr-abaixo-out",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": ""
-    },
-    {
-      "code": "CLIENTESVIPS",
-      "discount": "12%",
-      "min_purchase": "79",
-      "max_discount": "60",
-      "start_date": "10/10/2026",
-      "end_date": "10/10/2026",
-      "category": "Móveis & Decoração",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-houseware-1010",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom exclusivo de Houseware para o 10/10"
-    },
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "10%",
-      "min_purchase": "159",
-      "max_discount": "30",
-      "start_date": "08/09/2026",
-      "end_date": "10/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom1010-cvr-abaixo-out",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": ""
-    },
-    {
-      "code": "CARRINHOMELI",
-      "discount": "10%",
-      "min_purchase": "899",
-      "max_discount": "100",
-      "start_date": "10/10/2026",
-      "end_date": "10/10/2026",
-      "category": "Móveis & Decoração",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-furnishing-1010",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom exclusivo de Furnishing para o 10/10"
-    },
     {
       "code": "MODA10DO10",
       "discount": "10%",
