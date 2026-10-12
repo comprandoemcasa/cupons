@@ -1,5 +1,5 @@
 {
-  "updated_at": "12/10/2026 03:56",
+  "updated_at": "12/10/2026 13:30",
   "coupons": [
     {
       "code": "SUPERDESCONTO",
@@ -1151,20 +1151,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "MODA10DO10",
-      "discount": "10%",
-      "min_purchase": "49",
-      "max_discount": "10",
-      "start_date": "10/10/2026",
-      "end_date": "11/10/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_moda-dd-10-10-wl",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 10% OFF nas compras acima de R$49"
-    },
     {
       "code": "10LIMPEZA10",
       "discount": "R$30,00",
