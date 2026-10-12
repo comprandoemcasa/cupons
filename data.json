@@ -1,5 +1,5 @@
 {
-  "updated_at": "11/10/2026 17:46",
+  "updated_at": "11/10/2026 21:11",
   "coupons": [
     {
       "code": "SUPERDESCONTO",
@@ -10,20 +10,6 @@
       "end_date": "10/10/2026",
       "category": "Produtos selecionados",
       "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "SEMDEMORAML",
-      "discount": "20,00%",
-      "min_purchase": "79",
-      "max_discount": "50",
-      "start_date": "09/10/2026",
-      "end_date": "11/10/2026",
-      "category": "Toys & Babys",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_toys-e-babys",
       "open_sitewide": false,
       "coupon_type": "principal",
       "has_code": true,
