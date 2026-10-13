@@ -1,5 +1,5 @@
 {
-  "updated_at": "12/10/2026 20:28",
+  "updated_at": "13/10/2026 02:21",
   "coupons": [
     {
       "code": "SUPERDESCONTO",
@@ -9,20 +9,6 @@
       "start_date": "10/10/2026",
       "end_date": "10/10/2026",
       "category": "Produtos selecionados",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "PROMODEHOJE",
-      "discount": "10,00%",
-      "min_purchase": "149",
-      "max_discount": "200",
-      "start_date": "12/10/2026",
-      "end_date": "12/10/2026",
-      "category": "Tech e Home Electronics",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
