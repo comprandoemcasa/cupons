@@ -8,7 +8,7 @@ const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 
 // Cupons confirmados como esgotados que ainda podem permanecer na fonte oficial.
-const CUPONS_ESGOTADOS = new Set(["TODOSITE2001609"]);
+const CUPONS_ESGOTADOS = new Set(["TODOSITE2001609", "SUPERDESCONTO"]);
 
 // Cupons confirmados diretamente pelos gerentes do Mercado Livre que ainda
 // não apareceram na página oficial. Quando o código entrar na fonte oficial,
@@ -573,17 +573,73 @@ const CUPONS_ATIVOS_MANUAIS_0810 = [
   }
 ];
 
-// Cupom confirmado em 10/10/2026 e ainda ausente da fonte oficial.
-// Como o print não informa uma lista própria, o botão usa o link geral
-// de afiliado configurado na página.
+// Cupons confirmados em 13/10/2026 e ainda ausentes da fonte oficial.
+// Os links do print pertencem a outro afiliado; por isso, estes itens usam
+// o link geral de afiliado configurado na página.
 const CUPONS_ATIVOS_MANUAIS = [
   {
-    code: "SUPERDESCONTO",
-    discount: "20%",
+    code: "MELHORDEHJ",
+    discount: "10%",
+    min_purchase: "149",
+    max_discount: "200",
+    start_date: "13/10/2026",
+    end_date: "",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "ESTOQUEMELI13",
+    discount: "15%",
     min_purchase: "99",
-    max_discount: "60",
-    start_date: "10/10/2026",
-    end_date: "10/10/2026",
+    max_discount: "50",
+    start_date: "13/10/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "CUPOMON",
+    discount: "30%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "13/10/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "SUPERCUPOM",
+    discount: "25%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "13/10/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "MELIDESCONTOS",
+    discount: "25%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "13/10/2026",
+    end_date: "",
     category: "Produtos selecionados",
     product_list_url: "",
     open_sitewide: false,
