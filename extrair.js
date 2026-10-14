@@ -573,16 +573,16 @@ const CUPONS_ATIVOS_MANUAIS_0810 = [
   }
 ];
 
-// Cupons confirmados em 13/10/2026 e ainda ausentes da fonte oficial.
+// Cupons confirmados em 14/10/2026 e ainda ausentes da fonte oficial.
 // Os links do print pertencem a outro afiliado; por isso, estes itens usam
 // o link geral de afiliado configurado na página.
 const CUPONS_ATIVOS_MANUAIS = [
   {
-    code: "MELHORDEHJ",
-    discount: "10%",
-    min_purchase: "149",
-    max_discount: "200",
-    start_date: "13/10/2026",
+    code: "1410TODOSITE",
+    discount: "R$100",
+    min_purchase: "909",
+    max_discount: "100",
+    start_date: "14/10/2026",
     end_date: "",
     category: "Todo o site",
     product_list_url: "",
@@ -592,13 +592,41 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "ESTOQUEMELI13",
-    discount: "15%",
-    min_purchase: "99",
-    max_discount: "50",
-    start_date: "13/10/2026",
+    code: "SITE401410",
+    discount: "R$40",
+    min_purchase: "399",
+    max_discount: "40",
+    start_date: "14/10/2026",
     end_date: "",
-    category: "Produtos selecionados",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "20SITE",
+    discount: "R$20",
+    min_purchase: "219",
+    max_discount: "20",
+    start_date: "14/10/2026",
+    end_date: "",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "AQUITEM",
+    discount: "10%",
+    min_purchase: "149",
+    max_discount: "200",
+    start_date: "14/10/2026",
+    end_date: "",
+    category: "Tecnologia",
     product_list_url: "",
     open_sitewide: false,
     coupon_type: "principal",
@@ -606,41 +634,13 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "CUPOMON",
-    discount: "30%",
+    code: "OFERTASTOP",
+    discount: "40%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "13/10/2026",
+    start_date: "14/10/2026",
     end_date: "",
-    category: "Produtos selecionados",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "SUPERCUPOM",
-    discount: "25%",
-    min_purchase: "1",
-    max_discount: "500",
-    start_date: "13/10/2026",
-    end_date: "",
-    category: "Produtos selecionados",
-    product_list_url: "",
-    open_sitewide: false,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "MELIDESCONTOS",
-    discount: "25%",
-    min_purchase: "1",
-    max_discount: "500",
-    start_date: "13/10/2026",
-    end_date: "",
-    category: "Produtos selecionados",
+    category: "Estoque do Meli",
     product_list_url: "",
     open_sitewide: false,
     coupon_type: "principal",
