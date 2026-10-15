@@ -1,14 +1,14 @@
 {
-  "updated_at": "15/10/2026 14:59",
+  "updated_at": "15/10/2026 18:15",
   "coupons": [
     {
       "code": "APROVEITA",
-      "discount": "10,00%",
+      "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "15/10/2026",
-      "end_date": "15/10/2026",
-      "category": "Tech e Home Electronics",
+      "end_date": "",
+      "category": "Tecnologia",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
