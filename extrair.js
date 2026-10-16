@@ -573,15 +573,57 @@ const CUPONS_ATIVOS_MANUAIS_0810 = [
   }
 ];
 
-// Cupons confirmados em 15/10/2026 e ainda ausentes da fonte oficial.
+// Cupons confirmados em 16/10/2026 e ainda ausentes da fonte oficial.
 // Sem uma lista específica confirmada, usam o link geral de afiliado.
 const CUPONS_ATIVOS_MANUAIS = [
   {
-    code: "APROVEITA",
+    code: "100TODOSITE1610",
+    discount: "R$100",
+    min_purchase: "999",
+    max_discount: "100",
+    start_date: "16/10/2026",
+    end_date: "",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "161040TODOSITE",
+    discount: "R$40",
+    min_purchase: "399",
+    max_discount: "40",
+    start_date: "16/10/2026",
+    end_date: "",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "SITE1610",
+    discount: "R$20",
+    min_purchase: "219",
+    max_discount: "20",
+    start_date: "16/10/2026",
+    end_date: "",
+    category: "Todo o site",
+    product_list_url: "",
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "OFFHOJE",
     discount: "10%",
     min_purchase: "149",
     max_discount: "200",
-    start_date: "15/10/2026",
+    start_date: "16/10/2026",
     end_date: "",
     category: "Tecnologia",
     product_list_url: "",
@@ -591,11 +633,11 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "MAISDESCONTO",
-    discount: "30%",
+    code: "BATEUDESCONTO",
+    discount: "25%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "15/10/2026",
+    start_date: "16/10/2026",
     end_date: "",
     category: "Ofertas de vendedores",
     product_list_url: "",
@@ -605,11 +647,11 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "SEUCUPOM",
-    discount: "30%",
+    code: "VEMDECUPOM",
+    discount: "25%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "15/10/2026",
+    start_date: "16/10/2026",
     end_date: "",
     category: "Ofertas de vendedores",
     product_list_url: "",
@@ -619,11 +661,11 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "SUPEROFERTA",
-    discount: "30%",
+    code: "ESPECIALDESCONTOS",
+    discount: "25%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "15/10/2026",
+    start_date: "16/10/2026",
     end_date: "",
     category: "Ofertas de vendedores",
     product_list_url: "",
