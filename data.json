@@ -1,5 +1,5 @@
 {
-  "updated_at": "16/10/2026 12:10",
+  "updated_at": "16/10/2026 16:16",
   "coupons": [
     {
       "code": "100TODOSITE1610",
@@ -1460,6 +1460,20 @@
       "note": "Cupom de 15% OFF nas compras acima de R$5"
     },
     {
+      "code": "MOVEISML250",
+      "discount": "R$250,00",
+      "min_purchase": "1999",
+      "max_discount": "250",
+      "start_date": "16/10/2026",
+      "end_date": "18/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-cupom-moveis-7#!messageGeolocation",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom exclusivo do Plano Boost Furniture para Afiliados"
+    },
+    {
       "code": "SOLAR25",
       "discount": "25%",
       "min_purchase": "5",
@@ -1612,6 +1626,62 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 18% OFF nas compras acima de R$ 49"
+    },
+    {
+      "code": "BEAUTY15",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "17/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_mante-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "PROMODARROW15",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "17/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_dar-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "PROMOAVENE15",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "17/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ave-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
+    },
+    {
+      "code": "PROMOISDIN20",
+      "discount": "15%",
+      "min_purchase": "5",
+      "max_discount": "145",
+      "start_date": "17/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Beleza",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_isdi-1p",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Cupom de 15% OFF nas compras acima de R$5"
     },
     {
       "code": "SAMSUNG10OFF",
