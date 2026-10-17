@@ -1,5 +1,5 @@
 {
-  "updated_at": "16/10/2026 22:01",
+  "updated_at": "17/10/2026 03:31",
   "coupons": [
     {
       "code": "100TODOSITE1610",
@@ -45,12 +45,12 @@
     },
     {
       "code": "OFFHOJE",
-      "discount": "10,00%",
+      "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "16/10/2026",
-      "end_date": "16/10/2026",
-      "category": "Tech e Home Electronics",
+      "end_date": "",
+      "category": "Tecnologia",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -1403,62 +1403,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "BELEZA15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "10/10/2026",
-      "end_date": "16/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_mant-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "CICALFATE15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "10/10/2026",
-      "end_date": "16/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cicalfatee-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "ACTINE15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "10/10/2026",
-      "end_date": "16/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_actinee-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "CLEANANCE15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "10/10/2026",
-      "end_date": "16/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cleananceee-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
     {
       "code": "MOVEISML250",
       "discount": "R$250,00",
