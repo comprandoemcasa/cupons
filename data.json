@@ -1,5 +1,5 @@
 {
-  "updated_at": "19/10/2026 02:41",
+  "updated_at": "19/10/2026 09:03",
   "coupons": [
     {
       "code": "100TODOSITE1610",
@@ -1403,20 +1403,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "MOVEISML250",
-      "discount": "R$250,00",
-      "min_purchase": "1999",
-      "max_discount": "250",
-      "start_date": "16/10/2026",
-      "end_date": "18/10/2026",
-      "category": "Móveis & Decoração",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-cupom-moveis-7#!messageGeolocation",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom exclusivo do Plano Boost Furniture para Afiliados"
-    },
     {
       "code": "SOLAR25",
       "discount": "25%",
