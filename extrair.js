@@ -573,59 +573,17 @@ const CUPONS_ATIVOS_MANUAIS_0810 = [
   }
 ];
 
-// Cupons confirmados em 16/10/2026 e ainda ausentes da fonte oficial.
+// Cupons confirmados em 20/10/2026 e ainda ausentes da fonte oficial.
 // Sem uma lista específica confirmada, usam o link geral de afiliado.
 const CUPONS_ATIVOS_MANUAIS = [
   {
-    code: "100TODOSITE1610",
-    discount: "R$100",
-    min_purchase: "999",
+    code: "OFFHOJEML",
+    discount: "20%",
+    min_purchase: "79",
     max_discount: "100",
-    start_date: "16/10/2026",
+    start_date: "20/10/2026",
     end_date: "",
-    category: "Todo o site",
-    product_list_url: "",
-    open_sitewide: true,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "161040TODOSITE",
-    discount: "R$40",
-    min_purchase: "399",
-    max_discount: "40",
-    start_date: "16/10/2026",
-    end_date: "",
-    category: "Todo o site",
-    product_list_url: "",
-    open_sitewide: true,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "SITE1610",
-    discount: "R$20",
-    min_purchase: "219",
-    max_discount: "20",
-    start_date: "16/10/2026",
-    end_date: "",
-    category: "Todo o site",
-    product_list_url: "",
-    open_sitewide: true,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "OFFHOJE",
-    discount: "10%",
-    min_purchase: "149",
-    max_discount: "200",
-    start_date: "16/10/2026",
-    end_date: "",
-    category: "Tecnologia",
+    category: "Produtos selecionados",
     product_list_url: "",
     open_sitewide: false,
     coupon_type: "principal",
@@ -633,11 +591,25 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "BATEUDESCONTO",
+    code: "OFERTASHJ",
+    discount: "20%",
+    min_purchase: "79",
+    max_discount: "120",
+    start_date: "20/10/2026",
+    end_date: "",
+    category: "Produtos selecionados",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "ACHADOINCRIVEL",
     discount: "25%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "16/10/2026",
+    start_date: "20/10/2026",
     end_date: "",
     category: "Ofertas de vendedores",
     product_list_url: "",
@@ -647,11 +619,11 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "VEMDECUPOM",
+    code: "PEGAESSEDESCONTO",
     discount: "25%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "16/10/2026",
+    start_date: "20/10/2026",
     end_date: "",
     category: "Ofertas de vendedores",
     product_list_url: "",
@@ -661,11 +633,25 @@ const CUPONS_ATIVOS_MANUAIS = [
     note: ""
   },
   {
-    code: "ESPECIALDESCONTOS",
-    discount: "25%",
+    code: "SUPERVALEMELI",
+    discount: "30%",
     min_purchase: "1",
     max_discount: "500",
-    start_date: "16/10/2026",
+    start_date: "20/10/2026",
+    end_date: "",
+    category: "Ofertas de vendedores",
+    product_list_url: "",
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "BOAESCOLHAMELI",
+    discount: "30%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: "20/10/2026",
     end_date: "",
     category: "Ofertas de vendedores",
     product_list_url: "",
