@@ -1,5 +1,5 @@
 {
-  "updated_at": "21/10/2026 15:21",
+  "updated_at": "21/10/2026 19:04",
   "coupons": [
     {
       "code": "150OFFALLSITE2110",
@@ -45,9 +45,23 @@
     },
     {
       "code": "OFFSEMPREMELI",
-      "discount": "10,00%",
-      "min_purchase": "149",
+      "discount": "12%",
+      "min_purchase": "",
       "max_discount": "200",
+      "start_date": "21/10/2026",
+      "end_date": "",
+      "category": "Tecnologia",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "TOPOFERTA",
+      "discount": "R$300",
+      "min_purchase": "1.999",
+      "max_discount": "300",
       "start_date": "21/10/2026",
       "end_date": "21/10/2026",
       "category": "Tech e Home Electronics",
