@@ -1,5 +1,5 @@
 {
-  "updated_at": "20/10/2026 19:04",
+  "updated_at": "20/10/2026 22:15",
   "coupons": [
     {
       "code": "OFFHOJEML",
@@ -17,12 +17,12 @@
     },
     {
       "code": "OFERTASHJ",
-      "discount": "20,00%",
+      "discount": "20%",
       "min_purchase": "79",
       "max_discount": "120",
       "start_date": "20/10/2026",
-      "end_date": "20/10/2026",
-      "category": "Construction & Industry",
+      "end_date": "",
+      "category": "Produtos selecionados",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
