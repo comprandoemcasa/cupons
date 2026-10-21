@@ -1,5 +1,5 @@
 {
-  "updated_at": "20/10/2026 22:15",
+  "updated_at": "21/10/2026 04:00",
   "coupons": [
     {
       "code": "OFFHOJEML",
@@ -1487,48 +1487,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "SOLAR25",
-      "discount": "25%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "13/10/2026",
-      "end_date": "20/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_solar-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 25% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "BELEZA25",
-      "discount": "25%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "13/10/2026",
-      "end_date": "20/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_bele-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 25% OFF nas compras acima de R$5"
-    },
-    {
-      "code": "CARE15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "12/10/2026",
-      "end_date": "20/10/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_care-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$5"
-    },
     {
       "code": "DF1PDESCONTO",
       "discount": "5%",
