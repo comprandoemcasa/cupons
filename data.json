@@ -1,14 +1,14 @@
 {
-  "updated_at": "22/10/2026 15:15",
+  "updated_at": "22/10/2026 19:03",
   "coupons": [
     {
       "code": "MELITECH",
-      "discount": "10,00%",
+      "discount": "10%",
       "min_purchase": "149",
       "max_discount": "200",
       "start_date": "22/10/2026",
-      "end_date": "22/10/2026",
-      "category": "Tech e Home Electronics",
+      "end_date": "",
+      "category": "Tecnologia",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -1626,6 +1626,48 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "Cupom de 5% OFF nas compras acima de R$50 em geladeira, frigobar, fogão e muito mais!!"
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "18%",
+      "min_purchase": "193",
+      "max_discount": "37",
+      "start_date": "21/10/2026",
+      "end_date": "29/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_stetsom18off",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "15%",
+      "min_purchase": "305",
+      "max_discount": "48",
+      "start_date": "21/10/2026",
+      "end_date": "29/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_stetsom15off",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "10%",
+      "min_purchase": "285",
+      "max_discount": "30",
+      "start_date": "21/10/2026",
+      "end_date": "29/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_stetsom10off",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
     },
     {
       "code": "LIVROS15",
