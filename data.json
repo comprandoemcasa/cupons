@@ -1,5 +1,5 @@
 {
-  "updated_at": "22/10/2026 19:03",
+  "updated_at": "22/10/2026 22:10",
   "coupons": [
     {
       "code": "MELITECH",
@@ -16,13 +16,13 @@
       "note": ""
     },
     {
-      "code": "PROMOCONSTRU",
-      "discount": "10,00%",
-      "min_purchase": "79",
+      "code": "PROMOS",
+      "discount": "10%",
+      "min_purchase": "99",
       "max_discount": "50",
       "start_date": "22/10/2026",
-      "end_date": "22/10/2026",
-      "category": "Construction & Industry",
+      "end_date": "",
+      "category": "Produtos selecionados",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -30,13 +30,13 @@
       "note": ""
     },
     {
-      "code": "PROMOS",
-      "discount": "10,00%",
-      "min_purchase": "99",
+      "code": "PROMOCONSTRU",
+      "discount": "10%",
+      "min_purchase": "79",
       "max_discount": "50",
       "start_date": "22/10/2026",
-      "end_date": "22/10/2026",
-      "category": "Vehicle Parts & Accessories",
+      "end_date": "",
+      "category": "Construção",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -1657,6 +1657,34 @@
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
+      "discount": "12%",
+      "min_purchase": "1236",
+      "max_discount": "156",
+      "start_date": "21/10/2026",
+      "end_date": "29/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_stetsom12off",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "12%",
+      "min_purchase": "1236",
+      "max_discount": "156",
+      "start_date": "21/10/2026",
+      "end_date": "29/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_vulcan12off",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": ""
+    },
+    {
+      "code": "DESCONTO AUTOMÁTICO",
       "discount": "10%",
       "min_purchase": "285",
       "max_discount": "30",
@@ -1696,6 +1724,34 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "15% OFF acima de R$200 (limitado a R$ 80 de desconto) - 1 uso por CPF no checkout (site ou app)"
+    },
+    {
+      "code": "MOVEIS200",
+      "discount": "R$200",
+      "min_purchase": "1.599,00",
+      "max_discount": "R$ 200",
+      "start_date": "22/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-cupom-moveis-6",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MOVEIS100",
+      "discount": "R$100",
+      "min_purchase": "399,00",
+      "max_discount": "R$ 100",
+      "start_date": "22/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-cupom-moveis-3",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
