@@ -1,5 +1,5 @@
 {
-  "updated_at": "23/10/2026 17:57",
+  "updated_at": "23/10/2026 20:46",
   "coupons": [
     {
       "code": "MELITECH",
@@ -51,20 +51,6 @@
       "start_date": "23/10/2026",
       "end_date": "23/10/2026",
       "category": "Construction & Industry",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "AQUITEMOFERTAS",
-      "discount": "10,00%",
-      "min_purchase": "99",
-      "max_discount": "50",
-      "start_date": "23/10/2026",
-      "end_date": "23/10/2026",
-      "category": "Vehicle Parts & Accessories",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
