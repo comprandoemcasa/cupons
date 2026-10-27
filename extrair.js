@@ -82,7 +82,7 @@ async function lerConstante(page, url, nome) {
   );
 
   const expressao = new RegExp(
-    "const\s+" + nome + "\s*=\s*(\[[\s\S]*?\]);"
+    "const\\s+" + nome + "\\s*=\\s*(\\[[\\s\\S]*?\\]);"
   );
   const resultado = conteudo.match(expressao);
 
