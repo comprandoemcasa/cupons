@@ -5,6 +5,67 @@ const URL_PRINCIPAIS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/index.html";
 const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
+const URL_RESGATE =
+  "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
+const DATA_CUPONS_MANUAIS = "27/10/2026";
+const CUPONS_MANUAIS_HOJE = [
+  {
+    code: "MELIMAIS2710",
+    discount: "R$70",
+    min_purchase: "499",
+    max_discount: "70",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Exclusivo Meli+",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: "Exclusivo para clientes Meli+"
+  },
+  {
+    code: "HOJETECH",
+    discount: "12%",
+    min_purchase: "",
+    max_discount: "200",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Tecnologia",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: "Confira a compra mínima no Mercado Livre"
+  },
+  {
+    code: "OFERTASML",
+    discount: "18%",
+    min_purchase: "",
+    max_discount: "",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Automotivo e Construção",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: "Confira a compra mínima e o limite no Mercado Livre"
+  },
+  {
+    code: "OFFSEMPREML",
+    discount: "18%",
+    min_purchase: "",
+    max_discount: "",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Automotivo e Construção",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: "Confira a compra mínima e o limite no Mercado Livre"
+  }
+];
 
 async function lerConstante(page, url, nome) {
   await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
@@ -21,7 +82,7 @@ async function lerConstante(page, url, nome) {
   );
 
   const expressao = new RegExp(
-    "const\\s+" + nome + "\\s*=\\s*(\\[[\\s\\S]*?\\]);"
+    "const\s+" + nome + "\s*=\s*(\[[\s\S]*?\]);"
   );
   const resultado = conteudo.match(expressao);
 
@@ -81,7 +142,7 @@ async function extrair() {
     const dadosPrincipais = await lerConstante(page, URL_PRINCIPAIS, "COUPONS");
     const dadosExtras = await lerConstante(page, URL_EXTRAS, "ITEMS");
 
-    const coupons = dadosPrincipais.map(item => ({
+    const officialCoupons = dadosPrincipais.map(item => ({
       code: item.nome,
       discount: normalizarDescontoPrincipal(item),
       min_purchase: item.min_compra,
@@ -95,6 +156,20 @@ async function extrair() {
       has_code: true,
       note: ""
     }));
+
+    const codigosOficiais = new Set(
+      officialCoupons.map(item => String(item.code || "").trim().toUpperCase())
+    );
+    const hojeSP = new Intl.DateTimeFormat("pt-BR", {
+      timeZone: "America/Sao_Paulo"
+    }).format(new Date());
+    const manuaisAtivos =
+      hojeSP === DATA_CUPONS_MANUAIS
+        ? CUPONS_MANUAIS_HOJE.filter(
+            item => !codigosOficiais.has(item.code.toUpperCase())
+          )
+        : [];
+    const coupons = [...manuaisAtivos, ...officialCoupons];
 
     const extraCoupons = dadosExtras.map(item => {
       const hasCode =
