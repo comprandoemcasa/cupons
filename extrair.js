@@ -6,26 +6,54 @@ const URL_PRINCIPAIS =
 const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 const URL_RESGATE =
-  "https://www.mercadolivre.com.br/social/atelierdoslinks/lists";
-const DATA_CUPONS_MANUAIS = "27/10/2026";
+  "https://mercadolivre.com.br/sec/31qRqvp";
+const DATA_CUPONS_MANUAIS = "28/10/2026";
 const CUPONS_MANUAIS_HOJE = [
   {
-    code: "MELIMAIS2710",
-    discount: "R$70",
-    min_purchase: "499",
-    max_discount: "70",
+    code: "99TODOSITE",
+    discount: "R$99",
+    min_purchase: "999",
+    max_discount: "99",
     start_date: DATA_CUPONS_MANUAIS,
     end_date: DATA_CUPONS_MANUAIS,
-    category: "Exclusivo Meli+",
+    category: "Todo o site",
     product_list_url: URL_RESGATE,
-    open_sitewide: false,
+    open_sitewide: true,
     coupon_type: "principal",
     has_code: true,
-    note: "Exclusivo para clientes Meli+"
+    note: ""
   },
   {
-    code: "HOJETECH",
-    discount: "12%",
+    code: "40ALLSITE",
+    discount: "R$40",
+    min_purchase: "399",
+    max_discount: "40",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Todo o site",
+    product_list_url: URL_RESGATE,
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "SITE2810",
+    discount: "R$20",
+    min_purchase: "219",
+    max_discount: "20",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Todo o site",
+    product_list_url: URL_RESGATE,
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "VALETECH",
+    discount: "10%",
     min_purchase: "",
     max_discount: "200",
     start_date: DATA_CUPONS_MANUAIS,
@@ -38,13 +66,13 @@ const CUPONS_MANUAIS_HOJE = [
     note: "Confira a compra mínima no Mercado Livre"
   },
   {
-    code: "OFERTASML",
-    discount: "18%",
+    code: "OFFCONSTRUIR",
+    discount: "15%",
     min_purchase: "",
     max_discount: "",
     start_date: DATA_CUPONS_MANUAIS,
     end_date: DATA_CUPONS_MANUAIS,
-    category: "Automotivo e Construção",
+    category: "Construção",
     product_list_url: URL_RESGATE,
     open_sitewide: false,
     coupon_type: "principal",
@@ -52,13 +80,13 @@ const CUPONS_MANUAIS_HOJE = [
     note: "Confira a compra mínima e o limite no Mercado Livre"
   },
   {
-    code: "OFFSEMPREML",
-    discount: "18%",
+    code: "OFERTA",
+    discount: "10%",
     min_purchase: "",
     max_discount: "",
     start_date: DATA_CUPONS_MANUAIS,
     end_date: DATA_CUPONS_MANUAIS,
-    category: "Automotivo e Construção",
+    category: "Automotivo",
     product_list_url: URL_RESGATE,
     open_sitewide: false,
     coupon_type: "principal",
