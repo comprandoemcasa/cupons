@@ -1,5 +1,5 @@
 {
-  "updated_at": "30/10/2026 15:58",
+  "updated_at": "30/10/2026 19:51",
   "coupons": [
     {
       "code": "99SITE",
@@ -1824,6 +1824,20 @@
       "note": "15% OFF acima de R$200 (limitado a R$ 80 de desconto) - 1 uso por CPF no checkout (site ou app)"
     },
     {
+      "code": "MELICASA",
+      "discount": "15%",
+      "min_purchase": "79",
+      "max_discount": "80",
+      "start_date": "30/10/2026",
+      "end_date": "30/10/2026",
+      "category": "Móveis & Decoração",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-social-afiliados-mix-d2",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": "Exclusivo para o canal: 15% OFF a partir de R$79, limitado a R$80. Válido em itens selecionados em 30/10 até 23h59 ou limite de utilizações; 1 uso por CPF, conforme regulamento. Container MLB1888913. Horário de 9h conforme planejamento."
+    },
+    {
       "code": "MOVEIS200",
       "discount": "R$200",
       "min_purchase": "1.599,00",
@@ -1846,6 +1860,34 @@
       "end_date": "31/10/2026",
       "category": "Móveis & Decoração",
       "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-cupom-moveis-3",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MUNDOAUTO70",
+      "discount": "R$70,00",
+      "min_purchase": "399",
+      "max_discount": "70",
+      "start_date": "30/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ap-afiliados-10do10#!messageGeolocation",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "MUNDOAUTO45",
+      "discount": "R$45,00",
+      "min_purchase": "299",
+      "max_discount": "45",
+      "start_date": "30/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Acessórios para Veículos",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ap-afiliados-10do10#!messageGeolocation",
       "open_sitewide": false,
       "coupon_type": "extra",
       "has_code": true,
@@ -2090,6 +2132,20 @@
       "note": "Cupom de 15% OFF nas compras acima de R$700"
     },
     {
+      "code": "DESCONTO AUTOMÁTICO",
+      "discount": "10%",
+      "min_purchase": "",
+      "max_discount": "",
+      "start_date": "09/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Tecnologia",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_pix-mgl-smf",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": false,
+      "note": "PIX 10% off em celulares Magalu"
+    },
+    {
       "code": "SPORTS11DO11",
       "discount": "10%",
       "min_purchase": "299",
@@ -2102,6 +2158,20 @@
       "coupon_type": "extra",
       "has_code": true,
       "note": "container de Ganhos extra até 10%"
+    },
+    {
+      "code": "SPORTS11DO11",
+      "discount": "10%",
+      "min_purchase": "299",
+      "max_discount": "70",
+      "start_date": "20/10/2026",
+      "end_date": "11/11/2026",
+      "category": "Esportes",
+      "product_list_url": "https://lista.mercadolivre.com.br/_Container_meliconnect-sports-400up",
+      "open_sitewide": false,
+      "coupon_type": "extra",
+      "has_code": true,
+      "note": ""
     },
     {
       "code": "DESCONTO AUTOMÁTICO",
