@@ -7,26 +7,54 @@ const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 const URL_RESGATE =
   "https://mercadolivre.com.br/sec/31qRqvp";
-const DATA_CUPONS_MANUAIS = "29/10/2026";
+const DATA_CUPONS_MANUAIS = "30/10/2026";
 const CUPONS_MANUAIS_HOJE = [
   {
-    code: "MELIMAISTODOSITE",
-    discount: "15%",
-    min_purchase: "249",
-    max_discount: "70",
+    code: "99SITE",
+    discount: "R$99",
+    min_purchase: "999",
+    max_discount: "99",
     start_date: DATA_CUPONS_MANUAIS,
     end_date: DATA_CUPONS_MANUAIS,
-    category: "Todo o site · Exclusivo Meli+",
+    category: "Todo o site",
     product_list_url: URL_RESGATE,
     open_sitewide: true,
     coupon_type: "principal",
     has_code: true,
-    note: "Exclusivo para assinantes Meli+"
+    note: ""
   },
   {
-    code: "OFERTAPRATECH",
+    code: "TODOSITE3010",
+    discount: "R$40",
+    min_purchase: "399",
+    max_discount: "40",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Todo o site",
+    product_list_url: URL_RESGATE,
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "SITE3010",
+    discount: "R$20",
+    min_purchase: "219",
+    max_discount: "20",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Todo o site",
+    product_list_url: URL_RESGATE,
+    open_sitewide: true,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "AQUITEMTECH",
     discount: "10%",
-    min_purchase: "",
+    min_purchase: "149",
     max_discount: "200",
     start_date: DATA_CUPONS_MANUAIS,
     end_date: DATA_CUPONS_MANUAIS,
@@ -35,21 +63,63 @@ const CUPONS_MANUAIS_HOJE = [
     open_sitewide: false,
     coupon_type: "principal",
     has_code: true,
-    note: "Confira a compra mínima no Mercado Livre"
+    note: ""
   },
   {
-    code: "20TIENDAS",
+    code: "QUEROOFF",
     discount: "20%",
-    min_purchase: "",
-    max_discount: "",
+    min_purchase: "1",
+    max_discount: "500",
     start_date: DATA_CUPONS_MANUAIS,
     end_date: DATA_CUPONS_MANUAIS,
-    category: "Lojas Oficiais",
+    category: "Selecionados",
     product_list_url: URL_RESGATE,
     open_sitewide: false,
     coupon_type: "principal",
     has_code: true,
-    note: "Disponível para quem resgatou o cupom em 28/10"
+    note: ""
+  },
+  {
+    code: "GANHOUPROMO",
+    discount: "25%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Selecionados",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "GANHOUOFF",
+    discount: "30%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Selecionados",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
+  },
+  {
+    code: "ESPECIALMELI",
+    discount: "20%",
+    min_purchase: "1",
+    max_discount: "500",
+    start_date: DATA_CUPONS_MANUAIS,
+    end_date: DATA_CUPONS_MANUAIS,
+    category: "Selecionados",
+    product_list_url: URL_RESGATE,
+    open_sitewide: false,
+    coupon_type: "principal",
+    has_code: true,
+    note: ""
   }
 ];
 
