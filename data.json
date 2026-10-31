@@ -1,5 +1,5 @@
 {
-  "updated_at": "31/10/2026 05:15",
+  "updated_at": "31/10/2026 11:59",
   "coupons": [
     {
       "code": "COMPRAFACIL",
@@ -9,6 +9,20 @@
       "start_date": "26/10/2026",
       "end_date": "31/10/2026",
       "category": "New Buyers",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "OFFNOTECH",
+      "discount": "10,00%",
+      "min_purchase": "149",
+      "max_discount": "200",
+      "start_date": "31/10/2026",
+      "end_date": "31/10/2026",
+      "category": "Tech e Home Electronics",
       "product_list_url": "",
       "open_sitewide": false,
       "coupon_type": "principal",
@@ -1725,48 +1739,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "LIVROS15",
-      "discount": "15%",
-      "min_purchase": "19",
-      "max_discount": "20",
-      "start_date": "29/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Entretenimento",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-livros-15-off-setembro",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "15% OFF (limitado a R$ 20 de desconto) - 1 uso por CPF no checkout (site ou app)"
-    },
-    {
-      "code": "INSTRUMENTO15",
-      "discount": "15%",
-      "min_purchase": "200",
-      "max_discount": "80",
-      "start_date": "29/09/2026",
-      "end_date": "30/10/2026",
-      "category": "Entretenimento",
-      "product_list_url": ":https://lista.mercadolivre.com.br/_Container_cupom-instrumentos-15-off-setembro",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "15% OFF acima de R$200 (limitado a R$ 80 de desconto) - 1 uso por CPF no checkout (site ou app)"
-    },
-    {
-      "code": "MELICASA",
-      "discount": "15%",
-      "min_purchase": "79",
-      "max_discount": "80",
-      "start_date": "30/10/2026",
-      "end_date": "30/10/2026",
-      "category": "Móveis & Decoração",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_fh-social-afiliados-mix-d2",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Exclusivo para o canal: 15% OFF a partir de R$79, limitado a R$80. Válido em itens selecionados em 30/10 até 23h59 ou limite de utilizações; 1 uso por CPF, conforme regulamento. Container MLB1888913. Horário de 9h conforme planejamento."
-    },
     {
       "code": "MOVEIS200",
       "discount": "R$200",
