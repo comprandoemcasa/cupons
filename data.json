@@ -1,5 +1,5 @@
 {
-  "updated_at": "02/11/2026 05:50",
+  "updated_at": "02/11/2026 16:08",
   "coupons": [
     {
       "code": "PROMOCERTA",
@@ -1165,20 +1165,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "BRINQUEDOSML",
-      "discount": "15%",
-      "min_purchase": "79",
-      "max_discount": "30",
-      "start_date": "27/10/2026",
-      "end_date": "01/11/2026",
-      "category": "Brinquedos & Bebês",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_toysnovembro",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": ""
-    },
     {
       "code": "ISDINMELI",
       "discount": "15%",
