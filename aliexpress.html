@@ -102,7 +102,7 @@ header h1{font-size:27px;margin-bottom:8px} header p{font-size:14px;line-height:
 const LINK="https://s.click.aliexpress.com/e/_oFuy2C1";
 const INICIO=new Date("2026-10-29T00:01:00-03:00");
 const FIM=new Date("2026-11-18T23:59:59-03:00");
-const CUPONS=[["AFFNOV01","R$ 16 OFF","R$ 80"],["AFFNOV02","R$ 32 OFF","R$ 185"],["AFFNOV03","R$ 50 OFF","R$ 290"],["AFFNOV04","R$ 120 OFF","R$ 720"],["AFFNOV05","R$ 210 OFF","R$ 1.300"],["AFFNOV06","R$ 300 OFF","R$ 1.800"],["AFFNOV07","R$ 400 OFF","R$ 2.500"],["AFFNOV08","R$ 580 OFF","R$ 3.700"],["AEMEGA1","R$ 16 OFF","R$ 80"],["AEMEGA2","R$ 32 OFF","R$ 185"],["AEMEGA3","R$ 50 OFF","R$ 290"],["AEMEGA4","R$ 120 OFF","R$ 720"],["AEMEGA5","R$ 210 OFF","R$ 1.300"],["AEMEGA6","R$ 300 OFF","R$ 1.800"],["AEMEGA7","R$ 400 OFF","R$ 2.500"],["AEMEGA8","R$ 580 OFF","R$ 3.700"],["AESUPER1","R$ 540 OFF","R$ 2.700"],["AESUPER2","R$ 650 OFF","R$ 3.800"]];
+const CUPONS=[["AFFNOV01","R$ 16 OFF","R$ 80"],["AFFNOV02","R$ 32 OFF","R$ 185"],["AFFNOV03","R$ 50 OFF","R$ 290"],["AFFNOV04","R$ 120 OFF","R$ 720"],["AFFNOV05","R$ 210 OFF","R$ 1.300"],["AFFNOV06","R$ 300 OFF","R$ 1.800"],["AFFNOV07","R$ 400 OFF","R$ 2.500"],["AFFNOV08","R$ 580 OFF","R$ 3.700"],["AFFNOV11","R$ 785 OFF","R$ 4.200"],["AEMEGA1","R$ 16 OFF","R$ 80"],["AEMEGA2","R$ 32 OFF","R$ 185"],["AEMEGA3","R$ 50 OFF","R$ 290"],["AEMEGA4","R$ 120 OFF","R$ 720"],["AEMEGA5","R$ 210 OFF","R$ 1.300"],["AEMEGA6","R$ 300 OFF","R$ 1.800"],["AEMEGA7","R$ 400 OFF","R$ 2.500"],["AEMEGA8","R$ 580 OFF","R$ 3.700"],["AESUPER1","R$ 540 OFF","R$ 2.700"],["AESUPER2","R$ 650 OFF","R$ 3.800"]];
 
 function renderizar(){
 const lista=document.getElementById("lista-cupons");
@@ -141,6 +141,7 @@ if(agora<INICIO){
 status.className="status";
 status.textContent="Começa amanhã, 29/10, às 00h01 — deixe os cupons preparados!";
 }else if(agora<=FIM){
+vigencia.querySelector("h2").textContent="🔥 A maior campanha do ano começou!";
 status.className="status";
 status.textContent="Cupons ativos — aproveite antes que se esgotem!";
 }else{
