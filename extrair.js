@@ -7,106 +7,20 @@ const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 const URL_RESGATE =
   "https://mercadolivre.com.br/sec/31qRqvp";
-const DATA_CUPONS_MANUAIS = "03/11/2026";
+const DATA_CUPONS_MANUAIS = "04/11/2026";
 const CUPONS_MANUAIS_HOJE = [
-  {
-    code: "SEMPREPROMO",
-    discount: "10%",
-    min_purchase: "79",
-    max_discount: "100",
-    category: "Todo o site",
-    open_sitewide: true,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "OFERTAHOJE",
-    discount: "10%",
-    min_purchase: "149",
-    max_discount: "200",
-    category: "Tecnologia e Eletro",
-    open_sitewide: false,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "VOLTESEMPRE",
-    discount: "10%",
-    min_purchase: "149",
-    max_discount: "200",
-    category: "Tecnologia e Eletro",
-    open_sitewide: false,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "CASAMELI",
-    discount: "20%",
-    min_purchase: "159",
-    max_discount: "300",
-    category: "Casa e Decoração",
-    open_sitewide: false,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "AUTOMELI",
-    discount: "18%",
-    min_purchase: "79",
-    max_discount: "60",
-    category: "Automotivo",
-    open_sitewide: false,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "CONSTRUIRMELI",
-    discount: "15%",
-    min_purchase: "79",
-    max_discount: "100",
-    category: "Construção",
-    open_sitewide: false,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  },
-  {
-    code: "MODAML",
-    discount: "12%",
-    min_purchase: "79",
-    max_discount: "100",
-    category: "Moda",
-    open_sitewide: false,
-    start_date: "03/11/2026",
-    end_date: "03/11/2026",
-    product_list_url: URL_RESGATE,
-    coupon_type: "principal",
-    has_code: true,
-    note: ""
-  }
+  { code: "ALLSITE04011", discount: "R$40", min_purchase: "399", max_discount: "40", category: "Todo o site", open_sitewide: true, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "DESCONTOS", discount: "10%", min_purchase: "79", max_discount: "100", category: "Todo o site", open_sitewide: true, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SAUDEML", discount: "10%", min_purchase: "79", max_discount: "30", category: "Saúde", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MELIPROMO", discount: "10%", min_purchase: "149", max_discount: "200", category: "Tecnologia e Eletro", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "DESCONTOSEMPRE", discount: "10%", min_purchase: "149", max_discount: "200", category: "Tecnologia e Eletro", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SEMPREMODA", discount: "12%", min_purchase: "79", max_discount: "60", category: "Moda", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "AUTOSEMPRE", discount: "18%", min_purchase: "99", max_discount: "50", category: "Automotivo", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "CONSTRUSEMPRE", discount: "20%", min_purchase: "79", max_discount: "70", category: "Construção", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "CASASEMPRE", discount: "20%", min_purchase: "79", max_discount: "80", category: "Casa", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "VEMCOMPRAR", discount: "22%", min_purchase: "1", max_discount: "500", category: "Seleção de vendedores", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "PEGUEOFF", discount: "25%", min_purchase: "1", max_discount: "500", category: "Seleção de vendedores", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SUPERVANTAGEM", discount: "30%", min_purchase: "1", max_discount: "500", category: "Seleção de vendedores", open_sitewide: false, start_date: "04/11/2026", end_date: "04/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nome) {
