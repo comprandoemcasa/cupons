@@ -1,5 +1,5 @@
 {
-  "updated_at": "07/11/2026 01:31",
+  "updated_at": "07/11/2026 08:29",
   "coupons": [
     {
       "code": "MEUVALEMELI",
@@ -1375,62 +1375,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "ISDINMELI",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "01/11/2026",
-      "end_date": "06/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_isdin-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 0,15 OFF nas compras acima de R$5"
-    },
-    {
-      "code": "SKIN15",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "01/11/2026",
-      "end_date": "06/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_mantecorp-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 0,15 OFF nas compras acima de R$5"
-    },
-    {
-      "code": "DARROWMELI",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "01/11/2026",
-      "end_date": "06/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_darrow-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 0,15 OFF nas compras acima de R$5"
-    },
-    {
-      "code": "AVENEMELI",
-      "discount": "15%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "01/11/2026",
-      "end_date": "06/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ave-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 0,15 OFF nas compras acima de R$5"
-    },
     {
       "code": "AUTO70OFF",
       "discount": "R$70,00",
