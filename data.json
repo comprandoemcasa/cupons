@@ -1,20 +1,6 @@
 {
-  "updated_at": "07/11/2026 18:24",
+  "updated_at": "07/11/2026 22:03",
   "coupons": [
-    {
-      "code": "CUPOMPRAAUTO",
-      "discount": "18,00%",
-      "min_purchase": "99",
-      "max_discount": "60",
-      "start_date": "07/11/2026",
-      "end_date": "07/11/2026",
-      "category": "Vehicle Parts & Accessories",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
     {
       "code": "CUPOMPRACASA",
       "discount": "18,00%",
