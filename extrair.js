@@ -7,18 +7,14 @@ const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 const URL_RESGATE =
   "https://mercadolivre.com.br/sec/31qRqvp";
-const DATA_CUPONS_MANUAIS = "05/11/2026";
+const DATA_CUPONS_MANUAIS = "11/11/2026";
+const USAR_FONTES_OFICIAIS = false;
 const CUPONS_MANUAIS_HOJE = [
-  { code: "DESCONTOSESPECIAIS", discount: "10%", min_purchase: "79", max_discount: "100", category: "Todo o site", open_sitewide: true, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PROMOSML", discount: "10%", min_purchase: "", max_discount: "200", category: "Tecnologia e Eletro", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CLIENTESTOP", discount: "10%", min_purchase: "", max_discount: "200", category: "Tecnologia e Eletro", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MOVEIS0511", discount: "R$90", min_purchase: "699", max_discount: "90", category: "Móveis", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CONSTRUIRAQUI", discount: "20%", min_purchase: "", max_discount: "", category: "Construção", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CASAAQUI", discount: "20%", min_purchase: "", max_discount: "", category: "Casa", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "ESTOQUE0511", discount: "30%", min_purchase: "", max_discount: "", category: "Queima de Estoque", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "AUTOAQUI", discount: "18%", min_purchase: "", max_discount: "", category: "Automotivo", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MODAMELI", discount: "12%", min_purchase: "", max_discount: "", category: "Moda", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SEMPRESAUDE", discount: "10%", min_purchase: "", max_discount: "", category: "Saúde", open_sitewide: false, start_date: "05/11/2026", end_date: "05/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
+  { code: "CORREPROMELI", discount: "12%", min_purchase: "199", max_discount: "300", category: "Tecnologia", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MODASEMPREML", discount: "15%", min_purchase: "49", max_discount: "60", category: "Moda", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "OFFSEMPRENOML", discount: "20%", min_purchase: "79", max_discount: "80", category: "Indústria e Comércio", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "CORREPROCUPOM", discount: "20%", min_purchase: "99", max_discount: "60", category: "Acessórios para Veículos", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "PROMOPRACASA", discount: "25%", min_purchase: "79", max_discount: "80", category: "Casa & Decoração", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nome) {
@@ -93,8 +89,12 @@ async function extrair() {
 
   try {
     const page = await browser.newPage();
-    const dadosPrincipais = await lerConstante(page, URL_PRINCIPAIS, "COUPONS");
-    const dadosExtras = await lerConstante(page, URL_EXTRAS, "ITEMS");
+    const dadosPrincipais = USAR_FONTES_OFICIAIS
+      ? await lerConstante(page, URL_PRINCIPAIS, "COUPONS")
+      : [];
+    const dadosExtras = USAR_FONTES_OFICIAIS
+      ? await lerConstante(page, URL_EXTRAS, "ITEMS")
+      : [];
 
     const officialCoupons = dadosPrincipais.map(item => ({
       code: item.nome,
