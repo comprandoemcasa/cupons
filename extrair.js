@@ -6,15 +6,10 @@ const URL_PRINCIPAIS =
 const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 const URL_RESGATE =
-  "https://mercadolivre.com.br/sec/31qRqvp";
-const DATA_CUPONS_MANUAIS = "11/11/2026";
-const USAR_FONTES_OFICIAIS = false;
-const CUPONS_MANUAIS_HOJE = [
-  { code: "CORREPROMELI", discount: "12%", min_purchase: "199", max_discount: "300", category: "Tecnologia", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "MODASEMPREML", discount: "15%", min_purchase: "49", max_discount: "60", category: "Moda", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "OFFSEMPRENOML", discount: "20%", min_purchase: "79", max_discount: "80", category: "Indústria e Comércio", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CORREPROCUPOM", discount: "20%", min_purchase: "99", max_discount: "60", category: "Acessórios para Veículos", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PROMOPRACASA", discount: "25%", min_purchase: "79", max_discount: "80", category: "Casa & Decoração", open_sitewide: false, start_date: "11/11/2026", end_date: "11/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
+  "https://mercadolivre.com.br/sec/31qRqvp";const DATA_CUPONS_MANUAIS = "16/11/2026";const USAR_FONTES_OFICIAIS = true;
+const CUPONS_MANUAIS_HOJE = [  { code: "HOJETEM", discount: "10%", min_purchase: "79", max_discount: "100", category: "Site e produtos elegíveis", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },  { code: "HOJEPRATEC", discount: "10%", min_purchase: "", max_discount: "200", category: "Tecnologia", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },  { code: "CUPOMPRAVC", discount: "18%", min_purchase: "", max_discount: "", category: "Casa e Decoração", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },  { code: "OFERTAPRAVEIC", discount: "15%", min_purchase: "", max_discount: "", category: "Auto e Construção", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },  { code: "PESOPESADO", discount: "15%", min_purchase: "", max_discount: "", category: "Auto e Construção", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "MODA1611", discount: "15%", min_purchase: "", max_discount: "", category: "Moda e Bem-Estar", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "OFERTAPRASAUDE", discount: "10%", min_purchase: "", max_discount: "", category: "Saúde", open_sitewide: false, start_date: "16/11/2026", end_date: "16/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nome) {
