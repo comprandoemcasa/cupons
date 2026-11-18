@@ -1,34 +1,6 @@
 {
-  "updated_at": "17/11/2026 23:03",
+  "updated_at": "18/11/2026 08:04",
   "coupons": [
-    {
-      "code": "MLOFERTAS",
-      "discount": "18,00%",
-      "min_purchase": "99",
-      "max_discount": "60",
-      "start_date": "17/11/2026",
-      "end_date": "17/11/2026",
-      "category": "Vehicle Parts & Accessories",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
-    {
-      "code": "MLSAUDE",
-      "discount": "10,00%",
-      "min_purchase": "99",
-      "max_discount": "30",
-      "start_date": "17/11/2026",
-      "end_date": "17/11/2026",
-      "category": "Health",
-      "product_list_url": "",
-      "open_sitewide": false,
-      "coupon_type": "principal",
-      "has_code": true,
-      "note": ""
-    },
     {
       "code": "CUPOMON",
       "discount": "30,00%",
@@ -1865,34 +1837,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "R$30,00",
-      "min_purchase": "179",
-      "max_discount": "30",
-      "start_date": "16/11/2026",
-      "end_date": "17/11/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_1p-fashion-cupom-puma-2026",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "Cupom de 30 OFF nas compras acima de R$179"
-    },
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "R$15,00",
-      "min_purchase": "99",
-      "max_discount": "15,00",
-      "start_date": "16/11/2026",
-      "end_date": "17/11/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_15paraelas1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "Cupom de R$ 15,00 OFF nas compras acima de R$99"
-    },
     {
       "code": "DESCONTO AUTOMÁTICO",
       "discount": "R$30,00",
