@@ -21,26 +21,23 @@ const CUPONS_MANUAIS_HOJE = [
 ];
 
 async function lerConstante(page, url, nome) {
-  await page.goto(url, { waitUntil: "networkidle0", timeout: 120000 });
+  const arquivo = nome === "COUPONS" ? "index.html" : "cupons-extras.html";
+  const urlFonte =
+    "https://raw.githubusercontent.com/afiliadosmercadolivre/cupons-afiliadosmercadolivre/main/" + arquivo;
+  const resposta = await fetch(urlFonte);
 
-  const conteudo = await page.$$eval(
-    "script",
-    (scripts, nomeDaConstante) => {
-      const script = scripts.find(item =>
-        item.textContent.includes("const " + nomeDaConstante)
-      );
-      return script ? script.textContent : "";
-    },
-    nome
-  );
+  if (!resposta.ok) {
+    throw new Error("A fonte oficial respondeu com status " + resposta.status + ".");
+  }
 
+  const conteudo = await resposta.text();
   const expressao = new RegExp(
-    "const\s+" + nome + "\s*=\s*(\[[\s\S]*?\]);"
+    "const\\s+" + nome + "\\s*=\\s*(\\[[\\s\\S]*?\\]);"
   );
   const resultado = conteudo.match(expressao);
 
   if (!resultado) {
-    throw new Error("A lista " + nome + " não foi encontrada em " + url + ".");
+    throw new Error("A lista " + nome + " não foi encontrada em " + urlFonte + ".");
   }
 
   return JSON.parse(resultado[1]);
