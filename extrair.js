@@ -7,18 +7,17 @@ const URL_EXTRAS =
   "https://afiliadosmercadolivre.github.io/cupons-afiliadosmercadolivre/cupons-extras.html";
 const URL_RESGATE =
   "https://mercadolivre.com.br/sec/31qRqvp";
-const DATA_CUPONS_MANUAIS = "18/11/2026";
+const DATA_CUPONS_MANUAIS = "19/11/2026";
 const USAR_FONTES_OFICIAIS = true;
 const CUPONS_MANUAIS_HOJE = [
-  { code: "TODO1811SITE", discount: "R$100", min_purchase: "999", max_discount: "100", category: "Site todo", open_sitewide: true, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "SITETODO1811", discount: "R$40", min_purchase: "399", max_discount: "40", category: "Site todo", open_sitewide: true, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "TODOSITE1811", discount: "R$20", min_purchase: "119", max_discount: "20", category: "Site todo", open_sitewide: true, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "CORREHOJEPROML", discount: "10%", min_purchase: "79", max_discount: "100", category: "Site todo", open_sitewide: true, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "DIADATECH", discount: "10%", min_purchase: "", max_discount: "200", category: "Tecnologia", open_sitewide: false, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "OFFHOJEML", discount: "20%", min_purchase: "", max_discount: "", category: "Casa e Construção", open_sitewide: false, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PARCEIRODAOBRA", discount: "20%", min_purchase: "", max_discount: "", category: "Casa e Construção", open_sitewide: false, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "VEICPROMO", discount: "18%", min_purchase: "", max_discount: "", category: "Automotivo", open_sitewide: false, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
-  { code: "PROMOSAUDE", discount: "10%", min_purchase: "", max_discount: "", category: "Saúde", open_sitewide: false, start_date: "18/11/2026", end_date: "18/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
+  { code: "OFFSEMPREML", discount: "10%", min_purchase: "199", max_discount: "200", category: "Site todo", open_sitewide: true, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "TODOSITE1911", discount: "R$100", min_purchase: "999", max_discount: "100", category: "Site todo", open_sitewide: true, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "ELETROTECHML", discount: "10%", min_purchase: "199", max_discount: "200", category: "Tecnologia e Eletrodomésticos", open_sitewide: false, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "TECH1911", discount: "R$200", min_purchase: "1599", max_discount: "200", category: "Tecnologia e Eletrodomésticos", open_sitewide: false, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "ECONOMIAEMDOBRO", discount: "15%", min_purchase: "199", max_discount: "50", category: "Construção e Indústria", open_sitewide: false, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "OFERTAVEIC", discount: "15%", min_purchase: "199", max_discount: "60", category: "Autoparts", open_sitewide: false, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "OFFSAUDE", discount: "10%", min_purchase: "199", max_discount: "30", category: "Saúde", open_sitewide: false, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" },
+  { code: "SEMPREOFF", discount: "18%", min_purchase: "199", max_discount: "70", category: "Casa e Decoração", open_sitewide: false, start_date: "19/11/2026", end_date: "19/11/2026", product_list_url: URL_RESGATE, coupon_type: "principal", has_code: true, note: "" }
 ];
 
 async function lerConstante(page, url, nome) {
@@ -36,7 +35,7 @@ async function lerConstante(page, url, nome) {
   );
 
   const expressao = new RegExp(
-    "const\\s+" + nome + "\\s*=\\s*(\\[[\\s\\S]*?\\]);"
+    "const\s+" + nome + "\s*=\s*(\[[\s\S]*?\]);"
   );
   const resultado = conteudo.match(expressao);
 
