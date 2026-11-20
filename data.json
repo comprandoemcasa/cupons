@@ -1,6 +1,34 @@
 {
-  "updated_at": "20/11/2026 06:37",
+  "updated_at": "20/11/2026 15:15",
   "coupons": [
+    {
+      "code": "INOVATECHML",
+      "discount": "10,00%",
+      "min_purchase": "199",
+      "max_discount": "200",
+      "start_date": "20/11/2026",
+      "end_date": "20/11/2026",
+      "category": "Tech e Home Electronics",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
+    {
+      "code": "OFERTAPARASAUDE",
+      "discount": "10,00%",
+      "min_purchase": "199",
+      "max_discount": "30",
+      "start_date": "20/11/2026",
+      "end_date": "20/11/2026",
+      "category": "Health",
+      "product_list_url": "",
+      "open_sitewide": false,
+      "coupon_type": "principal",
+      "has_code": true,
+      "note": ""
+    },
     {
       "code": "CUPOMON",
       "discount": "30,00%",
@@ -1992,20 +2020,6 @@
       "note": "Cupom de 20% OFF nas compras acima de R$1"
     },
     {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "30%",
-      "min_purchase": "5",
-      "max_discount": "145",
-      "start_date": "20/10/2026",
-      "end_date": "30/11/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_colecao-converse-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": ""
-    },
-    {
       "code": "MELIMATRIX",
       "discount": "R$25,00",
       "min_purchase": "69",
@@ -2146,7 +2160,7 @@
       "note": "Cupom de 15% OFF nas compras acima de R$19, limitado a 15 reais. 1 uso por CPF"
     },
     {
-      "code": "AVANGERS15",
+      "code": "AVENGERS15",
       "discount": "15%",
       "min_purchase": "49",
       "max_discount": "30",
