@@ -1,5 +1,5 @@
 {
-  "updated_at": "21/11/2026 22:52",
+  "updated_at": "22/11/2026 06:18",
   "coupons": [
     {
       "code": "CUPOMON",
@@ -1893,20 +1893,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "CAPACETE1911",
-      "discount": "5%",
-      "min_purchase": "150",
-      "max_discount": "50",
-      "start_date": "20/11/2026",
-      "end_date": "21/11/2026",
-      "category": "Acessórios para Veículos",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_vpa-cupom-codigo-capacete-novembro",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 5% OFF nas compras acima de R$150"
-    },
     {
       "code": "DESCONTO AUTOMÁTICO",
       "discount": "R$20,00",
