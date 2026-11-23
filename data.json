@@ -1,5 +1,5 @@
 {
-  "updated_at": "23/11/2026 02:39",
+  "updated_at": "23/11/2026 14:18",
   "coupons": [
     {
       "code": "CUPOMON",
@@ -1893,76 +1893,6 @@
     }
   ],
   "extra_coupons": [
-    {
-      "code": "DESCONTO AUTOMÁTICO",
-      "discount": "R$20,00",
-      "min_purchase": "89",
-      "max_discount": "20",
-      "start_date": "19/11/2026",
-      "end_date": "22/11/2026",
-      "category": "Moda",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_cupom-afiliados-fashion-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": false,
-      "note": "Cupom de R$ 20 OFF nas compras acima de R$89"
-    },
-    {
-      "code": "ESQUENTA20PETSHOP",
-      "discount": "20%",
-      "min_purchase": "199",
-      "max_discount": "50",
-      "start_date": "20/11/2026",
-      "end_date": "22/11/2026",
-      "category": "Pet Shop",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_pet-cpg-melhores-ofertas-query",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 20% OFF nas compras acima de R$199"
-    },
-    {
-      "code": "AVENEBLACK",
-      "discount": "15%",
-      "min_purchase": "1",
-      "max_discount": "145",
-      "start_date": "17/11/2026",
-      "end_date": "22/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ave-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$1"
-    },
-    {
-      "code": "DARROWBLACK",
-      "discount": "15%",
-      "min_purchase": "1",
-      "max_discount": "145",
-      "start_date": "17/11/2026",
-      "end_date": "22/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_darrow-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$1"
-    },
-    {
-      "code": "DUCRAYBLACK",
-      "discount": "15%",
-      "min_purchase": "1",
-      "max_discount": "145",
-      "start_date": "17/11/2026",
-      "end_date": "22/11/2026",
-      "category": "Beleza",
-      "product_list_url": "https://lista.mercadolivre.com.br/_Container_ducray-1p",
-      "open_sitewide": false,
-      "coupon_type": "extra",
-      "has_code": true,
-      "note": "Cupom de 15% OFF nas compras acima de R$1"
-    },
     {
       "code": "MELIBELEZA15",
       "discount": "15%",
